@@ -12,7 +12,9 @@ const CART_INCLUDE = {
     include: {
       book: {
         select: {
-          handle: true
+          handle: true,
+          title: true,
+          price: true
         }
       }
     }
@@ -105,6 +107,11 @@ const clearLegacySessionCart = function (req) {
   if (req.session && Object.prototype.hasOwnProperty.call(req.session, 'cart')) {
     delete req.session.cart;
   }
+};
+
+const clearActiveCartPointer = function (req) {
+  clearLegacySessionCart(req);
+  setStoredCartId(req, null);
 };
 
 const loadCartById = async function (cartId) {
@@ -369,6 +376,10 @@ const getCart = async function (req) {
   return serializeCartItems(cart.items);
 };
 
+const getActiveCartRecord = function (req) {
+  return findActiveCart(req);
+};
+
 const addItem = async function (req, payload = {}) {
   const bookId = Number(payload.bookId);
   const quantity = Math.max(1, Math.trunc(Number(payload.quantity || 1)));
@@ -465,9 +476,29 @@ const removeItem = async function (req, bookId) {
   return ensureCartSnapshot(req, cart, nextItems);
 };
 
+const markCartConverted = function (cartId, client = prisma) {
+  const normalizedCartId = String(cartId || '').trim();
+
+  if (!normalizedCartId) {
+    throw createHttpError(500, 'CART_UNAVAILABLE', 'Gio hang khong kha dung.');
+  }
+
+  return client.cart.update({
+    where: {
+      id: normalizedCartId
+    },
+    data: {
+      status: 'CONVERTED'
+    }
+  });
+};
+
 module.exports = {
   addItem,
+  clearActiveCartPointer,
   getCart,
+  getActiveCartRecord,
+  markCartConverted,
   removeItem,
   replaceCart,
   updateItemQuantity
