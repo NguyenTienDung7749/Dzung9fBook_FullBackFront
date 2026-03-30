@@ -1,0 +1,84 @@
+{
+  "id": 1055337747,
+  "sourceProductId": 1055337747,
+  "handle": "tu-dien-tieng-viet-10x16-vl",
+  "sourceUrl": "https://www.vinabook.com/products/tu-dien-tieng-viet-10x16-vl",
+  "title": "Từ Điển Tiếng Việt (10X16 Vl)",
+  "author": "Nguyễn Tôn Nhan, Phú Văn Hẳn",
+  "publisher": "Cty Văn Hóa Văn Lang",
+  "year": "2024",
+  "sku": "8935074134318",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "825",
+  "weight": "407",
+  "size": "16 x 10 x 3 cm",
+  "price": 98000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/02.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/03.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/04.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-tieng-viet-10x16-vl/05.jpg"
+  ],
+  "description": "Từ Điển Anh - Việt 80.000 Từ Nghĩa của từ được giải thích chính xác, đầy đủ, ngắn gọn, dễ hiểu. Hầu hết các ví dụ đều được trích dẫn từ ca dao, tục ngữ, thành ngữ và văn học cổ điển đã trở thành mẫu mực trong hành ngô...",
+  "descriptionHtml": "<p>Từ Điển Anh - Việt 80.000 Từ</p><p>Nghĩa của từ được giải thích chính xác, đầy đủ, ngắn gọn, dễ hiểu.</p><p>Hầu hết các ví dụ đều được trích dẫn từ ca dao, tục ngữ, thành ngữ và văn học cổ điển đã trở thành mẫu mực trong hành ngôn của người Việt thời kỳ cận và đương đại</p><p>Về trật tự các thanh điệu, chúng tôi ghi theo trật tự: không dấu - huyền - hỏi - ngã - sắc - nặng để bạn đọc dễ theo dõi.</p><p>Cuốn Từ điển Tiếng Việt thu thập những đơn vị từ, ngữ hoặc các đơn vị tương đương, các dạng viết tắt, các yếu tố cấu tạo từ tương đối phổ biến trong tiếng Việt hiện nay; những từ ngữ tuy không còn sử dụng trong đời sống hằng ngày nhưng vẫn xuất hiện trong các tác phẩm văn học thuộc chương trình sách giáo khoa hiện hành.</p><p>Để giúp cho việc tra cứu được thuận tiện, các mục từ được sắp xếp theo thứ tự: A, Ă, Â, B, C, D, Ð, E, Ê, G, H, I, K, L, M, N, O, Ô, O, P, Q, R, S, T, U, U, V, X, Y.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935074134318"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Tôn Nhan, Phú Văn Hẳn"
+    },
+    {
+      "label": "NXB",
+      "value": "Hồng Đức"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "407"
+    },
+    {
+      "label": "Kích thước",
+      "value": "16 x 10 x 3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "825"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "407"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Từ Điển Anh - Việt 80.000 Từ Nghĩa của từ được giải thích chính xác, đầy đủ, ngắn gọn, dễ hiểu. Hầu hết các ví dụ đều được trích dẫn từ ca dao, tục ngữ, thành ngữ và văn học cổ điển đã trở thành mẫu mực trong hành ngô..."
+}

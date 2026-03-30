@@ -1,0 +1,83 @@
+{
+  "id": 1057052874,
+  "sourceProductId": 1057052874,
+  "handle": "ti-nam-nu-hai-tac",
+  "sourceUrl": "https://www.vinabook.com/products/ti-nam-nu-hai-tac",
+  "title": "Ti Nam - Nữ hải tặc",
+  "author": "Châu Văn Văn",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235242395",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "684",
+  "weight": "800",
+  "size": "",
+  "price": 280000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/ti-nam-nu-hai-tac/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/ti-nam-nu-hai-tac/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/ti-nam-nu-hai-tac/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/ti-nam-nu-hai-tac/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/ti-nam-nu-hai-tac/04.jpg"
+  ],
+  "description": "MỘT TÁC PHẨM CỰC KỲ ĐÁNG ĐỌC NẾU NHƯ BẠN THÍCH \"TRÂM\", HAY CHỈ ĐƠN GIẢN LÀ ĐAM MÊ NHỮNG CÂU CHUYỆN TRINH THÁM LẤY BỐI CẢNH TRUNG CUỘC THỜI XƯA! Sét đánh vang trời, điện Phụng Thiên nguy nga trong Tử Cấm Thành bỗng nhi...",
+  "descriptionHtml": "<p>MỘT TÁC PHẨM CỰC KỲ ĐÁNG ĐỌC NẾU NHƯ BẠN THÍCH &quot;TRÂM&quot;, HAY CHỈ ĐƠN GIẢN LÀ ĐAM MÊ NHỮNG CÂU CHUYỆN TRINH THÁM LẤY BỐI CẢNH TRUNG CUỘC THỜI XƯA!</p><p>Sét đánh vang trời, điện Phụng Thiên nguy nga trong Tử Cấm Thành bỗng nhiên bốc cháy thành tro bụi. Cùng lúc ấy, trên cơ thể của cháu trai Vĩnh Lạc hoàng đế Minh triều, tức hoàng thái tôn Chu Duật Hằng xuất hiện một vệt máu chạy từ cẳng chân lên, xuyên dọc theo nửa bên cơ thể, tới tận yết hầu. Thái y chẩn đoán kỳ kinh bát mạch của y sẽ từ từ bị cắt đứt, sinh mệnh y chỉ còn một năm nữa.</p><p>Hy vọng của Chu Duật Hằng được nhen lên từ một con chuồn chuồn làm bằng lụa vô cùng tinh xảo phát hiện tại hiện trường vụ cháy. Các manh mối dẫn đến cô gái tên Ti Nam, vốn là khách đi bể bôn ba hải ngoại nhiều năm vừa đến Thuận Thiên.</p><p>Ngũ Hành Quyết, Lục Cực Lôi, Kỳ Cửu Bộ, Tam Thiên Giai... các kỳ thuật trong thiên hạ cùng hội tụ, mở ra bí mật long trời lở đất, đe dọa đảo lộn trật tự của sơn hà. Liệu họ có thể dựa vào đôi tay mình để thay đổi số mệnh?</p><p>Kích Thước Bao Bì 20.5 x 14 x 3.4 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235242395"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Châu Văn Văn"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Tố Hinh"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "800"
+    },
+    {
+      "label": "Số trang",
+      "value": "684"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "800"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "MỘT TÁC PHẨM CỰC KỲ ĐÁNG ĐỌC NẾU NHƯ BẠN THÍCH \"TRÂM\", HAY CHỈ ĐƠN GIẢN LÀ ĐAM MÊ NHỮNG CÂU CHUYỆN TRINH THÁM LẤY BỐI CẢNH TRUNG CUỘC THỜI XƯA! Sét đánh vang trời, điện Phụng Thiên nguy nga trong Tử Cấm Thành bỗng nhi..."
+}

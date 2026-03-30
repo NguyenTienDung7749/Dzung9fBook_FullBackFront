@@ -1,0 +1,80 @@
+{
+  "id": 1071609218,
+  "sourceProductId": 1071609218,
+  "handle": "mua-ngang",
+  "sourceUrl": "https://www.vinabook.com/products/mua-ngang",
+  "title": "Mưa Ngang",
+  "author": "Trung Sỹ",
+  "publisher": "NXB Trẻ",
+  "year": "2025",
+  "sku": "8934974211426",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "168",
+  "weight": "180",
+  "size": "20 x 13 x 0.8 cm",
+  "price": 80000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/mua-ngang/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/mua-ngang/01.jpg"
+  ],
+  "description": "Đây là tập truyện ngắn đầu tiên của tác giả Trung Sỹ. Tập sách gồm 14 truyện ngắn, lấy đề tài chiến tranh và người lính. Diễn biến mỗi truyện không phức tạp, không nhiều tình tiết giật gân nhưng khi đọc, độc giả vẫn s...",
+  "descriptionHtml": "<p>Đây là tập truyện ngắn đầu tiên của tác giả Trung Sỹ.</p><p>Tập sách gồm 14 truyện ngắn, lấy đề tài chiến tranh và người lính. Diễn biến mỗi truyện không phức tạp, không nhiều tình tiết giật gân nhưng khi đọc, độc giả vẫn sẽ thấy cuốn hút nhờ kỹ thuật viết của tác giả: cách kể luôn luôn được làm mới qua từng truyện, lối tả cảnh tả người sinh động và phân tích tâm lý nhân vật kỹ càng. Tập truyện này vừa có tính hoài niệm, ghi dấu ấn thời thanh niên chiến đấu bảo vệ tổ quốc của tác giả lại vừa chỉ ra được những thử thách mà người trẻ phải đối mặt, dù họ sống ở thời đại hay hoàn cảnh nào.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8934974211426"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Trẻ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Trung Sỹ"
+    },
+    {
+      "label": "NXB",
+      "value": "Trẻ"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "180"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20 x 13 x 0.8 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "168"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Trẻ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "180"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Đây là tập truyện ngắn đầu tiên của tác giả Trung Sỹ. Tập sách gồm 14 truyện ngắn, lấy đề tài chiến tranh và người lính. Diễn biến mỗi truyện không phức tạp, không nhiều tình tiết giật gân nhưng khi đọc, độc giả vẫn s..."
+}

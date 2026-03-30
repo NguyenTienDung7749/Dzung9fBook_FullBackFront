@@ -1,0 +1,64 @@
+{
+  "id": 1062741855,
+  "sourceProductId": 1062741855,
+  "handle": "han-viet-tu-dien",
+  "sourceUrl": "https://www.vinabook.com/products/han-viet-tu-dien",
+  "title": "Hán - Việt Từ Điển",
+  "author": "",
+  "publisher": "Chính Thông",
+  "year": "2024",
+  "sku": "1701198681-1642752735798-0",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "",
+  "weight": "300",
+  "size": "",
+  "price": 690000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/han-viet-tu-dien/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/han-viet-tu-dien/01.jpg"
+  ],
+  "description": "Đây là bộ từ điển Hán - Việt có giá trị nền tảng, giúp người đọc tra cứu âm đọc, nghĩa từ và lớp từ Hán Việt thường gặp trong tiếng Việt cũng như trong văn bản cổ. Sách đặc biệt hữu ích với người học Hán Nôm, sinh viên văn - sử, người là...",
+  "descriptionHtml": "<p>Đây là bộ từ điển Hán - Việt có giá trị nền tảng, giúp người đọc tra cứu âm đọc, nghĩa từ và lớp từ Hán Việt thường gặp trong tiếng Việt cũng như trong văn bản cổ.</p><p>Sách đặc biệt hữu ích với người học Hán Nôm, sinh viên văn - sử, người làm nghiên cứu và cả bạn đọc phổ thông muốn hiểu sâu hơn cấu tạo, nguồn gốc và sắc thái của từ ngữ Hán Việt. Bên cạnh chức năng tra cứu, cuốn sách còn là nhịp cầu để tiếp cận di sản ngôn ngữ và văn hóa Đông Á.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "1701198681-1642752735798-0"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Đây là bộ từ điển Hán - Việt có giá trị nền tảng, giúp người đọc tra cứu âm đọc, nghĩa từ và lớp từ Hán Việt thường gặp trong tiếng Việt cũng như trong văn bản cổ. Sách đặc biệt hữu ích với người học Hán Nôm, sinh viên văn - sử, người là..."
+}

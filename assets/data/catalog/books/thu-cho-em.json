@@ -1,0 +1,79 @@
+{
+  "id": 1054129863,
+  "sourceProductId": 1054129863,
+  "handle": "thu-cho-em",
+  "sourceUrl": "https://www.vinabook.com/products/thu-cho-em",
+  "title": "Thư Cho Em",
+  "author": "Hoàng Nam Tiến",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235241015",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "312",
+  "weight": "330",
+  "size": "",
+  "price": 140000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "hoi-ky-tu-truyen",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/thu-cho-em/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/thu-cho-em/01.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/thu-cho-em/02.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/thu-cho-em/03.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/thu-cho-em/04.jpg"
+  ],
+  "description": "Cuốn sách này kể về mối tình vượt qua hai thế kỷ của thiếu tướng Hoàng Đan và vợ là đại biểu Quốc hội Nguyễn Thị An Vinh. Thương nhau từ thuở đôi mươi, nên duyên vợ chồng, họ cùng nhau đi qua những mốc lịch sử lớn lao...",
+  "descriptionHtml": "<p>Cuốn sách này kể về mối tình vượt qua hai thế kỷ của thiếu tướng Hoàng Đan và vợ là đại biểu Quốc hội Nguyễn Thị An Vinh. Thương nhau từ thuở đôi mươi, nên duyên vợ chồng, họ cùng nhau đi qua những mốc lịch sử lớn lao của dân tộc: chiến thắng Điện Biên Phủ 1954, Khe Sanh 1968, Quảng Trị 1972, Sài Gòn 1975, biên giới phía Bắc 1979 và 1884.</p><p>Vị tướng trận đi khắp các chiến trường ác liệt, người vợ ở nhà nuôi con và phấn đấu sự nghiệp, thời gian họ ở bên nhau ít ỏi vô cùng. Vì thế họ gửi gắm tâm tình qua những lá thư băng qua bom đạn, vượt các biên giới. Những lá thư trở thành sợi dây buộc chặt tình yêu của hai con người.</p><p>Hoàng Nam Tiến đã viết thật xúc động về câu chuyện tình yêu tràn đầy trìu mến của ba mẹ, thông qua những lá thư ấy, không chỉ để lưu giữ ký ức riêng của gia đình, mà còn kể lại cho người đọc hôm nay về một thời đại vô cùng anh hùng và tuyệt vời lãng mạn.</p><p>Kích Thước Bao Bì 20.5 x 14 x 1.5 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235241015"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Hoàng Nam Tiến"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "330"
+    },
+    {
+      "label": "Số trang",
+      "value": "312"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "330"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "hoi-ky-tu-truyen",
+  "subcategoryLabel": "Hồi Ký - Tự Truyện",
+  "descriptionText": "Cuốn sách này kể về mối tình vượt qua hai thế kỷ của thiếu tướng Hoàng Đan và vợ là đại biểu Quốc hội Nguyễn Thị An Vinh. Thương nhau từ thuở đôi mươi, nên duyên vợ chồng, họ cùng nhau đi qua những mốc lịch sử lớn lao..."
+}

@@ -1,0 +1,40 @@
+{
+  "name": "dzung9fbook",
+  "version": "1.0.0",
+  "description": "Backend-ready multi-page bookstore for a same-repo Node/Express setup with dual frontend providers.",
+  "scripts": {
+    "build:pages": "node tools/pages/build-pages.mjs",
+    "build:catalog": "node tools/catalog/build-runtime-data.mjs",
+    "qa:catalog": "node tools/catalog/qa-catalog.mjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:import:catalog": "node tools/db/import-catalog.mjs",
+    "db:import:users": "node tools/db/import-users.mjs",
+    "db:studio": "prisma studio",
+    "dev:server": "node --watch server/src/app.js",
+    "dev": "npm run build:catalog && npm run build:pages && node --watch server/src/app.js",
+    "serve": "npm run build:catalog && npm run build:pages && node server/src/app.js",
+    "ui:capture": "node tools/ui/playwright-capture.mjs",
+    "ui:home": "node tools/ui/playwright-capture.mjs --path /index.html --output .playwright-artifacts/homepage.png --full-page --wait 500"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "prisma": {
+    "seed": "node tools/db/seed.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2",
+    "prisma": "^6.7.0"
+  }
+}

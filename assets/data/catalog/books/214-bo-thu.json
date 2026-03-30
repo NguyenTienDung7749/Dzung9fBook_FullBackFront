@@ -1,0 +1,84 @@
+{
+  "id": 1071696561,
+  "sourceProductId": 1071696561,
+  "handle": "214-bo-thu",
+  "sourceUrl": "https://www.vinabook.com/products/214-bo-thu",
+  "title": "214 Bộ Thủ",
+  "author": "Đào Văn Tường",
+  "publisher": "Tri Thức Trẻ",
+  "year": "2025",
+  "sku": "9786044471198",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "52",
+  "weight": "100",
+  "size": "25 x 17.5 x 0.3 cm",
+  "price": 128000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "sach-ngoai-ngu",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/214-bo-thu/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/214-bo-thu/01.jpg"
+  ],
+  "description": "Chữ Hán bắt nguồn từ nhu cầu ghi chép của người xưa và được hình thành trên nguyên lý chữ tượng hình, mô phỏng theo hình dáng sự vật. Trải qua thời gian, để thống nhất cách học và tra cứu, người ta đã hệ thống hóa chữ...",
+  "descriptionHtml": "<p>Chữ Hán bắt nguồn từ nhu cầu ghi chép của người xưa và được hình thành trên nguyên lý chữ tượng hình, mô phỏng theo hình dáng sự vật. Trải qua thời gian, để thống nhất cách học và tra cứu, người ta đã hệ thống hóa chữ Hán thành 214 bộ thủ trong từ điển Khang Hy – đây là những thành phần cơ bản cấu tạo nên hầu hết chữ Hán hiện nay.</p><p>Chính vì đặc trưng tượng hình, việc học chữ Hán bằng hình ảnh và câu chuyện sẽ giúp việc ghi nhớ trở nên trực quan, sinh động và hiệu quả hơn. Tuy nhiên, trên thực tế có nhiều bộ thủ rất ít gặp hoặc quá phức tạp, nên bạn không cần học kỹ tất cả, chỉ cần lướt qua để làm quen.</p><p>Trong bộ thẻ chữ hán iikanzi đi kèm, các bộ thủ được tách nhỏ, giải nghĩa bằng hình ảnh và câu chuyện thực tế, gần gũi. Đồng thời, mỗi chữ Hán sẽ có phần giải thích rõ ràng dựa trên cấu trúc bộ thủ, giúp bạn tự nhiên ghi nhớ, tiếp cận nhẹ nhàng và vui vẻ hơn trên hành trình chinh phục chữ Hán.</p><p>THÔNG TIN TÁC GIẢ</p><p>Đào Văn Tường (sinh năm 1991) là Giám đốc Phòng Quốc tế Tập đoàn AOC, đồng thời là nhà sáng lập thương hiệu IIKANZI – xây dựng dựa trên triết lý Nhân (仁), coi đây là kim chỉ nam trong hoạt động kinh doanh.</p><p>Anh mong muốn bộ sách này trở thành người bạn đồng hành hữu ích trên con đường thành công của độc giả.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786044471198"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Tri Thức Trẻ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Đào Văn Tường"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "100"
+    },
+    {
+      "label": "Kích thước",
+      "value": "25 x 17.5 x 0.3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "52"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Tri Thức Trẻ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "100"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "sach-ngoai-ngu",
+  "subcategoryLabel": "Sách Ngoại Ngữ",
+  "descriptionText": "Chữ Hán bắt nguồn từ nhu cầu ghi chép của người xưa và được hình thành trên nguyên lý chữ tượng hình, mô phỏng theo hình dáng sự vật. Trải qua thời gian, để thống nhất cách học và tra cứu, người ta đã hệ thống hóa chữ..."
+}

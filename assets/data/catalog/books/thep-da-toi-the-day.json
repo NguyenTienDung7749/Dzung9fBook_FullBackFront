@@ -1,0 +1,88 @@
+{
+  "id": 1072703473,
+  "sourceProductId": 1072703473,
+  "handle": "thep-da-toi-the-day",
+  "sourceUrl": "https://www.vinabook.com/products/thep-da-toi-the-day",
+  "title": "Thép Đã Tôi Thế Đấy",
+  "author": "Nikolai Alekseyevich Ostrovsky",
+  "publisher": "Đông A",
+  "year": "2026",
+  "sku": "8936203365801",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "532",
+  "weight": "900",
+  "size": "24 x 16 x 2.7 cm",
+  "price": 171000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/thep-da-toi-the-day/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/thep-da-toi-the-day/01.jpg"
+  ],
+  "description": "Tiểu thuyết Thép đã tôi thế đấy của Nikolai Ostrovsky là một tác phẩm kinh điển của văn học Nga nói riêng và văn học cách mạng nói chung, đã trở thành nguồn cảm hứng cho nhiều thế hệ độc giả. Tác phẩm ghi lại cả một q...",
+  "descriptionHtml": "<p>Tiểu thuyết Thép đã tôi thế đấy của Nikolai Ostrovsky là một tác phẩm kinh điển của văn học Nga nói riêng và văn học cách mạng nói chung, đã trở thành nguồn cảm hứng cho nhiều thế hệ độc giả. Tác phẩm ghi lại cả một quá trình tôi thép, bước đường gian khổ trưởng thành của thế hệ thanh niên Xô viết đầu tiên.</p><p>Đâykhông phải là một tác phẩm văn học chỉ nhìn đời mà viết. Tác giả sống nó rồi mới viết nó. Nhân vật trung tâm, Pavel, chính là tác giả: Nikolai Ostrovsky. Là một chiến sĩ Cách mạng Tháng Mười, ông đã sống một cách nồng cháy nhất, như nhân vật Pavel của ông.</p><p>Đây cũng không phải một cuốn tiểu thuyết tự thuật thường vì hứng thú hay lợi ích cá nhân mà viết. Ostrovsky viết Thép đã tôi thế đấy trên giường bệnh, trong khi bại liệt và mù, bệnh tật tàn phá chín phần mười cơ thể. Chưa bao giờ có một nhà văn sáng tác trong những điều kiện gian khổ như vậy. Trong lòng người viết phải có một nhiệt huyết và cảm hứng nồng nàn không biết bao nhiêu mà kể. Nguồn cảm hứng ấy là sức mạnh tinh thần của người chiến sĩ cách mạng bị tàn phế, đau đớn đến cùng cực, không chịu nằm đợi chết, không thể chịu được xa rời chiến đấu, do đó phấn đấu trở thành một nhà văn và viết nên cuốn sách này. Càng yêu cuốn sách, càng kính trọng nhà văn, càng tôn quý phẩm chất của con người cách mạng.</p><p>Ấn bản tiếng Việt này được biên tập lại với mục tiêu mang đến sự gần gũi và chuẩn xác hơn với nguyên bản tiếng Nga, đồng thời đảm bảo tính thống nhất về văn phong và thuật ngữ xuyên suốt toàn bộ tác phẩm. Cụ thể, quá trình biên tập đã tập trung vào các điểm sau:</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936203365801"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Đông A"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nikolai Alekseyevich Ostrovsky"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Thép Mới, Huy Vân"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "900"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 2.7 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "532"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Đông A"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "900"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Tiểu thuyết Thép đã tôi thế đấy của Nikolai Ostrovsky là một tác phẩm kinh điển của văn học Nga nói riêng và văn học cách mạng nói chung, đã trở thành nguồn cảm hứng cho nhiều thế hệ độc giả. Tác phẩm ghi lại cả một q..."
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1073051918,
+  "sourceProductId": 1073051918,
+  "handle": "ban-thao-de-lai-trong-sanh-le-tan",
+  "sourceUrl": "https://www.vinabook.com/products/ban-thao-de-lai-trong-sanh-le-tan",
+  "title": "Bản Thảo Để Lại Trong Sảnh Lễ Tân",
+  "author": "Hồ Anh Thái",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247390",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "472",
+  "weight": "500",
+  "size": "20.5 x 14 x 2.3 cm",
+  "price": 245000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/ban-thao-de-lai-trong-sanh-le-tan/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/ban-thao-de-lai-trong-sanh-le-tan/01.jpg"
+  ],
+  "description": "Trong khách sạn sân bay, người đàn ông nhặt được một tập bản thảo, in ấn đóng xén như một quyển sách thông thường. Nhưng đọc xong tập bản thảo thì mọi biến cố xảy ra sau đó dẫn anh ta vào một tình huống: ta đọc một qu...",
+  "descriptionHtml": "<p>Trong khách sạn sân bay, người đàn ông nhặt được một tập bản thảo, in ấn đóng xén như một quyển sách thông thường. Nhưng đọc xong tập bản thảo thì mọi biến cố xảy ra sau đó dẫn anh ta vào một tình huống: ta đọc một quyển sách bất kỳ rồi phát hiện ra rằng ta có thể chính là người viết ra quyển sách ấy. Một khi tác phẩm vượt quá lãnh địa của nhà xuất bản, tác phẩm trao quyền định giá cho người nào có dịp đọc được nó. Và việc đọc những tác phẩm như vậy biến người đọc thành tác giả.</p><p>Câu chuyện anh ta vừa đọc kể về ba thế hệ phụ nữ trong một gia đình, xuyên qua hai thế kỷ, XX và XXI, xuyên qua những cuộc chiến tranh, qua những náo động của thời cuộc, và cả những éo le của phận người. Ba thế hệ phụ nữ, ba người đàn ông nước ngoài đi vào cuộc đời họ. Ba người nước ngoài ấy không để lại một bằng chứng di truyền nào trong dòng họ của những người đàn bà, nhưng có thể họ đã để lại những di sản khác.</p><p>Có hay không cái di sản ấy? Và có hay không mối quan hệ bí ẩn giữa bản thảo và người đọc nó? Mỗi người đọc có thể có câu trả lời của riêng mình.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247390"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "07/02/2026"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Hồ Anh Thái"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2.3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "472"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Trong khách sạn sân bay, người đàn ông nhặt được một tập bản thảo, in ấn đóng xén như một quyển sách thông thường. Nhưng đọc xong tập bản thảo thì mọi biến cố xảy ra sau đó dẫn anh ta vào một tình huống: ta đọc một qu..."
+}

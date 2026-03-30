@@ -1,0 +1,84 @@
+{
+  "id": 1065284558,
+  "sourceProductId": 1065284558,
+  "handle": "ket-tinh-tham-lang",
+  "sourceUrl": "https://www.vinabook.com/products/ket-tinh-tham-lang",
+  "title": "Kết Tinh Thầm Lặng",
+  "author": "Ogawa Yoko",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235243705",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "376",
+  "weight": "400",
+  "size": "",
+  "price": 169000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/04.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ket-tinh-tham-lang/05.jpg"
+  ],
+  "description": "Trên một hòn đảo nọ mọi thứ cứ dần biến mất. Khi là cái ruy băng, khi là ảnh, khi là lịch, khi là cái chân trái... Và khi một thứ nào đó biến mất, người dân trên đảo sẽ mất hết khái niệm, ký ức về thứ ấy. Nhưng họ cũn...",
+  "descriptionHtml": "<p>Trên một hòn đảo nọ mọi thứ cứ dần biến mất. Khi là cái ruy băng, khi là ảnh, khi là lịch, khi là cái chân trái... Và khi một thứ nào đó biến mất, người dân trên đảo sẽ mất hết khái niệm, ký ức về thứ ấy. Nhưng họ cũng không phản kháng, họ đem đốt, chôn, thả trôi sông... những thứ biến mất và chấp nhận sự biến mất như một lẽ thường. Cảnh sát ký ức luôn đảm bảo cho sự biến mất diễn ra mau lẹ và triệt để. Thế nhưng, có những người không bị ảnh hưởng bởi sự biến mất, họ không quên bất cứ thứ gì, và họ bị cảnh sát ký ức truy lùng. Trong hoàn cảnh nguy hiểm mà kỳ lạ ấy, rốt cuộc, số phận của hòn đảo nơi ký ức dần bị xóa nhòa trong lặng lẽ, chẳng khác nào quá trình kết tinh diễn ra âm thầm không ai hay biết này, sẽ đi về đâu?</p><p>Kết tinh thầm lặng, một kiệt tác văn học khắc họa tài tình nỗi đau mất mát, buộc con người tự vấn về bản chất của sự tồn tại, về bản sắc và về tầm quan trọng của ký ức.</p><p>Kích Thước Bao Bì 20.5 x 14 x 1.9 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235243705"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Ogawa Yoko"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Uyên Thiểm"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Số trang",
+      "value": "376"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Trên một hòn đảo nọ mọi thứ cứ dần biến mất. Khi là cái ruy băng, khi là ảnh, khi là lịch, khi là cái chân trái... Và khi một thứ nào đó biến mất, người dân trên đảo sẽ mất hết khái niệm, ký ức về thứ ấy. Nhưng họ cũn..."
+}

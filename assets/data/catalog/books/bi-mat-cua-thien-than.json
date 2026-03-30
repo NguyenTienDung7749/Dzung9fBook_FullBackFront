@@ -1,0 +1,84 @@
+{
+  "id": 1071611602,
+  "sourceProductId": 1071611602,
+  "handle": "bi-mat-cua-thien-than",
+  "sourceUrl": "https://www.vinabook.com/products/bi-mat-cua-thien-than",
+  "title": "Bí Mật Của Thiên Thần",
+  "author": "Guillaume Musso",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235245440",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "308",
+  "weight": "200",
+  "size": "20.5 x 14 x 1.5 cm",
+  "price": 185000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/bi-mat-cua-thien-than/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/bi-mat-cua-thien-than/01.jpg"
+  ],
+  "description": "Ngay cả các thiên thần cũng có những con quỷ của riêng mình... Paris, Giáng sinh năm 2021. Sau một cơn đau tim, Mathias Taillefer tinh dậy trong phòng bệnh. Một cô gái trẻ lạ mặt đang ngồi bên giường anh. Đó là Louise...",
+  "descriptionHtml": "<p>Ngay cả các thiên thần cũng có những con quỷ của riêng mình...</p><p>Paris, Giáng sinh năm 2021.</p><p>Sau một cơn đau tim, Mathias Taillefer tinh dậy trong phòng bệnh. Một cô gái trẻ lạ mặt đang ngồi bên giường anh. Đó là Louise Collange, một sinh viên tình nguyện đến chơi đàn cello để động viên các bệnh nhân.</p><p>Biết Mathias là cảnh sát, Louise nhờ anh điều tra về cái chết của mẹ cô, Stella Petrenko, một cựu vũ công ngôi sao, người đã tử vong sau khi rơi từ ban công xuống. Louise nghi ngờ cái chết của mẹ mình không phải là tai nạn. Ban đầu do dự, Mathias cuối cùng đồng ý giúp đỡ, và cả hai cùng bị cuốn vào một chuỗi sự kiện đầy khó hiểu. Cuộc điều tra kỳ lạ bắt đầu, xoay quanh điều bí mật gắn liền với một cuộc sống mà ta ước ao, một tình yêu lẽ ra ta đã có, một vị trí mà ta vẫn hy vọng tìm thấy cho mình.</p><p>Hồi hộp, bất ngờ, phấn khích, độc giả rơi vào một mê cung cảm xúc, nơi những điều chắc chắn ở trang này sẽ không còn đúng ở ngay trang tiếp theo.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235245440"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Guillaume Musso"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Phạm Hiền"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "200"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 1.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "308"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "200"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Ngay cả các thiên thần cũng có những con quỷ của riêng mình... Paris, Giáng sinh năm 2021. Sau một cơn đau tim, Mathias Taillefer tinh dậy trong phòng bệnh. Một cô gái trẻ lạ mặt đang ngồi bên giường anh. Đó là Louise..."
+}

@@ -1,0 +1,88 @@
+{
+  "id": 1072707610,
+  "sourceProductId": 1072707610,
+  "handle": "dinh-gio-hu",
+  "sourceUrl": "https://www.vinabook.com/products/dinh-gio-hu",
+  "title": "Đỉnh Gió Hú",
+  "author": "Emily Jane Brontë",
+  "publisher": "Đông A",
+  "year": "2025",
+  "sku": "8936203365610",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "352",
+  "weight": "800",
+  "size": "24 x 16 x 1.8 cm",
+  "price": 117000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/dinh-gio-hu/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/dinh-gio-hu/01.jpg"
+  ],
+  "description": "Ám ảnh và dữ dội đúng như tên gọi, tiểu thuyết Đỉnh Gió Hú (1847) của Emily Brontë phả vào bầu không khí văn chương thế kỉ 19 một trận cuồng phong khác lạ từ chốn đồng hoang u tịch và bí ẩn – nơi khởi sinh mối tình ki...",
+  "descriptionHtml": "<p>Ám ảnh và dữ dội đúng như tên gọi, tiểu thuyết Đỉnh Gió Hú (1847) của Emily Brontë phả vào bầu không khí văn chương thế kỉ 19 một trận cuồng phong khác lạ từ chốn đồng hoang u tịch và bí ẩn – nơi khởi sinh mối tình kinh điển giữa cô tiểu thư bất trị Catherine Earnshaw với kẻ lạc loài mà cha cô đem về nuôi từ bé và đặt tên là Heathcliff. Từ những bất đồng về địa vị, sự hiểu lầm trẻ dại và những khuynh hướng mâu thuẫn trong bản tính, tình cảm ấy không chỉ gây sóng gió cho riêng họ mà còn lôi cuốn những người xung quanh vào vòng bất hạnh triền miên.</p><p>Gần hai trăm năm kể từ khi ra đời, Đỉnh Gió Hú vẫn nhận được những phản ứng yêu-ghét trái ngược và không ngừng thách thức người đọc bằng cốt truyện nhiều tầng bậc phảng phất sắc màu siêu linh, những nhân vật khó hiểu, khó cảm thông nhưng vẫn sống động lạ kì, cùng với đó là một trường cảm xúc mãnh liệt, khi tình yêu gần kề nỗi dằn vặt ám ảnh hơn niềm đam mê, khi bản năng ích kỉ, cuồng vọng chiếm hữu và khao khát phục thù phủ bóng đen u ám lên vận mệnh hai thế hệ…</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936203365610"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Đông A"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Emily Jane Brontë"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Nguyễn Vân Hà"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "800"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 1.8 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "352"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Đông A"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "800"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Ám ảnh và dữ dội đúng như tên gọi, tiểu thuyết Đỉnh Gió Hú (1847) của Emily Brontë phả vào bầu không khí văn chương thế kỉ 19 một trận cuồng phong khác lạ từ chốn đồng hoang u tịch và bí ẩn – nơi khởi sinh mối tình ki..."
+}

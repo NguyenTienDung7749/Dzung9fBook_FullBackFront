@@ -1,0 +1,80 @@
+{
+  "id": 1055337301,
+  "sourceProductId": 1055337301,
+  "handle": "tu-dien-anh-viet-79-000-tu-vl",
+  "sourceUrl": "https://www.vinabook.com/products/tu-dien-anh-viet-79-000-tu-vl",
+  "title": "Từ Điển Anh - Việt 79.000 Từ (Vl)",
+  "author": "Đào Đăng Phong, Ninh Hùng - Trần Văn Huân",
+  "publisher": "Cty Văn Hóa Văn Lang",
+  "year": "2021",
+  "sku": "8935074122933",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "909",
+  "weight": "375",
+  "size": "",
+  "price": 80000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/02.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/03.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/04.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-anh-viet-79-000-tu-vl/05.jpg"
+  ],
+  "description": "TỪ ĐIỂN ANH - VIỆT (ENGLISH - VIETNAMESE DICTIONARY) 79.000 TỪ là cuốn từ điển tiện dụng: Cập nhật nhiều từ mới. Giải thích rõ ràng. Tiện lợi, dễ tra cứu. Best-Seller của các loại từ điển bỏ túi. Cuốn từ điển với khoả...",
+  "descriptionHtml": "<p>TỪ ĐIỂN ANH - VIỆT (ENGLISH - VIETNAMESE DICTIONARY) 79.000 TỪ là cuốn từ điển tiện dụng:</p><p>Cập nhật nhiều từ mới.</p><p>Giải thích rõ ràng.</p><p>Tiện lợi, dễ tra cứu.</p><p>Best-Seller của các loại từ điển bỏ túi.</p><p>Cuốn từ điển với khoảng 79.000 từ vựng và cụm từ, bao gồm nhiều lĩnh vực, cập nhật nhiều từ mới, được giải thích một cách rõ ràng, rất tiện lợi trong việc tra cứu và đáp ứng được nhiều yêu cầu của bạn đọc trong sinh hoạt hằng ngày.</p><p>Đặc biệt, trong lần tái bản này, sách được bổ sung một số một số thuật ngữ kỹ thuật mới, tên các quốc gia, dân tộc và các châu lục trên thế giới.</p><p>Kích Thước Bao Bì 17 x 10 x 3.5 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935074122933"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Đào Đăng Phong, Ninh Hùng - Trần Văn Huân"
+    },
+    {
+      "label": "NXB",
+      "value": "Hồng Đức"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2021"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "375"
+    },
+    {
+      "label": "Số trang",
+      "value": "909"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "375"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "TỪ ĐIỂN ANH - VIỆT (ENGLISH - VIETNAMESE DICTIONARY) 79.000 TỪ là cuốn từ điển tiện dụng: Cập nhật nhiều từ mới. Giải thích rõ ràng. Tiện lợi, dễ tra cứu. Best-Seller của các loại từ điển bỏ túi. Cuốn từ điển với khoả..."
+}

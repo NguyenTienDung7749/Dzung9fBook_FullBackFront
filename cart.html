@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dzung9fBook | Giỏ hàng</title>
+  <meta name="description" content="Giỏ hàng Dzung9fBook giúp bạn xem lại những cuốn sách đã chọn, cập nhật số lượng và tổng tạm tính ngay trên trang.">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  
+</head>
+
+<body id="top" data-page="cart">
+  <header class="site-header" data-header>
+  <div class="header-top">
+    <div class="container header-top__inner">
+      <a href="./index.html" class="brand" aria-label="Dzung9fBook trang chu">
+        <span class="brand__mark">B</span>
+        <span class="brand__text">Dzung9fBook</span>
+      </a>
+
+      <form action="./books.html" method="get" class="header-search" data-header-search-form>
+        <label class="search-field">
+          <span class="sr-only">Tim kiem sach</span>
+          <input type="search" name="q" placeholder="Tìm theo tên sách hoặc tác giả" data-search-input>
+        </label>
+        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+      </form>
+
+      <div class="header-toolbar">
+        <div class="header-auth" aria-label="Truy cập tài khoản">
+          <a href="./login.html" class="header-auth__link" data-auth-link data-page-target="login">Đăng nhập</a>
+          <a href="./register.html" class="header-auth__link header-auth__link--primary" data-auth-link data-page-target="register">Đăng ký</a>
+        </div>
+
+        <div class="header-actions">
+          <a href="./cart.html" class="header-icon" aria-label="Giỏ hàng">
+            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+            <span class="cart-badge" data-cart-count>0</span>
+          </a>
+
+          <a href="./profile.html" class="header-icon" aria-label="Hồ sơ">
+            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+          </a>
+
+          <button class="menu-toggle" type="button" aria-label="Mở menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-bottom" data-navbar>
+    <div class="header-bottom__inner">
+      <button class="nav-close-btn" type="button" aria-label="Đóng menu" data-nav-toggler>
+        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <form action="./books.html" method="get" class="drawer-search">
+        <label class="search-field">
+          <span class="sr-only">Tim kiem sach</span>
+          <input type="search" name="q" placeholder="Tìm sách nhanh..." data-search-input>
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Tìm kiếm</button>
+      </form>
+
+      <div class="drawer-auth">
+        <a href="./login.html" class="drawer-auth__link" data-auth-link data-page-target="login" data-close-nav>Đăng nhập</a>
+        <a href="./register.html" class="drawer-auth__link drawer-auth__link--primary" data-auth-link data-page-target="register" data-close-nav>Đăng ký</a>
+      </div>
+
+      <div class="drawer-category-nav" data-mobile-category-nav></div>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link" data-nav-link data-page-target="home">Trang chủ</a></li>
+          <li><a href="./books.html" class="nav-link" data-nav-link data-page-target="books">Sách</a></li>
+          <li><a href="./cart.html" class="nav-link" data-nav-link data-page-target="cart">Giỏ hàng</a></li>
+          <li><a href="./profile.html" class="nav-link" data-nav-link data-page-target="profile">Hồ sơ</a></li>
+          <li><a href="./contact.html" class="nav-link" data-nav-link data-page-target="contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="overlay" data-overlay data-nav-toggler></div>
+</header>
+
+  <main>
+  <section class="section">
+    <div class="container cart-layout">
+      <div class="cart-panel">
+        <div class="section-heading section-heading--compact">
+          <div>
+            <p class="section-label">Chi tiết lựa chọn</p>
+            <h2 class="section-title">Những cuốn sách bạn đang cân nhắc</h2>
+          </div>
+        </div>
+        <div data-cart-items></div>
+      </div>
+
+      <aside class="cart-summary">
+        <p class="section-label">Tổng kết</p>
+        <h2 class="section-title">Tạm tính</h2>
+        <div class="summary-line">
+          <span>Tổng thanh toán</span>
+          <strong data-cart-total>0 đ</strong>
+        </div>
+        <p class="summary-note">
+          Dzung9fBook sẽ xác nhận lại tình trạng sách và phương thức nhận hàng khi bạn để lại thông tin liên hệ.
+        </p>
+        <a href="./contact.html" class="btn btn-primary btn-block">Liên hệ đặt hàng</a>
+      </aside>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer has-bg-image" style="background-image: url('./assets/images/section-bg.jpg')">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="./index.html" class="brand brand--footer" aria-label="Dzung9fBook trang chu">
+        <span class="brand__mark">B</span>
+        <span class="brand__text">Dzung9fBook</span>
+      </a>
+
+      <p class="footer-text">
+        Dzung9fBook là nơi bạn tìm thấy những cuốn sách đáng đọc cho nhịp sống thường ngày, từ văn học, kỹ năng sống
+        đến công nghệ và thiếu nhi.
+      </p>
+
+      <ul class="social-list">
+        <li><a href="https://facebook.com" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://instagram.com" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="https://youtube.com" class="social-link" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-title">Điều hướng</p>
+      <ul class="footer-list">
+        <li><a href="./index.html" class="footer-link">Trang chủ</a></li>
+        <li><a href="./books.html" class="footer-link">Sách</a></li>
+        <li><a href="./cart.html" class="footer-link">Giỏ hàng</a></li>
+        <li><a href="./profile.html" class="footer-link">Hồ sơ</a></li>
+        <li><a href="./contact.html" class="footer-link">Liên hệ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-title">Thể loại</p>
+      <ul class="footer-list" data-footer-categories></ul>
+    </div>
+
+    <div>
+      <p class="footer-title">Liên hệ</p>
+      <ul class="footer-list footer-list--contact">
+        <li><a href="tel:0983376932" class="footer-link">0983 376 932</a></li>
+        <li><a href="mailto:toinangpham@gmail.com" class="footer-link">toinangpham@gmail.com</a></li>
+        <li><span class="footer-note">BTEC FPT, Trịnh Thị Bô, Hà Nội</span></li>
+        <li><span class="footer-note">Mở cửa 8:00 - 21:00 mỗi ngày</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom__inner">
+      <p class="copyright">© 2026 Dzung9fBook. Đồng hành cùng những giờ đọc đáng giá.</p>
+      <img src="./assets/images/payment-method.png" width="311" height="30" alt="Phương thức thanh toán" class="payment-methods">
+    </div>
+  </div>
+</footer>
+
+  <a href="#top" class="back-top-btn" aria-label="Lên đầu trang" data-back-top-btn>
+  <ion-icon name="chevron-up-outline" aria-hidden="true"></ion-icon>
+</a>
+
+<script type="module" src="./assets/js/app.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+{
+  "id": 1062474025,
+  "sourceProductId": 1062474025,
+  "handle": "con-dao-nho-cua-emiri",
+  "sourceUrl": "https://www.vinabook.com/products/con-dao-nho-cua-emiri",
+  "title": "Con Dao Nhỏ Của Emiri",
+  "author": "Morisawa Akio",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235243262",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "400",
+  "weight": "500",
+  "size": "",
+  "price": 168000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/con-dao-nho-cua-emiri/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/con-dao-nho-cua-emiri/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/con-dao-nho-cua-emiri/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/con-dao-nho-cua-emiri/03.jpg"
+  ],
+  "description": "Gặp biến cố tình cảm, bị mất việc, gia đình ly tán… Trong lúc tuyệt vọng nhất, cô gái trẻ Emiri quyết định lên tàu điện, về lại thị trấn ven biển Tatsuura xa xôi, nương náu nhờ ở nhà người ông ngoại đã mười lăm năm kh...",
+  "descriptionHtml": "<p>Gặp biến cố tình cảm, bị mất việc, gia đình ly tán… Trong lúc tuyệt vọng nhất, cô gái trẻ Emiri quyết định lên tàu điện, về lại thị trấn ven biển Tatsuura xa xôi, nương náu nhờ ở nhà người ông ngoại đã mười lăm năm không gặp. Ở nơi đây, bên người ông kiệm lời nhưng ấm áp, mỗi ngày cùng ông đi câu cá, nấu ăn, gặp những ngư dân thú vị... tâm trạng của Emiri dần thay đổi. Cơn bão trong lòng cô dần tan đi, trở nên bình lặng như vùng biển rì rào sóng vỗ và tiếng chuông gió leng keng của ông... Cũng ở đó, Emiri đã tìm thấy vũ khí cho riêng mình.</p><p>Người Dịch La Vie En Rose</p><p>Kích Thước Bao Bì 20.5 x 14 x 2 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235243262"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "28/12/2024"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Morisawa Akio"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Số trang",
+      "value": "400"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Gặp biến cố tình cảm, bị mất việc, gia đình ly tán… Trong lúc tuyệt vọng nhất, cô gái trẻ Emiri quyết định lên tàu điện, về lại thị trấn ven biển Tatsuura xa xôi, nương náu nhờ ở nhà người ông ngoại đã mười lăm năm kh..."
+}

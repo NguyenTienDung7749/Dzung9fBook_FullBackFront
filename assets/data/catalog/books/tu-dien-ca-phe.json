@@ -1,0 +1,85 @@
+{
+  "id": 1055484580,
+  "sourceProductId": 1055484580,
+  "handle": "tu-dien-ca-phe",
+  "sourceUrl": "https://www.vinabook.com/products/tu-dien-ca-phe",
+  "title": "Từ Điển Cà Phê",
+  "author": "Maxwell Colonna-Dashwood",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235241725",
+  "bookType": "Bìa Cứng",
+  "language": "",
+  "pages": "258",
+  "weight": "450",
+  "size": "",
+  "price": 295000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/02.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/03.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/04.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/05.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-ca-phe/06.jpg"
+  ],
+  "description": "Từ Điển Cà Phê - Cà Phê Từ A Đến Z Phong trào cà phê đặc sản đã lan rộng khắp thế giới và Việt Nam cũng không ngoại lệ, số lượng các quán, các nhà rang cà phê đặc sản đã tăng lên đáng kể trong vài năm trở lại đây. Cùn...",
+  "descriptionHtml": "<p>Từ Điển Cà Phê - Cà Phê Từ A Đến Z</p><p>Phong trào cà phê đặc sản đã lan rộng khắp thế giới và Việt Nam cũng không ngoại lệ, số lượng các quán, các nhà rang cà phê đặc sản đã tăng lên đáng kể trong vài năm trở lại đây. Cùng với đó là nhu cầu tìm hiểu, khám phá các kiến thức về cà phê của những người yêu thích thứ đồ uống tuyệt vời này. Từ điển Cà phê chính là cẩm nang dành cho người yêu cà phê, giúp bạn giải mã các thuật ngữ, kỹ thuật, dụng cụ và các loại cà phê khác nhau để pha chế ra ly cà phê hoàn hảo của riêng mình.</p><p>Cuốn sách này bao gồm hàng trăm mục từ về mọi thứ liên quan đến cà phê: nguồn gốc, giống, kỹ thuật canh tác và thu hoạch đến phương pháp rang xay, dụng cụ pha chế, thử nếm và - tất nhiên – các loại đồ uống từ cà phê khác nhau. Các mục từ đều được nhà vô địch barista nước Anh, chuyên gia cà phê Maxwell Colonna-Dashwood giải thích một cách ngắn gọn và rất dễ hiểu, giúp độc giả có thể nắm được các nhân tố chính có thể ảnh hưởng đến hương vị của món đồ uống yêu thích của mình.</p><p>Kích Thước Bao Bì 24 x 15.5 x 1.4 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235241725"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Maxwell Colonna-Dashwood"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Phạm Tuấn Anh"
+    },
+    {
+      "label": "NXB",
+      "value": "Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "450"
+    },
+    {
+      "label": "Số trang",
+      "value": "258"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Cứng"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "450"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Từ Điển Cà Phê - Cà Phê Từ A Đến Z Phong trào cà phê đặc sản đã lan rộng khắp thế giới và Việt Nam cũng không ngoại lệ, số lượng các quán, các nhà rang cà phê đặc sản đã tăng lên đáng kể trong vài năm trở lại đây. Cùn..."
+}

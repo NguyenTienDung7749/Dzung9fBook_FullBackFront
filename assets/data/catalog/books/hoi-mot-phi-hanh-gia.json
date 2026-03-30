@@ -1,0 +1,72 @@
+{
+  "id": 1053779751,
+  "sourceProductId": 1053779751,
+  "handle": "hoi-mot-phi-hanh-gia",
+  "sourceUrl": "https://www.vinabook.com/products/hoi-mot-phi-hanh-gia",
+  "title": "Hỏi Một Phi Hành Gia",
+  "author": "",
+  "publisher": "Nhã Nam",
+  "year": "2020",
+  "sku": "8935235227309",
+  "bookType": "Sách",
+  "language": "",
+  "pages": "292",
+  "weight": "488",
+  "size": "",
+  "price": 135000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "khoa-hoc-cho-be",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/01.jpg",
+    "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/02.jpg",
+    "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/03.jpg",
+    "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/04.jpg",
+    "./assets/images/books/sach-thieu-nhi/khoa-hoc-cho-be/hoi-mot-phi-hanh-gia/05.jpg"
+  ],
+  "description": "Bạn có bao giờ thắc mắc, đi vệ sinh trong vũ trụ như nào không nhỉ? Những câu hỏi đầy thú vị về vũ trụ, cuộc sống trong không gian, về du hành lên vũ trụ... được phi hành gia Tim Peake trả lời một cách thấu đáo, hài h...",
+  "descriptionHtml": "<p>Bạn có bao giờ thắc mắc, đi vệ sinh trong vũ trụ như nào</p><p>không nhỉ?</p><p>Những câu hỏi đầy thú vị về vũ trụ, cuộc sống trong không</p><p>gian, về du hành lên vũ trụ... được phi hành gia Tim Peake trả lời một cách thấu</p><p>đáo, hài hước nhưng cũng hết sức khoa học. Cuốn sách sẽ giúp bạn hiểu thêm về</p><p>cuộc sống của các nhà du hành vũ trụ.</p><p>Về tác giả:</p><p>Tim Peake sinh tại Chichester, Anh, ngày 7 tháng 4 năm 1972.</p><p>Ông tốt nghiệp Học viện Sĩ quan Hoàng gia Sandhurt, trở thành sĩ quan Quân đội</p><p>Hoàng gia Anh, sau đó được chọn làm phi công lái máy bay thử nghiệm. Tim được</p><p>phong tước Hiệp sĩ Thánh Micheal và Thánh George vào sinh nhật năm 2016 của Nữ</p><p>hoàng Anh vì những đóng góp cho nghiên cứu khoa học về không gian và phổ biến</p><p>khoa học.</p><p>Tim là phi hành gia người Anh đầu tiên của Trung tâm Vũ trụ</p><p>Châu Âu lên Trạm Vũ trụ Quốc tế trên một tên lửa Soyuz vào ngày 15 tháng 12 năm</p><p>2015.</p><p>Mời bạn đón đọc.</p><ul><li>Tác giả: Tim Peake</li><li>Người dịch: Đặng Thu Thủy</li><li>Nhà xuất bản: NXB Dân Trí</li><li>Nhà phát hành: Nhã Nam</li><li>Mã sản phẩm: 8935235227309</li><li>Khối lượng: 488.00 gam</li><li>Định dạng: Bìa mềm</li><li>Số trang: 292</li><li>Ngày phát hành: 19/08/2020</li><li>Kích thước: 15.5 x 24 cm</li><li>Ngôn ngữ: Tiếng Việt</li></ul>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235227309"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2020"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "488"
+    },
+    {
+      "label": "Số trang",
+      "value": "292"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Sách"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "488"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "khoa-hoc-cho-be",
+  "subcategoryLabel": "Khoa Học Cho Bé",
+  "descriptionText": "Bạn có bao giờ thắc mắc, đi vệ sinh trong vũ trụ như nào không nhỉ? Những câu hỏi đầy thú vị về vũ trụ, cuộc sống trong không gian, về du hành lên vũ trụ... được phi hành gia Tim Peake trả lời một cách thấu đáo, hài h..."
+}

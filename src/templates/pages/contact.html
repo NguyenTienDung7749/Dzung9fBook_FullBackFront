@@ -1,0 +1,48 @@
+<main>
+  <section class="section">
+    <div class="container contact-layout">
+      <div class="contact-card">
+        <p class="section-label">Thông tin liên hệ</p>
+        <h1 class="section-title">Dzung9fBook luôn sẵn sàng lắng nghe.</h1>
+        <p class="section-text">
+          Chúng tôi có thể gợi ý sách theo nhu cầu đọc, hỗ trợ kiểm tra đơn hàng hoặc giải đáp các câu hỏi trước khi bạn mua.
+        </p>
+        <ul class="contact-list">
+          <li><strong>Điện thoại</strong><span>0983 376 932</span></li>
+          <li><strong>Email</strong><span>toinangpham@gmail.com</span></li>
+          <li><strong>Địa chỉ</strong><span>BTEC FPT, Trịnh Thị Bô, Hà Nội</span></li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <h2>Gửi yêu cầu</h2>
+        <p>Điền vài thông tin cơ bản để Dzung9fBook phản hồi nhanh và đúng điều bạn đang cần.</p>
+        <p class="contact-demo-note">Biểu mẫu này đang dùng để mô phỏng luồng liên hệ trong ASM và chưa gửi dữ liệu lên hệ thống backend ở phase hiện tại.</p>
+        <form novalidate data-contact-form>
+          <label class="form-field">
+            <span class="label-text">Họ và tên</span>
+            <input type="text" name="name" placeholder="Nguyễn Văn A" required autocomplete="name">
+            <span class="field-error" id="contact-name-error" data-error-for="name"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Email</span>
+            <input type="email" name="email" placeholder="ban@example.com" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false">
+            <span class="field-error" id="contact-email-error" data-error-for="email"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Số điện thoại</span>
+            <input type="tel" name="phone" placeholder="0983 376 932" autocomplete="tel" inputmode="tel" minlength="9" maxlength="15" pattern="[0-9+\\s]{9,15}">
+            <span class="field-error" id="contact-phone-error" data-error-for="phone"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Nội dung</span>
+            <textarea name="message" rows="5" placeholder="Mình muốn hỏi thêm về..." required minlength="10" maxlength="1000"></textarea>
+            <span class="field-error" id="contact-message-error" data-error-for="message"></span>
+          </label>
+          <div class="form-message" data-form-message aria-live="polite"></div>
+          <button class="btn btn-primary btn-block" type="submit">Gửi liên hệ</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

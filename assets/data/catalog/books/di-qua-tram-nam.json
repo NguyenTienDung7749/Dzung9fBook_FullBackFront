@@ -1,0 +1,80 @@
+{
+  "id": 1054000689,
+  "sourceProductId": 1054000689,
+  "handle": "di-qua-tram-nam",
+  "sourceUrl": "https://www.vinabook.com/products/di-qua-tram-nam",
+  "title": "Đi Qua Trăm Năm",
+  "author": "Nguyễn Đình Tư",
+  "publisher": "NXB Tổng Hợp TPHCM",
+  "year": "2024",
+  "sku": "9786045870181",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "384",
+  "weight": "420",
+  "size": "24 x 16 x 1.92 cm",
+  "price": 180000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "hoi-ky-tu-truyen",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/di-qua-tram-nam/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/di-qua-tram-nam/01.jpg"
+  ],
+  "description": "Đi Qua Trăm Năm - Nguyễn Đình Tư (Tự Truyện) “Bỗng nhiên không biết do cơ duyên tốt lành nào đưa tới mà tôi ở tuổi gần đất xa trời, được tin ông Chủ tịch Ủy ban nhân dân Thành phố đến thăm và qua hôm sau là ông Bí thư...",
+  "descriptionHtml": "<p>Đi Qua Trăm Năm - Nguyễn Đình Tư (Tự Truyện)</p><p>“Bỗng nhiên không biết do cơ duyên tốt lành nào đưa tới mà tôi ở tuổi gần đất xa trời, được tin ông Chủ tịch Ủy ban nhân dân Thành phố đến thăm và qua hôm sau là ông Bí thư Thành ủy. Hai vị lãnh đạo Đảng và Chính quyền cao nhất Thành phố tới thăm một người dân bình thường, mừng thọ tôi 102 tuổi, tặng quà và nhất là chịu khó ngồi cả tiếng đồng hồ nghe tôi kể lại cuộc đời đầy gian khổ của tôi từ nhỏ đến già, với tấm lòng thương yêu Tổ quốc, vẫn say mê theo đuổi sự nghiệp nghiên cứu và biên khảo lịch sử nước nhà, với quan điểm viết sử của tôi là phải khách quan. Nhân vô thập toàn, thánh nhân còn có cái sai huống chi người trần tục. Cái gì đúng, hay thì khen, cái gì sai, dở thì không che giấu, không bênh vực. Nếu viết sử mà không khách quan thì hậu thế sẽ hiểu không đúng quá khứ”. Trích Đi qua trăm năm.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786045870181"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Đình Tư"
+    },
+    {
+      "label": "NXB",
+      "value": "Tổng Hợp Thành Phố Hồ Chí Minh"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "420"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 1.92 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "384"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "420"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "hoi-ky-tu-truyen",
+  "subcategoryLabel": "Hồi Ký - Tự Truyện",
+  "descriptionText": "Đi Qua Trăm Năm - Nguyễn Đình Tư (Tự Truyện) “Bỗng nhiên không biết do cơ duyên tốt lành nào đưa tới mà tôi ở tuổi gần đất xa trời, được tin ông Chủ tịch Ủy ban nhân dân Thành phố đến thăm và qua hôm sau là ông Bí thư..."
+}

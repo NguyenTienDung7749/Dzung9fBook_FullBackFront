@@ -1,0 +1,83 @@
+{
+  "id": 1055666092,
+  "handle": "ux-content",
+  "sourceUrl": "https://www.vinabook.com/products/ux-content",
+  "title": "Ux Content",
+  "author": "Khúc Cẩm Huyên, Võ Lê Tú Anh",
+  "publisher": "AZ Việt Nam",
+  "year": "2022",
+  "sku": "8935325005022",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "280",
+  "weight": "300",
+  "size": "",
+  "price": 139000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Kinh Tế",
+  "subcategory": "marketing-ban-hang",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/marketing-ban-hang/ux-content/01.jpg",
+  "gallery": [
+    "./assets/images/books/marketing-ban-hang/ux-content/01.jpg",
+    "./assets/images/books/marketing-ban-hang/ux-content/02.jpg",
+    "./assets/images/books/marketing-ban-hang/ux-content/03.jpg",
+    "./assets/images/books/marketing-ban-hang/ux-content/04.jpg",
+    "./assets/images/books/marketing-ban-hang/ux-content/05.png"
+  ],
+  "description": "UX CONTENT 4.0 - Chọn Đúng Chữ, Giữ Người Dùng Bắt nhịp với thời đại 4.0, một ngành nghề mới xuất hiện trong những năm gần đây, rất được công ty công nghệ chú ý là UX Writer – chuyên viên thiết kế nội dung tương tác....",
+  "descriptionHtml": "<p>UX CONTENT 4.0 - Chọn Đúng Chữ, Giữ Người Dùng</p><p>Bắt nhịp với thời đại 4.0, một ngành nghề mới xuất hiện trong những năm gần đây, rất được công ty công nghệ chú ý là UX Writer – chuyên viên thiết kế nội dung tương tác. Để làm ra một sản phẩm công nghệ tốt thì UX và UX Writing không phải là tất cả. Nhưng UX Writing chắc chắn là một trong những phương tiện hữu ích nhất đưa sản phẩm, ứng dụng công nghệ đến gần với người dùng phổ thông hơn. Có thể thấy, UX Writer là một vị trí quyền lực, không thể thiếu.</p><p>Bằng kinh nghiệm thực tiễn, hai tác giả Khúc Cẩm Huyên (Content Strategy Manager) và Võ Lê Tú Anh (Senior Content Strategist, UX Writer) thông qua UX Content 4.0 – Chọn đúng giữ, giữ người dùng sẽ chia sẻ với bạn đọc những bí quyết nghề nghiệp, làm thế nào để thấu cảm hàng triệu người dùng và viết nên nội dung tương tác hiệu quả.</p><p>Sách gồm bốn phần: Phần 1 – UX Writing 4.0 sẽ mang đến cho bạn cái nhìn tổng quát về nghề UX Writer; Phần 2 – Bí thuật UX Content hướng dẫn những kỹ năng liên quan đến viết nội dung tương tác; Phần 3 – Product Launch bàn đến cách thức phối hợp giữa UX Writer với các bên liên quan để cho ra mắt những tính năng mới của sản phẩm; Phần 4 – Brand Guideline sẽ giúp bạn nhận diện được tiếng nói và cá tính của thương hiệu.</p><p>UX Content 4.0 – Chọn đúng chữ, giữ người dùng sẽ giúp bạn đọc có cái nhìn sâu về nghề UX Writer nói riêng và nghề viết trong kỷ nguyên công nghệ 4.0 nói chung. Viết lách không chỉ cần tới sự tinh thông về chữ nghĩa, để đối thoại, tương tác với người dùng, bạn cần nhiều hơn thế.</p><p>Kích Thước Bao Bì 20.5 x 14.5 x 1.7 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325005022"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Khúc Cẩm Huyên, Võ Lê Tú Anh"
+    },
+    {
+      "label": "NXB",
+      "value": "NXB Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2022"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Số trang",
+      "value": "280"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Kinh Tế",
+  "parentSlug": "sach-kinh-te",
+  "subcategorySlug": "marketing-ban-hang",
+  "subcategoryLabel": "Marketing - Bán Hàng",
+  "descriptionText": "UX CONTENT 4.0 - Chọn Đúng Chữ, Giữ Người Dùng Bắt nhịp với thời đại 4.0, một ngành nghề mới xuất hiện trong những năm gần đây, rất được công ty công nghệ chú ý là UX Writer – chuyên viên thiết kế nội dung tương tác...."
+}

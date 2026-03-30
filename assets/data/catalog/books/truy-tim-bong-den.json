@@ -1,0 +1,84 @@
+{
+  "id": 1063815823,
+  "sourceProductId": 1063815823,
+  "handle": "truy-tim-bong-den",
+  "sourceUrl": "https://www.vinabook.com/products/truy-tim-bong-den",
+  "title": "Truy Tìm Bóng Đen",
+  "author": "Đàn Thanh",
+  "publisher": "1980 Books",
+  "year": "2025",
+  "sku": "8936066698634",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "492",
+  "weight": "492",
+  "size": "",
+  "price": 209000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/04.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/truy-tim-bong-den/05.jpg"
+  ],
+  "description": "Tất cả cùng nhau nâng ly chúc mừng. Tôi cầm cốc uống cạn, hơi nóng thiêu đốt cổ họng, đồng thời thần kinh căng thẳng suốt nửa năm qua cuối cùng cũng giãn ra trong giây lát. Đúng lúc này, đột nhiên cảm thấy bên hông cử...",
+  "descriptionHtml": "<p>Tất cả cùng nhau nâng ly chúc mừng. Tôi cầm cốc uống cạn, hơi nóng thiêu đốt cổ họng, đồng thời thần kinh căng thẳng suốt nửa năm qua cuối cùng cũng giãn ra trong giây lát.</p><p>Đúng lúc này, đột nhiên cảm thấy bên hông cửa sổ có gì đó sai sai, tôi liếc vội về phía đó thì thấy có người đang đứng dưới gốc cây hòe cạnh cửa. Thấy tôi để ý, anh ta lập tức xoay người bỏ đi.</p><p>Tôi lao nhanh về phía sân, thế nhưng tốc độ của anh ta quả thực quá nhanh, lúc tôi đến gốc cây đã chẳng thấy một bóng người. Khi chuẩn bị trở lại, tôi phát hiện một bức thư được gấp bên trong lớp giấy màu da bò, bị đóng đinh trên thân cây.</p><p>Mở phong bì ra, tờ giấy bên trong có nội dung:</p><p>Mỗi người đều có cái bóng của riêng mình. Những điều anh thấy, chưa chắc đã là sự thật. Công cuộc báo thù, mới chỉ bắt đầu mà thôi.</p><p>Ký tên: Quý ngài Bóng đen.</p><p>Kích Thước Bao Bì 20.5 x 14 x 2.3 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936066698634"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Đàn Thanh"
+    },
+    {
+      "label": "NXB",
+      "value": "Thanh Niên"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "492"
+    },
+    {
+      "label": "Số trang",
+      "value": "492"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "492"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Tất cả cùng nhau nâng ly chúc mừng. Tôi cầm cốc uống cạn, hơi nóng thiêu đốt cổ họng, đồng thời thần kinh căng thẳng suốt nửa năm qua cuối cùng cũng giãn ra trong giây lát. Đúng lúc này, đột nhiên cảm thấy bên hông cử..."
+}

@@ -1,0 +1,90 @@
+{
+  "id": 1053603038,
+  "sourceProductId": 1053603038,
+  "handle": "mon-qua-den-tu-coi-chet",
+  "sourceUrl": "https://www.vinabook.com/products/mon-qua-den-tu-coi-chet",
+  "title": "Món Quà Đến Từ Cõi Chết",
+  "author": "Diệp Lâm Khánh",
+  "publisher": "CÔNG TY CỔ PHẦN VĂN HÓA VÀ TRUYỀN THÔNG LINH LAN",
+  "year": "2024",
+  "sku": "8936213491293",
+  "bookType": "Sách",
+  "language": "Tiếng Việt",
+  "pages": "412",
+  "weight": "430",
+  "size": "24 x 16 x 2 cm",
+  "price": 199000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "vien-tuong",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/vien-tuong/mon-qua-den-tu-coi-chet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/vien-tuong/mon-qua-den-tu-coi-chet/01.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/vien-tuong/mon-qua-den-tu-coi-chet/02.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/vien-tuong/mon-qua-den-tu-coi-chet/03.png"
+  ],
+  "description": "10 người bạn \"thân\" đột nhiên nhận được tin nhắn của một kẻ nặc danh mời gọi họ vào một group (nhóm) kín trên Facebook. Điều kì lạ là tất cả các thành viên trong group này đều đã tử vong, chỉ duy nhất nhóm bạn mới vào...",
+  "descriptionHtml": "<p>10 người bạn &quot;thân&quot; đột nhiên nhận được tin nhắn của một kẻ nặc danh mời gọi họ vào một group (nhóm) kín trên Facebook. Điều kì lạ là tất cả các thành viên trong group này đều đã tử vong, chỉ duy nhất nhóm bạn mới vào là còn sống. Họ bắt buộc phải chơi một trò chơi tử thần mang tên Công Khai Bí Mật với số tiền thưởng lên đến hàng trăm triệu đồng. Liệu rằng họ có vượt qua trò chơi một cách thuận lợi hay không? Lòng tham hay Tình bạn sẽ chiến thắng? Ai sẽ là người sống sót cuối cùng? Thế lực nào đứng đằng sau tất cả những bí mật được vén màn ấy? Rốt cuộc linh hồn có thực sự tồn tại?</p><p>Những mã Morse thần bí sẽ vén màn sự thật, nếu bạn giải được nó!</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936213491293"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "18/05/2024"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "CÔNG TY CỔ PHẦN VĂN HÓA VÀ TRUYỀN THÔNG LINH LAN"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Diệp Lâm Khánh"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "430"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 2 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "412"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Sách"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "CÔNG TY CỔ PHẦN VĂN HÓA VÀ TRUYỀN THÔNG LINH LAN"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "430"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "vien-tuong",
+  "subcategoryLabel": "Viễn Tưởng",
+  "descriptionText": "10 người bạn \"thân\" đột nhiên nhận được tin nhắn của một kẻ nặc danh mời gọi họ vào một group (nhóm) kín trên Facebook. Điều kì lạ là tất cả các thành viên trong group này đều đã tử vong, chỉ duy nhất nhóm bạn mới vào..."
+}

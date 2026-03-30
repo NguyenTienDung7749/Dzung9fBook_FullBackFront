@@ -1,0 +1,88 @@
+{
+  "id": 1073692531,
+  "sourceProductId": 1073692531,
+  "handle": "bup-be-dang-ngu-tai-ban-2026",
+  "sourceUrl": "https://www.vinabook.com/products/bup-be-dang-ngu-tai-ban-2026",
+  "title": "Búp Bê Đang Ngủ (Tái Bản 2026)",
+  "author": "Jeffery Deaver",
+  "publisher": "Bách Việt",
+  "year": "2026",
+  "sku": "9776049711641",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "600",
+  "weight": "770",
+  "size": "24 x 16 x 3 cm",
+  "price": 183200,
+  "compareAtPrice": 229000,
+  "discountLabel": "-20%",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/bup-be-dang-ngu-tai-ban-2026/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/bup-be-dang-ngu-tai-ban-2026/01.jpg"
+  ],
+  "description": "Búp Bê Đang Ngủ BÚP BÊ ĐANG NGỦ (The Sleeping Doll) của Jeffery Deaver là tiểu thuyết trinh thám - tâm lý đầy gay cấn, hấp dẫn và hồi hộp, cuốn người đọc vào một cuộc rượt đuổi nghẹt thở ngay từ những trang đầu tiên....",
+  "descriptionHtml": "<p>Búp Bê Đang Ngủ</p><p>BÚP BÊ ĐANG NGỦ (The Sleeping Doll) của Jeffery Deaver là tiểu thuyết trinh thám - tâm lý đầy gay cấn, hấp dẫn và hồi hộp, cuốn người đọc vào một cuộc rượt đuổi nghẹt thở ngay từ những trang đầu tiên. Với nhịp truyện nhanh, dồn dập và liên tục đảo chiều, tác phẩm khiến người đọc không có cơ hội thở phào.</p><p>Câu chuyện xoay quanh Daniel Pell - tên sát nhân nguy hiểm trốn thoát khỏi nhà tù. Hắn thông minh, xảo quyệt và luôn đi trước cảnh sát một bước. Đối đầu với hắn là Kathryn Dance, nữ đặc vụ CBI chuyên phân tích ngôn ngữ cơ thể. Cuộc đấu trí giữa hai bộ óc sắc bén tạo nên bầu không khí căng thẳng tột độ, nơi từng ánh mắt, cử chỉ hay lời nói đều có thể là manh mối hoặc cái bẫy chết người.</p><p>Điểm đặc biệt của tác phẩm không chỉ nằm ở các tình tiết phá án ly kỳ, mà còn ở chiều sâu cảm xúc. Nỗi sợ hãi của nạn nhân, áp lực của người điều tra và sự lạnh lùng đáng sợ của kẻ thủ ác được khắc họa chân thực, ám ảnh. Jeffery Deaver khéo léo dẫn dắt người đọc qua nhiều cung bậc cảm xúc: Hồi hộp, lo âu, phẫn nộ và bất ngờ đến tận trang cuối cùng.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9776049711641"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Bách Việt"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Jeffery Deaver"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Phạm Hồng Anh"
+    },
+    {
+      "label": "NXB",
+      "value": "Lao Động"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "770"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "600"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Bách Việt"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "770"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Búp Bê Đang Ngủ BÚP BÊ ĐANG NGỦ (The Sleeping Doll) của Jeffery Deaver là tiểu thuyết trinh thám - tâm lý đầy gay cấn, hấp dẫn và hồi hộp, cuốn người đọc vào một cuộc rượt đuổi nghẹt thở ngay từ những trang đầu tiên...."
+}

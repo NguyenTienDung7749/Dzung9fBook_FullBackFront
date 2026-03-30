@@ -1,0 +1,218 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum CartStatus {
+  ACTIVE
+  CONVERTED
+  ABANDONED
+}
+
+enum OrderStatus {
+  PENDING_CONFIRMATION
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentMethod {
+  COD
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  VOID
+}
+
+enum ContactMessageStatus {
+  RECEIVED
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  label     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]
+}
+
+model User {
+  id              String           @id @db.Uuid
+  roleId          Int
+  email           String           @unique
+  passwordHash    String
+  name            String
+  phone           String?
+  isActive        Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  role            Role             @relation(fields: [roleId], references: [id])
+  carts           Cart[]
+  orders          Order[]
+  contactMessages ContactMessage[] @relation("ContactMessageUser")
+  handledMessages ContactMessage[] @relation("ContactMessageHandler")
+
+  @@index([roleId])
+}
+
+model Category {
+  id                 Int        @id @default(autoincrement())
+  parentId           Int?
+  slug               String
+  path               String     @unique
+  name               String
+  description        String?
+  depth              Int
+  sortOrder          Int?
+  featured           Boolean    @default(false)
+  bookCount          Int        @default(0)
+  isActive           Boolean    @default(true)
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  parent             Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children           Category[] @relation("CategoryTree")
+  booksAsParent      Book[]     @relation("BookParentCategory")
+  booksAsSubcategory Book[]     @relation("BookSubcategory")
+
+  @@index([parentId])
+  @@index([depth])
+}
+
+model Book {
+  id               Int         @id
+  handle           String      @unique
+  title            String
+  author           String?
+  publisher        String?
+  year             String?
+  sku              String?
+  bookType         String?
+  language         String?
+  pages            String?
+  weight           String?
+  size             String?
+  price            Int
+  compareAtPrice   Int         @default(0)
+  discountLabel    String?
+  isSoldOut        Boolean     @default(false)
+  listingStyle     String?
+  image            String
+  gallery          Json
+  description      String?
+  descriptionHtml  String?
+  descriptionText  String?
+  specs            Json
+  sourceUrl        String?
+  parentCategoryId Int
+  subcategoryId    Int?
+  trackInventory   Boolean     @default(false)
+  stockQuantity    Int?
+  allowBackorder   Boolean     @default(false)
+  isActive         Boolean     @default(true)
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  parentCategory   Category    @relation("BookParentCategory", fields: [parentCategoryId], references: [id])
+  subcategory      Category?   @relation("BookSubcategory", fields: [subcategoryId], references: [id])
+  cartItems        CartItem[]
+  orderItems       OrderItem[]
+
+  @@index([parentCategoryId])
+  @@index([subcategoryId])
+}
+
+model Cart {
+  id         String     @id @default(uuid()) @db.Uuid
+  userId     String?    @db.Uuid
+  guestToken String?
+  status     CartStatus @default(ACTIVE)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  user       User?      @relation(fields: [userId], references: [id])
+  items      CartItem[]
+
+  @@index([userId, status])
+  @@index([guestToken, status])
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  cartId    String   @db.Uuid
+  bookId    Int
+  quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  book      Book     @relation(fields: [bookId], references: [id])
+
+  @@unique([cartId, bookId])
+  @@index([bookId])
+}
+
+model Order {
+  id              String        @id @default(uuid()) @db.Uuid
+  orderNumber     String        @unique
+  userId          String        @db.Uuid
+  status          OrderStatus   @default(PENDING_CONFIRMATION)
+  paymentMethod   PaymentMethod @default(COD)
+  paymentStatus   PaymentStatus @default(UNPAID)
+  subtotalAmount  Int
+  totalAmount     Int
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  shippingAddress String
+  note            String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  user            User          @relation(fields: [userId], references: [id])
+  items           OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id         Int    @id @default(autoincrement())
+  orderId    String @db.Uuid
+  bookId     Int
+  bookTitle  String
+  bookHandle String
+  unitPrice  Int
+  quantity   Int
+  lineTotal  Int
+  order      Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  book       Book   @relation(fields: [bookId], references: [id])
+
+  @@index([orderId])
+  @@index([bookId])
+}
+
+model ContactMessage {
+  id        String               @id @default(uuid()) @db.Uuid
+  userId    String?              @db.Uuid
+  name      String
+  email     String
+  phone     String?
+  message   String
+  status    ContactMessageStatus @default(RECEIVED)
+  adminNote String?
+  handledBy String?              @db.Uuid
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+  user      User?                @relation("ContactMessageUser", fields: [userId], references: [id])
+  handler   User?                @relation("ContactMessageHandler", fields: [handledBy], references: [id])
+
+  @@index([userId])
+  @@index([handledBy])
+  @@index([status])
+}

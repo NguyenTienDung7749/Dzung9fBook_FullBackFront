@@ -1,0 +1,84 @@
+{
+  "id": 1073043824,
+  "sourceProductId": 1073043824,
+  "handle": "muoi-bay-nam-mat-tich",
+  "sourceUrl": "https://www.vinabook.com/products/muoi-bay-nam-mat-tich",
+  "title": "Mười Bảy Năm Mất Tích",
+  "author": "Thiếu Niên Chăn Cừu T",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247413",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "303",
+  "weight": "320",
+  "size": "20.5 x 14 x 1.5 cm",
+  "price": 160000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/muoi-bay-nam-mat-tich/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/muoi-bay-nam-mat-tich/01.jpg"
+  ],
+  "description": "“Mười bảy năm mất tích” mở ra từ một chuyến đi giữa thời điểm thế giới chao đảo vì dịch bệnh. Nhân vật “tôi” rời Đài Loan, đến Hồng Kông và thuê lại một căn nhà ven biển từng thuộc về Shiosai. Ở đó, “tôi” gặp Cố Huân,...",
+  "descriptionHtml": "<p>“Mười bảy năm mất tích” mở ra từ một chuyến đi giữa thời điểm thế giới chao đảo vì dịch bệnh. Nhân vật “tôi” rời Đài Loan, đến Hồng Kông và thuê lại một căn nhà ven biển từng thuộc về Shiosai. Ở đó, “tôi” gặp Cố Huân, một nhà văn nổi tiếng, được mệnh danh là “bậc thầy truyện kinh dị”.</p><p>Nhưng câu chuyện thực sự bắt đầu từ một cái tên đã biến mất suốt mười bảy năm.</p><p>Một lời hẹn cũ.</p><p>Những tin nhắn không người hồi đáp.</p><p>Và một quá khứ tưởng đã ngủ yên, bỗng chốc lên tiếng..</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247413"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Thiếu Niên Chăn Cừu T"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Trần Khánh Ly"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "320"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 1.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "303"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "320"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "“Mười bảy năm mất tích” mở ra từ một chuyến đi giữa thời điểm thế giới chao đảo vì dịch bệnh. Nhân vật “tôi” rời Đài Loan, đến Hồng Kông và thuê lại một căn nhà ven biển từng thuộc về Shiosai. Ở đó, “tôi” gặp Cố Huân,..."
+}

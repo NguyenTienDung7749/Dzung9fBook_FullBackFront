@@ -1,0 +1,88 @@
+{
+  "id": 1071650468,
+  "sourceProductId": 1071650468,
+  "handle": "lung-tay-noi-gio",
+  "sourceUrl": "https://www.vinabook.com/products/lung-tay-noi-gio",
+  "title": "Lũng Tây Nổi Gió",
+  "author": "Mã Bá Dung",
+  "publisher": "AZ",
+  "year": "2025",
+  "sku": "8935325032110",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "536",
+  "weight": "670",
+  "size": "24 x 15.7 x 2.6 cm",
+  "price": 249000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/lung-tay-noi-gio/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/lung-tay-noi-gio/01.jpg"
+  ],
+  "description": "ÂM MƯU và PHẢN CÔNG HIỂM NGUY và TRỐN CHẠY NGHI KỊ và GIẾT HẠI Cuộc chiến sinh tử khốc liệt trên chiến trường tình báo thời Tam Quốc đã nổ ra, giữa hai nước Thục Hán và Tào Ngụy. Trong cuộc chinh phạt phương Bắc của G...",
+  "descriptionHtml": "<p>ÂM MƯU và PHẢN CÔNG</p><p>HIỂM NGUY và TRỐN CHẠY</p><p>NGHI KỊ và GIẾT HẠI</p><p>Cuộc chiến sinh tử khốc liệt trên chiến trường tình báo thời Tam Quốc đã nổ ra, giữa hai nước Thục Hán và Tào Ngụy. Trong cuộc chinh phạt phương Bắc của Gia Cát Lượng, một gián điệp tinh anh và xảo quyệt đã thành công thâm nhập vào cơ quan đầu não của nhà Thục Hán. Nhận được mật báo của gián điệp nằm vùng lâu năm tại nước đối địch, tòng sự của ti Tĩnh An âm thầm giăng ra chiếc bẫy vô cùng tinh vi nhằm bắt sống quân át chủ bài này, đẩy lùi âm mưu thôn tính của địch.</p><p>Những tình tiết chỉ có trong lịch sử chưa từng bị tiết lộ được phóng tác bởi nhà văn tài tình Mã Bá Dung và trở thành một trong những tuyệt tác nổi tiếng nhất.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325032110"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Mã Bá Dung"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Mai Dung"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "670"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 15.7 x 2.6 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "536"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "670"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "ÂM MƯU và PHẢN CÔNG HIỂM NGUY và TRỐN CHẠY NGHI KỊ và GIẾT HẠI Cuộc chiến sinh tử khốc liệt trên chiến trường tình báo thời Tam Quốc đã nổ ra, giữa hai nước Thục Hán và Tào Ngụy. Trong cuộc chinh phạt phương Bắc của G..."
+}

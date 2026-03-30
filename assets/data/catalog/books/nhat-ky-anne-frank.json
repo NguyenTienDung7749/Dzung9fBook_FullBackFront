@@ -1,0 +1,84 @@
+{
+  "id": 1054540038,
+  "sourceProductId": 1054540038,
+  "handle": "nhat-ky-anne-frank",
+  "sourceUrl": "https://www.vinabook.com/products/nhat-ky-anne-frank",
+  "title": "Nhật Ký Anne Frank",
+  "author": "Anne Frank",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235241428",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "440",
+  "weight": "460",
+  "size": "",
+  "price": 118000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "hoi-ky-tu-truyen",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/01.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/02.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/03.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/04.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/nhat-ky-anne-frank/05.jpg"
+  ],
+  "description": "“Tớ thấy tám người chúng tớ trong Nhà phụ chẳng khác nào một mảng trời xanh bị mây đen tứ phía vây quanh. Cái khoảnh tròn bé tí nơi chúng tớ đứng vẫn an toàn, nhưng những đám mây đen kia vẫn đang tới gần, và cái vòng...",
+  "descriptionHtml": "<p>“Tớ thấy tám người chúng tớ trong Nhà phụ chẳng khác nào một mảng trời xanh bị mây đen tứ phía vây quanh. Cái khoảnh tròn bé tí nơi chúng tớ đứng vẫn an toàn, nhưng những đám mây đen kia vẫn đang tới gần, và cái vòng tròn chắn giữa chúng tớ với mối hiểm họa đang tiệm tiến kia càng lúc càng siết lại. Chúng tớ bị quây kín trong bóng tối và hiểm họa, và trong lúc tuyệt vọng tìm đường thoát ra, chúng tớ cứ va vào nhau. Nhìn xuống dưới, thấy chiến tranh, ngước lên trên là cảnh thanh bình và cái đẹp. Trong lúc ấy, chúng tớ đã bị đám mây đen khổng lồ chặn hết hai ngả, chẳng thể đi xuống hay đi lên. Nó cứ đứng lù lù trước mắt chúng tớ như một bức tường không thể xuyên thủng, lăm le nghiền nát chúng tớ mà chưa thể. Tớ chỉ biết hét lên và van nài, &#39;Ôi, vòng tròn, vòng tròn, xin hãy mở lối cho chúng tôi đi!&#39; “</p><p>Thông tin sản phẩm</p><p>Kích Thước Bao Bì 20.5 x 14 x cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235241428"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Anne Frank"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Tạ Huyền"
+    },
+    {
+      "label": "NXB",
+      "value": "Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "460"
+    },
+    {
+      "label": "Số trang",
+      "value": "440"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "460"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "hoi-ky-tu-truyen",
+  "subcategoryLabel": "Hồi Ký - Tự Truyện",
+  "descriptionText": "“Tớ thấy tám người chúng tớ trong Nhà phụ chẳng khác nào một mảng trời xanh bị mây đen tứ phía vây quanh. Cái khoảnh tròn bé tí nơi chúng tớ đứng vẫn an toàn, nhưng những đám mây đen kia vẫn đang tới gần, và cái vòng..."
+}

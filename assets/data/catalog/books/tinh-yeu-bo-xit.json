@@ -1,0 +1,84 @@
+{
+  "id": 1070431159,
+  "sourceProductId": 1070431159,
+  "handle": "tinh-yeu-bo-xit",
+  "sourceUrl": "https://www.vinabook.com/products/tinh-yeu-bo-xit",
+  "title": "Tình Yêu Bọ Xít",
+  "author": "Nguyễn Hoàng Diệu Thủy",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235245983",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "236",
+  "weight": "250",
+  "size": "",
+  "price": 130000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/tinh-yeu-bo-xit/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/tinh-yeu-bo-xit/01.jpg"
+  ],
+  "description": "Cuộc sống của bạn đang đầy áp lực, ở trường thì quay cuồng giữa các loại bài kiểm tra, ở nhà thì chiến đấu với một đống bài tập về nhà. Cô giáo than vãn bạn chưa nỗ lực hết sức mình, còn bố mẹ vẫn càu nhàu bạn lười nh...",
+  "descriptionHtml": "<p>Cuộc sống của bạn đang đầy áp lực, ở trường thì quay cuồng giữa các loại bài kiểm tra, ở nhà thì chiến đấu với một đống bài tập về nhà. Cô giáo than vãn bạn chưa nỗ lực hết sức mình, còn bố mẹ vẫn càu nhàu bạn lười nhác vụng về, chẳng giúp được gia đình gì mấy, có lớn mà chưa có khôn.</p><p>Kích Thước Bao Bì 20.5 x 14 x 1.1 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235245983"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "11/10/2025"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Hoàng Diệu Thủy"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Nguyễn Hoàng Diệu Thủy"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "250"
+    },
+    {
+      "label": "Số trang",
+      "value": "236"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "250"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Cuộc sống của bạn đang đầy áp lực, ở trường thì quay cuồng giữa các loại bài kiểm tra, ở nhà thì chiến đấu với một đống bài tập về nhà. Cô giáo than vãn bạn chưa nỗ lực hết sức mình, còn bố mẹ vẫn càu nhàu bạn lười nh..."
+}

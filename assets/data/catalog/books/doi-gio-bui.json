@@ -1,0 +1,84 @@
+{
+  "id": 1072027955,
+  "sourceProductId": 1072027955,
+  "handle": "doi-gio-bui",
+  "sourceUrl": "https://www.vinabook.com/products/doi-gio-bui",
+  "title": "Đời Gió Bụi",
+  "author": "Nguyễn Phan Quế Mai",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235246690",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "500",
+  "weight": "520",
+  "size": "20.5 x 14 x 2.5 cm",
+  "price": 240000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/doi-gio-bui/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/doi-gio-bui/01.jpg"
+  ],
+  "description": "Năm 1969, hai chị em Trang và Quỳnh, vì tuyệt vọng muốn giúp cha mẹ trả nợ, đã rời làng quê và trở thành gái quán bar ở Sài Gòn. Giữa khói lửa khốc liệt của chiến tranh, Trang bị cuốn vào mối tình mãnh liệt với Dan, m...",
+  "descriptionHtml": "<p>Năm 1969, hai chị em Trang và Quỳnh, vì tuyệt vọng muốn giúp cha mẹ trả nợ, đã rời làng quê và trở thành gái quán bar ở Sài Gòn. Giữa khói lửa khốc liệt của chiến tranh, Trang bị cuốn vào mối tình mãnh liệt với Dan, một phi công trực thăng người Mỹ trẻ tuổi, quyến rũ.</p><p>Nhiều thập kỷ sau, Dan trở lại Việt Nam cùng vợ là Linda, hy vọng tìm được cách chữa lành hội chứng chấn thương tâm lý PTSD và đối diện với những bí mật trong quá khứ. Cùng lúc đó, Phong – con của một người lính Mỹ da đen và một phụ nữ Việt Nam – nỗ lực tìm kiếm cha mẹ ruột và lối thoát khỏi cuộc sống cơ cực.</p><p>Trong Đời gió bụi, có những người không còn cơ hội biết đến ngày mai, có những người mãi mắc kẹt trong quá khứ và cũng có những người phải chật vật mưu sinh trong hiện tại. Nhưng, bất chấp tất cả, họ vẫn không ngừng khát khao trở thành những con người tốt đẹp hơn, nỗ lực gây dựng tương lai tươi sáng hơn cho chính mình và những người thân yêu.</p><p>Đan xen giữa quá khứ và hiện tại, bằng giọng văn cuốn hút, cảm động và giàu chất thơ, Đời gió bụi là câu chuyện về những bí mật bị che giấu, những tổn thương tưởng như không bao giờ có thể chữa lành, những nỗi đau tưởng như không bao giờ có thể xoa dịu; nhưng trên hết, đây là câu chuyện về sự dũng cảm và nghị lực sống, về lòng trắc ẩn và sự hòa giải, về sức mạnh của lòng tha thứ và tình yêu thương.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235246690"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Phan Quế Mai"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Thiên Nga, Nguyễn Phan Quế Mai"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "520"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "500"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "520"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Năm 1969, hai chị em Trang và Quỳnh, vì tuyệt vọng muốn giúp cha mẹ trả nợ, đã rời làng quê và trở thành gái quán bar ở Sài Gòn. Giữa khói lửa khốc liệt của chiến tranh, Trang bị cuốn vào mối tình mãnh liệt với Dan, m..."
+}

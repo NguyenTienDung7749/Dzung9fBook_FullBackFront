@@ -1,0 +1,33 @@
+<main>
+  <section class="section">
+    <div class="container auth-layout">
+      <div class="auth-copy">
+        <p class="section-label">Đăng nhập nhanh</p>
+        <h1 class="section-title">Tiếp tục những lựa chọn bạn đã lưu lại trong Dzung9fBook.</h1>
+        <p class="section-text">
+          Khi đăng nhập, bạn có thể quay lại giỏ sách, xem thông tin tài khoản và tiếp tục lựa chọn sách mà không bị ngắt quãng.
+        </p>
+        <a href="./register.html" class="text-link">Chưa có tài khoản? Đăng ký tại đây</a>
+      </div>
+
+      <div class="form-card">
+        <h2>Đăng nhập tài khoản</h2>
+        <p>Vui lòng nhập đúng email và mật khẩu đã đăng ký.</p>
+        <form novalidate data-login-form>
+          <label class="form-field">
+            <span class="label-text">Email</span>
+            <input type="email" name="email" placeholder="ban@example.com" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false">
+            <span class="field-error" id="login-email-error" data-error-for="email"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Mật khẩu</span>
+            <input type="password" name="password" placeholder="Tối thiểu 6 ký tự" required minlength="6" autocomplete="current-password">
+            <span class="field-error" id="login-password-error" data-error-for="password"></span>
+          </label>
+          <div class="form-message" data-form-message aria-live="polite"></div>
+          <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

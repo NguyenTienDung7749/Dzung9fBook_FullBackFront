@@ -1,0 +1,84 @@
+{
+  "id": 1071943772,
+  "sourceProductId": 1071943772,
+  "handle": "thoi-xa-vang-1",
+  "sourceUrl": "https://www.vinabook.com/products/thoi-xa-vang-1",
+  "title": "Thời Xa Vắng",
+  "author": "Lê Lựu",
+  "publisher": "Minh Thắng",
+  "year": "2025",
+  "sku": "8935236437998",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "536",
+  "weight": "600",
+  "size": "20.5 x 14.5 x 2.6 cm",
+  "price": 125000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/thoi-xa-vang-1/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/thoi-xa-vang-1/01.jpg"
+  ],
+  "description": "“Thời xa vắng” kể về cuộc đời của Giang Minh Sài một người con của làng Hạ Vị tài hoa, thông minh nhưng khốn khổ bởi chính sự nhu nhược của mình và những xiềng xích của hủ tục. Sài để cả nửa đời mình trôi theo những l...",
+  "descriptionHtml": "<p>“Thời xa vắng” kể về cuộc đời của Giang Minh Sài một người con của làng Hạ Vị tài hoa, thông minh nhưng khốn khổ bởi chính sự nhu nhược của mình và những xiềng xích của hủ tục. Sài để cả nửa đời mình trôi theo những lựa chọn của người khác, đánh mất tình yêu đầu tiên vì sợ hãi, cuối cùng anh rơi vào cuộc hôn nhân đầy đau khổ và tính toán. Đến khi những gì mình xem là “tất cả” bị sụp đổ, liệu Sài có can đảm để làm lại cuộc đời? Và Sài sẽ làm gì để tìm lại chính mình?</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935236437998"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Minh Thắng"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lê Lựu"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "600"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 2.6 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "536"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Minh Thắng"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "600"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "“Thời xa vắng” kể về cuộc đời của Giang Minh Sài một người con của làng Hạ Vị tài hoa, thông minh nhưng khốn khổ bởi chính sự nhu nhược của mình và những xiềng xích của hủ tục. Sài để cả nửa đời mình trôi theo những l..."
+}

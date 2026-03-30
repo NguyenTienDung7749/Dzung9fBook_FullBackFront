@@ -1,0 +1,84 @@
+{
+  "id": 1055666167,
+  "sourceProductId": 1055666167,
+  "handle": "my-grammar-and-i-thuc-hanh",
+  "sourceUrl": "https://www.vinabook.com/products/my-grammar-and-i-thuc-hanh",
+  "title": "My Grammar And I ( Thực Hành )",
+  "author": "Daniel Smith",
+  "publisher": "AZ Việt Nam",
+  "year": "2022",
+  "sku": "8935325006050",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "272",
+  "weight": "300",
+  "size": "",
+  "price": 139000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "sach-ngoai-ngu",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/01.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/02.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/03.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/04.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/my-grammar-and-i-thuc-hanh/05.jpg"
+  ],
+  "description": "My Grammar And I - Thực Hành Trước đó đã có My Grammar And I (Hay là “Me” đúng không nhỉ?) thì sao còn cần thêm tag “Thực hành”? Vì chúng tôi tin rằng, sẽ chẳng có thứ ngôn ngữ nào chỉ cần học hết lý thuyết thôi đã có...",
+  "descriptionHtml": "<p>My Grammar And I - Thực Hành</p><p>Trước đó đã có My Grammar And I (Hay là “Me” đúng không nhỉ?) thì sao còn cần thêm tag “Thực hành”?</p><p>Vì chúng tôi tin rằng, sẽ chẳng có thứ ngôn ngữ nào chỉ cần học hết lý thuyết thôi đã có thể sử dụng thành thạo như người bản ngữ, tiếng Anh lại càng không phải là ngoại lệ. Với mong muốn mỗi dòng kiến thức bạn từng đọc qua sẽ không dễ dàng trôi tuột khỏi đầu, tác giả đã soạn nên cuốn sách đấy ắp những bài tập nghiêm-túc-mà-hài-hước này. Mỗi lượng kiến thức được đưa ra trong My Grammar And I (Hay là “Me” đúng không nhỉ?) sẽ kèm theo nhiều bài tập tương ứng, để bạn có thể củng cố kiến thức ngay lập tức chỉ với cây bút chì trong tay.</p><p>Nào, hãy cùng bắt đầu trò chơi ngữ pháp nhé!</p><p>Kích Thước Bao Bì 20 x 14.5 x 0.5 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325006050"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Daniel Smith"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Phương Linh"
+    },
+    {
+      "label": "NXB",
+      "value": "Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2022"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Số trang",
+      "value": "272"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "sach-ngoai-ngu",
+  "subcategoryLabel": "Sách Ngoại Ngữ",
+  "descriptionText": "My Grammar And I - Thực Hành Trước đó đã có My Grammar And I (Hay là “Me” đúng không nhỉ?) thì sao còn cần thêm tag “Thực hành”? Vì chúng tôi tin rằng, sẽ chẳng có thứ ngôn ngữ nào chỉ cần học hết lý thuyết thôi đã có..."
+}

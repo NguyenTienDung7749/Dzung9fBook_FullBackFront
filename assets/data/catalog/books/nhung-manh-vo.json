@@ -1,0 +1,80 @@
+{
+  "id": 1071609109,
+  "sourceProductId": 1071609109,
+  "handle": "nhung-manh-vo",
+  "sourceUrl": "https://www.vinabook.com/products/nhung-manh-vo",
+  "title": "Những Mảnh Vỡ",
+  "author": "Trần Minh Cường",
+  "publisher": "NXB Tổng Hợp TPHCM",
+  "year": "2025",
+  "sku": "9786326033649",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "144",
+  "weight": "130",
+  "size": "20 x 13 x 0.7 cm",
+  "price": 120000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/nhung-manh-vo/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/nhung-manh-vo/01.jpg"
+  ],
+  "description": "Một tập tản văn không gào thét mà khiến người ta im lặng Ngay từ những dòng đầu tiên, cuốn sách không ồn ào, không gây sốc, không cố chiếm lấy ánh nhìn. Trái lại, nó chọn cách bước thật khẽ vào tâm trí người đọc – như...",
+  "descriptionHtml": "<p>Một tập tản văn không gào thét mà khiến người ta im lặng</p><p>Ngay từ những dòng đầu tiên, cuốn sách không ồn ào, không gây sốc, không cố chiếm lấy ánh nhìn. Trái lại, nó chọn cách bước thật khẽ vào tâm trí người đọc – như một làn khói cà phê đen, một khúc nhạc vọng cổ đâu đó giữa trưa nắng Sài Gòn, một bức thư tình gửi giữa lòng quên lãng.</p><p>Có những trang viết khiến người ta khựng lại, chỉ vì một câu:</p><p>Mùa này lạnh lắm em. Có còn ai nhắc em khoác thêm áo ấm?</p><p>Hay:</p><p>Bi kịch lớn nhất trong tình yêu không phải là hết yêu, mà là còn yêu nhưng mãi mãi chẳng thể ở bên nhau.</p><p>Chúng không cần lý luận. Không cần minh họa. Chúng chỉ cần… được viết ra. Và khi đã viết ra rồi, chúng chạm vào người khác – chạm vào đúng nơi người ta cũng từng vỡ.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786326033649"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Trần Minh Cường"
+    },
+    {
+      "label": "NXB",
+      "value": "Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "130"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20 x 13 x 0.7 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "144"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "130"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Một tập tản văn không gào thét mà khiến người ta im lặng Ngay từ những dòng đầu tiên, cuốn sách không ồn ào, không gây sốc, không cố chiếm lấy ánh nhìn. Trái lại, nó chọn cách bước thật khẽ vào tâm trí người đọc – như..."
+}

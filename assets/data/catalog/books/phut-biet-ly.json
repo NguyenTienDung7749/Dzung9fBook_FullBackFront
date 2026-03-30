@@ -1,0 +1,84 @@
+{
+  "id": 1070345332,
+  "sourceProductId": 1070345332,
+  "handle": "phut-biet-ly",
+  "sourceUrl": "https://www.vinabook.com/products/phut-biet-ly",
+  "title": "Phút Biệt Ly",
+  "author": "Shin Kyung-Sook",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235245914",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "232",
+  "weight": "150",
+  "size": "",
+  "price": 156000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/phut-biet-ly/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/phut-biet-ly/01.jpg"
+  ],
+  "description": "Ba lá thư. Ba lát cắt khác nhau trong dòng chảy lịch sử. Ba con người đứng trên những vùng đất riêng biệt. Họ gặp nhau tại giao lộ của khoảnh khắc chia ly. Một nhà thơ lưu vong trong biến cố thời cuộc, cuộc sống ly hư...",
+  "descriptionHtml": "<p>Ba lá thư. Ba lát cắt khác nhau trong dòng chảy lịch sử. Ba con người đứng trên những vùng đất riêng biệt. Họ gặp nhau tại giao lộ của khoảnh khắc chia ly. Một nhà thơ lưu vong trong biến cố thời cuộc, cuộc sống ly hương tưởng chừng kéo dài ba năm đã hóa thành một đời. Quê hương mãi bị niêm phong trong ký ức, chỉ có nỗi nhớ nhung không ngừng vùng vẫy thoát ra. Một người bạn chuyển đến nước Đức, và cuối cùng nằm lại đó dưới rừng sồi Münster. Mùa hạ qua đi, thu đến đông sang, có một người vẫn luôn mong mỏi gặp lại trước lúc vĩnh viễn chia xa. Một họa sĩ trở lại Jeju lưu trú, cố nhặt nhạnh chính mình sau những lần vỡ vụn. Người hàng xóm đã đi xa cùng với lời ca u uẩn mê hoặc, những vỏ chai soju xếp dưới gốc hòe vàng bông năm xưa cũng biến mất, người thân yêu chỉ có thể chuyện trò trong tưởng nhớ, nhưng gió trên đảo thì chưa bao giờ ngừng thổi. Phút biệt ly là câu chuyện về “những người phải xây dựng lại cuộc sống của mình trong những không gian tan vỡ”. Với văn phong ưu nhã đặc trưng, Shin Kyung-Sook đã viết nên cuốn tiểu thuyết sâu sắc về cách con người tiếp tục bước đi sau khi chia tay những điều quan trọng nhất.</p><p>Kích Thước Bao Bì 20.5 x 14 x 1.1 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235245914"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "04/10/2025"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Shin Kyung-Sook"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Vương Thúy Quỳnh Anh"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "150"
+    },
+    {
+      "label": "Số trang",
+      "value": "232"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "150"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Ba lá thư. Ba lát cắt khác nhau trong dòng chảy lịch sử. Ba con người đứng trên những vùng đất riêng biệt. Họ gặp nhau tại giao lộ của khoảnh khắc chia ly. Một nhà thơ lưu vong trong biến cố thời cuộc, cuộc sống ly hư..."
+}

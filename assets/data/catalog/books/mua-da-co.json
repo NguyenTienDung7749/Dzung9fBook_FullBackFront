@@ -1,0 +1,72 @@
+{
+  "id": 1057620005,
+  "sourceProductId": 1057620005,
+  "handle": "mua-da-co",
+  "sourceUrl": "https://www.vinabook.com/products/mua-da-co",
+  "title": "Mùa Dã Cổ",
+  "author": "Hà Thủy Nguyên",
+  "publisher": "Book Hunter",
+  "year": "2016",
+  "sku": "9786045356852",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "139",
+  "weight": "200",
+  "size": "",
+  "price": 85000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tho-ca",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/mua-da-co/01.png",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/mua-da-co/01.png"
+  ],
+  "description": "“Mùa dã cổ” là tập thơ biểu hiện tâm trạng và những chiêm nghiệm về một miền quá khứ hoàng kim đầy tính ước lệ, đối nghịch với thực tại chất chồng các khuôn mẫu lộn xộn. Sống ở thế giới hiện đại nhưng tác giả lại viết...",
+  "descriptionHtml": "<p>“Mùa dã cổ” là tập thơ biểu hiện tâm trạng và những chiêm nghiệm về một miền quá khứ hoàng kim đầy tính ước lệ, đối nghịch với thực tại chất chồng các khuôn mẫu lộn xộn. Sống ở thế giới hiện đại nhưng tác giả lại viết về các hồi ức mơ hồ của thuở xa xưa đan cài trong một cái nhìn tách biệt từ một thực tại khác để lý giải thực tại này.</p><p>– Mục lục:</p><p>Phần I: Phiêu (6 bài) – Những bài thơ mang tính tuyên ngôn vượt ra khỏi hiện thực tầm thường</p><p>Phần II: Mỏi (7 bài) – Tâm trạng chán nản trước đời thường nhạt nhẽo và chờ đợi sự hiện diện của một thực tại khác</p><p>Phần III: Tru (4 bài) – Đánh thức phần thần thức bên trong mình</p><p>Phần IV: Say (12 bài) – Trạng thái mơ hồ thực ảo với các ký ức xa xăm</p><p>Mùa dã cổ dày 139 trang khổ 12X20.5cm</p><p>Nằm trong Tủ sách Book Hunter</p><p>Được cấp phép bởi NXB Hội Nhà Văn, 2016</p><p>Phí ship: 25.000 VNĐ (Nội thành hà Nội) – 35.000 VNĐ (Toàn quốc)</p><p>Chính thức phát hành: 2016</p><p>Chủ đề: Chiêm nghiệm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786045356852"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Book Hunter"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Hà Thủy Nguyên"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2016"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "200"
+    },
+    {
+      "label": "Số trang",
+      "value": "139"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Book Hunter"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "200"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tho-ca",
+  "subcategoryLabel": "Thơ Ca",
+  "descriptionText": "“Mùa dã cổ” là tập thơ biểu hiện tâm trạng và những chiêm nghiệm về một miền quá khứ hoàng kim đầy tính ước lệ, đối nghịch với thực tại chất chồng các khuôn mẫu lộn xộn. Sống ở thế giới hiện đại nhưng tác giả lại viết..."
+}

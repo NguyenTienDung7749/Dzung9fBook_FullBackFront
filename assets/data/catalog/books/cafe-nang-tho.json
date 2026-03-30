@@ -1,0 +1,68 @@
+{
+  "id": 1070568836,
+  "sourceProductId": 1070568836,
+  "handle": "cafe-nang-tho",
+  "sourceUrl": "https://www.vinabook.com/products/cafe-nang-tho",
+  "title": "Café Nàng Thơ",
+  "author": "Nicky Khánh Ngọc",
+  "publisher": "Du Bút",
+  "year": "2025",
+  "sku": "9786044148861",
+  "bookType": "Bìa mềm",
+  "language": "",
+  "pages": "",
+  "weight": "200",
+  "size": "",
+  "price": 190000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/cafe-nang-tho/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/cafe-nang-tho/01.jpg"
+  ],
+  "description": "Cuốn sách đưa độc giả theo chân Khánh Ngọc qua những quán cà phê trải khắp các châu lục để lắng nghe sự thay đổi của thế giới cả bên ngoài và nội tâm của tác giả, từ khi còn là một cô gái trẻ ngây thơ, hăm hở tới khi...",
+  "descriptionHtml": "<p>Cuốn sách đưa độc giả theo chân Khánh Ngọc qua những quán cà phê trải khắp các châu lục để lắng nghe sự thay đổi của thế giới cả bên ngoài và nội tâm của tác giả, từ khi còn là một cô gái trẻ ngây thơ, hăm hở tới khi đã trở thành một biên tập viên mảng làm đẹp danh tiếng và làm mẹ. Sử dụng lối viết tâm tình, chậm rãi,&quot;Café Nàng Thơ&quot; là bức thư tình gửi đến không gian café và cả cuộc đời.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786044148861"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nicky Khánh Ngọc"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "200"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "200"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Cuốn sách đưa độc giả theo chân Khánh Ngọc qua những quán cà phê trải khắp các châu lục để lắng nghe sự thay đổi của thế giới cả bên ngoài và nội tâm của tác giả, từ khi còn là một cô gái trẻ ngây thơ, hăm hở tới khi..."
+}

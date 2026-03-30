@@ -1,0 +1,88 @@
+{
+  "id": 1073471735,
+  "sourceProductId": 1073471735,
+  "handle": "va-roi-nui-vong-tai-ban-2026",
+  "sourceUrl": "https://www.vinabook.com/products/va-roi-nui-vong-tai-ban-2026",
+  "title": "Và Rồi Núi Vọng (Tái Bản 2026)",
+  "author": "Khaled Hosseini",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247604",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "512",
+  "weight": "530",
+  "size": "20.5 x 14 x 2.5 cm",
+  "price": 180000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/va-roi-nui-vong-tai-ban-2026/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/va-roi-nui-vong-tai-ban-2026/01.jpg"
+  ],
+  "description": "Và Rồi Núi Vọng Afghanistan, mùa thu năm 1952. Abdullah và Pari sống cùng cha, mẹ kế và em khác mẹ trong ngôi làng nhỏ xác xơ Shadbagh, nơi đói nghèo và mùa đông khắc nghiệt luôn chực chờ cướp đi sinh mệnh lũ trẻ. Abd...",
+  "descriptionHtml": "<p>Và Rồi Núi Vọng</p><p>Afghanistan, mùa thu năm 1952.</p><p>Abdullah và Pari sống cùng cha, mẹ kế và em khác mẹ trong ngôi làng nhỏ xác xơ Shadbagh, nơi đói nghèo và mùa đông khắc nghiệt luôn chực chờ cướp đi sinh mệnh lũ trẻ. Abdullah yêu thương em vô ngần, còn với Pari, anh trai chẳng khác gì người cha, chăm lo cho nó từng bữa ăn, giấc ngủ. Mùa thu năm ấy hai anh em theo cha băng qua sa mạc tới thành Kabul náo nhiệt, không mảy may hay biết số phận nào đang chờ đón phía trước: một cuộc chia ly sẽ mãi đè nặng lên Abdullah và để lại nỗi trống trải mơ hồ không thể lấp đầy trong tâm hồn Pari…</p><p>Từ một sự kiện duy nhất đó, câu chuyện mở ra nhiều ngã rẽ phức tạp, qua các thế hệ, vượt đại dương, đưa chúng ta từ Kabul tới Paris, từ San Francisco tới hòn đảo Tinos xinh đẹp của Hy Lạp. Với sự uyên thâm, chiều sâu và lòng trắc ẩn, Khaled Hosseini đã viết nên những áng văn tuyệt đẹp về mối dây gắn kết định hình nên con người cũng như cuộc đời, về những quyết định tưởng chừng nhỏ nhoi mà vang vọng qua hàng thế kỷ.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247604"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Khaled Hosseini"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Tất An"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "530"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "512"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "530"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Và Rồi Núi Vọng Afghanistan, mùa thu năm 1952. Abdullah và Pari sống cùng cha, mẹ kế và em khác mẹ trong ngôi làng nhỏ xác xơ Shadbagh, nơi đói nghèo và mùa đông khắc nghiệt luôn chực chờ cướp đi sinh mệnh lũ trẻ. Abd..."
+}

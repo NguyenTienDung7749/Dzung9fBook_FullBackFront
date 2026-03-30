@@ -1,0 +1,89 @@
+{
+  "id": 1070317898,
+  "sourceProductId": 1070317898,
+  "handle": "khoa-hoc-cap-toc-ve-ai-danh-cho-chu-doanh-nghiep-tuong-lai",
+  "sourceUrl": "https://www.vinabook.com/products/khoa-hoc-cap-toc-ve-ai-danh-cho-chu-doanh-nghiep-tuong-lai",
+  "title": "Khóa Học Cấp Tốc Về AI - Dành Cho Chủ Doanh Nghiệp Tương Lai",
+  "author": "Peter Verster",
+  "publisher": "AZ",
+  "year": "2025",
+  "sku": "8935325031076",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "192",
+  "weight": "210",
+  "size": "19 x 13 x 0.9 cm",
+  "price": 119000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tin-hoc",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tin-hoc/khoa-hoc-cap-toc-ve-ai-danh-cho-chu-doanh-nghiep-tuong-lai/01.png",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tin-hoc/khoa-hoc-cap-toc-ve-ai-danh-cho-chu-doanh-nghiep-tuong-lai/01.png",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tin-hoc/khoa-hoc-cap-toc-ve-ai-danh-cho-chu-doanh-nghiep-tuong-lai/02.png"
+  ],
+  "description": "Trí tuệ nhân tạo giờ đây đã tác động đến hầu hết mọi khía cạnh đời sống: từ cách làm việc, hoạch định chiến lược kinh doanh, đến từng quyết định cá nhân. Khóa học cấp tốc về AI dành cho chủ doanh nghiệp tương lai là c...",
+  "descriptionHtml": "<p>Trí tuệ nhân tạo giờ đây đã tác động đến hầu hết mọi khía cạnh đời sống: từ cách làm việc, hoạch định chiến lược kinh doanh, đến từng quyết định cá nhân. Khóa học cấp tốc về AI dành cho chủ doanh nghiệp tương lai là cuốn cẩm nang dành cho các nhà lãnh đạo đã nhận thức được vai trò của AI nhưng chưa biết cách bắt đầu hoặc triển khai ứng dụng AI trong doanh nghiệp. Với những chiến lược thiết thực, ví dụ điển hình trên toàn cầu và lộ trình hành động rõ ràng, bạn hoàn toàn có thể nhanh chóng tìm hiểu và áp dụng ngay vào thực tế. Hãy sẵn sàng bước vào kỷ nguyên số và biến AI thành trợ thủ đắc lực để: Tối ưu quy trình - Thấu hiểu khách hàng - Bứt phá doanh thu.</p><p>Bạn sẽ bắt đầu hôm nay, hay để đối thủ đi trước?</p><p>Về tác giả:</p><p>Peter Verster là một diễn giả, nhà lãnh đạo doanh nghiệp, chuyên gia hàng đầu trong lĩnh vực trí tuệ nhân tạo. Ông có hơn 20 năm kinh nghiệm làm việc tại các công ty và tập đoàn toàn cầu như Microsoft, Adidas, Tesco và AstraZeneca.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325031076"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Peter Verster"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Phan Quốc Dũng"
+    },
+    {
+      "label": "NXB",
+      "value": "Công Thương"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "210"
+    },
+    {
+      "label": "Kích thước",
+      "value": "19 x 13 x 0.9 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "192"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "210"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tin-hoc",
+  "subcategoryLabel": "Tin Học",
+  "descriptionText": "Trí tuệ nhân tạo giờ đây đã tác động đến hầu hết mọi khía cạnh đời sống: từ cách làm việc, hoạch định chiến lược kinh doanh, đến từng quyết định cá nhân. Khóa học cấp tốc về AI dành cho chủ doanh nghiệp tương lai là c..."
+}

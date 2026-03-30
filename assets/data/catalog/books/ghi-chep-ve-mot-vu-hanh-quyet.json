@@ -1,0 +1,88 @@
+{
+  "id": 1073034273,
+  "sourceProductId": 1073034273,
+  "handle": "ghi-chep-ve-mot-vu-hanh-quyet",
+  "sourceUrl": "https://www.vinabook.com/products/ghi-chep-ve-mot-vu-hanh-quyet",
+  "title": "Ghi Chép Về Một Vụ Hành Quyết",
+  "author": "Danya Kukafka",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247024",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "380",
+  "weight": "500",
+  "size": "24 x 15.5 x 1.9 cm",
+  "price": 229000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/ghi-chep-ve-mot-vu-hanh-quyet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/ghi-chep-ve-mot-vu-hanh-quyet/01.jpg"
+  ],
+  "description": "Ansel Packer chỉ còn mười hai tiếng nữa là sẽ bị tử hình. Trong khoảng thời gian đếm ngược ngắn ngủi ấy, quá khứ của gã tử tù dần được hé lộ thông qua lời kể của những người phụ nữ: một người mẹ trẻ tuổi bị dồn ép đến...",
+  "descriptionHtml": "<p>Ansel Packer chỉ còn mười hai tiếng nữa là sẽ bị tử hình.</p><p>Trong khoảng thời gian đếm ngược ngắn ngủi ấy, quá khứ của gã tử tù dần được hé lộ thông qua lời kể của những người phụ nữ: một người mẹ trẻ tuổi bị dồn ép đến đường cùng, một người em mất đi chị gái song sinh của mình, một điều tra viên từng cùng Ansel lớn lên ở trại trẻ mồ côi.</p><p>Khi bức tranh của quá khứ và hiện tại chồng lên nhau, khi từng lời kể đan xen vào nhau tạo thành một bản hòa tấu đầy não nề và day dứt, hàng loạt câu hỏi phức tạp và đa chiều được đặt ra: Quái vật được sinh ra từ những con quái vật khác, hay đó là bản chất cố hữu của chúng? Liệu có ai hoàn toàn tốt hoặc hoàn toàn xấu, hay chúng ta chỉ đang chơi vơi trong một vùng xám mập mờ giữa hai thái cực đó?</p><p>Trong những giây phút cuối cùng của cuộc đời, Ansel bắt đầu nghĩ về những thế giới song song khác, nơi mà hắn đã có những lựa chọn khác, và những cô gái kia vẫn đang tận hưởng một cuộc đời bình thường và đáng sống.</p><p>Cuốn sách đã đoạt giải thưởng Edgar danh giá dành cho tiểu thuyết hay nhất năm 2023, cùng nhiều giải thưởng quan trọng khác.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247024"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "07/02/2026"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Danya Kukafka"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Kuro"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 15.5 x 1.9 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "380"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Ansel Packer chỉ còn mười hai tiếng nữa là sẽ bị tử hình. Trong khoảng thời gian đếm ngược ngắn ngủi ấy, quá khứ của gã tử tù dần được hé lộ thông qua lời kể của những người phụ nữ: một người mẹ trẻ tuổi bị dồn ép đến..."
+}

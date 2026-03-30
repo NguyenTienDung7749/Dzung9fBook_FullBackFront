@@ -1,0 +1,84 @@
+{
+  "id": 1065140027,
+  "sourceProductId": 1065140027,
+  "handle": "bon-mua-thuong-em",
+  "sourceUrl": "https://www.vinabook.com/products/bon-mua-thuong-em",
+  "title": "Bốn Mùa Thương Em",
+  "author": "Trxx & Phàm",
+  "publisher": "Skybooks",
+  "year": "2025",
+  "sku": "8935325026850",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "160",
+  "weight": "180",
+  "size": "17 x 12 x 0.8 cm",
+  "price": 89000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "truyen-ngan",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/truyen-ngan/bon-mua-thuong-em/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/truyen-ngan/bon-mua-thuong-em/01.jpg"
+  ],
+  "description": "Thương bóng hình của một cô gái từng vùng vẫy ở thành phố chật chội. Thương cả những chuyến xe dài trở về nhà với đầy ắp tiếng lòng. Thương cả con đường sau mưa mùa hạ, những đêm dài thức trắng cô đơn ở lòng thành phố...",
+  "descriptionHtml": "<p>Thương bóng hình của một cô gái từng vùng vẫy ở thành phố chật chội.</p><p>Thương cả những chuyến xe dài trở về nhà với đầy ắp tiếng lòng.</p><p>Thương cả con đường sau mưa mùa hạ, những đêm dài thức trắng cô đơn ở lòng thành phố.</p><p>Thương một thanh xuân rực rỡ, nơi có những đam mê cháy bỏng, những người bạn, và cả người mình từng thương. Và thương cả em - cô gái nhỏ vẫn đang hàng ngày dùng trái tim lương thiện để đối diện với một thế giới vốn đầy giông bão.</p><p>“Bốn mùa thương em” là cuốn tản văn về hành trình đi tìm lại hạnh phúc từ những điều bình dị nhất. Dưới sự kết hợp đầy duyên dáng của hai tác giả trẻ Trxx và Phàm, hạnh phúc được mở ra như một cơn gió, không thể nhìn thấy được, cũng không tồn tại mãi mãi được, chỉ có thể cảm nhận trong chốc lát. Hạnh phúc có thể đến từ bất kỳ đâu cả vào những lúc ta không ngờ nhất, chỉ mong rằng, khi nhận ra, ta đủ trân trọng và giữ gìn.</p><p>Như cơn gió xuân nhẹ nhàng, như sức sống mùa hạ, như bầu trời xanh dịu mùa thu và như cái đan tay ấm áp giữa trời đông, “Bốn mùa thương em” sẽ ở bên bạn, thì thầm rằng mỗi ngày trôi qua, ngày nào với bạn cũng là ngày đẹp trời. Và hãy luôn là chính mình, chân thành yêu thương và tự do đón nhận những điều tươi đẹp:</p><p>“Có mùa xuân vẫn ươm tình trong em</p><p>Ôm ngày hè vấn vương đầy nỗi nhớ</p><p>Nhẹ nhàng thu, lắng nghe mình,</p><p>cùng thở</p><p>Thương mùa đông, dịu dàng với cô đơn</p><p>Chở che ta, muôn vàn những tủi hờn</p><p>Dù ai có ra đi</p><p>thì ngoài kia vẫn sống</p><p>chim vẫn hát</p><p>hoa vẫn nở,</p><p>bốn mùa</p><p>vẫn</p><p>yêu em.”</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325026850"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Skybooks"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Trxx & Phàm"
+    },
+    {
+      "label": "NXB",
+      "value": "Dân Trí"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "180"
+    },
+    {
+      "label": "Kích thước",
+      "value": "17 x 12 x 0.8 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "160"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Skybooks"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "180"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "truyen-ngan",
+  "subcategoryLabel": "Truyện Ngắn",
+  "descriptionText": "Thương bóng hình của một cô gái từng vùng vẫy ở thành phố chật chội. Thương cả những chuyến xe dài trở về nhà với đầy ắp tiếng lòng. Thương cả con đường sau mưa mùa hạ, những đêm dài thức trắng cô đơn ở lòng thành phố..."
+}

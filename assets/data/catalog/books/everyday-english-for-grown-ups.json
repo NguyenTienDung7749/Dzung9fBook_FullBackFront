@@ -1,0 +1,91 @@
+{
+  "id": 1055666159,
+  "sourceProductId": 1055666159,
+  "handle": "everyday-english-for-grown-ups",
+  "sourceUrl": "https://www.vinabook.com/products/everyday-english-for-grown-ups",
+  "title": "Everyday English For Grown-Ups",
+  "author": "Michelle Finlay",
+  "publisher": "AZ Việt Nam",
+  "year": "2023",
+  "sku": "8935325009877",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "232",
+  "weight": "250",
+  "size": "19 x 13 cm",
+  "price": 109000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "sach-ngoai-ngu",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/everyday-english-for-grown-ups/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/everyday-english-for-grown-ups/01.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/everyday-english-for-grown-ups/02.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/everyday-english-for-grown-ups/03.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/everyday-english-for-grown-ups/04.jpg"
+  ],
+  "description": "Everyday English For Grown-ups - Tự Học Tiếng Anh Cho Người Bận Rộn Bạn đăng bức hình ngôi nhà đẹp lộng lẫy để chia sẻ về cuộc sống sung túc của mình trên mạng xã hội nhưng dòng trạng thái lại là: “It’s is my life.” M...",
+  "descriptionHtml": "<p>Everyday English For Grown-ups - Tự Học Tiếng Anh Cho Người Bận Rộn</p><p>Bạn đăng bức hình ngôi nhà đẹp lộng lẫy để chia sẻ về cuộc sống sung túc của mình trên mạng xã hội nhưng dòng trạng thái lại là: “It’s is my life.”</p><p>Mọi nỗ lực diễn đạt đều trở nên vô nghĩa một khi đã SAI NGỮ PHÁP. Vậy chẳng lẽ mỗi khi cần dùng đến tiếng Anh, bạn phải kè kè vài cuốn sách dày cộp bên cạnh hay sao?</p><p>Câu trả lời là: Không, vì bạn đã có Everyday English for grown-ups. Một cuốnsáchđủ NHỎ để mang đi muôn nơi; hệ thống những kiến thức CƠ BẢN giúp bạn sử dụng ĐÚNG trong nhiều ngữ cảnh và quan trọng nhất là: Một cách học HIỆU QUẢ với thời gian EO HẸP.</p><p>Bắt đầu từ bảng chữ cái, cuốn sách sẽ từng bước khám phá từ những yếu tố cơ bản của tiếng Anh viết và nói – chính tả, trật tự từ, dấu câu, từ loại – cho đến ngữ điệu, những sai lầm cần tránh và bí quyết để đảm bảo tính mạch lạc và thậm chí là tính thanh lịch.</p><p>Hãy luyện tập mỗi ngày và bạn sẽ tránh được những lỗi sai “dở khóc dở cười” khi sử dụng thứ ngôn ngữ toàn cầu này, bạn nhé!</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325009877"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Michelle Finlay"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Xanh Va"
+    },
+    {
+      "label": "NXB",
+      "value": "Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2023"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "250"
+    },
+    {
+      "label": "Kích thước",
+      "value": "19 x 13 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "232"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "250"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "sach-ngoai-ngu",
+  "subcategoryLabel": "Sách Ngoại Ngữ",
+  "descriptionText": "Everyday English For Grown-ups - Tự Học Tiếng Anh Cho Người Bận Rộn Bạn đăng bức hình ngôi nhà đẹp lộng lẫy để chia sẻ về cuộc sống sung túc của mình trên mạng xã hội nhưng dòng trạng thái lại là: “It’s is my life.” M..."
+}

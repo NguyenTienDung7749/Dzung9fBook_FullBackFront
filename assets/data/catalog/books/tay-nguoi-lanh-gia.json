@@ -1,0 +1,92 @@
+{
+  "id": 1072433901,
+  "sourceProductId": 1072433901,
+  "handle": "tay-nguoi-lanh-gia",
+  "sourceUrl": "https://www.vinabook.com/products/tay-nguoi-lanh-gia",
+  "title": "Tay Người Lạnh Giá",
+  "author": "Han Kang",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235246065",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "404",
+  "weight": "500",
+  "size": "20.5 x 14 x 2 cm",
+  "price": 195000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/tay-nguoi-lanh-gia/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/tay-nguoi-lanh-gia/01.jpg"
+  ],
+  "description": "“Cuộc đời như một lớp vỏ bọc chênh vênh trên miệng vực sâu, và chúng ta sống trên đó như những diễn viên xiếc đeo mặt nạ.” Nhà điêu khắc Jang Un Hyeong đột nhiên biến mất. Để lại phía sau những khuôn thạch cao mê hoặc...",
+  "descriptionHtml": "<p>“Cuộc đời như một lớp vỏ bọc chênh vênh trên miệng vực sâu, và chúng ta sống trên đó như những diễn viên xiếc đeo mặt nạ.”</p><p>Nhà điêu khắc Jang Un Hyeong đột nhiên biến mất. Để lại phía sau những khuôn thạch cao mê hoặc: những bàn tay, những cơ thể, những gương mặt người... Cùng với đó, là một cuốn nhật ký đầy rung cảm, ghi lại hành trình cả đời anh đi tìm sự kết nối và sự thật trong một thế giới đầy vỏ bọc và những chiếc mặt nạ.</p><p>Những tác phẩm thời kỳ đầu của Han Kang đánh dấu giai đoạn nhà văn kiên trì khám phá cơ thể con người như một không gian chứa đựng cả tổn thương lẫn khát vọng. Bạo lực và vẻ đẹp, câm lặng và khao khát, vật chất và ẩn dụ... quyện vào nhau trong một thực tại lạnh lẽo, như chính cái tên Tay người lạnh giá .</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235246065"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "10/01/2026"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Han Kang"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Hồng Hà"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "404"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "“Cuộc đời như một lớp vỏ bọc chênh vênh trên miệng vực sâu, và chúng ta sống trên đó như những diễn viên xiếc đeo mặt nạ.” Nhà điêu khắc Jang Un Hyeong đột nhiên biến mất. Để lại phía sau những khuôn thạch cao mê hoặc..."
+}

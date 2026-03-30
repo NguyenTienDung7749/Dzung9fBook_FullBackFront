@@ -1,0 +1,70 @@
+{
+  "id": 1062829576,
+  "sourceProductId": 1062829576,
+  "handle": "chim-trang-sa-vao-rung-tham",
+  "sourceUrl": "https://www.vinabook.com/products/chim-trang-sa-vao-rung-tham",
+  "title": "Chim Trắng Sa Vào Rừng Thẳm",
+  "author": "",
+  "publisher": "AZ Việt Nam",
+  "year": "2024",
+  "sku": "8935325025624",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "Bối Khách Bang",
+  "weight": "240",
+  "size": "",
+  "price": 205000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chim-trang-sa-vao-rung-tham/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chim-trang-sa-vao-rung-tham/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chim-trang-sa-vao-rung-tham/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chim-trang-sa-vao-rung-tham/03.jpg"
+  ],
+  "description": "GIỚI THIỆU SÁCH Lý Mộng Huy đang tham gia quay một bộ phim tài liệu, nhưng suốt quá trình, đoàn phim chỉ có ba thành viên lại gặp vô vàn vấn đề oái oăm, thậm chí họ còn không đủ kinh phí để ở khách sạn… Đáng lẽ họ phả...",
+  "descriptionHtml": "<p>GIỚI THIỆU SÁCH</p><p>Lý Mộng Huy đang tham gia quay một bộ phim tài liệu, nhưng suốt quá trình, đoàn phim chỉ có ba thành viên lại gặp vô vàn vấn đề oái oăm, thậm chí họ còn không đủ kinh phí để ở khách sạn…</p><p>Đáng lẽ họ phải lần theo vụ án một bé gái mất tích bí ẩn cách đây chin năm, thế rồi lại vô tình vướng phải án mạng còn kỳ quái hơn.</p><p>Khi họ tưởng rằng mình đang ngày càng rời xa mục đích ban đều thì đồ đạc của bé gái mất tích năm xưa lại bất ngờ xuất hiện trong vụ án mới.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325025624"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "240"
+    },
+    {
+      "label": "Số trang",
+      "value": "Bối Khách Bang"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "240"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "GIỚI THIỆU SÁCH Lý Mộng Huy đang tham gia quay một bộ phim tài liệu, nhưng suốt quá trình, đoàn phim chỉ có ba thành viên lại gặp vô vàn vấn đề oái oăm, thậm chí họ còn không đủ kinh phí để ở khách sạn… Đáng lẽ họ phả..."
+}

@@ -1,0 +1,88 @@
+{
+  "id": 1071537960,
+  "sourceProductId": 1071537960,
+  "handle": "vui-duoc-ngay-nao-hay-ngay-nay",
+  "sourceUrl": "https://www.vinabook.com/products/vui-duoc-ngay-nao-hay-ngay-nay",
+  "title": "Vui Được Ngày Nào Hay Ngày Nấy",
+  "author": "Tiểu Lam Và Những Người Bạn",
+  "publisher": "AZ",
+  "year": "2025",
+  "sku": "8935325032158",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "256",
+  "weight": "270",
+  "size": "20.5 x 14.5 x 1.2 cm",
+  "price": 195000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/vui-duoc-ngay-nao-hay-ngay-nay/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/vui-duoc-ngay-nao-hay-ngay-nay/01.jpg"
+  ],
+  "description": "Cuốn truyện tranh nạp năng lượng tích cực cho mình mỗi ngày! Nếu bạn đang tìm một cuốn sách khiến mình vừa đọc vừa bật cười như đang tám chuyện cùng hội bạn thân, thì “VUI ĐƯỢC NGÀY NÀO HAY NGÀY NẤY” chính là lựa chọn...",
+  "descriptionHtml": "<p>Cuốn truyện tranh nạp năng lượng tích cực cho mình mỗi ngày!</p><p>Nếu bạn đang tìm một cuốn sách khiến mình vừa đọc vừa bật cười như đang tám chuyện cùng hội bạn thân, thì “VUI ĐƯỢC NGÀY NÀO HAY NGÀY NẤY” chính là lựa chọn hoàn hảo.</p><p>Tác giả Tiểu Lam và những người bạn - người đứng sau loạt truyện tranh xinh xắn, hài hước và cực kỳ “bắt trúng tim đen” độc giả lại tiếp tục mang đến tuyển tập những mẩu chuyện ngắn đầy dí dỏm về cuộc sống thường ngày. Từ việc vì sao phải uống nhiều nước, nếu không dọn rác mỗi ngày sẽ ra sao, cho đến nỗi khổ muôn thuở mang tên “bán mình cho tư bản”, tất cả đều được kể lại bằng nét vẽ tinh nghịch và giọng kể duyên dáng đặc trưng.</p><p>Điều tuyệt nhất trong cuốn sách này là tác giả đã biến mọi thứ tưởng chừng khô khan – kể cả kiến thức khoa học – thành câu chuyện siêu dễ hiểu, vừa đáng yêu vừa sâu sắc. Mỗi trang truyện như một liều vitamin vui vẻ, khiến người đọc mỉm cười nhẹ nhõm giữa guồng quay bận rộn.</p><p>“Vui được ngày nào hay ngày nấy” không chỉ là cuốn truyện để giải trí, mà còn là lời nhắc nhỏ: Cuộc sống có thể mệt, nhưng niềm vui vẫn luôn ở quanh ta, chỉ cần ta chọn mỉm cười.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325032158"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Tiểu Lam Và Những Người Bạn"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Fang Fang"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "270"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 1.2 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "256"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "270"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Cuốn truyện tranh nạp năng lượng tích cực cho mình mỗi ngày! Nếu bạn đang tìm một cuốn sách khiến mình vừa đọc vừa bật cười như đang tám chuyện cùng hội bạn thân, thì “VUI ĐƯỢC NGÀY NÀO HAY NGÀY NẤY” chính là lựa chọn..."
+}

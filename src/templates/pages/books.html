@@ -1,0 +1,41 @@
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="books-catalog">
+        <aside class="books-catalog__sidebar" data-books-category-nav></aside>
+
+        <div class="books-catalog__content">
+          <div class="shop-toolbar">
+            <div class="shop-toolbar__intro">
+              <p class="section-label">Tìm theo cách của bạn</p>
+              <h1 class="section-title" data-books-heading>Danh mục được sắp gọn để bạn đi từ chủ đề chung đến từng nhánh sách cụ thể.</h1>
+              <p class="section-text" data-books-heading-description>Khám phá nhanh theo cách một collection page bán sách nên có: rõ nhánh, gọn thao tác và dễ lướt nhiều bìa cùng lúc.</p>
+            </div>
+
+            <div class="shop-toolbar__controls">
+              <label class="toolbar-field">
+                <span>Tìm kiếm sách</span>
+                <input type="search" placeholder="Nhập tên sách hoặc tác giả" data-books-search>
+              </label>
+
+              <label class="toolbar-field toolbar-field--sort">
+                <span class="sr-only">Sắp xếp danh sách sách</span>
+                <select data-books-sort aria-label="Sắp xếp danh sách sách">
+                  <option value="featured">Mặc định</option>
+                  <option value="title-asc">Tên: A-Z</option>
+                  <option value="title-desc">Tên: Z-A</option>
+                  <option value="price-asc">Giá: Tăng dần</option>
+                  <option value="price-desc">Giá: Giảm dần</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <p class="books-summary" data-books-summary></p>
+          <div class="books-grid grid-list" data-books-list></div>
+          <nav class="catalog-pagination" aria-label="Phân trang sách" data-books-pagination hidden></nav>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

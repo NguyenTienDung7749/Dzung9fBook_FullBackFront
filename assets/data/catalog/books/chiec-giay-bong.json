@@ -1,0 +1,68 @@
+{
+  "id": 1070568845,
+  "sourceProductId": 1070568845,
+  "handle": "chiec-giay-bong",
+  "sourceUrl": "https://www.vinabook.com/products/chiec-giay-bong",
+  "title": "Chiếc Giày Bông",
+  "author": "Du Dương",
+  "publisher": "Du Bút",
+  "year": "2025",
+  "sku": "9786046863519",
+  "bookType": "Bìa mềm",
+  "language": "",
+  "pages": "",
+  "weight": "192",
+  "size": "",
+  "price": 118000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/chiec-giay-bong/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/chiec-giay-bong/01.jpg"
+  ],
+  "description": "Bông là con gái của một gia đình có truyền thống làm giày da lâu đời. Cô lớn lên trong gia cảnh thiếu thốn - cho đến một ngày, vào sinh nhật 18 tuổi, Bông vô tình giải thoát cho cô tiên đỡ đầu của mình vốn bấy lâu bị...",
+  "descriptionHtml": "<p>Bông là con gái của một gia đình có truyền thống làm giày da lâu đời. Cô lớn lên trong gia cảnh thiếu thốn - cho đến một ngày, vào sinh nhật 18 tuổi, Bông vô tình giải thoát cho cô tiên đỡ đầu của mình vốn bấy lâu bị mắc kẹt trong một chiếc giày cũ trên gác xép. Được ban cho ba điều ước, cô nhóc lập tức vạch ra một kế hoạch táo bạo nhằm thay đổi số phận của mình. Nhưng rồi những ước mộng bỗng chốc biến thành cơn ác mộng mà Bông không thể ngờ.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786046863519"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Du Dương"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "192"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "192"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Bông là con gái của một gia đình có truyền thống làm giày da lâu đời. Cô lớn lên trong gia cảnh thiếu thốn - cho đến một ngày, vào sinh nhật 18 tuổi, Bông vô tình giải thoát cho cô tiên đỡ đầu của mình vốn bấy lâu bị..."
+}

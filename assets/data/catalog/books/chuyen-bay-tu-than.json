@@ -1,0 +1,84 @@
+{
+  "id": 1070345947,
+  "sourceProductId": 1070345947,
+  "handle": "chuyen-bay-tu-than",
+  "sourceUrl": "https://www.vinabook.com/products/chuyen-bay-tu-than",
+  "title": "Chuyến Bay Tử Thần",
+  "author": "Michel Bussi",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235245778",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "520",
+  "weight": "600",
+  "size": "",
+  "price": 265000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chuyen-bay-tu-than/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/chuyen-bay-tu-than/01.jpg"
+  ],
+  "description": "Ngày 23 tháng 12 năm 1980, một chiếc máy bay rơi giữa vùng núi tuyết Jura. Tất cả hành khách đều thiệt mạng, trừ một bé gái ba tháng tuổi được truyền thông đặt cho biệt danh “Chuồn chuồn”. Nhưng em là ai? Con của ai?...",
+  "descriptionHtml": "<p>Ngày 23 tháng 12 năm 1980, một chiếc máy bay rơi giữa vùng núi tuyết Jura. Tất cả hành khách đều thiệt mạng, trừ một bé gái ba tháng tuổi được truyền thông đặt cho biệt danh “Chuồn chuồn”. Nhưng em là ai? Con của ai? Và tại sao lại sống sót? Mười tám năm sau, khi sự thật tưởng chừng đã bị chôn vùi, một thám tử tư đột ngột bị sát hại, để lại một cuốn sổ ghi chép kỳ lạ. Từ Paris đến Dieppe, từ dãy Jura đến tận Istanbul, những trang sổ ấy mở ra một hành trình nghẹt thở, nơi từng chi tiết nhỏ nhặt đều có thể đảo ngược toàn bộ số phận. Một lần nữa, Michel Bussi – bậc thầy của những cú twist – đưa bạn vào mê cung của nghi ngờ, dối trá và những bí mật tưởng đã bị lãng quên.</p><p>Kích Thước Bao Bì 24 x 15.5 x 2.6 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235245778"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "04/10/2025"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Michel Bussi"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Nguyễn Thị Tươi"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "600"
+    },
+    {
+      "label": "Số trang",
+      "value": "520"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "600"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Ngày 23 tháng 12 năm 1980, một chiếc máy bay rơi giữa vùng núi tuyết Jura. Tất cả hành khách đều thiệt mạng, trừ một bé gái ba tháng tuổi được truyền thông đặt cho biệt danh “Chuồn chuồn”. Nhưng em là ai? Con của ai?..."
+}

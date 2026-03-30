@@ -1,0 +1,84 @@
+{
+  "id": 1073051924,
+  "sourceProductId": 1073051924,
+  "handle": "nguoi-tot-lau-tren",
+  "sourceUrl": "https://www.vinabook.com/products/nguoi-tot-lau-tren",
+  "title": "Người Tốt Lầu Trên",
+  "author": "Kevin Chen",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247567",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "487",
+  "weight": "400",
+  "size": "20.5 x 14 x 2.4 cm",
+  "price": 210000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/nguoi-tot-lau-tren/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/nguoi-tot-lau-tren/01.jpg"
+  ],
+  "description": "Sau khi bị những kẻ áo đen đe dọa, người chị cả từ thị trấn nhỏ Viên Lâm của đảo Đài Loan bay đến Berlin xa xôi để tá túc nhà em trai út hiếm khi liên lạc. Tại đây, trong cái nóng ngột ngạt của mùa hè, giữa âm thanh c...",
+  "descriptionHtml": "<p>Sau khi bị những kẻ áo đen đe dọa, người chị cả từ thị trấn nhỏ Viên Lâm của đảo Đài Loan bay đến Berlin xa xôi để tá túc nhà em trai út hiếm khi liên lạc. Tại đây, trong cái nóng ngột ngạt của mùa hè, giữa âm thanh chói gắt của thứ tiếng Đức xa lạ muốn khoan thủng lỗ tai, cô lại tìm thấy ký ức tuổi thơ từ mùi mì tôm quê nhà ăn nơi xứ người, từ cuốn sổ ghi chép của mẹ về những người khách năm xưa. Những vị khách lên lầu trên có thực sự là những người tốt? Câu chuyện đan cài vô số ẩn dụ đầy chất thơ nhưng cũng không kém phần hài hước, độc đáo, cuốn người đọc vào dòng chảy ngôn từ bất tận, chứng kiến nỗi thống khổ tận cùng và tình yêu thương, lòng tốt phía sau những bi kịch khủng khiếp.</p><p>Người tốt lầu trên nằm trong &quot;chùm tác phẩm Chương Hóa&quot; của Kevin Chen, ra mắt tại Việt Nam sau Vùng đất quỷ tha ma bắt, vinh dự đoạt giải thưởng văn học Kim Điển của Đài Loan năm 2022.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247567"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Kevin Chen"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Nguyễn Vinh Chi"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2.4 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "487"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Sau khi bị những kẻ áo đen đe dọa, người chị cả từ thị trấn nhỏ Viên Lâm của đảo Đài Loan bay đến Berlin xa xôi để tá túc nhà em trai út hiếm khi liên lạc. Tại đây, trong cái nóng ngột ngạt của mùa hè, giữa âm thanh c..."
+}

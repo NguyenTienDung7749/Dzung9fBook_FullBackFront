@@ -1,0 +1,80 @@
+{
+  "id": 1055484584,
+  "sourceProductId": 1055484584,
+  "handle": "hon-don-va-khu-vuon",
+  "sourceUrl": "https://www.vinabook.com/products/hon-don-va-khu-vuon",
+  "title": "Hỗn Độn Và Khu Vườn",
+  "author": "Nguyễn Vĩnh Tiến",
+  "publisher": "Nhã Nam",
+  "year": "2024",
+  "sku": "8935235241794",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "268",
+  "weight": "400",
+  "size": "",
+  "price": 168000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tho-ca",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/04.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tho-ca/hon-don-va-khu-vuon/05.jpg"
+  ],
+  "description": "“Phép cộng thì sướng Phép trừ thì đau Phép nhân thì của phép màu Phép chia thì của chuyến tàu rời ga Đời là cõi tạm thôi mà Uống canh Mạnh Bà thì hết cửu chương Buồn buồn nhớ nhớ thương thương Cả ba cộng lại bằng buôn...",
+  "descriptionHtml": "<p>“Phép cộng thì sướng</p><p>Phép trừ thì đau</p><p>Phép nhân thì của phép màu</p><p>Phép chia thì của chuyến tàu rời ga</p><p>Đời là cõi tạm thôi mà</p><p>Uống canh Mạnh Bà thì hết cửu chương</p><p>Buồn buồn nhớ nhớ thương thương</p><p>Cả ba cộng lại bằng buông tay thiền</p><p>Tỉnh tỉnh cộng với điên điên</p><p>Bằng anh hùng mất thuyền quyên rã rời…”</p><p>“Nguyễn Vĩnh Tiến đến với thơ từ năm tám tuổi, và hoạt động trên nhiều lĩnh vực: kiến trúc – văn chương – âm nhạc, với một sức viết mạnh mẽ rất mực, tài hoa rất mực.</p><p>Đó là người của những chuyến viễn du, nhưng lại không bao giờ quên mang theo chiếc vali nặng chứa đầy đủ cả bóng quê nhà, cả mùi xứ sỏ.</p><p>Đọc Nguyễn Vĩnh Tiên, nghe Nguyễn Vĩnh Tiến, ta dễ dàng trông thấy hồn thơ ngập tràn thành lũ, thành song. Thấy chữ xếp thành đường làng. Thấy hồn thơ vững vàng đứng lẫn vào bóng núi, bóng trung du.”</p><ul><li>Nhà thơ Nguyễn Đăng Khoa</li></ul><p>Kích Thước Bao Bì 24 x 15.5 x 1.3 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235241794"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Vĩnh Tiến"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Số trang",
+      "value": "268"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tho-ca",
+  "subcategoryLabel": "Thơ Ca",
+  "descriptionText": "“Phép cộng thì sướng Phép trừ thì đau Phép nhân thì của phép màu Phép chia thì của chuyến tàu rời ga Đời là cõi tạm thôi mà Uống canh Mạnh Bà thì hết cửu chương Buồn buồn nhớ nhớ thương thương Cả ba cộng lại bằng buôn..."
+}

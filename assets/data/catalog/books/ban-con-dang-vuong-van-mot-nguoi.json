@@ -1,0 +1,69 @@
+{
+  "id": 1071850331,
+  "sourceProductId": 1071850331,
+  "handle": "ban-con-dang-vuong-van-mot-nguoi",
+  "sourceUrl": "https://www.vinabook.com/products/ban-con-dang-vuong-van-mot-nguoi",
+  "title": "Bạn Còn Đang Vương Vấn Một Người?",
+  "author": "Ilse Sand",
+  "publisher": "AZ Việt Nam",
+  "year": "2025",
+  "sku": "8935325032813",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "",
+  "weight": "400",
+  "size": "",
+  "price": 105000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "tam-ly-ky-nang-song",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/ban-con-dang-vuong-van-mot-nguoi/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/ban-con-dang-vuong-van-mot-nguoi/01.jpg",
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/ban-con-dang-vuong-van-mot-nguoi/02.jpg"
+  ],
+  "description": "GIỚI THIỆU SÁCH Đứng trước một “mối quan hệ” đang dần rạn nứt, bạn chọn tiếp tục đấu tranh hay lặng lẽ buông tay? Những người từng có ý nghĩa với bạn, dù chỉ đi qua một đoạn đời ngắn ngủi vẫn để lại ấn tượng sâu trong...",
+  "descriptionHtml": "<p>GIỚI THIỆU SÁCH</p><p>Đứng trước một “mối quan hệ” đang dần rạn nứt, bạn chọn tiếp tục đấu tranh hay lặng lẽ buông tay?</p><p>Những người từng có ý nghĩa với bạn, dù chỉ đi qua một đoạn đời ngắn ngủi vẫn để lại ấn tượng sâu trong trái tim này. Chỉ cần bạn chịu lắng lại một chút, thử đặt thêm một bước chân về phía họ, biết đâu mọi thứ lại có thể nở hoa lần nữa, theo một cách dịu dàng và trưởng thành hơn.</p><p>Hoặc là bạn có thể lựa chọn nói lời tạm biệt. Một sự rời đi tử tế, để mối quan hệ ấy lại trong quá khứ bằng một cách đẹp đẽ nhất có thể.</p><p>Nhưng dù là tiếp tục hay dừng lại, điều quan trọng nhất vẫn là sự bình yên trong lòng mình.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325032813"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Ilse Sand"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "tam-ly-ky-nang-song",
+  "subcategoryLabel": "Tâm Lý - Kỹ Năng Sống",
+  "descriptionText": "GIỚI THIỆU SÁCH Đứng trước một “mối quan hệ” đang dần rạn nứt, bạn chọn tiếp tục đấu tranh hay lặng lẽ buông tay? Những người từng có ý nghĩa với bạn, dù chỉ đi qua một đoạn đời ngắn ngủi vẫn để lại ấn tượng sâu trong..."
+}

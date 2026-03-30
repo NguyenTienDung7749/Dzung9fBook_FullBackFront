@@ -1,0 +1,80 @@
+{
+  "id": 1070325356,
+  "sourceProductId": 1070325356,
+  "handle": "ho-nuoc-mua-xuan",
+  "sourceUrl": "https://www.vinabook.com/products/ho-nuoc-mua-xuan",
+  "title": "Hồ Nước Mùa Xuân",
+  "author": "Nguyễn Thị Minh Ngọc",
+  "publisher": "NXB Phụ Nữ",
+  "year": "2025",
+  "sku": "9786044908755",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "336",
+  "weight": "500",
+  "size": "20.5 x 14.5 x 1.6 cm",
+  "price": 230000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/ho-nuoc-mua-xuan/01.png",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/ho-nuoc-mua-xuan/01.png"
+  ],
+  "description": "“Hồ nước mùa xuân” là những câu chuyện được chắt lọc, viết về cuộc đời và thân phận của nhiều người phụ nữ mà theo giáo sư Nguyễn Văn Sâm, đó là “những con người từng bước qua sóng gió cuộc đời, có bầm giập đau thương...",
+  "descriptionHtml": "<p>“Hồ nước mùa xuân” là những câu chuyện được chắt lọc, viết về cuộc đời và thân phận của nhiều người phụ nữ mà theo giáo sư Nguyễn Văn Sâm, đó là “những con người từng bước qua sóng gió cuộc đời, có bầm giập đau thương trong cuộc sống từ quá khứ đến hiện tại, họ có chút ngang ngạnh, phản kháng trước những va chạm bất công và có cả sự chịu đựng trong tủi nhục”.</p><p>Khi lật giở “Hồ nước mùa xuân”, bạn đọc dễ dàng nhận ra nhân vật của Minh Ngọc là người nữ đương đại, từ gái mới lớn, người tình, người mẹ, người phiêu lưu, kẻ cao sang, đến người cùng khốn, người nô lệ, kẻ hy sinh… Mỗi truyện ngắn lấy nhân vật người nữ là trung tâm, mượn yếu tố gia cảnh, bối cảnh xã hội - thời đại để cảm nhận và bóc tách các lớp vỏ tâm lý của họ ở nhiều độ tuổi. Cũng từ điểm neo là các nhân vật nữ, tác giả khéo léo đặt để họ giữa vòng tròn tương quan của tập thể: gia đình, cha mẹ, anh chị em, người tình và xã hội, và rồi ta thấy được mối liên hệ của họ phản chiếu đến đời sống, và những biến chuyển của đời sống dao động “hồ nước cảm xúc” bên trong họ.</p><p>Ngoài những rung cảm với mỗi truyện ngắn, độc giả còn được thưởng thức 35 bức tranh sơn dầu nghệ thuật của họa sĩ Đinh Trường Chinh – con trai út của danh họa Đinh Cường. Các tác phẩm xoay quanh chủ đề nữ giới và những lát cắt tĩnh lặng của cuộc sống, tạo nên một sự kết hợp độc đáo giữa văn học và mỹ thuật đan xen, mang đến trải nghiệm mới mẻ và sâu lắng cho người đọc qua từng trang sách.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786044908755"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Phụ Nữ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Thị Minh Ngọc"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 1.6 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "336"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Phụ Nữ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "“Hồ nước mùa xuân” là những câu chuyện được chắt lọc, viết về cuộc đời và thân phận của nhiều người phụ nữ mà theo giáo sư Nguyễn Văn Sâm, đó là “những con người từng bước qua sóng gió cuộc đời, có bầm giập đau thương..."
+}

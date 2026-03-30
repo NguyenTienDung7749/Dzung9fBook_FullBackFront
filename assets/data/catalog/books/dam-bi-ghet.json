@@ -1,0 +1,88 @@
+{
+  "id": 1071941984,
+  "sourceProductId": 1071941984,
+  "handle": "dam-bi-ghet",
+  "sourceUrl": "https://www.vinabook.com/products/dam-bi-ghet",
+  "title": "Dám Bị Ghét",
+  "author": "Kishimi Ichiro, Koga Fumitake",
+  "publisher": "Nhã Nam",
+  "year": "2023",
+  "sku": "8935235239159",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "333",
+  "weight": "350",
+  "size": "20.5 x 14 x 1.6 cm",
+  "price": 119000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "tam-ly-ky-nang-song",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/dam-bi-ghet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/dam-bi-ghet/01.jpg"
+  ],
+  "description": "Các mối quan hệ xã hội thật mệt mỏi. Cuộc sống sao mà nhạt nhẽo và vô nghĩa. Bản thân mình xấu xí và kém cỏi. Quá khứ đầy buồn đau còn tương lai thì mờ mịt. Yêu cầu của người khác thật khắc nghiệt và phi lý. TẠI SAO B...",
+  "descriptionHtml": "<p>Các mối quan hệ xã hội thật mệt mỏi.</p><p>Cuộc sống sao mà nhạt nhẽo và vô nghĩa.</p><p>Bản thân mình xấu xí và kém cỏi.</p><p>Quá khứ đầy buồn đau còn tương lai thì mờ mịt.</p><p>Yêu cầu của người khác thật khắc nghiệt và phi lý.</p><p>TẠI SAO BẠN CỨ PHẢI SỐNG THEO KHUÔN MẪU NGƯỜI KHÁC ĐẶT RA?</p><p>Dưới hình thức một cuộc đối thoại giữa Chàng thanh niên và Triết gia, cuốn sách trình bày một cách sinh động và hấp dẫn những nét chính trong tư tưởng của nhà tâm lý học Alfred Adler, người được mệnh danh là một trong “ba người khổng lồ của tâm lý học hiện đại”, sánh ngang với Freud và Jung. Khác với Freud cho rằng quá khứ và hoàn cảnh là động lực làm nên con người ta của hiện tại, Adler chủ trương “cuộc đời ta là do ta lựa chọn”, và tâm lý học Adler được gọi là “tâm lý học của lòng can đảm”.</p><p>Bạn bất hạnh không phải do quá khứ và hoàn cảnh, càng không phải do thiếu năng lực. Bạn chỉ thiếu “can đảm” mà thôi. Nói một cách khác, bạn không đủ “can đảm để dám hạnh phúc”. [...] Bởi can đảm để dám hạnh phúc bao gồm cả “can đảm để dám bị ghét” nữa. [...] Chỉ khi dám bị người khác ghét bỏ, chúng ta mới có được tự do, có được hạnh phúc.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235239159"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Kishimi Ichiro, Koga Fumitake"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Nguyễn Thanh Vân"
+    },
+    {
+      "label": "NXB",
+      "value": "Dân Trí"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2023"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "350"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 1.6 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "333"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "350"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "tam-ly-ky-nang-song",
+  "subcategoryLabel": "Tâm Lý - Kỹ Năng Sống",
+  "descriptionText": "Các mối quan hệ xã hội thật mệt mỏi. Cuộc sống sao mà nhạt nhẽo và vô nghĩa. Bản thân mình xấu xí và kém cỏi. Quá khứ đầy buồn đau còn tương lai thì mờ mịt. Yêu cầu của người khác thật khắc nghiệt và phi lý. TẠI SAO B..."
+}

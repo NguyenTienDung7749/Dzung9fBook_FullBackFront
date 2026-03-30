@@ -1,0 +1,88 @@
+{
+  "id": 1069296840,
+  "sourceProductId": 1069296840,
+  "handle": "thuong-gui-the-gian",
+  "sourceUrl": "https://www.vinabook.com/products/thuong-gui-the-gian",
+  "title": "Thương Gửi Thế Gian",
+  "author": "Meia Geddes",
+  "publisher": "Skybooks",
+  "year": "2025",
+  "sku": "8935325029653",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "264",
+  "weight": "280",
+  "size": "20.5 x 13.5 x 1.3 cm",
+  "price": 125000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/thuong-gui-the-gian/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/thuong-gui-the-gian/01.jpg"
+  ],
+  "description": "“Thương gửi Thế gian - Love Letters to the World” của Meia Geddes là tuyển tập 120 lá tình thư - đôi khi không chỉ viết cho người ta thương nhất mà còn là những tâm sự, cảm xúc chân thật ta dành cho chính mình và cho...",
+  "descriptionHtml": "<p>“Thương gửi Thế gian - Love Letters to the World” của Meia Geddes là tuyển tập 120 lá tình thư - đôi khi không chỉ viết cho người ta thương nhất mà còn là những tâm sự, cảm xúc chân thật ta dành cho chính mình và cho cả thế gian rộng lớn ngoài kia.</p><p>“Tôi muốn sống thật đẹp đẽ, giống như một bức họa với những nét cọ tinh tế, giống như người…”</p><p>“I want to live beautifully, like a painting, in subtle brushstrokes, like you…”</p><p>“Thương gửi Thế gian - Love Letters to the World” được trình bày dưới dạng song ngữ Anh - Việt, giúp người đọc vừa thưởng thức vẻ đẹp của ngôn từ, vừa lắng lại để nghiền ngẫm về ý niệm về văn thơ và cảm xúc trong cả hai ngôn ngữ. Mỗi lá thư là một nhịp thở nhẹ nhàng chạm đến tầng sâu nhất của tâm hồn - nơi ta cảm nhận rõ hơn về sự tồn tại, nỗi cô đơn và những suy tư mơ hồ đầy lãng mạn mà sâu lắng về cuộc sống.</p><p>Qua những dòng chữ nhẹ như gió thoảng và đầy tinh tế, trong trẻo của tác giả Meia Geddes, cuốn sách sẽ dẫn lối ta trong hành trình khám phá những cung bậc cảm xúc khi yêu và được yêu: những rung động mong manh, sâu sắc, đầy dịu dàng mà cũng không kém phần mạnh mẽ. Qua đó ta học cách yêu lấy chính mình, tin vào những điều tử tế và mở lòng đón nhận tình yêu theo cách tự nhiên và tự tin nhất dù cho kết quả là hạnh phúc hoặc chia xa.</p><p>Đọc từng trang thư, bạn sẽ được gặp lại một phiên bản khác của chính mình nhưng dịu dàng hơn, nhạy cảm hơn, thấu hiểu hơn. Mỗi lá thư là một mảnh ghép của cảm xúc, để rồi khi gấp lại trang cuối, ta bỗng nhận ra: ta cũng yêu thế giới này theo cách rất riêng, rất lặng lẽ và rất đỗi chân thành.</p><p>“Thương gửi Thế gian - Love Letters to the World” sẽ là người bạn đáng yêu cùng bạn đi qua những ngày đẹp trời và cả những ngày chẳng có gì ngoài một trái tim cần được yêu thương.</p><p>Và mong rằng giữa thế gian rộng lớn này, mỗi chúng ta đều sẽ gặp được một người sẵn lòng gửi tặng ta hàng vạn lá thư tình viết bằng vạn thương yêu…</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325029653"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Skybooks"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Meia Geddes"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Ililiiiiowo"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "280"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 13.5 x 1.3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "264"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Skybooks"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "280"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "“Thương gửi Thế gian - Love Letters to the World” của Meia Geddes là tuyển tập 120 lá tình thư - đôi khi không chỉ viết cho người ta thương nhất mà còn là những tâm sự, cảm xúc chân thật ta dành cho chính mình và cho..."
+}

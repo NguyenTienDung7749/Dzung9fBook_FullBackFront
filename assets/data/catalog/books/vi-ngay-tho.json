@@ -1,0 +1,88 @@
+{
+  "id": 1070195356,
+  "sourceProductId": 1070195356,
+  "handle": "vi-ngay-tho",
+  "sourceUrl": "https://www.vinabook.com/products/vi-ngay-tho",
+  "title": "Vị Ngây Thơ",
+  "author": "Lucinda Berry",
+  "publisher": "AZ",
+  "year": "2025",
+  "sku": "8935325031250",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "384",
+  "weight": "400",
+  "size": "20.5 x 14.5 x 1.9 cm",
+  "price": 165000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/vi-ngay-tho/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/vi-ngay-tho/01.jpg"
+  ],
+  "description": "Một tên tội phạm đang săn lùng những thiếu nữ tuổi vị thành niên, nhưng hắn không chọn mục tiêu ngẫu nhiên mà chỉ những cô gái trẻ còn trong trắng mới lọt vào tầm ngắm của hắn. Lần theo những dòng trang thái và địa đi...",
+  "descriptionHtml": "<p>Một tên tội phạm đang săn lùng những thiếu nữ tuổi vị thành niên, nhưng hắn không chọn mục tiêu ngẫu nhiên mà chỉ những cô gái trẻ còn trong trắng mới lọt vào tầm ngắm của hắn. Lần theo những dòng trang thái và địa điểm check-in trên mạng xã hội của các cô gái, hắn bắt cóc họ và biến họ thành tù nhân trong căn hầm cách âm lạnh lẽo. Khi đã cướp đi sự ngây thơ, hắn vứt bỏ nạn nhân như những món đồ rác rưởi. Từ trước tới nay chưa từng có ai sống sót thoát ra ngoài.</p><p>Cho đến khi Ella xuất hiện.</p><p>Ella liều mạng bỏ trốn, giải thoát cho mình và những cô gái khác. Nhưng cuối cùng chỉ có Sarah - cô gái bị giam giữ lâu nhất - thoát ra được cùng cô. Cả hai nhanh chóng được đưa vào bệnh viện, nơi các đặc vụ FBI ráo riết bao vây, quyết tìm cho ra kẻ thủ ác. Ella và Sarah trở thành chìa khóa của cuộc điều tra. Nhưng dường như Sarah đang che giấu điều gì đó và không lâu sau, Ella cũng nhận ra cơn ác mộng của mình vẫn chưa kết thúc...</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325031250"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lucinda Berry"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Ngọc Châu"
+    },
+    {
+      "label": "NXB",
+      "value": "Dân Trí"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 1.9 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "384"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Một tên tội phạm đang săn lùng những thiếu nữ tuổi vị thành niên, nhưng hắn không chọn mục tiêu ngẫu nhiên mà chỉ những cô gái trẻ còn trong trắng mới lọt vào tầm ngắm của hắn. Lần theo những dòng trang thái và địa đi..."
+}

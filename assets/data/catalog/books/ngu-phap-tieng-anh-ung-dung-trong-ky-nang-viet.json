@@ -1,0 +1,82 @@
+{
+  "id": 1055919620,
+  "sourceProductId": 1055919620,
+  "handle": "ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet",
+  "sourceUrl": "https://www.vinabook.com/products/ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet",
+  "title": "Ngữ Pháp Tiếng Anh Ứng Dụng Trong Kỹ Năng Viết",
+  "author": "Phan Thế Hưng,, Ph.D.",
+  "publisher": "NXB Tổng Hợp TPHCM",
+  "year": "2024",
+  "sku": "",
+  "bookType": "bìa: Bìa mềm",
+  "language": "",
+  "pages": "332",
+  "weight": "330",
+  "size": "16 x 24 cm",
+  "price": 165000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "sach-ngoai-ngu",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet/01.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet/02.jpg",
+    "./assets/images/books/sach-thieu-nhi/sach-ngoai-ngu/ngu-phap-tieng-anh-ung-dung-trong-ky-nang-viet/03.jpg"
+  ],
+  "description": "Thông tin sản phẩm",
+  "descriptionHtml": "<p>Thông tin sản phẩm</p>",
+  "specs": [
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Phan Thế Hưng,, Ph.D."
+    },
+    {
+      "label": "NXB",
+      "value": "NXB Tổng hợp TP.HCM"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Ngày xuất bản",
+      "value": "07 -2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "330"
+    },
+    {
+      "label": "Kích thước",
+      "value": "16 x 24 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "332"
+    },
+    {
+      "label": "Hình thức",
+      "value": "bìa: Bìa mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "330"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "sach-ngoai-ngu",
+  "subcategoryLabel": "Sách Ngoại Ngữ",
+  "descriptionText": "Thông tin sản phẩm"
+}

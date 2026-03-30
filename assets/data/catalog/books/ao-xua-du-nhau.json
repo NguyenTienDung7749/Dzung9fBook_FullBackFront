@@ -1,0 +1,88 @@
+{
+  "id": 1055823476,
+  "sourceProductId": 1055823476,
+  "handle": "ao-xua-du-nhau",
+  "sourceUrl": "https://www.vinabook.com/products/ao-xua-du-nhau",
+  "title": "Áo Xưa Dù Nhàu…",
+  "author": "Đỗ Hồng Ngọc",
+  "publisher": "Phanbook",
+  "year": "2023",
+  "sku": "8936144201756",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "322",
+  "weight": "350",
+  "size": "17 x 17 cm",
+  "price": 198000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "hoi-ky-tu-truyen",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/01.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/02.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/03.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/04.jpg",
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/hoi-ky-tu-truyen/ao-xua-du-nhau/05.jpg"
+  ],
+  "description": "Áo xưa dù nhàu… là tuyển tập 18 bài viết của tác giả Đỗ Hồng Ngọc về 18 chân dung văn nghệ sĩ ở những lĩnh vực chủ yếu là văn chương, âm nhạc và hội họa. Đó có thể là những tên tuổi lớn như Nguyễn Hiến Lê, Trần Văn Kh...",
+  "descriptionHtml": "<p>Áo xưa dù nhàu… là tuyển tập 18 bài viết của tác giả Đỗ Hồng Ngọc về 18 chân dung văn nghệ sĩ ở những lĩnh vực chủ yếu là văn chương, âm nhạc và hội họa. Đó có thể là những tên tuổi lớn như Nguyễn Hiến Lê, Trần Văn Khê, Du Tử Lê, Huy Cận… hay những người trong gia đình, người bạn thân quen của tác giả. Điểm chung giữa họ đó là đều có duyên hạnh ngộ với Đỗ Hồng Ngọc trên bước đường văn chương và cuộc đời.</p><p>Bằng giọng văn mộc mạc nhưng chan chứa tình cảm và sự trân trọng, Đỗ Hồng Ngọc đã truyền được cảm xúc của mình đến người đọc. Qua cái nhìn của tác giả, ta sẽ không chỉ khám phá được cái hay, cái đẹp của các nhân vật qua từng bài viết mà còn cảm nhận được cái nghĩa, cái tình trong mối quan hệ giữa người thầy thuốc viết văn ấy với bạn bè.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936144201756"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Phanbook"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Đỗ Hồng Ngọc"
+    },
+    {
+      "label": "NXB",
+      "value": "Đà Nẵng"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2023"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "350"
+    },
+    {
+      "label": "Kích thước",
+      "value": "17 x 17 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "322"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Phanbook"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "350"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "hoi-ky-tu-truyen",
+  "subcategoryLabel": "Hồi Ký - Tự Truyện",
+  "descriptionText": "Áo xưa dù nhàu… là tuyển tập 18 bài viết của tác giả Đỗ Hồng Ngọc về 18 chân dung văn nghệ sĩ ở những lĩnh vực chủ yếu là văn chương, âm nhạc và hội họa. Đó có thể là những tên tuổi lớn như Nguyễn Hiến Lê, Trần Văn Kh..."
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1071488408,
+  "sourceProductId": 1071488408,
+  "handle": "vi-con-co-nhung-ngay-mai",
+  "sourceUrl": "https://www.vinabook.com/products/vi-con-co-nhung-ngay-mai",
+  "title": "Vì Còn Có Những Ngày Mai",
+  "author": "Mochi Ở Đây",
+  "publisher": "AZ",
+  "year": "2025",
+  "sku": "8935325032035",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "224",
+  "weight": "240",
+  "size": "20.5 x 13 x 1.1 cm",
+  "price": 115000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/vi-con-co-nhung-ngay-mai/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/vi-con-co-nhung-ngay-mai/01.jpg"
+  ],
+  "description": "Có những lúc, tôi nhắm mắt chìm vào giấc ngủ và sợ rằng, lỡ ngày mai không bao giờ đến nữa. Tôi biết mình thật ngớ ngẩn và dở hơi, nhưng đã có những ngày tệ như thế đấy. Tôi cũng tin là, sẽ có nhiều ngày tháng trong đ...",
+  "descriptionHtml": "<p>Có những lúc, tôi nhắm mắt chìm vào giấc ngủ và sợ rằng, lỡ ngày mai không bao giờ đến nữa. Tôi biết mình thật ngớ ngẩn và dở hơi, nhưng đã có những ngày tệ như thế đấy. Tôi cũng tin là, sẽ có nhiều ngày tháng trong đời buồn chán tới mức chẳng ai trong chúng ta còn ngóng chờ, thèm khát cái được gọi là “ngày mai” đến. Nhưng dù chúng ta có chờ hay không, thì nếu chưa là tận thế, ngày mai vẫn sẽ đến. Nó đến như một lẽ tự nhiên của cuộc đời.</p><p>Tôi không mong bạn không bao giờ thất vọng với cuộc đời, nhưng tôi mong bạn nuôi dưỡng đủ niềm tin, và nhận được yêu thương đủ nhiều để ngày mai tới, sẽ là một hy vọng mới, sẽ là một ngày tốt hơn.</p><p>Chúc bạn sẽ có ngày mai, à không, thật nhiều ngày mai dịu dàng, bạn nhé!</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325032035"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Mochi Ở Đây"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "240"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 13 x 1.1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "224"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "240"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Có những lúc, tôi nhắm mắt chìm vào giấc ngủ và sợ rằng, lỡ ngày mai không bao giờ đến nữa. Tôi biết mình thật ngớ ngẩn và dở hơi, nhưng đã có những ngày tệ như thế đấy. Tôi cũng tin là, sẽ có nhiều ngày tháng trong đ..."
+}

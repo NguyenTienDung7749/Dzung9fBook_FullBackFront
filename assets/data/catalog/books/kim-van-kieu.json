@@ -1,0 +1,88 @@
+{
+  "id": 1072447213,
+  "sourceProductId": 1072447213,
+  "handle": "kim-van-kieu",
+  "sourceUrl": "https://www.vinabook.com/products/kim-van-kieu",
+  "title": "Kim Vân Kiều",
+  "author": "Thanh Tâm Tài Tử",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235247062",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "436",
+  "weight": "500",
+  "size": "24 x 15.5 x 2.1 cm",
+  "price": 238000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/kim-van-kieu/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/kim-van-kieu/01.jpg"
+  ],
+  "description": "“Vậy theo chỗ chúng tôi nhận thấy, thì bản Kiều chữ, nói về văn chương dẫu không bóng bẩy như Tây Sương ký và Thủy hử trong lục tài tử. Nhưng về cốt truyện vẫn không kém vẻ ly kỳ. Bởi vì các nhân vật chủ yếu trong tru...",
+  "descriptionHtml": "<p>“Vậy theo chỗ chúng tôi nhận thấy, thì bản Kiều chữ, nói về văn chương dẫu không bóng bẩy như Tây Sương ký và Thủy hử trong lục tài tử. Nhưng về cốt truyện vẫn không kém vẻ ly kỳ. Bởi vì các nhân vật chủ yếu trong truyện như Hồ Tôn Hiến, Từ Minh Sơn, tác giả đã rút tài liệu trong lịch sử nhà Minh để soạn thảo. Ngoài ra lại còn có đủ đại diện các ngành cho xã hội thời đó, mà nó phản chiếu với nhau như bóng với hình: Có bọn quan lại tham nhũng, làm cho khốc hại chẳng qua vì tiền, thì cũng có kẻ lại già, cùng trong nha dịch lại là từ tâm; có bà Trủng tề ác nghiệt, thì lại có mụ quản gia hiền lành; đã có người cha cần kiệm, do nghề thương mại làm nên cự phú, thì lại sinh ngay quý tử, bốc rời quen thói, trăm ngàn đổi một trận cười; Tam Hợp Giác Duyên mở lượng từ bi cứu người trong nơi bể khổ, lại có Bạc Bà Bạc Hãnh quen nghề son phấn, kiếm ăn ngay trước cửa thiền. Lại như quấy nước chọc trời, nghiệp bá rắp xây trên bể Sở, tại sao, tình trường khí đoản, tơ vương đã buộc giữa châu Thai.”</p><p>(Tô Nam Nguyễn Đình Diệm)</p><p>---</p><p>“Chữ tình là một cái vạch chạy dọc cả một thiên. Chữ khổ là một vạch chạy ngang cả một thiên.</p><p>Nhưng tình ắt phải đợi có cảnh thì mới sinh. Khổ ắt phải đợi cơ hội ngộ thì mới nảy. Vậy nên khi mở cuốn truyện, người ta không thể chỉ nhìn qua một lượt mà thấy rõ được.”</p><p>(Kim Thánh Thán)</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247062"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "10/01/2026"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Thanh Tâm Tài Tử"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Tô Nam, Nguyễn Đình Diệm"
+    },
+    {
+      "label": "NXB",
+      "value": "Thế Giới"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 15.5 x 2.1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "436"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "500"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "“Vậy theo chỗ chúng tôi nhận thấy, thì bản Kiều chữ, nói về văn chương dẫu không bóng bẩy như Tây Sương ký và Thủy hử trong lục tài tử. Nhưng về cốt truyện vẫn không kém vẻ ly kỳ. Bởi vì các nhân vật chủ yếu trong tru..."
+}

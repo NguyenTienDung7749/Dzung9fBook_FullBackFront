@@ -1,0 +1,84 @@
+{
+  "id": 1069368416,
+  "sourceProductId": 1069368416,
+  "handle": "nhung-giac-mo-cho-binh-minh-len",
+  "sourceUrl": "https://www.vinabook.com/products/nhung-giac-mo-cho-binh-minh-len",
+  "title": "Những Giấc Mơ Chờ Bình Minh Lên",
+  "author": "Mochi Ở Đây",
+  "publisher": "AZ Việt Nam",
+  "year": "2025",
+  "sku": "8935325029127",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "224",
+  "weight": "240",
+  "size": "20.5 x 13 x 1.1 cm",
+  "price": 115000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/nhung-giac-mo-cho-binh-minh-len/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/nhung-giac-mo-cho-binh-minh-len/01.jpg"
+  ],
+  "description": "Tôi tin rằng bên trong mỗi con người đang sống đều tồn tại một giấc mơ nào đó. Giấc mơ là thứ giữ người ta ở lại với cuộc đời này. Những nhân vật trong cuốn sách này đều đang phải vật lộn. Có người vật lộn với sức khỏ...",
+  "descriptionHtml": "<p>Tôi tin rằng bên trong mỗi con người đang sống đều tồn tại một giấc mơ nào đó. Giấc mơ là thứ giữ người ta ở lại với cuộc đời này.</p><p>Những nhân vật trong cuốn sách này đều đang phải vật lộn. Có người vật lộn với sức khỏe, với tình yêu, có người vật lộn với áp lực cuộc sống hay với quá khứ của chính mình.</p><p>Cuộc đời có lúc tăm tối, xám xịt, tất nhiên rồi, nếu nó chỉ toàn những điều đẹp đẽ và tình yêu trọn vẹn thì người ta đâu phải trải qua khổ đau để rồi mất niềm tin, và mong rằng ước gì mình không cần cố sống nữa.</p><p>Nhưng tôi muốn những nhân vật đó, ngay cả khi đã mất niềm tin đôi ba lần vì đời này khiến họ quá đỗi chơi vơi, họ vẫn không đánh mất sợi dây hy vọng và thiện lương trong lòng mình. Họ vẫn khao khát và ôm lấy những hoài bão, những giấc mơ, dù gần hay xa tầm với, chí ít những giấc mơ đó đã cứu vớt cuộc đời của họ.</p><p>Và tôi tin rằng dù ước mơ của bạn có thể tìm thấy đích đến như phút ban đầu bạn mong hay không, thì quãng đường bạn lăn lộn, bạn trầy trật đi tới đó, âu cũng là một thành công, một niềm hạnh phúc rồi. Dẫu hạnh phúc mong manh và khó nắm giữ tới đâu.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325029127"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Mochi Ở Đây"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "240"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 13 x 1.1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "224"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "240"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Tôi tin rằng bên trong mỗi con người đang sống đều tồn tại một giấc mơ nào đó. Giấc mơ là thứ giữ người ta ở lại với cuộc đời này. Những nhân vật trong cuốn sách này đều đang phải vật lộn. Có người vật lộn với sức khỏ..."
+}

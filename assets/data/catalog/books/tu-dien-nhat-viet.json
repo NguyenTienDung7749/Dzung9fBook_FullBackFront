@@ -1,0 +1,82 @@
+{
+  "id": 1055825987,
+  "sourceProductId": 1055825987,
+  "handle": "tu-dien-nhat-viet",
+  "sourceUrl": "https://www.vinabook.com/products/tu-dien-nhat-viet",
+  "title": "Từ Điển Nhật-Việt",
+  "author": "Takeuchi Yonosuke, Yamaguchi Kenichi, Imai Akio",
+  "publisher": "Cty Văn Hóa Văn Lang",
+  "year": "2024",
+  "sku": "8935074133816",
+  "bookType": "Bìa Mềm",
+  "language": "Song Ngữ Nhật - Việt",
+  "pages": "466",
+  "weight": "480",
+  "size": "",
+  "price": 95000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-nhat-viet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-nhat-viet/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-nhat-viet/02.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-nhat-viet/03.jpg"
+  ],
+  "description": "Khoảng 10.000 từ tiếng Nhật thông dụng Giải thích rõ ràng Cập nhật nhiều từ mới Tiện lợi dễ tra cứu Kích Thước Bao Bì 16 x 10 x 2.3 cm",
+  "descriptionHtml": "<p>Khoảng 10.000 từ tiếng Nhật thông dụng</p><p>Giải thích rõ ràng</p><p>Cập nhật nhiều từ mới</p><p>Tiện lợi dễ tra cứu</p><p>Kích Thước Bao Bì 16 x 10 x 2.3 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935074133816"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Takeuchi Yonosuke, Yamaguchi Kenichi, Imai Akio"
+    },
+    {
+      "label": "NXB",
+      "value": "Hồng Đức"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Song Ngữ Nhật - Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "480"
+    },
+    {
+      "label": "Số trang",
+      "value": "466"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Cty Văn Hóa Văn Lang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "480"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Khoảng 10.000 từ tiếng Nhật thông dụng Giải thích rõ ràng Cập nhật nhiều từ mới Tiện lợi dễ tra cứu Kích Thước Bao Bì 16 x 10 x 2.3 cm"
+}

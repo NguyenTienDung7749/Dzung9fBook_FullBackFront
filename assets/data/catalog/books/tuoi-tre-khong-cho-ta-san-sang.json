@@ -1,0 +1,80 @@
+{
+  "id": 1073450238,
+  "sourceProductId": 1073450238,
+  "handle": "tuoi-tre-khong-cho-ta-san-sang",
+  "sourceUrl": "https://www.vinabook.com/products/tuoi-tre-khong-cho-ta-san-sang",
+  "title": "Tuổi Trẻ Không Chờ Ta Sẵn Sàng",
+  "author": "Nguyễn Thị Thanh Xuân",
+  "publisher": "NXB Tổng Hợp TPHCM",
+  "year": "2025",
+  "sku": "9786326036060",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "178",
+  "weight": "100",
+  "size": "15 x 10 x 0.8 cm",
+  "price": 65000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "tam-ly-ky-nang-song",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/tuoi-tre-khong-cho-ta-san-sang/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/tuoi-tre-khong-cho-ta-san-sang/01.jpg"
+  ],
+  "description": "Có những hành trình chúng ta lên đường chỉ vì muốn tìm một điều gì đó mới mẻ, nhưng vô tình tìm thấy được nội lực tiềm ẩn của chính mình. Hành trình học tập, sống và làm việc gần hai năm ở Baguio của tôi cũng là một h...",
+  "descriptionHtml": "<p>Có những hành trình chúng ta lên đường chỉ vì muốn tìm một điều gì đó mới mẻ, nhưng vô tình tìm thấy được nội lực tiềm ẩn của chính mình. Hành trình học tập, sống và làm việc gần hai năm ở Baguio của tôi cũng là một hành trình như thế....</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786326036060"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Nguyễn Thị Thanh Xuân"
+    },
+    {
+      "label": "NXB",
+      "value": "Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "100"
+    },
+    {
+      "label": "Kích thước",
+      "value": "15 x 10 x 0.8 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "178"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "100"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "tam-ly-ky-nang-song",
+  "subcategoryLabel": "Tâm Lý - Kỹ Năng Sống",
+  "descriptionText": "Có những hành trình chúng ta lên đường chỉ vì muốn tìm một điều gì đó mới mẻ, nhưng vô tình tìm thấy được nội lực tiềm ẩn của chính mình. Hành trình học tập, sống và làm việc gần hai năm ở Baguio của tôi cũng là một h..."
+}

@@ -1,0 +1,88 @@
+{
+  "id": 1070211971,
+  "sourceProductId": 1070211971,
+  "handle": "yeu-tham-tap-3",
+  "sourceUrl": "https://www.vinabook.com/products/yeu-tham-tap-3",
+  "title": "Yêu Thầm - Tập 1",
+  "author": "Cát Xuyên Lưu",
+  "publisher": "AZ",
+  "year": "2022",
+  "sku": "8935325003622",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "260",
+  "weight": "300",
+  "size": "24 x 16 cm",
+  "price": 165000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/yeu-tham-tap-3/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/yeu-tham-tap-3/01.jpg"
+  ],
+  "description": "Thời học sinh bạn đã bao giờ crush ai chưa? Cậu bạn cùng bàn? Lớp trưởng học giỏi? Hay một anh khóa trên điển trai? ... Chắc hẳn rất nhiều người trong chúng ta đều từng có một thời thầm thương trộm nhớ ai đó. Giống nh...",
+  "descriptionHtml": "<p>Thời học sinh bạn đã bao giờ crush ai chưa?</p><p>Cậu bạn cùng bàn?</p><p>Lớp trưởng học giỏi?</p><p>Hay một anh khóa trên điển trai?</p><p>...</p><p>Chắc hẳn rất nhiều người trong chúng ta đều từng có một thời thầm thương trộm nhớ ai đó. Giống như cô bạn nhỏ nhắn Bách Linh và cậu hot boy An Dư Triết thầm thích nhau mà không hay vậy.</p><p>“Yêu thầm” là câu chuyện tuổi mới lớn với những ngại ngùng, quan tâm vô tình và ghen tuông nho nhỏ, khiến màu sắc cuộc sống của đôi bạn trẻ trở nên tươi đẹp và muôn màu hơn. Đồng thời bộ truyện cũng giúp người đọc trải nghiệm những cung bậc cảm xúc ngọt ngào, lãng mạn, đôi khi trầm lắng nhưng lại ngây ngô ngốc nghếch của cả hai.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325003622"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Cát Xuyên Lưu"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Vũ Đức Hiếu"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2022"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "260"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Thời học sinh bạn đã bao giờ crush ai chưa? Cậu bạn cùng bàn? Lớp trưởng học giỏi? Hay một anh khóa trên điển trai? ... Chắc hẳn rất nhiều người trong chúng ta đều từng có một thời thầm thương trộm nhớ ai đó. Giống nh..."
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1070076536,
+  "sourceProductId": 1070076536,
+  "handle": "muoi-nam-tuoi-hai-muoi",
+  "sourceUrl": "https://www.vinabook.com/products/muoi-nam-tuoi-hai-muoi",
+  "title": "Mười Năm Tuổi Hai Mươi",
+  "author": "Cao Mai Vân",
+  "publisher": "Công Ty Cổ Phần Waka",
+  "year": "2025",
+  "sku": "8936229390979",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "212",
+  "weight": "230",
+  "size": "19 x 13 x 1 cm",
+  "price": 119000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "truyen-ngan-tan-van",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/muoi-nam-tuoi-hai-muoi/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/truyen-ngan-tan-van/muoi-nam-tuoi-hai-muoi/01.jpg"
+  ],
+  "description": "Về tác giả: Tác giả Cao Mai Vân tốt nghiệp ngành Kinh tế tại Đại học Kinh tế Quốc dân, Thạc sĩ Luật từ Bắc Đại, bén duyên với ngành viễn thông ngay sau khi ra trường. Đam mê học ngoại ngữ và yêu thích chủ nghĩa xê dịc...",
+  "descriptionHtml": "<p>Về tác giả:</p><p>Tác giả Cao Mai Vân tốt nghiệp ngành Kinh tế tại Đại học Kinh tế Quốc dân, Thạc sĩ Luật từ Bắc Đại, bén duyên với ngành viễn thông ngay sau khi ra trường. Đam mê học ngoại ngữ và yêu thích chủ nghĩa xê dịch, cô luôn nỗ lực học hỏi - từ tiếng Anh, tiếng Trung đến cả tiếng Pháp, đồng thời có cơ hội đặt chân đến nhiều quốc gia ở châu Á, châu Âu cũng như nhiều vùng đất đẹp của Trung Quốc.</p><p>Về nội dung:</p><p>Bạn sẽ tự hỏi tại sao sự kiện này lại xảy ra với mình, mình không hề muốn nó. Nhưng có thể trước khi ra đời, bạn đã ngồi phác thảo cuộc đời mình với các thiên thần để có được những trải nghiệm đó. Vì tin như vậy, nên khi đối diện với những biến cố xảy ra trong cuộc đời, tôi tự nhủ là chính bản thân đã lựa chọn để có thể học hỏi và trưởng thành nhiều hơn. Bạn có giống tôi không? Nếu có, hãy cùng tôi đi hết Mười năm tuổi hai mươi nhé!</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936229390979"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Công Ty Cổ Phần Waka"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Cao Mai Vân"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "230"
+    },
+    {
+      "label": "Kích thước",
+      "value": "19 x 13 x 1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "212"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Công Ty Cổ Phần Waka"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "230"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "truyen-ngan-tan-van",
+  "subcategoryLabel": "Truyện Ngắn - Tản Văn",
+  "descriptionText": "Về tác giả: Tác giả Cao Mai Vân tốt nghiệp ngành Kinh tế tại Đại học Kinh tế Quốc dân, Thạc sĩ Luật từ Bắc Đại, bén duyên với ngành viễn thông ngay sau khi ra trường. Đam mê học ngoại ngữ và yêu thích chủ nghĩa xê dịc..."
+}

@@ -1,0 +1,88 @@
+{
+  "id": 1055942238,
+  "handle": "nghe-thuat-quan-ly-nhan-su",
+  "sourceUrl": "https://www.vinabook.com/products/nghe-thuat-quan-ly-nhan-su",
+  "title": "Nghệ Thuật Quản Lý Nhân Sự",
+  "author": "Lê Tiến Thành biên soạn",
+  "publisher": "Văn Lang",
+  "year": "2025",
+  "sku": "8935074136381",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "184",
+  "weight": "200",
+  "size": "21 x 13.5 cm",
+  "price": 98000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Kinh Tế",
+  "subcategory": "quan-tri-lanh-dao",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/quan-tri-lanh-dao/nghe-thuat-quan-ly-nhan-su/01.jpg",
+  "gallery": [
+    "./assets/images/books/quan-tri-lanh-dao/nghe-thuat-quan-ly-nhan-su/01.jpg",
+    "./assets/images/books/quan-tri-lanh-dao/nghe-thuat-quan-ly-nhan-su/02.jpg"
+  ],
+  "description": "Tài sản quý nhất của các doanh nghiệp chính là con người. Matsushita Konosuke Cách dùng người hiệu quả không chỉ ở chỗ làm mọi cách để hạn chế nhược điểm, mà quan trọng là biết cách phát huy những ưu điểm của họ. Pete...",
+  "descriptionHtml": "<p>Tài sản quý nhất của các doanh nghiệp chính là con người.</p><ul><li>Matsushita Konosuke</li></ul><p>Cách dùng người hiệu quả không chỉ ở chỗ làm mọi cách để hạn chế nhược điểm, mà quan trọng là biết cách phát huy những ưu điểm của họ.</p><ul><li>Peter Ferdinand Drucker</li></ul><p>Một công ty muốn phát triển nhanh thì phải giỏi trong việc tìm ra nhân tài, đặc biệt là những nhân tài thông minh.</p><ul><li>Bill Gates</li></ul><p>Là người lãnh đạo, muốn quản lý thành công và hiệu quả, phải có niềm tin kiên định và phương pháp rõ ràng trong việc tuân thủ nguyên tắc quản lý. Mỗi khi nắm bắt được vấn đề cốt lõi của việc quản lý: cách dùng người, phát hiện tài năng, bồi dưỡng tính tự giác, độc lập cho nhân viên, tạo điều kiện để họ phát huy sở trường là bạn đã thể hiện được kỹ năng cũng như nghệ thuật quản lý.</p><p>Nghệ Thuật Quản Lý Nhân Sự trình bày dễ hiểu những điểm quan yếu nhất trong phương pháp quản lý nhân sự: cách ra lệnh, chọn giải pháp, giải quyết trở ngại, đề xuất thưởng phạt, khích lệ nhân viên... kèm theo những ví dụ cụ thể thường xảy ra trong thực tế. Vận dụng tinh tế, đúng lúc những phương pháp này, bạn sẽ nắm được bí quyết quản lý, dễ dàng tạo dựng thành công cho cá nhân lẫn doanh nghiệp</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935074136381"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Văn Lang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lê Tiến Thành biên soạn"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Lê Tiến Thành biên soạn"
+    },
+    {
+      "label": "NXB",
+      "value": "Hồng Đức"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "200"
+    },
+    {
+      "label": "Kích thước",
+      "value": "21 x 13.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "184"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Tác giả / Dịch giả",
+      "value": "Lê Tiến Thành biên soạn Hoàng Đăng Sơn"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Văn Lang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "200"
+    }
+  ],
+  "categoryLabel": "Sách Kinh Tế",
+  "parentSlug": "sach-kinh-te",
+  "subcategorySlug": "quan-tri-lanh-dao",
+  "subcategoryLabel": "Quản Trị - Lãnh Đạo",
+  "descriptionText": "Tài sản quý nhất của các doanh nghiệp chính là con người. Matsushita Konosuke Cách dùng người hiệu quả không chỉ ở chỗ làm mọi cách để hạn chế nhược điểm, mà quan trọng là biết cách phát huy những ưu điểm của họ. Pete..."
+}

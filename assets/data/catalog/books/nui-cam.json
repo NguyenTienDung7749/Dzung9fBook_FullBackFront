@@ -1,0 +1,88 @@
+{
+  "id": 1072144540,
+  "sourceProductId": 1072144540,
+  "handle": "nui-cam",
+  "sourceUrl": "https://www.vinabook.com/products/nui-cam",
+  "title": "Núi Cấm",
+  "author": "Mitsuda Shinzo",
+  "publisher": "IPM",
+  "year": "2025",
+  "sku": "8935250715744",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "304",
+  "weight": "250",
+  "size": "20.5 x 13.5 x 1.5 cm",
+  "price": 130000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "trinh-tham",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/nui-cam/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/trinh-tham/nui-cam/01.jpg"
+  ],
+  "description": "Chỉ một ngọn núi còn không dám đối mặt, sao đủ can đảm đối mặt với thế giới ngoài ngọn núi… Một cậu ấm bị ép lên núi làm lễ. Đáng lẽ phải đến núi thiêng, không hiểu sao cậu ta lại lạc sang núi cấm, bị đủ thứ linh tinh...",
+  "descriptionHtml": "<p>Chỉ một ngọn núi còn không dám đối mặt, sao đủ can đảm đối mặt với thế giới ngoài ngọn núi…</p><p>Một cậu ấm bị ép lên núi làm lễ. Đáng lẽ phải đến núi thiêng, không hiểu sao cậu ta lại lạc sang núi cấm, bị đủ thứ linh tinh hù dọa phải chạy trốn, tình cờ gặp một ngôi nhà gỗ kì quái, được một gia đình kì quái cho ngủ lại. Sau một đêm bị ngôi nhà hù dọa, cậu ta thức dậy, và hù dọa hơn là, cả gia đình giúp đỡ cậu đã mất tích trong phòng kín. Cậu ấm hoảng hốt chạy trốn lần nữa, được một người giúp đỡ. Sau đó, người giúp đỡ này cũng mất tích.</p><p>Khi về được nhà, cậu ấm càng nghĩ càng không hiểu, càng không hiểu càng muốn phát điên.</p><p>Thấy tội nghiệp cậu ấm, thám tử Genya đến núi cấm để tìm lời giải đáp giúp, tiện thể dạo chơi. Vì vậy, hàng loạt vụ giết người bắt đầu ập đến. Vụ đầu tiên, có thể nói là hiện trường đẹp nhất và chính thống nhất trong loạt án mạng này, kết hợp ba thủ pháp: phòng kín, xác không mặt, và giết người theo đồng dao.</p><p>NÚI CẤM có mạch truyện tuyến tính, trải nghiệm đọc mượt mà và dễ tập trung hơn Tằm tang. Cấu trúc cốt lõi được chia thành hai phần, “mất tích trong phòng kín kép&quot; ở phần đầu và &quot;sát hại liên tiếp theo số câu đồng dao&quot; ở phần giữa, rất dồn dập và choáng váng. Phần cuối với phá án bằng kĩ thuật đảo ngược nhiều lần lại làm người nghe há hốc mồm, cộng thêm mưu mẹo gây sốc và động cơ bé mọn nhưng thuyết phục, đã tạo nên một tác phẩm nữa đặc trưng cho phong cách kể truyện lôi cuốn và kết cục đầy dư âm của Mitsuda Shinzo.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935250715744"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "IPM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Mitsuda Shinzo"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Trúc Linh"
+    },
+    {
+      "label": "NXB",
+      "value": "Hồng Đức"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "250"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 13.5 x 1.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "304"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "IPM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "250"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "trinh-tham",
+  "subcategoryLabel": "Trinh Thám",
+  "descriptionText": "Chỉ một ngọn núi còn không dám đối mặt, sao đủ can đảm đối mặt với thế giới ngoài ngọn núi… Một cậu ấm bị ép lên núi làm lễ. Đáng lẽ phải đến núi thiêng, không hiểu sao cậu ta lại lạc sang núi cấm, bị đủ thứ linh tinh..."
+}

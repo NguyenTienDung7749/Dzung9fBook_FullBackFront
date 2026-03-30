@@ -1,0 +1,68 @@
+{
+  "id": 1053781359,
+  "sourceProductId": 1053781359,
+  "handle": "cuon-sach-nho-giup-ban-song-khoe-den-gia",
+  "sourceUrl": "https://www.vinabook.com/products/cuon-sach-nho-giup-ban-song-khoe-den-gia",
+  "title": "Cuốn Sách Nhỏ Giúp Bạn Sống Khỏe Đến Già",
+  "author": "",
+  "publisher": "Chính Thông",
+  "year": "2024",
+  "sku": "8936184340132",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "328",
+  "weight": "300",
+  "size": "",
+  "price": 95000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "sach-hoc-lam-nguoi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/sach-hoc-lam-nguoi/cuon-sach-nho-giup-ban-song-khoe-den-gia/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/sach-hoc-lam-nguoi/cuon-sach-nho-giup-ban-song-khoe-den-gia/01.jpg"
+  ],
+  "description": "Nhiều người có thể sống đến GIÀ, nhưng không phải ai cũng có thể SỐNG KHỎE ĐẾN GIÀ! Mỗi cá nhân không chỉ là những sinh vật xác thịt mà là sự tổng hòa của ba phần: tinh thần - tâm hồn (tâm trí, ý chí và cảm xúc), và t...",
+  "descriptionHtml": "<p>Nhiều người có thể sống đến GIÀ, nhưng không phải ai cũng có</p><p>thể SỐNG KHỎE ĐẾN GIÀ!</p><p>Mỗi cá nhân không chỉ là những sinh vật xác thịt mà là sự tổng</p><p>hòa của ba phần: tinh thần - tâm hồn (tâm trí, ý chí và cảm xúc), và thân thể.</p><p>Và mỗi phần đó đều cần có sự chăm sóc và bảo trì phù hợp.</p><p>Đúng như tên gọi, “Cuốn sách nhỏ giú</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936184340132"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Số trang",
+      "value": "328"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "sach-hoc-lam-nguoi",
+  "subcategoryLabel": "Sách Học Làm Người",
+  "descriptionText": "Nhiều người có thể sống đến GIÀ, nhưng không phải ai cũng có thể SỐNG KHỎE ĐẾN GIÀ! Mỗi cá nhân không chỉ là những sinh vật xác thịt mà là sự tổng hòa của ba phần: tinh thần - tâm hồn (tâm trí, ý chí và cảm xúc), và t..."
+}

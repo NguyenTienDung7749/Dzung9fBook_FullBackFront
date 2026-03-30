@@ -1,0 +1,69 @@
+{
+  "id": 1064646413,
+  "sourceProductId": 1064646413,
+  "handle": "tu-dien-viet-hoa",
+  "sourceUrl": "https://www.vinabook.com/products/tu-dien-viet-hoa",
+  "title": "Từ Điển Việt  - Hoa",
+  "author": "Phạm Minh Kha - Xuân Huy",
+  "publisher": "Văn Lang",
+  "year": "2025",
+  "sku": "8935074136060",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "",
+  "weight": "490",
+  "size": "",
+  "price": 115000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-viet-hoa/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-viet-hoa/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/tu-dien-viet-hoa/02.jpg"
+  ],
+  "description": "Đây là ấn bản Từ điển Việt Hoa bỏ túi mới nhất được biên soạn công phu và chi tiết. Lần tái bản này, sách được cập nhật nhiều từ vựng thông dụng hiện đại, mang đến cho độc giả phiên bản hoàn chỉnh, đầy đủ nhất. Có cả...",
+  "descriptionHtml": "<p>Đây là ấn bản Từ điển Việt Hoa bỏ túi mới nhất được biên soạn công phu và chi tiết. Lần tái bản này, sách được cập nhật nhiều từ vựng thông dụng hiện đại, mang đến cho độc giả phiên bản hoàn chỉnh, đầy đủ nhất.</p><p>Có cả chữ giản thể lẫn chữ phồn thể</p><p>Phiên âm pinyin chuẩn và phiên âm bồi dễ đọc</p><p>Hơn 25.000 từ và cụm từ thông dụng</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935074136060"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Văn Lang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Phạm Minh Kha - Xuân Huy"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "490"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Văn Lang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "490"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Đây là ấn bản Từ điển Việt Hoa bỏ túi mới nhất được biên soạn công phu và chi tiết. Lần tái bản này, sách được cập nhật nhiều từ vựng thông dụng hiện đại, mang đến cho độc giả phiên bản hoàn chỉnh, đầy đủ nhất. Có cả..."
+}

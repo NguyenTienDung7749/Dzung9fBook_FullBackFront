@@ -1,0 +1,84 @@
+{
+  "id": 1054735039,
+  "sourceProductId": 1054735039,
+  "handle": "hoi-co-thi-nhan",
+  "sourceUrl": "https://www.vinabook.com/products/hoi-co-thi-nhan",
+  "title": "Hội Cố Thi Nhân",
+  "author": "",
+  "publisher": "1980 Books",
+  "year": "2024",
+  "sku": "8936066698139",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "276",
+  "weight": "290",
+  "size": "",
+  "price": 149000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/04.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/hoi-co-thi-nhan/05.jpg"
+  ],
+  "description": "Todd Anderson và những người bạn của cậu tại Học viện Welton khó có thể tin rằng cuộc sống lại khác biệt đến thế kể từ khi giáo viên môn Ngữ văn của họ, John Keating, một người thầy hào hoa, thách thức họ làm cho cuộc...",
+  "descriptionHtml": "<p>Todd Anderson và những người bạn của cậu tại Học viện Welton khó có thể tin rằng cuộc sống lại khác biệt đến thế kể từ khi giáo viên môn Ngữ văn của họ, John Keating, một người thầy hào hoa, thách thức họ làm cho cuộc sống của mình trở nên phi thường! Được truyền cảm hứng từ thầy Keating, các chàng trai đang hừng hực khí thế thanh xuân quyết định hồi sinh Hội Cố thi nhân, một câu lạc bộ bí mật, nơi thoát khỏi sự ràng buộc và kỳ vọng của nhà trường cũng như phụ huynh. Họ mặc sức để cho niềm đam mê của mình được phát huy. Khi thầy Keating dẫn dắt các chàng trai nghe theo tiếng gọi tuyệt vời của Byron, Shelley và Keats, các cậu không chỉ khám phá ra được vẻ đẹp của ngôn từ mà còn khám phá ra tầm quan trọng của việc làm cho mỗi khoảnh khắc đều có giá trị.</p><p>Nhưng những thành viên của Hội Cố thi nhân sớm nhận ra rằng sự tự do mới có được của họ có thể gây ra những hậu quả bi thảm. Liệu câu lạc bộ và những trái tim trẻ trung, khát khao đó có thể tồn tại trước áp lực từ gia đình và nhà trường, những thế lực quyết tâm phá bỏ giấc mơ của họ?</p><p>Về tác giả:</p><p>Nancy H. Kleinbaum là một nhà báo và nhà văn người Mỹ, thành công với các tác phẩm truyện thiếu nhi và giả tưởng. Hội cố thi nhân là tác phẩm gây tiếng vang và đưa bà đến gần hơn với công chúng.</p><p>Một số giải thưởng liên quan (giải thưởng của phim)</p><p>Giải Oscar cho kịch bản gốc hay nhất, Giải BAFTA cho phim hay nhất, Giải César cho phim nước ngoài hay nhất...</p><p>Tác giả Nancy H.Kleinbaum</p><p>Kích Thước Bao Bì 19 x 13 x 1.3 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936066698139"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Tôn Nữ Diệu Hạnh"
+    },
+    {
+      "label": "NXB",
+      "value": "Thanh Niên"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "290"
+    },
+    {
+      "label": "Số trang",
+      "value": "276"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "290"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Todd Anderson và những người bạn của cậu tại Học viện Welton khó có thể tin rằng cuộc sống lại khác biệt đến thế kể từ khi giáo viên môn Ngữ văn của họ, John Keating, một người thầy hào hoa, thách thức họ làm cho cuộc..."
+}

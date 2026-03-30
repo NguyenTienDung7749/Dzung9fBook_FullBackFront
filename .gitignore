@@ -1,0 +1,11 @@
+node_modules/
+public/
+.env
+.playwright-artifacts/
+playwright-report/
+test-results/
+.codex_tmp/
+tools/catalog/state/
+server/data/*.json
+Thumbs.db
+.vscode/

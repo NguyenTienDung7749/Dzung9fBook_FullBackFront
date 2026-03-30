@@ -1,0 +1,68 @@
+{
+  "id": 1053781678,
+  "sourceProductId": 1053781678,
+  "handle": "quy-luat-cua-nhan-sinh",
+  "sourceUrl": "https://www.vinabook.com/products/quy-luat-cua-nhan-sinh",
+  "title": "Quy Luật Của Nhân Sinh",
+  "author": "",
+  "publisher": "Chính Thông",
+  "year": "2024",
+  "sku": "9786046868286",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "328",
+  "weight": "300",
+  "size": "",
+  "price": 45000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "sach-hoc-lam-nguoi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/sach-hoc-lam-nguoi/quy-luat-cua-nhan-sinh/01.gif",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/sach-hoc-lam-nguoi/quy-luat-cua-nhan-sinh/01.gif"
+  ],
+  "description": "Ngày nay khi kinh tế phát triển, con người đã tạo ra một lượng khối lượng của cải vật chất tinh thần đồ sộ, cùng với sự tiến bộ của khoa học - kỹ thuật, cuộc sống của con người không ngừng được cải thiện và nâng cao....",
+  "descriptionHtml": "<p>Ngày nay khi kinh tế phát triển, con người đã tạo ra một lượng khối lượng của cải vật chất tinh thần đồ sộ, cùng với sự tiến bộ của khoa học - kỹ thuật, cuộc sống của con người không ngừng được cải thiện và nâng cao. Đặc biệt là sự ra đời của các phương tiện thông tin đại chúng gần như làm thay đổi toàn bộ đời sống xã</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786046868286"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Số trang",
+      "value": "328"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Chính Thông"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "sach-hoc-lam-nguoi",
+  "subcategoryLabel": "Sách Học Làm Người",
+  "descriptionText": "Ngày nay khi kinh tế phát triển, con người đã tạo ra một lượng khối lượng của cải vật chất tinh thần đồ sộ, cùng với sự tiến bộ của khoa học - kỹ thuật, cuộc sống của con người không ngừng được cải thiện và nâng cao...."
+}

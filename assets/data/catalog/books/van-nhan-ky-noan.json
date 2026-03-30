@@ -1,0 +1,84 @@
+{
+  "id": 1070568872,
+  "sourceProductId": 1070568872,
+  "handle": "van-nhan-ky-noan",
+  "sourceUrl": "https://www.vinabook.com/products/van-nhan-ky-noan",
+  "title": "Vạn Nhân Ký - Noãn",
+  "author": "Linh Thạch",
+  "publisher": "CÔNG TY TNHH VĂN HÓA & TRUYỀN THÔNG DU BÚT",
+  "year": "2025",
+  "sku": "9786043719598",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "312",
+  "weight": "350",
+  "size": "21 x 15 x 1.5 cm",
+  "price": 150000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/van-nhan-ky-noan/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/van-nhan-ky-noan/01.jpg"
+  ],
+  "description": "Noãn - một vị hoàng thân trẻ tuổi đột ngột bị đặt lên vai gánh nặng giành lại giang sơn đã mất. Chàng phải lên đường trốn chạy, tận mắt chứng kiến hàng ngàn sinh mạng đã đánh đổi để mình được sống, trong lòng chàng là...",
+  "descriptionHtml": "<p>Noãn - một vị hoàng thân trẻ tuổi đột ngột bị đặt lên vai gánh nặng giành lại giang sơn đã mất. Chàng phải lên đường trốn chạy, tận mắt chứng kiến hàng ngàn sinh mạng đã đánh đổi để mình được sống, trong lòng chàng là bao nỗi hoang mang và sự hoài nghi chính mình. Giữa trách nhiệm với gia tộc và tâm tư của bản thân, Noãn sẽ quyết định ra sao? Liệu chàng có tìm được mục đích để tiếp tục sống? Trong lúc đó, những người hầu cận quanh chàng dường như lại có những ý đồ riêng...</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786043719598"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "CÔNG TY TNHH VĂN HÓA & TRUYỀN THÔNG DU BÚT"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Linh Thạch"
+    },
+    {
+      "label": "NXB",
+      "value": "Phụ Nữ Việt Nam"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "350"
+    },
+    {
+      "label": "Kích thước",
+      "value": "21 x 15 x 1.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "312"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "CÔNG TY TNHH VĂN HÓA & TRUYỀN THÔNG DU BÚT"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "350"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Noãn - một vị hoàng thân trẻ tuổi đột ngột bị đặt lên vai gánh nặng giành lại giang sơn đã mất. Chàng phải lên đường trốn chạy, tận mắt chứng kiến hàng ngàn sinh mạng đã đánh đổi để mình được sống, trong lòng chàng là..."
+}

@@ -1,0 +1,84 @@
+{
+  "id": 1073051928,
+  "sourceProductId": 1073051928,
+  "handle": "su-song-bat-kha",
+  "sourceUrl": "https://www.vinabook.com/products/su-song-bat-kha",
+  "title": "Sự Sống Bất Khả",
+  "author": "Matt Haig",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247543",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "538",
+  "weight": "300",
+  "size": "20.5 x 14 x 2.6 cm",
+  "price": 250000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "tam-ly-ky-nang-song",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/su-song-bat-kha/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/su-song-bat-kha/01.jpg"
+  ],
+  "description": "Một cuốn sách tuyệt vời về nỗi đau, sự chữa lành, người ngoài hành tinh và những kết nối kỳ diệu của sự vật. Sau sự ra đi của chồng và con trai, Grace Winters, một giáo viên toán đã về hưu, chỉ sống trong lặng lẽ, khô...",
+  "descriptionHtml": "<p>Một cuốn sách tuyệt vời về nỗi đau, sự chữa lành, người ngoài hành tinh và những kết nối kỳ diệu của sự vật.</p><p>Sau sự ra đi của chồng và con trai, Grace Winters, một giáo viên toán đã về hưu, chỉ sống trong lặng lẽ, không mục đích, không hy vọng, tràn ngập cảm giác tội lỗi và dằn vặt. Khi bất ngờ được thừa hưởng một ngôi nhà tồi tàn trên hòn đảo Ibiza ở Địa Trung Hải từ một người bạn mà bà chẳng hề thân và cũng đã mất liên lạc từ lâu, sự tò mò đã thôi thúc bà đến Ibiza với tấm vé một chiều, không định hướng, không kế hoạch.</p><p>Giữa một Ibiza đa diện và đầy biến ảo, bà lần theo các dấu vết để tìm kiếm câu trả lời về cuộc đời và cho cả cái kết đầy bí ấn của người bạn nọ. Những gì Grace khám phá ra kỳ lạ hơn tất cả những gì bà có thể tưởng tượng. Trên hành trình đó, bà buộc phải đối mặt với quá khứ đau đớn của chính mình nhưng cũng chính nhờ vậy mà bà đã được chữa lành. Một câu chuyện về hy vọng và sức mạnh thay đổi cuộc đời của một khởi đầu mới. Một hành trình tôn vinh sự sống và sự kết nối giữa vạn vật, chứng minh rằng ngay cả khi mọi cánh cửa dường như đã đóng lại, luôn có một bí mật nhiệm mầu đang chờ đợi để mở ra một chương mới.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247543"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Matt Haig"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Ngân Di"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 2.6 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "538"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "tam-ly-ky-nang-song",
+  "subcategoryLabel": "Tâm Lý - Kỹ Năng Sống",
+  "descriptionText": "Một cuốn sách tuyệt vời về nỗi đau, sự chữa lành, người ngoài hành tinh và những kết nối kỳ diệu của sự vật. Sau sự ra đi của chồng và con trai, Grace Winters, một giáo viên toán đã về hưu, chỉ sống trong lặng lẽ, khô..."
+}

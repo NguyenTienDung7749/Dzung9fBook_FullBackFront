@@ -1,0 +1,88 @@
+{
+  "id": 1054735051,
+  "sourceProductId": 1054735051,
+  "handle": "ca-cao-mau",
+  "sourceUrl": "https://www.vinabook.com/products/ca-cao-mau",
+  "title": "Ca Cao Máu",
+  "author": "Tara Sullivan",
+  "publisher": "1980 Books",
+  "year": "2024",
+  "sku": "8936066698702",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "440",
+  "weight": "400",
+  "size": "",
+  "price": 189000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/01.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/02.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/03.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/04.jpg",
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/ca-cao-mau/05.jpg"
+  ],
+  "description": "“Một bức chân dung hấp dẫn và đau đớn về chế độ nô lệ trẻ em thời hiện đại tại các đồn điền cacao”. - The Wall Street Journal Nội dung Amadou 15 tuổi và em trai Seydou của mình bị lừa lao động cưỡng bức tại một đồn đi...",
+  "descriptionHtml": "<p>“Một bức chân dung hấp dẫn và đau đớn về chế độ nô lệ trẻ em thời hiện đại tại các đồn điền cacao”. - The Wall Street Journal</p><p>Nội dung</p><p>Amadou 15 tuổi và em trai Seydou của mình bị lừa lao động cưỡng bức tại một đồn điền ca cao ở Bờ Biển Ngà. Chúng không hề biết rằng dẫu có nỗ lực mỗi ngày, chúng cũng không bao giờ có thể trả hết “món nợ” và hành trình trở về còn xa xôi.</p><p>Khadija – cô là cô gái đầu tiên xuất hiện đến đồn điền; dũng cảm chiến đấu mỗi ngày, cố gắng trốn thoát hết lần này đến lần khác và cũng chính cô là người đã khai tỏ cho Amadou về ý nghĩa của tự do. Nhưng cuối cùng, cô lại bị các ông chủ đồn điền hủy hoại.</p><p>Amadou sẽ làm gì khi đứng trước nỗi đau mà người bạn thân ấy cùng đứa em trai bé bỏng của cậu phải chịu đựng. Liệu cuộc hành trình trốn thoát lần nữa của ba người có thành công?</p><p>Về tác giả:</p><p>Sinh ra ở Ấn Độ và trải qua thời thơ ấu sống ở Bangladesh, Ecuador, Bolivia và Cộng hòa Dominica cùng cha mẹ là nhân viên cứu trợ quốc tế, Tara Sullivan là tác giả của cuốn Golden Boy từng đoạt giải thưởng và được giới phê bình đánh giá cao.</p><p>Cô nhận bằng Cử nhân văn học Tây Ban Nha và khoa học nhận thức từ Đại học Virginia, bằng Thạc sĩ về Nghiên cứu Châu Mỹ Latinh và bằng MPA về quản lý phi lợi nhuận từ Đại học Indiana. Cô hiện đang sống cùng gia đình ở Massachusetts.</p><p>Kích Thước Bao Bì 20.5 x 13 x 2.2 cm</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8936066698702"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Tara Sullivan"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Chalalot"
+    },
+    {
+      "label": "NXB",
+      "value": "Thanh Niên"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "400"
+    },
+    {
+      "label": "Số trang",
+      "value": "440"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "1980 Books"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "400"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "“Một bức chân dung hấp dẫn và đau đớn về chế độ nô lệ trẻ em thời hiện đại tại các đồn điền cacao”. - The Wall Street Journal Nội dung Amadou 15 tuổi và em trai Seydou của mình bị lừa lao động cưỡng bức tại một đồn đi..."
+}

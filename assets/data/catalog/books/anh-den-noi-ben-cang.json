@@ -1,0 +1,84 @@
+{
+  "id": 1073043799,
+  "sourceProductId": 1073043799,
+  "handle": "anh-den-noi-ben-cang",
+  "sourceUrl": "https://www.vinabook.com/products/anh-den-noi-ben-cang",
+  "title": "Ánh Đèn Nơi Bến Cảng",
+  "author": "BANANA YOSHIMOTO",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235247277",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "164",
+  "weight": "50",
+  "size": "20.5x 14 x 0.8 cm",
+  "price": 99000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/anh-den-noi-ben-cang/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/anh-den-noi-ben-cang/01.jpg"
+  ],
+  "description": "Lá thư cầu cứu của Hibari – người bạn gái thân thiết từ thuở ấu thơ – bất ngờ đến tay Tsubasa, mở ra cánh cửa dẫn về miền ký ức tưởng chừng đã ngủ say, với thị trấn cảng biển nhỏ nơi hai đứa từng cùng nhau lớn lên, từ...",
+  "descriptionHtml": "<p>Lá thư cầu cứu của Hibari – người bạn gái thân thiết từ thuở ấu thơ – bất ngờ đến tay Tsubasa, mở ra cánh cửa dẫn về miền ký ức tưởng chừng đã ngủ say, với thị trấn cảng biển nhỏ nơi hai đứa từng cùng nhau lớn lên, từng biết thế nào là yêu thương và mất mát. Giờ đây, Hibari đang rơi vào tình cảnh tuyệt vọng, và Tsubasa quyết định bắt đầu hành trình giải cứu Hibari khỏi bóng tối và tìm lại những kết nối gắn bó. Ánh đèn nơi bến cảng là câu chuyện về sự cứu rỗi dịu dàng giữa hai con người từng bị tổn thương, về đức tin và tự do, tình yêu và tình bạn, mất mát và hồi phục. Bằng giọng văn tinh tế lắng dịu, Banana Yoshimoto đưa người đọc đi qua nỗi buồn mà không hề nặng nề, chỉ còn lại dư âm ấm áp, như ánh đèn cảng lặng lẽ chiếu sáng con đường trở về giữa biển đêm. Đúng như thông điệp của tác giả: “Mặc dù là một tiểu thuyết tình yêu, nhưng quan trọng hơn cả là tôi đã viết nó ra sau khi suy ngẫm nghiêm túc về việc thế nào mới thực sự là dịu dàng với người khác.”</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247277"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "BANANA YOSHIMOTO"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Dương Hoa"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội nhà văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "50"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5x 14 x 0.8 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "164"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "50"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Lá thư cầu cứu của Hibari – người bạn gái thân thiết từ thuở ấu thơ – bất ngờ đến tay Tsubasa, mở ra cánh cửa dẫn về miền ký ức tưởng chừng đã ngủ say, với thị trấn cảng biển nhỏ nơi hai đứa từng cùng nhau lớn lên, từ..."
+}

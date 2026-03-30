@@ -1,0 +1,68 @@
+{
+  "id": 1070568853,
+  "sourceProductId": 1070568853,
+  "handle": "gui-em",
+  "sourceUrl": "https://www.vinabook.com/products/gui-em",
+  "title": "Gửi Em",
+  "author": "Lê Thư",
+  "publisher": "Du Bút",
+  "year": "2025",
+  "sku": "9786049799013",
+  "bookType": "Bìa mềm",
+  "language": "",
+  "pages": "",
+  "weight": "211",
+  "size": "",
+  "price": 100000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Thiếu Nhi",
+  "subcategory": "truyen-thieu-nhi",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/gui-em/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-thieu-nhi/truyen-thieu-nhi/gui-em/01.jpg"
+  ],
+  "description": "Trong một lần tình cờ bắt gặp món cà phê trứng, nhân vật chính - một nữ hoạ sĩ minh hoạ - chợt nhớ về một người bạn đã từng thân thiết. Bần thần và hốt hoảng khi ký ức về bạn dần phai nhạt, cô quyết định kể lại những...",
+  "descriptionHtml": "<p>Trong một lần tình cờ bắt gặp món cà phê trứng, nhân vật chính - một nữ hoạ sĩ minh hoạ - chợt nhớ về một người bạn đã từng thân thiết. Bần thần và hốt hoảng khi ký ức về bạn dần phai nhạt, cô quyết định kể lại những mẩu chuyện nhỏ, những kỷ niệm tưởng chừng vụn vặt nhưng lại là những khoảnh khắc bình yên hiếm hoi của hai người trước cơn bão cuộc đời.</p><p>“Những kỷ niệm của chúng mình ngày ấy, chị đã bắt đầu nhớ nhớ quên quên. Trong phút chốc, chị đã hoảng hốt khi ngỡ… mình quên mất khuôn mặt em rồi”.</p><p>Gửi em&quot; là một câu chuyện cảm động về tình bạn, sự trưởng thành và vượt qua nỗi đau. Đó là nỗ lực của Lê Thư để biến những sự thương mến chưa kịp nói, những nỗi nhớ nhung, tiếc nuối thành một điều gì đó thật đẹp, thật tử tế. Một tác phẩm truyện tranh đáng yêu và chữa lành của Lê Thư, hân hạnh giới thiệu đến bạn đọc vào mùa hè này.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786049799013"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lê Thư"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "211"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Du Bút"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "211"
+    }
+  ],
+  "categoryLabel": "Sách Thiếu Nhi",
+  "parentSlug": "sach-thieu-nhi",
+  "subcategorySlug": "truyen-thieu-nhi",
+  "subcategoryLabel": "Truyện Thiếu Nhi",
+  "descriptionText": "Trong một lần tình cờ bắt gặp món cà phê trứng, nhân vật chính - một nữ hoạ sĩ minh hoạ - chợt nhớ về một người bạn đã từng thân thiết. Bần thần và hốt hoảng khi ký ức về bạn dần phai nhạt, cô quyết định kể lại những..."
+}

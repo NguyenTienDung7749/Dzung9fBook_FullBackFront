@@ -1,0 +1,88 @@
+{
+  "id": 1073362388,
+  "sourceProductId": 1073362388,
+  "handle": "tam-ly-hoc-danh-cho-phai-nu",
+  "sourceUrl": "https://www.vinabook.com/products/tam-ly-hoc-danh-cho-phai-nu",
+  "title": "Tâm Lý Học Dành Cho Phái Nữ",
+  "author": "Bhan Yoo Wha",
+  "publisher": "AZ Việt Nam",
+  "year": "2026",
+  "sku": "8935325033483",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "216",
+  "weight": "230",
+  "size": "20.5 x 14.5 x 1 cm",
+  "price": 129000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Phát Triển Bản Thân",
+  "subcategory": "tam-ly-ky-nang-song",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/tam-ly-hoc-danh-cho-phai-nu/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-phat-trien-ban-than/tam-ly-ky-nang-song/tam-ly-hoc-danh-cho-phai-nu/01.jpg"
+  ],
+  "description": "Gửi đến bạn, người mệt mỏi bởi những điều phải trải qua vì là phụ nữ… Giữa nhịp sống hiện đại phát triển như vũ bão, nhiều phụ nữ bị mắc kẹt trong vòng xoáy của vô vàn vấn đề: mâu thuẫn trong gia đình, công việc; chuy...",
+  "descriptionHtml": "<p>Gửi đến bạn, người mệt mỏi bởi những điều phải trải qua vì là phụ nữ…</p><p>Giữa nhịp sống hiện đại phát triển như vũ bão, nhiều phụ nữ bị mắc kẹt trong vòng xoáy của vô vàn vấn đề: mâu thuẫn trong gia đình, công việc; chuyện tình cảm, hôn nhân; nỗi lo về tuổi tác, ngoại hình...</p><p>Tâm lý học dành cho phái nữ là “toa thuốc tâm lý” dành cho những người phụ nữ ấy. Thông qua 12 câu chuyện điển hình mà hầu như người phụ nữ nào cũng từng gặp phải, tác giả chỉ ra cách nhìn nhận và đối diện với từng tình huống, đồng thời đưa ra những giải pháp thực tế xoa dịu những trái tim đầy thương tổn, giúp họ sống vững vàng hơn.</p><p>Hy vọng cuốn sách này có thể giúp bạn thay đổi sự nghi ngờ bản thân thành sự tò mò, thấu hiểu về bản thân và sống trọn vẹn là mình.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935325033483"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Bhan Yoo Wha"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Minh Thùy"
+    },
+    {
+      "label": "NXB",
+      "value": "Lao Động"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "230"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "216"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "AZ Việt Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "230"
+    }
+  ],
+  "categoryLabel": "Sách Phát Triển Bản Thân",
+  "parentSlug": "sach-phat-trien-ban-than",
+  "subcategorySlug": "tam-ly-ky-nang-song",
+  "subcategoryLabel": "Tâm Lý - Kỹ Năng Sống",
+  "descriptionText": "Gửi đến bạn, người mệt mỏi bởi những điều phải trải qua vì là phụ nữ… Giữa nhịp sống hiện đại phát triển như vũ bão, nhiều phụ nữ bị mắc kẹt trong vòng xoáy của vô vàn vấn đề: mâu thuẫn trong gia đình, công việc; chuy..."
+}

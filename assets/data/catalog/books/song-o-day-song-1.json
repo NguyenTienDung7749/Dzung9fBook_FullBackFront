@@ -1,0 +1,84 @@
+{
+  "id": 1071943805,
+  "sourceProductId": 1071943805,
+  "handle": "song-o-day-song-1",
+  "sourceUrl": "https://www.vinabook.com/products/song-o-day-song-1",
+  "title": "Sóng Ở Đáy Sông",
+  "author": "Lê Lựu",
+  "publisher": "Minh Thắng",
+  "year": "2025",
+  "sku": "8935236438001",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "388",
+  "weight": "300",
+  "size": "20.5 x 14.5 x 1.9 cm",
+  "price": 100000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/song-o-day-song-1/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/song-o-day-song-1/01.jpg"
+  ],
+  "description": "“Sóng ở đáy sông” kể về cuộc đời nhiều biến động của Nguyễn Văn Long, một cậu bé sinh ra trong nghèo khó, bị ruồng rẫy và chịu nhiều thiệt thòi từ nhỏ. Dù thông minh, hiếu học và có khát vọng vươn lên, Long lại sớm bị...",
+  "descriptionHtml": "<p>“Sóng ở đáy sông” kể về cuộc đời nhiều biến động của Nguyễn Văn Long, một cậu bé sinh ra trong nghèo khó, bị ruồng rẫy và chịu nhiều thiệt thòi từ nhỏ. Dù thông minh, hiếu học và có khát vọng vươn lên, Long lại sớm bị cuốn vào vòng xoáy của nghịch cảnh: gia đình tan vỡ, bị đối xử bất công, rồi dần sa ngã, trượt dài trong tội lỗi và bi kịch cuộc đời.</p><p>Từ một cậu học trò ngoan hiền, Long trở thành kẻ lầm đường — nhưng sâu thẳm trong anh vẫn luôn âm ỉ một “ngọn sóng” của lòng tự trọng, khát vọng sống tử tế và tìm lại chính mình.</p><p>Qua hành trình đầy thăng trầm ấy, tác phẩm thể hiện:</p><p>Nỗi day dứt về thân phận con người trong xã hội cũ</p><p>Niềm tin vào sự thức tỉnh, vào phần thiện trong mỗi con người</p><p>Và khát vọng vươn lên, vượt qua số phận, dù ở “đáy sông” cuộc đời.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935236438001"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Minh Thắng"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lê Lựu"
+    },
+    {
+      "label": "NXB",
+      "value": "Văn Học"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "300"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14.5 x 1.9 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "388"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Minh Thắng"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "300"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "“Sóng ở đáy sông” kể về cuộc đời nhiều biến động của Nguyễn Văn Long, một cậu bé sinh ra trong nghèo khó, bị ruồng rẫy và chịu nhiều thiệt thòi từ nhỏ. Dù thông minh, hiếu học và có khát vọng vươn lên, Long lại sớm bị..."
+}

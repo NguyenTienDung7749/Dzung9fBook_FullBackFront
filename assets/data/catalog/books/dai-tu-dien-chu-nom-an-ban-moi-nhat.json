@@ -1,0 +1,88 @@
+{
+  "id": 1062740792,
+  "sourceProductId": 1062740792,
+  "handle": "dai-tu-dien-chu-nom-an-ban-moi-nhat",
+  "sourceUrl": "https://www.vinabook.com/products/dai-tu-dien-chu-nom-an-ban-moi-nhat",
+  "title": "Đại Từ Điển Chữ Nôm (Ấn Bản Mới Nhất)",
+  "author": "Vũ Văn Kính",
+  "publisher": "Cty Văn Hóa Hương Trang",
+  "year": "2025",
+  "sku": "8935209623212",
+  "bookType": "Bìa Mềm",
+  "language": "Tiếng Việt",
+  "pages": "1598",
+  "weight": "4500",
+  "size": "24 x 16 x 4.5 cm",
+  "price": 585000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Giáo Khoa - Giáo Trình",
+  "subcategory": "tu-dien",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/01.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/02.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/03.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/04.jpg",
+    "./assets/images/books/sach-giao-khoa-giao-trinh/tu-dien/dai-tu-dien-chu-nom-an-ban-moi-nhat/05.jpg"
+  ],
+  "description": "Sách dày 1600 trang khổ lớn, bao gồm hơn 37.000 chữ Nôm với hơn 7000 âm đọc, là một tài liệu tra cứu thuận tiện và phong phú cho bất cứ ai sử dụng đến chữ Nôm. Trong tình hình nghiên cứu hiện nay, những tư liệu quý và...",
+  "descriptionHtml": "<p>Sách dày 1600 trang khổ lớn, bao gồm hơn 37.000 chữ Nôm với hơn 7000 âm đọc, là một tài liệu tra cứu thuận tiện và phong phú cho bất cứ ai sử dụng đến chữ Nôm. Trong tình hình nghiên cứu hiện nay, những tư liệu quý và có hệ thống như thế này không nhiều lắm. Đây chắc chắn là một món quà quý giá cho các nhà nghiên cứu chữ Nôm cũng như các độc giả có nhu cầu đọc hiểu các bản văn Nôm, vốn đã trở nên phức tạp và khó hiểu đối với phần lớn những người trẻ được đào tạo theo văn hóa và chữ viết hiện đại.</p><p>Soạn giả Vũ Văn Kính là một trong những cây đại thụ hiếm hoi còn sót lại của thế hệ đi trước. Với tâm nguyện và nhiệt tình đóng góp cho văn hóa nước nhà, sau khi đã hưu trí từ Viện Khoa học Xã hội, ông vẫn tiếp tục công việc nghiên cứu và cho ra đời nhiều công trình quan trọng, trong đó có bộ tự điển chữ Nôm này.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935209623212"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Cty Văn Hóa Hương Trang"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Vũ Văn Kính"
+    },
+    {
+      "label": "NXB",
+      "value": "Thời Đại"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Ngôn ngữ",
+      "value": "Tiếng Việt"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "4500"
+    },
+    {
+      "label": "Kích thước",
+      "value": "24 x 16 x 4.5 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "1598"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Cty Văn Hóa Hương Trang"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "4500"
+    }
+  ],
+  "categoryLabel": "Sách Giáo Khoa - Giáo Trình",
+  "parentSlug": "sach-giao-khoa-giao-trinh",
+  "subcategorySlug": "tu-dien",
+  "subcategoryLabel": "Từ Điển",
+  "descriptionText": "Sách dày 1600 trang khổ lớn, bao gồm hơn 37.000 chữ Nôm với hơn 7000 âm đọc, là một tài liệu tra cứu thuận tiện và phong phú cho bất cứ ai sử dụng đến chữ Nôm. Trong tình hình nghiên cứu hiện nay, những tư liệu quý và..."
+}

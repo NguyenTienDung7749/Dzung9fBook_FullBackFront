@@ -1,0 +1,48 @@
+<main>
+  <section class="section">
+    <div class="container auth-layout">
+      <div class="auth-copy">
+        <p class="section-label">Tạo tài khoản</p>
+        <h1 class="section-title">Một vài thông tin ngắn gọn để Dzung9fBook phục vụ bạn tốt hơn.</h1>
+        <p class="section-text">
+          Điền thông tin cơ bản để bạn lưu lại hồ sơ mua sách, theo dõi giỏ hàng và rút ngắn thao tác ở lần ghé sau.
+        </p>
+        <a href="./login.html" class="text-link">Đã có tài khoản? Đăng nhập ngay</a>
+      </div>
+
+      <div class="form-card">
+        <h2>Đăng ký tài khoản</h2>
+        <p>Điền đầy đủ thông tin để tạo tài khoản và bắt đầu lưu lại những tựa sách bạn quan tâm.</p>
+        <form novalidate data-register-form>
+          <label class="form-field">
+            <span class="label-text">Họ và tên</span>
+            <input type="text" name="name" placeholder="Nguyễn Văn A" required autocomplete="name">
+            <span class="field-error" id="register-name-error" data-error-for="name"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Email</span>
+            <input type="email" name="email" placeholder="ban@example.com" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false">
+            <span class="field-error" id="register-email-error" data-error-for="email"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Số điện thoại</span>
+            <input type="tel" name="phone" placeholder="0983 376 932" autocomplete="tel" inputmode="tel" minlength="9" maxlength="15" pattern="[0-9+\\s]{9,15}">
+            <span class="field-error" id="register-phone-error" data-error-for="phone"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Mật khẩu</span>
+            <input type="password" name="password" placeholder="Tối thiểu 6 ký tự" required minlength="6" autocomplete="new-password">
+            <span class="field-error" id="register-password-error" data-error-for="password"></span>
+          </label>
+          <label class="form-field">
+            <span class="label-text">Xác nhận mật khẩu</span>
+            <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu" required minlength="6" autocomplete="new-password">
+            <span class="field-error" id="register-confirm-password-error" data-error-for="confirmPassword"></span>
+          </label>
+          <div class="form-message" data-form-message aria-live="polite"></div>
+          <button class="btn btn-primary btn-block" type="submit">Tạo tài khoản</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

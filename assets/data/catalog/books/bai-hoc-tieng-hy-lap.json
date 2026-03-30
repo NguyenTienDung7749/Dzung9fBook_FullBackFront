@@ -1,0 +1,84 @@
+{
+  "id": 1073051916,
+  "sourceProductId": 1073051916,
+  "handle": "bai-hoc-tieng-hy-lap",
+  "sourceUrl": "https://www.vinabook.com/products/bai-hoc-tieng-hy-lap",
+  "title": "Bài Học Tiếng Hy Lạp",
+  "author": "Han Kang",
+  "publisher": "Nhã Nam",
+  "year": "2026",
+  "sku": "8935235247635",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "222",
+  "weight": "150",
+  "size": "20.5 x 14 x 1.1 cm",
+  "price": 145000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/bai-hoc-tieng-hy-lap/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/tieu-thuyet/bai-hoc-tieng-hy-lap/01.jpg"
+  ],
+  "description": "Em có ngồi nghỉ ở băng ghế trước cây cầu xưa mà em yêu thích, rồi lấy những tấm phim vẫn bỏ sẵn trong túi ra giơ lên trước mắt, dưới ánh mặt trời? Mỗi lần nhắm mắt dưới tấm chăn mỏng lạnh lẽo, cô lại thấy đang đợi mìn...",
+  "descriptionHtml": "<p>Em có ngồi nghỉ ở băng ghế trước cây cầu xưa mà em yêu thích, rồi lấy những tấm phim vẫn bỏ sẵn trong túi ra giơ lên trước mắt, dưới ánh mặt trời?</p><p>Mỗi lần nhắm mắt dưới tấm chăn mỏng lạnh lẽo, cô lại thấy đang đợi mình là con đường tuyết rơi, những người qua đường xa lạ, đứa trẻ mặc kiểu quần áo xa lạ, cùng khuôn mặt thấp thoáng không thể phân biệt được là của cô hay của con cô.</p><p>Trong một lớp học tại Seoul, một người phụ nữ trẻ mải nhìn giảng viên tiếng Hy Lạp cổ trên bảng đen. Cô cố mở miệng nói nhưng không thể thành lời vì mất giọng. Người giảng viên thấy mình bị thu hút bởi người phụ nữ trẻ im lặng ấy - anh cũng có vấn đề của mình, đó là từng ngày một anh đang dần mất đi thị lực.</p><p>Câu chuyện được luân phiên kể từ điểm nhìn của hai nhân vật tôi: hai con người mau chóng phát hiện ra nỗi đau gắn kết họ, hai con người bình thường được số phận kéo lại gần nhau ở vào thời khắc của nỗi đau riêng...</p><p>Bài bọc tiếng Hy Lạp chính là câu chuyện về kết nối không ngờ, bức thư tình cho sự gắn bó và thân mật gần gũi của con người - một cuốn tiểu thuyết đánh thức các giác quan, cốt lõi của những gì có thể gọi là đang sống.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235247635"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Han Kang"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Kim Ngân"
+    },
+    {
+      "label": "NXB",
+      "value": "Hội Nhà Văn"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2026"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "150"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 1.1 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "222"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "150"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Em có ngồi nghỉ ở băng ghế trước cây cầu xưa mà em yêu thích, rồi lấy những tấm phim vẫn bỏ sẵn trong túi ra giơ lên trước mắt, dưới ánh mặt trời? Mỗi lần nhắm mắt dưới tấm chăn mỏng lạnh lẽo, cô lại thấy đang đợi mìn..."
+}

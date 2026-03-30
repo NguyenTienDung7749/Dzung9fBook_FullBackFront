@@ -1,0 +1,88 @@
+{
+  "id": 1071371082,
+  "sourceProductId": 1071371082,
+  "handle": "trai-tim-cua-hon-ma",
+  "sourceUrl": "https://www.vinabook.com/products/trai-tim-cua-hon-ma",
+  "title": "Trái Tim Của Hồn Ma",
+  "author": "Lim Sunwoo",
+  "publisher": "Nhã Nam",
+  "year": "2025",
+  "sku": "8935235246232",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "272",
+  "weight": "270",
+  "size": "20.5 x 14 x 1.3 cm",
+  "price": 165000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Trong Nước",
+  "subcategory": "tieu-thuyet",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/trai-tim-cua-hon-ma/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-trong-nuoc/tieu-thuyet/trai-tim-cua-hon-ma/01.jpg"
+  ],
+  "description": "Một buổi sáng, bạn bước vào tiệm bánh và trông thấy một hồn ma giống hệt mình đang ngủ gục trên bàn. Ngày khác, khắp bản tin của bạn tràn ngập tin tức về một loài sứa với ánh sáng xanh mê hồn có khả năng biến con ngườ...",
+  "descriptionHtml": "<p>Một buổi sáng, bạn bước vào tiệm bánh và trông thấy một hồn ma giống hệt mình đang ngủ gục trên bàn. Ngày khác, khắp bản tin của bạn tràn ngập tin tức về một loài sứa với ánh sáng xanh mê hồn có khả năng biến con người thành sứa chỉ bằng một cái chạm nhẹ. Cũng có thể, một tối về nhà, bạn gặp một người đàn ông hóa thành cây vì chờ đợi người yêu, hoặc đột nhiên bạn hiểu được ngôn ngữ của mèo vì bạn chính là đồng loại của chúng. Trong Trái tim của hồn ma, Im Seon Woo đã tạo nên một thế giới nhẹ nhàng mà kỳ lạ đến thế, nơi những điều bất thường hiện diện tự nhiên trong sự thường nhật như chúng vốn dĩ phải thuộc về.</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "8935235246232"
+    },
+    {
+      "label": "Dự kiến có hàng",
+      "value": "08/11/2025"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Lim Sunwoo"
+    },
+    {
+      "label": "Người dịch",
+      "value": "Hồng Hà"
+    },
+    {
+      "label": "NXB",
+      "value": "Hà Nội"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2025"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "270"
+    },
+    {
+      "label": "Kích thước",
+      "value": "20.5 x 14 x 1.3 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "272"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "Nhã Nam"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "270"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Trong Nước",
+  "parentSlug": "sach-van-hoc-trong-nuoc",
+  "subcategorySlug": "tieu-thuyet",
+  "subcategoryLabel": "Tiểu Thuyết",
+  "descriptionText": "Một buổi sáng, bạn bước vào tiệm bánh và trông thấy một hồn ma giống hệt mình đang ngủ gục trên bàn. Ngày khác, khắp bản tin của bạn tràn ngập tin tức về một loài sứa với ánh sáng xanh mê hồn có khả năng biến con ngườ..."
+}

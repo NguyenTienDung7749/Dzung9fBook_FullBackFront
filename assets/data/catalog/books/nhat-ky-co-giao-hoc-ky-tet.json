@@ -1,0 +1,80 @@
+{
+  "id": 1054000678,
+  "sourceProductId": 1054000678,
+  "handle": "nhat-ky-co-giao-hoc-ky-tet",
+  "sourceUrl": "https://www.vinabook.com/products/nhat-ky-co-giao-hoc-ky-tet",
+  "title": "Nhật Ký Cô Giáo - Học Kỳ Tết",
+  "author": "Hồ Yên Thục",
+  "publisher": "NXB Tổng Hợp TPHCM",
+  "year": "2024",
+  "sku": "9786044831466",
+  "bookType": "Bìa Mềm",
+  "language": "",
+  "pages": "192",
+  "weight": "210",
+  "size": "19 x 13 x 0.9 cm",
+  "price": 69000,
+  "compareAtPrice": 0,
+  "discountLabel": "",
+  "isSoldOut": false,
+  "category": "Sách Văn Học Nước Ngoài",
+  "subcategory": "truyen-ngan",
+  "listingStyle": "collection",
+  "image": "./assets/images/books/sach-van-hoc-nuoc-ngoai/truyen-ngan/nhat-ky-co-giao-hoc-ky-tet/01.jpg",
+  "gallery": [
+    "./assets/images/books/sach-van-hoc-nuoc-ngoai/truyen-ngan/nhat-ky-co-giao-hoc-ky-tet/01.jpg"
+  ],
+  "description": "Từ những tự sự thường nhật, nhiều khi tưởng như vụn vặt và rời rạc, tác giả Nhật ký cô giáo - HỌC KỲ TẾT ý tứ nói đến cái lý do nghề nghiệp, những nỗ lực trách vụ và hệ lụy của người thầy trong sự va đập, tương tác vớ...",
+  "descriptionHtml": "<p>Từ những tự sự thường nhật, nhiều khi tưởng như vụn vặt và rời rạc, tác giả Nhật ký cô giáo - HỌC KỲ TẾT ý tứ nói đến cái lý do nghề nghiệp, những nỗ lực trách vụ và hệ lụy của người thầy trong sự va đập, tương tác với người trò. Rằng, kiến thức không đến từ giáo trình và sự truyền thụ mà đã nằm sẵn trong chiếc smartphone nhỏ xinh, và nó lạc hậu rất nhanh bởi tri thức mới; rằng động thái di chuyển, sự khác biệt trong người học ngày nay đang diễn ra mạnh mẽ, khó đoán định; rằng xu hướng hướng dẫn kỹ năng tiếp cận trì thức, seminar cách tự tư duy đang làm lung lay “hệ thống chương trình chuẩn”, giáo trình, phương pháp dạy học và vai trò của người thầy trong môi trường số hóa.</p><p>HỌC KỲ TẾT là tập tiếp theo trong bộ NHẬT KÝ CÔ GIÁO của tác giả Hồ Yên Thục. Thông điệp mà tôi cảm nhận được từ tập sách nhỏ này cùng cả bộ nhật ký là: giáo dục sau phổ thông đương đại đang hướng tới giải đáp câu hỏi người trẻ muốn gì, và người dạy nên học cùng người học</p>",
+  "specs": [
+    {
+      "label": "Mã hàng",
+      "value": "9786044831466"
+    },
+    {
+      "label": "Nhà cung cấp",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Tác giả",
+      "value": "Hồ Yên Thục"
+    },
+    {
+      "label": "NXB",
+      "value": "Tổng Hợp Thành Phố Hồ Chí Minh"
+    },
+    {
+      "label": "Năm XB",
+      "value": "2024"
+    },
+    {
+      "label": "Trọng lượng",
+      "value": "210"
+    },
+    {
+      "label": "Kích thước",
+      "value": "19 x 13 x 0.9 cm"
+    },
+    {
+      "label": "Số trang",
+      "value": "192"
+    },
+    {
+      "label": "Hình thức",
+      "value": "Bìa Mềm"
+    },
+    {
+      "label": "Nhà phát hành",
+      "value": "NXB Tổng Hợp TPHCM"
+    },
+    {
+      "label": "Khối lượng",
+      "value": "210"
+    }
+  ],
+  "categoryLabel": "Sách Văn Học Nước Ngoài",
+  "parentSlug": "sach-van-hoc-nuoc-ngoai",
+  "subcategorySlug": "truyen-ngan",
+  "subcategoryLabel": "Truyện Ngắn",
+  "descriptionText": "Từ những tự sự thường nhật, nhiều khi tưởng như vụn vặt và rời rạc, tác giả Nhật ký cô giáo - HỌC KỲ TẾT ý tứ nói đến cái lý do nghề nghiệp, những nỗ lực trách vụ và hệ lụy của người thầy trong sự va đập, tương tác vớ..."
+}
