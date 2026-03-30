@@ -46,14 +46,16 @@ Frontend nha sach da trang bang HTML, CSS va JavaScript thuan, da duoc refactor 
 
 ## Phase A1 database baseline
 
-Phase A1 da them PostgreSQL + Prisma schema, migration, va import scripts, nhung chua cut over runtime backend.
+Phase A1 da them PostgreSQL + Prisma schema, migration, va import scripts.
+Phase A2.1 da chuyen runtime auth/user persistence sang Prisma/PostgreSQL.
+Phase A2.2 da chuyen `express-session` storage backend sang PostgreSQL-backed session store.
 
 Quan trong:
 
 - App hien tai van doc catalog tu `assets/data/catalog`
-- App hien tai van doc user tu `server/data/users.json`
-- App hien tai van dung `express-session` MemoryStore mac dinh
-- `server/src/services/` chua duoc chuyen sang DB-backed runtime trong Phase A1
+- App hien tai khong con dung `server/data/users.json` lam runtime source of truth cho auth
+- App hien tai van dung `express-session`, nhung session duoc luu trong PostgreSQL qua `connect-pg-simple`
+- Cart hien tai van la session-backed, chua chuyen sang DB-backed cart model
 - Customer-facing behavior, API shape, va public routes van giu nguyen
 
 ## Local setup
@@ -153,11 +155,14 @@ Lenh `serve` se:
 1. Build catalog runtime vao `public/assets/data/catalog`
 2. Build 8 HTML page vao `public/`
 3. Chay Express server va tu dong bat frontend sang `api provider`
+4. Tu dong nap bien moi truong tu `.env` de runtime session store co the ket noi PostgreSQL
 
 ## Ghi chu
 
 - Backend v1 hien tai doc catalog tu JSON build output, chua bat buoc database.
-- Session auth/cart hien tai van dung `express-session`.
+- Runtime auth hien tai doc user tu PostgreSQL qua Prisma.
+- Session auth/cart hien tai van dung `express-session`, nhung store da duoc chuyen sang PostgreSQL-backed session store.
+- Session table duoc `connect-pg-simple` tao tu dong trong database runtime neu chua ton tai, nen A2.2 khong can Prisma schema change hay migration moi.
 - Guest cart van duoc giu tren server session, khong can dang nhap moi dung duoc.
 - `public/runtime-config.js` mac dinh la `static`; khi chay qua Express, route `/runtime-config.js` se override sang `api`.
 - `public/` la runtime target chinh va la thu muc Express se serve khi review/chay local.
