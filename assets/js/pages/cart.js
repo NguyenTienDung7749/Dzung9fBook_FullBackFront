@@ -1,5 +1,6 @@
 import { qs } from '../core/dom.js';
 import { formatPrice, escapeHTML } from '../core/utils.js';
+import { isApiProviderMode } from '../config/runtime.js';
 import {
   buildDetailUrl,
   getBookDisplayAuthor,
@@ -7,10 +8,15 @@ import {
   getBookPrimaryImage,
   getBookSubcategorySlug
 } from '../data/catalog.js';
-import { getDetailedCart } from '../services/cart.js';
+import { getDetailedCart, syncCartSummary } from '../services/cart.js';
+import { checkout } from '../services/orders.js';
+import { getSessionSnapshot, subscribeSessionStore } from '../state/session-store.js';
+import { attachFieldClearHandlers, clearFormState, setFieldError, showFormMessage } from './forms-shared.js';
 
 let categoriesCache = [];
 let renderSequence = 0;
+let latestCartItems = [];
+let unsubscribeCartSession = null;
 
 const renderCartState = function (container, title, description, actionsMarkup = '') {
   container.innerHTML = `
@@ -20,6 +26,18 @@ const renderCartState = function (container, title, description, actionsMarkup =
       ${actionsMarkup ? `<div class="empty-state__actions">${actionsMarkup}</div>` : ''}
     </div>
   `;
+};
+
+const getCheckoutPanel = function () {
+  return qs('[data-checkout-panel]');
+};
+
+const clearCheckoutPanel = function () {
+  const panel = getCheckoutPanel();
+
+  if (panel) {
+    panel.innerHTML = '';
+  }
 };
 
 const renderEmptyCart = function (container, totalElement) {
@@ -33,6 +51,170 @@ const renderEmptyCart = function (container, totalElement) {
   if (totalElement) {
     totalElement.textContent = formatPrice(0);
   }
+};
+
+const buildCheckoutMessageMarkup = function (message, actionMarkup = '') {
+  return `
+    <p class="summary-note">${message}</p>
+    ${actionMarkup}
+  `;
+};
+
+const buildCheckoutFormMarkup = function (currentUser) {
+  return `
+    <p class="summary-note">Đơn hàng sẽ được xác nhận thủ công sau khi bạn gửi thông tin giao nhận.</p>
+    <form data-checkout-form novalidate>
+      <label class="form-field">
+        <span class="label-text">Người nhận</span>
+        <input type="text" name="customerName" value="${escapeHTML(String(currentUser?.name || ''))}" readonly>
+      </label>
+
+      <label class="form-field">
+        <span class="label-text">Email</span>
+        <input type="email" name="customerEmail" value="${escapeHTML(String(currentUser?.email || ''))}" readonly>
+      </label>
+
+      <label class="form-field">
+        <span class="label-text">Số điện thoại</span>
+        <input
+          type="tel"
+          name="customerPhone"
+          placeholder="0983 376 932"
+          value="${escapeHTML(String(currentUser?.phone || ''))}"
+          required
+          autocomplete="tel"
+          inputmode="tel"
+        >
+        <span class="field-error" id="checkout-phone-error" data-error-for="customerPhone"></span>
+      </label>
+
+      <label class="form-field">
+        <span class="label-text">Địa chỉ giao hàng</span>
+        <textarea
+          name="shippingAddress"
+          rows="4"
+          placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"
+          required
+          autocomplete="street-address"
+        ></textarea>
+        <span class="field-error" id="checkout-address-error" data-error-for="shippingAddress"></span>
+      </label>
+
+      <label class="form-field">
+        <span class="label-text">Ghi chú</span>
+        <textarea
+          name="note"
+          rows="3"
+          placeholder="Ví dụ: Gọi trước khi giao, giao giờ hành chính..."
+        ></textarea>
+        <span class="field-error" id="checkout-note-error" data-error-for="note"></span>
+      </label>
+
+      <div class="form-message" data-form-message aria-live="polite"></div>
+      <button class="btn btn-primary btn-block" type="submit" data-checkout-submit>Đặt hàng COD</button>
+    </form>
+  `;
+};
+
+const bindCheckoutForm = function (form) {
+  if (!form) {
+    return;
+  }
+
+  attachFieldClearHandlers(form);
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    clearFormState(form);
+
+    const submitButton = qs('[data-checkout-submit]', form);
+    const customerPhone = String(form.elements.customerPhone?.value || '').trim();
+    const shippingAddress = String(form.elements.shippingAddress?.value || '').trim();
+    const note = String(form.elements.note?.value || '').trim();
+    let hasErrors = false;
+
+    if (!customerPhone) {
+      setFieldError(form, 'customerPhone', 'Vui lòng nhập số điện thoại.');
+      hasErrors = true;
+    }
+
+    if (!shippingAddress) {
+      setFieldError(form, 'shippingAddress', 'Vui lòng nhập địa chỉ giao hàng.');
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      showFormMessage(form, 'error', 'Vui lòng điền đầy đủ thông tin giao hàng.');
+      return;
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.dataset.originalLabel = submitButton.textContent;
+      submitButton.textContent = 'Đang tạo đơn hàng...';
+    }
+
+    try {
+      await checkout({
+        customerPhone,
+        shippingAddress,
+        ...(note ? { note } : {})
+      });
+      await syncCartSummary();
+      window.location.href = './profile.html';
+    } catch (error) {
+      showFormMessage(
+        form,
+        'error',
+        error?.payload?.message || error?.message || 'Không thể đặt hàng lúc này. Vui lòng thử lại sau.'
+      );
+      console.error(error);
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalLabel || 'Đặt hàng COD';
+      }
+    }
+  });
+};
+
+const renderCheckoutPanel = function (cartWithBooks = latestCartItems, snapshot = getSessionSnapshot()) {
+  const panel = getCheckoutPanel();
+
+  if (!panel) {
+    return;
+  }
+
+  if (!Array.isArray(cartWithBooks) || cartWithBooks.length === 0) {
+    panel.innerHTML = '';
+    return;
+  }
+
+  if (!isApiProviderMode()) {
+    panel.innerHTML = buildCheckoutMessageMarkup(
+      'Checkout COD hiện chỉ hỗ trợ khi trang đang kết nối với backend/API mode.',
+      '<a href="./contact.html" class="btn btn-secondary btn-block">Để lại thông tin liên hệ</a>'
+    );
+    return;
+  }
+
+  if (snapshot?.authStatus === 'loading' || snapshot?.authStatus === 'idle') {
+    panel.innerHTML = buildCheckoutMessageMarkup('Đang đồng bộ phiên đăng nhập để sẵn sàng đặt hàng.');
+    return;
+  }
+
+  const currentUser = snapshot?.currentUser || null;
+
+  if (!currentUser) {
+    panel.innerHTML = buildCheckoutMessageMarkup(
+      'Đăng nhập để đặt hàng COD và lưu đơn hàng vào tài khoản của bạn.',
+      '<a href="./login.html" class="btn btn-primary btn-block">Đăng nhập để đặt hàng</a>'
+    );
+    return;
+  }
+
+  panel.innerHTML = buildCheckoutFormMarkup(currentUser);
+  bindCheckoutForm(qs('[data-checkout-form]', panel));
 };
 
 const buildMissingItemMarkup = function (item) {
@@ -69,6 +251,8 @@ export const renderCartPage = async function () {
   const totalElement = qs('[data-cart-total]');
   const renderId = renderSequence + 1;
   renderSequence = renderId;
+  latestCartItems = [];
+  clearCheckoutPanel();
 
   if (totalElement) {
     totalElement.textContent = formatPrice(0);
@@ -103,6 +287,7 @@ export const renderCartPage = async function () {
       totalElement.textContent = formatPrice(0);
     }
 
+    clearCheckoutPanel();
     console.error(error);
     return;
   }
@@ -112,7 +297,9 @@ export const renderCartPage = async function () {
   }
 
   if (!cartWithBooks.length) {
+    latestCartItems = [];
     renderEmptyCart(container, totalElement);
+    clearCheckoutPanel();
     return;
   }
 
@@ -159,10 +346,13 @@ export const renderCartPage = async function () {
   }).join('');
 
   container.innerHTML = `<div class="cart-list">${cartMarkup}</div>`;
+  latestCartItems = cartWithBooks;
 
   if (totalElement) {
     totalElement.textContent = formatPrice(grandTotal);
   }
+
+  renderCheckoutPanel(cartWithBooks);
 };
 
 export const initCartPage = async function (categories) {
@@ -173,5 +363,14 @@ export const initCartPage = async function (categories) {
   }
 
   categoriesCache = categories;
+
+  if (typeof unsubscribeCartSession === 'function') {
+    unsubscribeCartSession();
+  }
+
+  unsubscribeCartSession = subscribeSessionStore(function (snapshot) {
+    renderCheckoutPanel(latestCartItems, snapshot);
+  });
+
   await renderCartPage();
 };
