@@ -12,6 +12,8 @@ import { initLoginPage } from './pages/login.js';
 import { initRegisterPage } from './pages/register.js';
 import { initContactPage } from './pages/contact.js';
 import { initProfilePage } from './pages/profile.js';
+import { initAdminOrdersPage } from './pages/admin-orders.js';
+import { initAdminMessagesPage } from './pages/admin-messages.js';
 
 const showSiteNotice = function (type, message) {
   const notice = qs('[data-site-notice]');
@@ -170,6 +172,14 @@ const initPage = async function (categories) {
 
   if (currentPage === 'profile') {
     initProfilePage(categories);
+  }
+
+  if (currentPage === 'admin-orders') {
+    initAdminOrdersPage();
+  }
+
+  if (currentPage === 'admin-messages') {
+    initAdminMessagesPage();
   }
 };
 

@@ -1,0 +1,40 @@
+<main>
+  <section class="section">
+    <div class="container admin-layout">
+      <div class="section-heading section-heading--compact">
+        <div>
+          <p class="section-label">Admin / Đơn hàng</p>
+          <h1 class="section-title">Quản lý đơn hàng</h1>
+          <p class="section-text">Theo dõi nhanh các đơn COD mới tạo và cập nhật trạng thái xử lý ngay trên trang.</p>
+        </div>
+
+        <div class="empty-state__actions">
+          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhắn liên hệ</a>
+        </div>
+      </div>
+
+      <div class="form-card admin-toolbar">
+        <div>
+          <p class="profile-card__eyebrow">Bộ lọc</p>
+          <h2>Danh sách đơn hàng</h2>
+          <p>Lọc theo trạng thái đơn để staff/admin xử lý nhanh hơn trong lúc demo và vận hành thử.</p>
+        </div>
+
+        <div class="admin-toolbar__controls">
+          <label class="form-field">
+            <span class="label-text">Trạng thái đơn hàng</span>
+            <select data-admin-orders-filter>
+              <option value="">Tất cả đơn hàng</option>
+              <option value="PENDING_CONFIRMATION">Chờ xác nhận</option>
+              <option value="CONFIRMED">Đã xác nhận</option>
+              <option value="CANCELLED">Đã hủy</option>
+              <option value="COMPLETED">Hoàn tất</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div data-admin-orders-content></div>
+    </div>
+  </section>
+</main>

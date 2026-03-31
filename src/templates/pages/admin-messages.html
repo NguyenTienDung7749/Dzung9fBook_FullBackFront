@@ -1,0 +1,40 @@
+<main>
+  <section class="section">
+    <div class="container admin-layout">
+      <div class="section-heading section-heading--compact">
+        <div>
+          <p class="section-label">Admin / Liên hệ</p>
+          <h1 class="section-title">Xử lý tin nhắn hỗ trợ</h1>
+          <p class="section-text">Xem nhanh các yêu cầu liên hệ mới và cập nhật trạng thái xử lý mà không cần dashboard phức tạp.</p>
+        </div>
+
+        <div class="empty-state__actions">
+          <a href="./admin-orders.html" class="btn btn-secondary">Đơn hàng</a>
+        </div>
+      </div>
+
+      <div class="form-card admin-toolbar">
+        <div>
+          <p class="profile-card__eyebrow">Bộ lọc</p>
+          <h2>Danh sách liên hệ</h2>
+          <p>Lọc theo trạng thái để staff/admin nắm nhanh yêu cầu mới, đang xử lý hoặc đã chốt.</p>
+        </div>
+
+        <div class="admin-toolbar__controls">
+          <label class="form-field">
+            <span class="label-text">Trạng thái liên hệ</span>
+            <select data-admin-messages-filter>
+              <option value="">Tất cả liên hệ</option>
+              <option value="RECEIVED">Mới nhận</option>
+              <option value="IN_PROGRESS">Đang xử lý</option>
+              <option value="RESOLVED">Đã giải quyết</option>
+              <option value="CLOSED">Đã đóng</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div data-admin-messages-content></div>
+    </div>
+  </section>
+</main>

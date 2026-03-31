@@ -84,6 +84,24 @@ const pageConfigs = [
     canonicalPath: './profile.html',
     bodyAttributes: 'data-page="profile"',
     extraHead: ''
+  },
+  {
+    output: 'admin-orders.html',
+    source: 'admin-orders.html',
+    title: 'Dzung9fBook | Admin Orders',
+    description: 'Khu vực quản trị tối thiểu để staff/admin theo dõi và cập nhật trạng thái đơn hàng của Dzung9fBook.',
+    canonicalPath: './admin-orders.html',
+    bodyAttributes: 'data-page="admin-orders"',
+    extraHead: ''
+  },
+  {
+    output: 'admin-messages.html',
+    source: 'admin-messages.html',
+    title: 'Dzung9fBook | Admin Messages',
+    description: 'Khu vực quản trị tối thiểu để staff/admin theo dõi và cập nhật các tin nhắn liên hệ của Dzung9fBook.',
+    canonicalPath: './admin-messages.html',
+    bodyAttributes: 'data-page="admin-messages"',
+    extraHead: ''
   }
 ];
 
