@@ -9,3 +9,7 @@ const getOrdersProvider = function () {
 export const checkout = async function (payload) {
   return getOrdersProvider().checkout(payload);
 };
+
+export const getOrders = async function () {
+  return getOrdersProvider().getOrders();
+};

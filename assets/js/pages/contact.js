@@ -1,5 +1,13 @@
 import { qs } from '../core/dom.js';
+import { isApiProviderMode } from '../config/runtime.js';
+import { submitContact } from '../services/contact.js';
 import { attachFieldClearHandlers, clearFormState, emailRegex, isValidPhone, setFieldError, showFormMessage } from './forms-shared.js';
+
+const getSuccessMessage = function () {
+  return isApiProviderMode()
+    ? 'Dzung9fBook đã nhận được liên hệ của bạn và sẽ phản hồi sớm qua email hoặc số điện thoại đã cung cấp.'
+    : 'Biểu mẫu demo đã ghi nhận thông tin của bạn trên trình duyệt. Khi chạy qua backend/API mode, dữ liệu này sẽ được gửi vào hệ thống liên hệ thật.';
+};
 
 export const initContactPage = function () {
   const form = qs('[data-contact-form]');
@@ -10,14 +18,15 @@ export const initContactPage = function () {
 
   attachFieldClearHandlers(form);
 
-  form.addEventListener('submit', function (event) {
+  form.addEventListener('submit', async function (event) {
     event.preventDefault();
     clearFormState(form);
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const message = form.message.value.trim();
+    const submitButton = qs('button[type="submit"]', form);
+    const name = String(form.elements.name?.value || '').trim();
+    const email = String(form.elements.email?.value || '').trim();
+    const phone = String(form.elements.phone?.value || '').trim();
+    const message = String(form.elements.message?.value || '').trim();
     let isValid = true;
 
     if (!name) {
@@ -51,7 +60,33 @@ export const initContactPage = function () {
       return;
     }
 
-    showFormMessage(form, 'success', 'Biểu mẫu demo đã ghi nhận thông tin của bạn trên trình duyệt. Phase hiện tại chưa gửi dữ liệu này lên backend liên hệ.');
-    form.reset();
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.dataset.originalLabel = submitButton.textContent;
+      submitButton.textContent = 'Đang gửi liên hệ...';
+    }
+
+    try {
+      await submitContact({
+        name,
+        email,
+        ...(phone ? { phone } : {}),
+        message
+      });
+      showFormMessage(form, 'success', getSuccessMessage());
+      form.reset();
+    } catch (error) {
+      showFormMessage(
+        form,
+        'error',
+        error?.payload?.message || error?.message || 'Không thể gửi liên hệ lúc này. Vui lòng thử lại sau ít phút.'
+      );
+      console.error(error);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalLabel || 'Gửi liên hệ';
+      }
+    }
   });
 };
