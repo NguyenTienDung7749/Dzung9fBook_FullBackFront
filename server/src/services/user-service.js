@@ -58,6 +58,43 @@ const findUserById = async function (userId) {
   return sanitizeUser(user);
 };
 
+const findUserRoleContextById = async function (userId) {
+  const normalizedUserId = String(userId || '').trim();
+
+  if (!normalizedUserId) {
+    return null;
+  }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id: normalizedUserId
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      isActive: true,
+      role: {
+        select: {
+          code: true
+        }
+      }
+    }
+  });
+
+  if (!user) {
+    return null;
+  }
+
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    isActive: Boolean(user.isActive),
+    roleCode: String(user.role?.code || '').trim()
+  };
+};
+
 const getCustomerRoleId = async function () {
   const role = await prisma.role.findUnique({
     where: {
@@ -130,5 +167,6 @@ const authenticateUser = async function (payload = {}) {
 module.exports = {
   authenticateUser,
   findUserById,
+  findUserRoleContextById,
   registerUser
 };

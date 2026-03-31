@@ -3,6 +3,7 @@ const { createHttpError } = require('../middleware/http-error');
 
 const prisma = new PrismaClient();
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONTACT_STATUS_VALUES = new Set(['RECEIVED', 'IN_PROGRESS', 'RESOLVED', 'CLOSED']);
 
 const normalizeText = function (value) {
   return String(value || '').trim();
@@ -11,6 +12,10 @@ const normalizeText = function (value) {
 const normalizeOptionalText = function (value) {
   const normalized = normalizeText(value);
   return normalized || null;
+};
+
+const normalizeEnumValue = function (value) {
+  return String(value || '').trim().toUpperCase();
 };
 
 const isValidPhone = function (value) {
@@ -58,6 +63,35 @@ const validateContactPayload = function (payload = {}) {
   };
 };
 
+const validateMessageStatusFilter = function (value) {
+  const normalizedStatus = normalizeEnumValue(value);
+
+  if (!normalizedStatus) {
+    return null;
+  }
+
+  if (!CONTACT_STATUS_VALUES.has(normalizedStatus)) {
+    throw createHttpError(400, 'ADMIN_MESSAGE_INVALID_FILTER', 'Bo loc trang thai lien he khong hop le.');
+  }
+
+  return normalizedStatus;
+};
+
+const validateAdminMessageStatusPayload = function (payload = {}) {
+  const status = normalizeEnumValue(payload.status);
+  const adminNoteProvided = payload.adminNote !== undefined;
+  const adminNote = adminNoteProvided ? normalizeOptionalText(payload.adminNote) : undefined;
+
+  if (!status || !CONTACT_STATUS_VALUES.has(status)) {
+    throw createHttpError(400, 'ADMIN_MESSAGE_INVALID_PAYLOAD', 'Trang thai lien he khong hop le.');
+  }
+
+  return {
+    status,
+    ...(adminNoteProvided ? { adminNote } : {})
+  };
+};
+
 const submitContactMessage = async function (req, payload = {}) {
   const validatedPayload = validateContactPayload(payload);
   const currentUserId = normalizeOptionalText(req.session?.user?.id);
@@ -83,6 +117,94 @@ const submitContactMessage = async function (req, payload = {}) {
   };
 };
 
+const listAdminMessages = async function (query = {}) {
+  const status = validateMessageStatusFilter(query.status);
+  const messages = await prisma.contactMessage.findMany({
+    where: status ? { status } : undefined,
+    orderBy: {
+      createdAt: 'desc'
+    },
+    select: {
+      id: true,
+      userId: true,
+      name: true,
+      email: true,
+      phone: true,
+      message: true,
+      status: true,
+      adminNote: true,
+      handledBy: true,
+      createdAt: true
+    }
+  });
+
+  return messages.map(function (message) {
+    return {
+      id: message.id,
+      name: message.name,
+      email: message.email,
+      phone: message.phone || null,
+      message: message.message,
+      status: message.status,
+      adminNote: message.adminNote || null,
+      createdAt: serializeTimestamp(message.createdAt),
+      userId: message.userId || null,
+      handledById: message.handledBy || null
+    };
+  });
+};
+
+const updateAdminMessageStatus = async function (messageId, currentUserId, payload = {}) {
+  const normalizedMessageId = normalizeOptionalText(messageId);
+  const normalizedCurrentUserId = normalizeOptionalText(currentUserId);
+
+  if (!normalizedMessageId) {
+    throw createHttpError(404, 'MESSAGE_NOT_FOUND', 'Khong tim thay lien he.');
+  }
+
+  if (!normalizedCurrentUserId) {
+    throw createHttpError(401, 'AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.');
+  }
+
+  const validatedPayload = validateAdminMessageStatusPayload(payload);
+
+  try {
+    const message = await prisma.contactMessage.update({
+      where: {
+        id: normalizedMessageId
+      },
+      data: {
+        status: validatedPayload.status,
+        handledBy: normalizedCurrentUserId,
+        ...(validatedPayload.adminNote !== undefined ? { adminNote: validatedPayload.adminNote } : {})
+      },
+      select: {
+        id: true,
+        status: true,
+        adminNote: true,
+        handledBy: true,
+        updatedAt: true
+      }
+    });
+
+    return {
+      id: message.id,
+      status: message.status,
+      adminNote: message.adminNote || null,
+      handledById: message.handledBy || null,
+      updatedAt: serializeTimestamp(message.updatedAt)
+    };
+  } catch (error) {
+    if (error?.code === 'P2025') {
+      throw createHttpError(404, 'MESSAGE_NOT_FOUND', 'Khong tim thay lien he.');
+    }
+
+    throw error;
+  }
+};
+
 module.exports = {
-  submitContactMessage
+  listAdminMessages,
+  submitContactMessage,
+  updateAdminMessageStatus
 };

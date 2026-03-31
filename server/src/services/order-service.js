@@ -4,6 +4,8 @@ const { createHttpError } = require('../middleware/http-error');
 const cartService = require('./cart-service');
 
 const prisma = new PrismaClient();
+const ORDER_STATUS_VALUES = new Set(['PENDING_CONFIRMATION', 'CONFIRMED', 'CANCELLED', 'COMPLETED']);
+const PAYMENT_STATUS_VALUES = new Set(['UNPAID', 'PAID', 'VOID']);
 const ORDER_SELECT = {
   id: true,
   orderNumber: true,
@@ -32,6 +34,10 @@ const normalizeOrderId = function (orderId) {
 
 const normalizeText = function (value) {
   return String(value || '').trim();
+};
+
+const normalizeEnumValue = function (value) {
+  return String(value || '').trim().toUpperCase();
 };
 
 const serializeTimestamp = function (value) {
@@ -96,6 +102,35 @@ const serializeOrderDetail = function (order) {
   };
 };
 
+const serializeAdminOrderListItem = function (order) {
+  const itemCount = (Array.isArray(order.items) ? order.items : []).reduce(function (sum, item) {
+    return sum + Number(item?.quantity || 0);
+  }, 0);
+
+  return {
+    id: order.id,
+    orderNumber: order.orderNumber,
+    status: order.status,
+    paymentStatus: order.paymentStatus,
+    totalAmount: Number(order.totalAmount || 0),
+    createdAt: serializeTimestamp(order.createdAt),
+    customerName: order.customerName,
+    customerEmail: order.customerEmail,
+    customerPhone: order.customerPhone,
+    itemCount
+  };
+};
+
+const serializeAdminOrderStatusUpdate = function (order) {
+  return {
+    id: order.id,
+    orderNumber: order.orderNumber,
+    status: order.status,
+    paymentStatus: order.paymentStatus,
+    updatedAt: serializeTimestamp(order.updatedAt)
+  };
+};
+
 const buildOrderNumber = function (now = new Date()) {
   const dateStamp = now.toISOString().slice(0, 10).replace(/-/g, '');
   const suffix = (typeof crypto.randomUUID === 'function'
@@ -106,6 +141,39 @@ const buildOrderNumber = function (now = new Date()) {
     .toUpperCase();
 
   return `DZB-${dateStamp}-${suffix}`;
+};
+
+const validateOrderStatusFilter = function (value) {
+  const normalizedStatus = normalizeEnumValue(value);
+
+  if (!normalizedStatus) {
+    return null;
+  }
+
+  if (!ORDER_STATUS_VALUES.has(normalizedStatus)) {
+    throw createHttpError(400, 'ADMIN_ORDER_INVALID_FILTER', 'Bo loc trang thai don hang khong hop le.');
+  }
+
+  return normalizedStatus;
+};
+
+const validateAdminOrderStatusPayload = function (payload = {}) {
+  const status = normalizeEnumValue(payload.status);
+  const paymentStatusProvided = payload.paymentStatus !== undefined;
+  const paymentStatus = normalizeEnumValue(payload.paymentStatus);
+
+  if (!status || !ORDER_STATUS_VALUES.has(status)) {
+    throw createHttpError(400, 'ADMIN_ORDER_INVALID_PAYLOAD', 'Trang thai don hang khong hop le.');
+  }
+
+  if (paymentStatusProvided && (!paymentStatus || !PAYMENT_STATUS_VALUES.has(paymentStatus))) {
+    throw createHttpError(400, 'ADMIN_ORDER_INVALID_PAYLOAD', 'Trang thai thanh toan khong hop le.');
+  }
+
+  return {
+    status,
+    ...(paymentStatusProvided ? { paymentStatus } : {})
+  };
 };
 
 const validateCheckoutPayload = function (payload = {}) {
@@ -306,8 +374,72 @@ const getOrderDetailForCurrentUser = async function (userId, orderId) {
   return serializeOrderDetail(order);
 };
 
+const listAdminOrders = async function (query = {}) {
+  const status = validateOrderStatusFilter(query.status);
+  const orders = await prisma.order.findMany({
+    where: status ? { status } : undefined,
+    orderBy: {
+      createdAt: 'desc'
+    },
+    select: {
+      id: true,
+      orderNumber: true,
+      status: true,
+      paymentStatus: true,
+      totalAmount: true,
+      createdAt: true,
+      customerName: true,
+      customerEmail: true,
+      customerPhone: true,
+      items: {
+        select: {
+          quantity: true
+        }
+      }
+    }
+  });
+
+  return orders.map(serializeAdminOrderListItem);
+};
+
+const updateAdminOrderStatus = async function (orderId, payload = {}) {
+  const normalizedOrderId = normalizeOrderId(orderId);
+
+  if (!normalizedOrderId) {
+    throw createHttpError(404, 'ORDER_NOT_FOUND', 'Khong tim thay don hang.');
+  }
+
+  const validatedPayload = validateAdminOrderStatusPayload(payload);
+
+  try {
+    const order = await prisma.order.update({
+      where: {
+        id: normalizedOrderId
+      },
+      data: validatedPayload,
+      select: {
+        id: true,
+        orderNumber: true,
+        status: true,
+        paymentStatus: true,
+        updatedAt: true
+      }
+    });
+
+    return serializeAdminOrderStatusUpdate(order);
+  } catch (error) {
+    if (error?.code === 'P2025') {
+      throw createHttpError(404, 'ORDER_NOT_FOUND', 'Khong tim thay don hang.');
+    }
+
+    throw error;
+  }
+};
+
 module.exports = {
   createCheckoutOrder,
   getOrderDetailForCurrentUser,
-  listOrdersForCurrentUser
+  listAdminOrders,
+  listOrdersForCurrentUser,
+  updateAdminOrderStatus
 };
