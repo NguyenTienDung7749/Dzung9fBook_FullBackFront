@@ -43,7 +43,19 @@ const getOrderById = async function (req, res, next) {
   }
 };
 
+const cancelOrder = async function (req, res, next) {
+  try {
+    const currentUser = requireAuthenticatedUser(req);
+    res.json({
+      order: await orderService.cancelOrderForCurrentUser(currentUser.id, req.params.orderId)
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
+  cancelOrder,
   checkout,
   getOrderById,
   listOrders

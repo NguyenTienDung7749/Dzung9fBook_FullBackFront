@@ -86,6 +86,15 @@ const pageConfigs = [
     extraHead: ''
   },
   {
+    output: 'orders.html',
+    source: 'orders.html',
+    title: 'Dzung9fBook | Đơn hàng của bạn',
+    description: 'Trang danh sách đơn hàng Dzung9fBook, nơi bạn theo dõi trạng thái xử lý, thanh toán và mở nhanh chi tiết từng đơn đã đặt.',
+    canonicalPath: './orders.html',
+    bodyAttributes: 'data-page="orders"',
+    extraHead: ''
+  },
+  {
     output: 'order-detail.html',
     source: 'order-detail.html',
     title: 'Dzung9fBook | Chi tiết đơn hàng',
@@ -172,7 +181,7 @@ const main = async function () {
     fs.writeFile(path.resolve(PUBLIC_ROOT, 'runtime-config.js'), STATIC_RUNTIME_CONFIG, 'utf8')
   ]);
 
-  await Promise.all(pageConfigs.map(async (config) => {
+  await Promise.all(pageConfigs.map(async function (config) {
     const mainMarkup = await readTemplate('src', 'templates', 'pages', config.source);
     const output = renderPage(layout, {
       ...config,
@@ -187,7 +196,7 @@ const main = async function () {
   console.log(`Built ${pageConfigs.length} HTML pages.`);
 };
 
-main().catch((error) => {
+main().catch(function (error) {
   console.error(error.message || error);
   process.exitCode = 1;
 });

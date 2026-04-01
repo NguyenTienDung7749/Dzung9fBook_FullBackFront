@@ -50,6 +50,10 @@ const normalizeEnumValue = function (value) {
   return String(value || '').trim().toUpperCase();
 };
 
+const canCancelCustomerOrder = function (order) {
+  return normalizeEnumValue(order?.status) === 'PENDING_CONFIRMATION';
+};
+
 const normalizeQuantity = function (value) {
   const parsedValue = Number(value);
 
@@ -98,9 +102,11 @@ const serializeOrderListItem = function (order) {
     id: order.id,
     orderNumber: order.orderNumber,
     status: order.status,
+    paymentStatus: order.paymentStatus,
     totalAmount: Number(order.totalAmount || 0),
     createdAt: serializeTimestamp(order.createdAt),
-    itemCount
+    itemCount,
+    canCancel: canCancelCustomerOrder(order)
   };
 };
 
@@ -119,6 +125,7 @@ const serializeOrderDetail = function (order) {
     customerPhone: order.customerPhone,
     shippingAddress: order.shippingAddress,
     note: order.note || null,
+    canCancel: canCancelCustomerOrder(order),
     items: (Array.isArray(order.items) ? order.items : []).map(function (item) {
       return {
         bookId: item.bookId,
@@ -418,6 +425,7 @@ const listOrdersForCurrentUser = async function (userId) {
       id: true,
       orderNumber: true,
       status: true,
+      paymentStatus: true,
       totalAmount: true,
       createdAt: true,
       items: {
@@ -429,6 +437,65 @@ const listOrdersForCurrentUser = async function (userId) {
   });
 
   return orders.map(serializeOrderListItem);
+};
+
+const cancelOrderForCurrentUser = async function (userId, orderId) {
+  const normalizedUserId = normalizeUserId(userId);
+  const normalizedOrderId = normalizeOrderId(orderId);
+
+  if (!normalizedUserId) {
+    throw createHttpError(401, 'AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.');
+  }
+
+  if (!normalizedOrderId) {
+    throw createHttpError(404, 'ORDER_NOT_FOUND', 'Khong tim thay don hang.');
+  }
+
+  const cancelledOrder = await prisma.$transaction(async function (tx) {
+    const currentOrder = await tx.order.findFirst({
+      where: {
+        id: normalizedOrderId,
+        userId: normalizedUserId
+      },
+      include: ORDER_DETAIL_INCLUDE
+    });
+
+    if (!currentOrder) {
+      throw createHttpError(404, 'ORDER_NOT_FOUND', 'Khong tim thay don hang.');
+    }
+
+    if (!canCancelCustomerOrder(currentOrder)) {
+      throw createHttpError(409, 'ORDER_CANNOT_CANCEL', 'Don hang nay khong con o trang thai cho phep huy.');
+    }
+
+    const cancellationResult = await tx.order.updateMany({
+      where: {
+        id: normalizedOrderId,
+        userId: normalizedUserId,
+        status: 'PENDING_CONFIRMATION'
+      },
+      data: {
+        status: 'CANCELLED'
+      }
+    });
+
+    if (cancellationResult.count !== 1) {
+      throw createHttpError(409, 'ORDER_CANNOT_CANCEL', 'Don hang nay khong con o trang thai cho phep huy.');
+    }
+
+    return tx.order.findUnique({
+      where: {
+        id: normalizedOrderId
+      },
+      include: ORDER_DETAIL_INCLUDE
+    });
+  });
+
+  if (!cancelledOrder) {
+    throw createHttpError(500, 'ORDER_CANCEL_FAILED', 'Khong the huy don hang luc nay.');
+  }
+
+  return serializeOrderDetail(cancelledOrder);
 };
 
 const getOrderDetailForCurrentUser = async function (userId, orderId) {
@@ -521,6 +588,7 @@ const updateAdminOrderStatus = async function (orderId, payload = {}) {
 };
 
 module.exports = {
+  cancelOrderForCurrentUser,
   createCheckoutOrder,
   getOrderDetailForCurrentUser,
   listAdminOrders,

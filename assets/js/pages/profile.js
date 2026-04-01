@@ -2,6 +2,7 @@ import { qs } from '../core/dom.js';
 import { escapeHTML, formatPrice } from '../core/utils.js';
 import { isApiProviderMode } from '../config/runtime.js';
 import { buildBooksUrl } from '../data/catalog.js';
+import { buildOrderDetailUrl, formatOrderDateTime, resolveOrderStatusLabel, resolvePaymentStatusLabel } from './orders-shared.js';
 import { getAdminMe } from '../services/admin.js';
 import { getOrders } from '../services/orders.js';
 import { updateProfile } from '../services/auth.js';
@@ -36,40 +37,8 @@ let profileEditorState = {
   }
 };
 
-const ORDER_STATUS_LABELS = {
-  PENDING_CONFIRMATION: 'Chờ xác nhận',
-  CONFIRMED: 'Đã xác nhận',
-  CANCELLED: 'Đã hủy',
-  COMPLETED: 'Hoàn tất'
-};
-
 const getContainer = function () {
   return qs('[data-profile-content]');
-};
-
-const formatOrderDate = function (value) {
-  const parsedDate = new Date(value);
-
-  if (Number.isNaN(parsedDate.getTime())) {
-    return 'Không rõ thời gian';
-  }
-
-  return new Intl.DateTimeFormat('vi-VN', {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  }).format(parsedDate);
-};
-
-const resolveOrderStatusLabel = function (status) {
-  const normalizedStatus = String(status || '').trim().toUpperCase();
-  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
-};
-
-const buildOrderDetailUrl = function (orderId) {
-  const normalizedOrderId = String(orderId || '').trim();
-  return normalizedOrderId
-    ? `./order-detail.html?id=${encodeURIComponent(normalizedOrderId)}`
-    : './profile.html';
 };
 
 const buildProfileKey = function (user) {
@@ -230,11 +199,13 @@ const buildAdminAccessCardMarkup = function () {
   `;
 };
 
-const getVisibleOrderItems = function () {
-  return Array.isArray(ordersState.items) ? ordersState.items : [];
+const getPreviewOrderItems = function () {
+  return (Array.isArray(ordersState.items) ? ordersState.items : []).slice(0, 3);
 };
 
 const buildOrderHistoryMarkup = function () {
+  const primaryActionMarkup = '<a href="./orders.html" class="btn btn-primary">Xem chi tiết các đơn hàng</a>';
+
   if (ordersState.status === 'loading' || ordersState.status === 'idle') {
     return `
       <article class="profile-card">
@@ -242,6 +213,10 @@ const buildOrderHistoryMarkup = function () {
           <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
           <h2 class="profile-card__title">Đơn hàng gần đây</h2>
           <p class="profile-card__text">Chúng mình đang đồng bộ danh sách đơn hàng mới nhất cho tài khoản của bạn.</p>
+        </div>
+
+        <div class="profile-card__actions">
+          ${primaryActionMarkup}
         </div>
       </article>
     `;
@@ -255,6 +230,10 @@ const buildOrderHistoryMarkup = function () {
           <h2 class="profile-card__title">Đơn hàng gần đây</h2>
           <p class="profile-card__text">Lịch sử đơn hàng hiện chỉ hỗ trợ khi trang đang kết nối với backend/API mode.</p>
         </div>
+
+        <div class="profile-card__actions">
+          ${primaryActionMarkup}
+        </div>
       </article>
     `;
   }
@@ -267,11 +246,15 @@ const buildOrderHistoryMarkup = function () {
           <h2 class="profile-card__title">Đơn hàng gần đây</h2>
           <p class="profile-card__text">Tạm thời chưa thể tải lịch sử đơn hàng. Vui lòng tải lại trang hoặc thử lại sau ít phút.</p>
         </div>
+
+        <div class="profile-card__actions">
+          ${primaryActionMarkup}
+        </div>
       </article>
     `;
   }
 
-  if (!getVisibleOrderItems().length) {
+  if (!getPreviewOrderItems().length) {
     return `
       <article class="profile-card">
         <div class="profile-card__header">
@@ -281,23 +264,24 @@ const buildOrderHistoryMarkup = function () {
         </div>
 
         <div class="profile-card__actions">
+          ${primaryActionMarkup}
           <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-secondary">Khám phá danh mục sách</a>
         </div>
       </article>
     `;
   }
 
-  const listMarkup = getVisibleOrderItems().map(function (order) {
+  const listMarkup = getPreviewOrderItems().map(function (order) {
     return `
-      <div class="profile-item">
+      <div class="profile-item order-preview-item">
         <strong>${escapeHTML(order.orderNumber || 'Don hang')}</strong>
-        <p class="profile-card__text">Ngày tạo: ${escapeHTML(formatOrderDate(order.createdAt))}</p>
-        <p class="profile-card__text">Trạng thái: ${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
-        <p class="profile-card__text">Số lượng sách: ${escapeHTML(String(Number(order.itemCount || 0)))}</p>
-        <p class="profile-card__text">Tổng tạm tính: ${escapeHTML(formatPrice(order.totalAmount || 0))}</p>
-        <div class="profile-item__actions">
-          <a href="${buildOrderDetailUrl(order.id)}" class="btn btn-secondary">Xem chi tiết</a>
+        <div class="order-preview-item__meta">
+          <span>${escapeHTML(formatOrderDateTime(order.createdAt))}</span>
+          <span>${escapeHTML(resolveOrderStatusLabel(order.status))}</span>
+          <span>${escapeHTML(resolvePaymentStatusLabel(order.paymentStatus))}</span>
         </div>
+        <p class="profile-card__text">Tổng tạm tính: ${escapeHTML(formatPrice(order.totalAmount || 0))}</p>
+        <a href="${buildOrderDetailUrl(order.id)}" class="text-link">Mở nhanh chi tiết đơn này</a>
       </div>
     `;
   }).join('');
@@ -307,11 +291,15 @@ const buildOrderHistoryMarkup = function () {
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
         <h2 class="profile-card__title">Đơn hàng gần đây</h2>
-        <p class="profile-card__text">Danh sách được sắp xếp theo thứ tự mới nhất trước để bạn dễ theo dõi và mở lại chi tiết khi cần.</p>
+        <p class="profile-card__text">Đang hiển thị 3 đơn gần nhất để bạn theo dõi nhanh trước khi mở trang danh sách đầy đủ.</p>
       </div>
 
-      <div class="profile-grid">
+      <div class="orders-preview-list">
         ${listMarkup}
+      </div>
+
+      <div class="profile-card__actions">
+        ${primaryActionMarkup}
       </div>
     </article>
   `;
@@ -361,10 +349,15 @@ export const renderProfilePage = function () {
   }
 
   container.innerHTML = `
-    <div class="profile-grid">
-      ${buildProfileCardMarkup(currentUser)}
-      ${buildAdminAccessCardMarkup()}
-      ${buildOrderHistoryMarkup()}
+    <div class="profile-layout">
+      <div class="profile-layout__main">
+        ${buildProfileCardMarkup(currentUser)}
+      </div>
+
+      <div class="profile-layout__aside">
+        ${buildAdminAccessCardMarkup()}
+        ${buildOrderHistoryMarkup()}
+      </div>
     </div>
   `;
 

@@ -17,3 +17,7 @@ export const getOrders = async function () {
 export const getOrderById = async function (orderId) {
   return getOrdersProvider().getOrderById(orderId);
 };
+
+export const cancelOrder = async function (orderId) {
+  return getOrdersProvider().cancelOrder(orderId);
+};

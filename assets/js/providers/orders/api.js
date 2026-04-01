@@ -1,4 +1,4 @@
-import { getJson, postJson } from '../../api/client.js';
+import { getJson, patchJson, postJson } from '../../api/client.js';
 
 const extractItems = function (payload) {
   return Array.isArray(payload?.items) ? payload.items : [];
@@ -16,6 +16,12 @@ export const apiOrdersProvider = {
   async getOrderById(orderId) {
     const normalizedOrderId = encodeURIComponent(String(orderId || '').trim());
     const payload = await getJson(`/orders/${normalizedOrderId}`);
+    return payload?.order || null;
+  },
+
+  async cancelOrder(orderId) {
+    const normalizedOrderId = encodeURIComponent(String(orderId || '').trim());
+    const payload = await patchJson(`/orders/${normalizedOrderId}/cancel`, {});
     return payload?.order || null;
   }
 };

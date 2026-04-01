@@ -17,5 +17,6 @@ router.post('/contact', contactController.submitContact);
 router.post('/checkout', requireActiveUser, orderController.checkout);
 router.get('/orders', requireActiveUser, orderController.listOrders);
 router.get('/orders/:orderId', requireActiveUser, orderController.getOrderById);
+router.patch('/orders/:orderId/cancel', requireActiveUser, orderController.cancelOrder);
 
 module.exports = router;

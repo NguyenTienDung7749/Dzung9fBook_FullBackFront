@@ -19,6 +19,13 @@ const createUnsupportedOrderDetailError = function () {
   return error;
 };
 
+const createUnsupportedOrderCancelError = function () {
+  const error = new Error('Huy don hang chi ho tro khi trang dang ket noi voi backend/API mode.');
+  error.code = 'ORDER_CANCEL_UNSUPPORTED';
+  error.status = 501;
+  return error;
+};
+
 export const staticOrdersProvider = {
   async checkout() {
     throw createUnsupportedCheckoutError();
@@ -30,5 +37,9 @@ export const staticOrdersProvider = {
 
   async getOrderById() {
     throw createUnsupportedOrderDetailError();
+  },
+
+  async cancelOrder() {
+    throw createUnsupportedOrderCancelError();
   }
 };

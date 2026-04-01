@@ -13,6 +13,7 @@ import { initLoginPage } from './pages/login.js';
 import { initRegisterPage } from './pages/register.js';
 import { initContactPage } from './pages/contact.js';
 import { initProfilePage } from './pages/profile.js';
+import { initOrdersPage } from './pages/orders.js';
 import { initOrderDetailPage } from './pages/order-detail.js';
 import { initAdminHomePage } from './pages/admin-home.js';
 import { initAdminBooksPage } from './pages/admin-books.js';
@@ -176,6 +177,10 @@ const initPage = async function (categories) {
 
   if (currentPage === 'profile') {
     initProfilePage(categories);
+  }
+
+  if (currentPage === 'orders') {
+    initOrdersPage(categories);
   }
 
   if (currentPage === 'order-detail') {
