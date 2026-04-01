@@ -1,5 +1,5 @@
 const { createHttpError } = require('../middleware/http-error');
-const { authenticateUser, registerUser, updateUserProfile } = require('../services/user-service');
+const { authenticateUser, findUserRoleContextById, registerUser, updateUserProfile } = require('../services/user-service');
 
 const buildSessionPayload = function (user) {
   return {
@@ -8,9 +8,30 @@ const buildSessionPayload = function (user) {
   };
 };
 
+const clearSessionUser = function (req) {
+  if (req.session && Object.prototype.hasOwnProperty.call(req.session, 'user')) {
+    delete req.session.user;
+  }
+};
+
 const getSession = async function (req, res, next) {
   try {
-    res.json(buildSessionPayload(req.session?.user || null));
+    const sessionUser = req.session?.user || null;
+
+    if (!sessionUser?.id) {
+      res.json(buildSessionPayload(null));
+      return;
+    }
+
+    const currentUser = await findUserRoleContextById(sessionUser.id);
+
+    if (!currentUser?.id || currentUser.isActive === false) {
+      clearSessionUser(req);
+      res.json(buildSessionPayload(null));
+      return;
+    }
+
+    res.json(buildSessionPayload(sessionUser));
   } catch (error) {
     next(error);
   }

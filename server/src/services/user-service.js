@@ -4,6 +4,8 @@ const { PrismaClient } = require('@prisma/client');
 const { createHttpError } = require('../middleware/http-error');
 
 const prisma = new PrismaClient();
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PASSWORD_MIN_LENGTH = 6;
 
 const normalizeEmail = function (value) {
   return String(value || '').trim().toLowerCase();
@@ -12,6 +14,10 @@ const normalizeEmail = function (value) {
 const isValidPhone = function (value) {
   const digits = String(value || '').replace(/\D/g, '');
   return digits.length >= 9 && digits.length <= 11;
+};
+
+const createInactiveAccountError = function () {
+  return createHttpError(401, 'AUTH_ACCOUNT_INACTIVE', 'Tai khoan hien khong con hoat dong.');
 };
 
 const sanitizeUser = function (user) {
@@ -132,9 +138,9 @@ const validateProfilePayload = function (payload = {}) {
   };
 };
 
-const registerUser = async function (payload = {}) {
+const validateRegisterPayload = function (payload = {}) {
   const name = String(payload.name || '').trim();
-  const email = String(payload.email || '').trim();
+  const email = normalizeEmail(payload.email);
   const phone = String(payload.phone || '').trim();
   const password = String(payload.password || '').trim();
 
@@ -142,7 +148,30 @@ const registerUser = async function (payload = {}) {
     throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Thong tin dang ky chua day du.');
   }
 
-  const existingUser = await findUserRecordByEmail(email);
+  if (!emailRegex.test(email)) {
+    throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Email chua dung dinh dang hop le.');
+  }
+
+  if (phone && !isValidPhone(phone)) {
+    throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'So dien thoai can co tu 9 den 11 chu so hop le.');
+  }
+
+  if (password.length < PASSWORD_MIN_LENGTH) {
+    throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', `Mat khau can co it nhat ${PASSWORD_MIN_LENGTH} ky tu.`);
+  }
+
+  return {
+    name,
+    email,
+    phone: phone || null,
+    password
+  };
+};
+
+const registerUser = async function (payload = {}) {
+  const validatedPayload = validateRegisterPayload(payload);
+
+  const existingUser = await findUserRecordByEmail(validatedPayload.email);
 
   if (existingUser) {
     throw createHttpError(409, 'AUTH_EMAIL_EXISTS', 'Email nay da duoc su dung.');
@@ -152,10 +181,10 @@ const registerUser = async function (payload = {}) {
     data: {
       id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : `${Date.now()}`,
       roleId: await getCustomerRoleId(),
-      name,
-      email,
-      phone: phone || null,
-      passwordHash: await bcrypt.hash(password, 10),
+      name: validatedPayload.name,
+      email: validatedPayload.email,
+      phone: validatedPayload.phone,
+      passwordHash: await bcrypt.hash(validatedPayload.password, 10),
       isActive: true,
       createdAt: new Date()
     }
@@ -209,6 +238,10 @@ const authenticateUser = async function (payload = {}) {
 
   if (!passwordMatches) {
     throw createHttpError(401, 'AUTH_INVALID_CREDENTIALS', 'Email hoac mat khau chua chinh xac.');
+  }
+
+  if (user.isActive === false) {
+    throw createInactiveAccountError();
   }
 
   return sanitizeUser(user);
