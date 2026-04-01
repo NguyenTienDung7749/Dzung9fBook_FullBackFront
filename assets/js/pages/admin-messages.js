@@ -4,17 +4,17 @@ import { isApiProviderMode } from '../config/runtime.js';
 import { getAdminMessages, updateAdminMessageStatus } from '../services/admin.js';
 
 const MESSAGE_STATUS_LABELS = {
-  RECEIVED: 'Má»›i nháº­n',
-  IN_PROGRESS: 'Äang xá»­ lÃ½',
-  RESOLVED: 'ÄÃ£ giáº£i quyáº¿t',
-  CLOSED: 'ÄÃ£ Ä‘Ã³ng'
+  RECEIVED: 'Mới nhận',
+  IN_PROGRESS: 'Đang xử lý',
+  RESOLVED: 'Đã giải quyết',
+  CLOSED: 'Đã đóng'
 };
 
 const MESSAGE_STATUS_OPTIONS = [
-  ['RECEIVED', 'Má»›i nháº­n'],
-  ['IN_PROGRESS', 'Äang xá»­ lÃ½'],
-  ['RESOLVED', 'ÄÃ£ giáº£i quyáº¿t'],
-  ['CLOSED', 'ÄÃ£ Ä‘Ã³ng']
+  ['RECEIVED', 'Mới nhận'],
+  ['IN_PROGRESS', 'Đang xử lý'],
+  ['RESOLVED', 'Đã giải quyết'],
+  ['CLOSED', 'Đã đóng']
 ];
 
 let state = {
@@ -46,7 +46,7 @@ const formatDateTime = function (value) {
   const parsedDate = new Date(value);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return 'KhÃ´ng rÃµ thá»i gian';
+    return 'Không rõ thời gian';
   }
 
   return new Intl.DateTimeFormat('vi-VN', {
@@ -57,7 +57,7 @@ const formatDateTime = function (value) {
 
 const resolveMessageStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return MESSAGE_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Äang xá»­ lÃ½';
+  return MESSAGE_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -113,8 +113,8 @@ const getVisibleItems = function () {
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
-    ? `Äang hiá»ƒn thá»‹ ${visibleCount} / ${totalCount} liÃªn há»‡ phÃ¹ há»£p vá»›i bá»™ lá»c hiá»‡n táº¡i.`
-    : `Äang hiá»ƒn thá»‹ ${visibleCount} liÃªn há»‡ má»›i nháº¥t.`;
+    ? `Đang hiển thị ${visibleCount} / ${totalCount} liên hệ phù hợp với bộ lọc hiện tại.`
+    : `Đang hiển thị ${visibleCount} liên hệ mới nhất.`;
 
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
@@ -128,48 +128,48 @@ const buildMessageCardMarkup = function (message) {
     <article class="profile-card admin-card">
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">${escapeHTML(resolveMessageStatusLabel(message.status))}</p>
-        <h2 class="profile-card__title">${escapeHTML(message.name || 'LiÃªn há»‡')}</h2>
-        <p class="profile-card__text">Gá»­i lÃºc ${escapeHTML(formatDateTime(message.createdAt))}</p>
+        <h2 class="profile-card__title">${escapeHTML(message.name || 'Liên hệ')}</h2>
+        <p class="profile-card__text">Gửi lúc ${escapeHTML(formatDateTime(message.createdAt))}</p>
       </div>
 
       <dl class="admin-meta">
         <div class="admin-meta__item">
           <dt>Email</dt>
-          <dd>${escapeHTML(message.email || 'ChÆ°a cÃ³')}</dd>
+          <dd>${escapeHTML(message.email || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Sá»‘ Ä‘iá»‡n thoáº¡i</dt>
-          <dd>${escapeHTML(message.phone || 'ChÆ°a cÃ³')}</dd>
+          <dt>Số điện thoại</dt>
+          <dd>${escapeHTML(message.phone || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>NgÆ°á»i xá»­ lÃ½</dt>
-          <dd>${escapeHTML(message.handledById || 'ChÆ°a gÃ¡n')}</dd>
+          <dt>Người xử lý</dt>
+          <dd>${escapeHTML(message.handledById || 'Chưa gán')}</dd>
         </div>
       </dl>
 
       <div class="admin-message-body">
-        <strong>Ná»™i dung liÃªn há»‡</strong>
-        <p>${escapeHTML(message.message || 'ChÆ°a cÃ³ ná»™i dung')}</p>
+        <strong>Nội dung liên hệ</strong>
+        <p>${escapeHTML(message.message || 'Chưa có nội dung')}</p>
       </div>
 
       <form class="admin-status-form" data-admin-message-form data-message-id="${escapeHTML(messageId)}">
         <div class="admin-status-form__grid admin-status-form__grid--stack">
           <label class="form-field">
-            <span class="label-text">Tráº¡ng thÃ¡i liÃªn há»‡</span>
+            <span class="label-text">Trạng thái liên hệ</span>
             <select name="status" ${isPending ? 'disabled' : ''}>
               ${buildMessageOptionsMarkup(message.status)}
             </select>
           </label>
 
           <label class="form-field">
-            <span class="label-text">Ghi chÃº ná»™i bá»™</span>
-            <textarea name="adminNote" rows="4" placeholder="Ghi chÃº ngáº¯n cho staff/admin khÃ¡c..." ${isPending ? 'disabled' : ''}>${escapeHTML(message.adminNote || '')}</textarea>
+            <span class="label-text">Ghi chú nội bộ</span>
+            <textarea name="adminNote" rows="4" placeholder="Ghi chú ngắn cho staff/admin khác..." ${isPending ? 'disabled' : ''}>${escapeHTML(message.adminNote || '')}</textarea>
           </label>
         </div>
 
         ${buildFeedbackMarkup(feedback)}
         <button class="btn btn-primary" type="submit" data-save-button ${isPending ? 'disabled' : ''}>
-          ${isPending ? 'Äang lÆ°u...' : 'LÆ°u thay Ä‘á»•i'}
+          ${isPending ? 'Đang lưu...' : 'Lưu thay đổi'}
         </button>
       </form>
     </article>
@@ -185,44 +185,44 @@ const render = function () {
 
   if (!isApiProviderMode()) {
     container.innerHTML = buildStateMarkup(
-      'Admin UI chá»‰ há»— trá»£ khi cháº¡y backend',
-      'Trang nÃ y cáº§n API mode Ä‘á»ƒ táº£i vÃ  cáº­p nháº­t dá»¯ liá»‡u quáº£n trá»‹.',
-      '<a href="./index.html" class="btn btn-secondary">Quay vá» trang chá»§</a>'
+      'Admin UI chỉ hỗ trợ khi chạy backend',
+      'Trang này cần API mode để tải và cập nhật dữ liệu quản trị.',
+      '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
     return;
   }
 
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
-      'Äang táº£i danh sÃ¡ch liÃªn há»‡',
-      'ChÃºng mÃ¬nh Ä‘ang Ä‘á»“ng bá»™ cÃ¡c tin nháº¯n há»— trá»£ má»›i nháº¥t tá»« backend.'
+      'Đang tải danh sách liên hệ',
+      'Chúng mình đang đồng bộ các tin nhắn hỗ trợ mới nhất từ backend.'
     );
     return;
   }
 
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
-      'Báº¡n cáº§n Ä‘Äƒng nháº­p',
-      'Vui lÃ²ng Ä‘Äƒng nháº­p báº±ng tÃ i khoáº£n staff/admin Ä‘á»ƒ truy cáº­p khu vá»±c quáº£n trá»‹ liÃªn há»‡.',
-      '<a href="./login.html" class="btn btn-primary">ÄÄƒng nháº­p</a>'
+      'Bạn cần đăng nhập',
+      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị liên hệ.',
+      '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     return;
   }
 
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
-      'Báº¡n khÃ´ng cÃ³ quyá»n truy cáº­p',
-      'TÃ i khoáº£n hiá»‡n táº¡i khÃ´ng thuá»™c nhÃ³m staff/admin nÃªn khÃ´ng thá»ƒ dÃ¹ng trang quáº£n trá»‹ nÃ y.',
-      '<a href="./profile.html" class="btn btn-secondary">Vá» há»“ sÆ¡</a>'
+      'Bạn không có quyền truy cập',
+      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
+      '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     return;
   }
 
   if (state.status === 'error') {
     container.innerHTML = buildStateMarkup(
-      'KhÃ´ng thá»ƒ táº£i tin nháº¯n há»— trá»£',
-      'Backend chÆ°a pháº£n há»“i á»•n Ä‘á»‹nh lÃºc nÃ y. Vui lÃ²ng thá»­ táº£i láº¡i trang hoáº·c quay láº¡i sau.',
-      '<a href="./admin-messages.html" class="btn btn-primary">Thá»­ táº£i láº¡i</a>'
+      'Không thể tải tin nhắn hỗ trợ',
+      'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
+      '<a href="./admin-messages.html" class="btn btn-primary">Thử tải lại</a>'
     );
     return;
   }
@@ -231,18 +231,18 @@ const render = function () {
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
-      'ChÆ°a cÃ³ liÃªn há»‡ phÃ¹ há»£p',
+      'Chưa có liên hệ phù hợp',
       state.filter
-        ? 'KhÃ´ng cÃ³ tin nháº¯n nÃ o khá»›p vá»›i bá»™ lá»c tráº¡ng thÃ¡i hiá»‡n táº¡i.'
-        : 'Danh sÃ¡ch liÃªn há»‡ hiá»‡n Ä‘ang trá»‘ng.'
+        ? 'Không có tin nhắn nào khớp với bộ lọc trạng thái hiện tại.'
+        : 'Danh sách liên hệ hiện đang trống.'
     );
     return;
   }
 
   if (!visibleItems.length) {
     container.innerHTML = buildStateMarkup(
-      'KhÃ´ng cÃ³ káº¿t quáº£ phÃ¹ há»£p',
-      'KhÃ´ng tÃ¬m tháº¥y tin nháº¯n nÃ o khá»›p vá»›i tá»« khÃ³a tÃ¬m kiáº¿m hiá»‡n táº¡i.'
+      'Không có kết quả phù hợp',
+      'Không tìm thấy tin nhắn nào khớp với từ khóa tìm kiếm hiện tại.'
     );
     return;
   }
@@ -405,7 +405,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [messageId]: {
             type: 'success',
-            message: 'ÄÃ£ cáº­p nháº­t tráº¡ng thÃ¡i liÃªn há»‡.'
+            message: 'Đã cập nhật trạng thái liên hệ.'
           }
         }
       };
@@ -422,7 +422,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [messageId]: {
             type: 'error',
-            message: error?.payload?.message || error?.message || 'KhÃ´ng thá»ƒ lÆ°u thay Ä‘á»•i lÃºc nÃ y.'
+            message: error?.payload?.message || error?.message || 'Không thể lưu thay đổi lúc này.'
           }
         }
       };

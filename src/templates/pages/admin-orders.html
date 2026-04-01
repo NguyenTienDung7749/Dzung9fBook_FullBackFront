@@ -3,38 +3,39 @@
     <div class="container admin-layout">
       <div class="section-heading section-heading--compact">
         <div>
-          <p class="section-label">Admin / Don hang</p>
-          <h1 class="section-title">Quan ly don hang</h1>
-          <p class="section-text">Theo doi nhanh cac don COD moi tao va cap nhat trang thai xu ly ngay tren trang.</p>
+          <p class="section-label">Admin / Đơn hàng</p>
+          <h1 class="section-title">Quản lý đơn hàng</h1>
+          <p class="section-text">Theo dõi nhanh các đơn COD mới tạo và cập nhật trạng thái xử lý ngay trên trang.</p>
         </div>
 
         <div class="empty-state__actions">
-          <a href="./admin-books.html" class="btn btn-secondary">Ton kho sach</a>
-          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhan lien he</a>
+          <a href="./admin.html" class="btn btn-secondary">Hub quản trị</a>
+          <a href="./admin-books.html" class="btn btn-secondary">Tồn kho sách</a>
+          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhắn liên hệ</a>
         </div>
       </div>
 
       <div class="form-card admin-toolbar">
         <div>
-          <p class="profile-card__eyebrow">Bo loc</p>
-          <h2>Danh sach don hang</h2>
-          <p>Loc theo trang thai don de staff/admin xu ly nhanh hon trong luc demo va van hanh thu.</p>
+          <p class="profile-card__eyebrow">Bộ lọc</p>
+          <h2>Danh sách đơn hàng</h2>
+          <p>Lọc theo trạng thái đơn để staff/admin xử lý nhanh hơn trong lúc demo và vận hành thử.</p>
         </div>
 
         <div class="admin-toolbar__controls">
           <label class="form-field">
-            <span class="label-text">Tim nhanh don hang</span>
-            <input type="search" placeholder="Ma don, ten, email hoac so dien thoai" data-admin-orders-search inputmode="search" autocomplete="off">
+            <span class="label-text">Tìm nhanh đơn hàng</span>
+            <input type="search" placeholder="Mã đơn, tên, email hoặc số điện thoại" data-admin-orders-search inputmode="search" autocomplete="off">
           </label>
 
           <label class="form-field">
-            <span class="label-text">Trang thai don hang</span>
+            <span class="label-text">Trạng thái đơn hàng</span>
             <select data-admin-orders-filter>
-              <option value="">Tat ca don hang</option>
-              <option value="PENDING_CONFIRMATION">Cho xac nhan</option>
-              <option value="CONFIRMED">Da xac nhan</option>
-              <option value="CANCELLED">Da huy</option>
-              <option value="COMPLETED">Hoan tat</option>
+              <option value="">Tất cả đơn hàng</option>
+              <option value="PENDING_CONFIRMATION">Chờ xác nhận</option>
+              <option value="CONFIRMED">Đã xác nhận</option>
+              <option value="CANCELLED">Đã hủy</option>
+              <option value="COMPLETED">Hoàn tất</option>
             </select>
           </label>
         </div>

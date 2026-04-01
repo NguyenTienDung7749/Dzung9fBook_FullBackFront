@@ -154,7 +154,6 @@ export const importCatalog = async function (prisma) {
         price: Number(book.price || 0),
         compareAtPrice: Number(book.compareAtPrice || 0),
         discountLabel: toOptionalString(book.discountLabel),
-        isSoldOut: Boolean(book.isSoldOut),
         listingStyle: toOptionalString(book.listingStyle),
         image: String(book.image || '').trim(),
         gallery: Array.isArray(book.gallery) ? book.gallery : [],
@@ -194,8 +193,8 @@ export const importCatalog = async function (prisma) {
         sourceUrl: toOptionalString(book.sourceUrl),
         parentCategoryId,
         subcategoryId,
-        trackInventory: false,
-        stockQuantity: null,
+        trackInventory: true,
+        stockQuantity: Boolean(book.isSoldOut) ? 0 : 500,
         allowBackorder: false,
         isActive: true
       }

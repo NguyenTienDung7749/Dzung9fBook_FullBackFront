@@ -6,6 +6,10 @@ const createUnsupportedError = function () {
 };
 
 export const staticAdminProvider = {
+  async getMe() {
+    throw createUnsupportedError();
+  },
+
   async getBooks() {
     throw createUnsupportedError();
   },

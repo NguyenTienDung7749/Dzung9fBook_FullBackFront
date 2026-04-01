@@ -6,6 +6,11 @@ const getAdminProvider = function () {
   return isApiProviderMode() ? apiAdminProvider : staticAdminProvider;
 };
 
+export const getAdminMe = async function () {
+  const payload = await getAdminProvider().getMe();
+  return payload?.user || null;
+};
+
 export const getAdminOrders = function (status = '') {
   return getAdminProvider().getOrders(status);
 };

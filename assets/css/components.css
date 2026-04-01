@@ -1129,6 +1129,29 @@
   -webkit-line-clamp: 5;
 }
 
+.book-detail-card__stock-notice {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background-color: rgba(248, 241, 233, 0.9);
+}
+
+.book-detail-card__stock-notice strong {
+  color: var(--ink);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.book-detail-card__stock-notice span {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
 .book-detail-card__actions .btn {
   flex: 1 1 18rem;
 }

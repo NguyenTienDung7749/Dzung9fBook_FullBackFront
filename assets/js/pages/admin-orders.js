@@ -4,29 +4,29 @@ import { isApiProviderMode } from '../config/runtime.js';
 import { getAdminOrders, updateAdminOrderStatus } from '../services/admin.js';
 
 const ORDER_STATUS_LABELS = {
-  PENDING_CONFIRMATION: 'Chá» xÃ¡c nháº­n',
-  CONFIRMED: 'ÄÃ£ xÃ¡c nháº­n',
-  CANCELLED: 'ÄÃ£ há»§y',
-  COMPLETED: 'HoÃ n táº¥t'
+  PENDING_CONFIRMATION: 'Chờ xác nhận',
+  CONFIRMED: 'Đã xác nhận',
+  CANCELLED: 'Đã hủy',
+  COMPLETED: 'Hoàn tất'
 };
 
 const PAYMENT_STATUS_LABELS = {
-  UNPAID: 'ChÆ°a thanh toÃ¡n',
-  PAID: 'ÄÃ£ thanh toÃ¡n',
-  VOID: 'VÃ´ hiá»‡u'
+  UNPAID: 'Chưa thanh toán',
+  PAID: 'Đã thanh toán',
+  VOID: 'Vô hiệu'
 };
 
 const ORDER_STATUS_OPTIONS = [
-  ['PENDING_CONFIRMATION', 'Chá» xÃ¡c nháº­n'],
-  ['CONFIRMED', 'ÄÃ£ xÃ¡c nháº­n'],
-  ['CANCELLED', 'ÄÃ£ há»§y'],
-  ['COMPLETED', 'HoÃ n táº¥t']
+  ['PENDING_CONFIRMATION', 'Chờ xác nhận'],
+  ['CONFIRMED', 'Đã xác nhận'],
+  ['CANCELLED', 'Đã hủy'],
+  ['COMPLETED', 'Hoàn tất']
 ];
 
 const PAYMENT_STATUS_OPTIONS = [
-  ['UNPAID', 'ChÆ°a thanh toÃ¡n'],
-  ['PAID', 'ÄÃ£ thanh toÃ¡n'],
-  ['VOID', 'VÃ´ hiá»‡u']
+  ['UNPAID', 'Chưa thanh toán'],
+  ['PAID', 'Đã thanh toán'],
+  ['VOID', 'Vô hiệu']
 ];
 
 let state = {
@@ -58,7 +58,7 @@ const formatDateTime = function (value) {
   const parsedDate = new Date(value);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return 'KhÃ´ng rÃµ thá»i gian';
+    return 'Không rõ thời gian';
   }
 
   return new Intl.DateTimeFormat('vi-VN', {
@@ -69,12 +69,12 @@ const formatDateTime = function (value) {
 
 const resolveOrderStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Äang xá»­ lÃ½';
+  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
 };
 
 const resolvePaymentStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return PAYMENT_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'KhÃ´ng rÃµ';
+  return PAYMENT_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Không rõ';
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -129,8 +129,8 @@ const getVisibleItems = function () {
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
-    ? `Äang hiá»ƒn thá»‹ ${visibleCount} / ${totalCount} Ä‘Æ¡n hÃ ng phÃ¹ há»£p vá»›i bá»™ lá»c hiá»‡n táº¡i.`
-    : `Äang hiá»ƒn thá»‹ ${visibleCount} Ä‘Æ¡n hÃ ng má»›i nháº¥t.`;
+    ? `Đang hiển thị ${visibleCount} / ${totalCount} đơn hàng phù hợp với bộ lọc hiện tại.`
+    : `Đang hiển thị ${visibleCount} đơn hàng mới nhất.`;
 
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
@@ -144,33 +144,33 @@ const buildOrderCardMarkup = function (order) {
     <article class="profile-card admin-card">
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
-        <h2 class="profile-card__title">${escapeHTML(order.orderNumber || 'ÄÆ¡n hÃ ng')}</h2>
-        <p class="profile-card__text">Táº¡o lÃºc ${escapeHTML(formatDateTime(order.createdAt))}</p>
+        <h2 class="profile-card__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
+        <p class="profile-card__text">Tạo lúc ${escapeHTML(formatDateTime(order.createdAt))}</p>
       </div>
 
       <dl class="admin-meta">
         <div class="admin-meta__item">
-          <dt>KhÃ¡ch hÃ ng</dt>
-          <dd>${escapeHTML(order.customerName || 'ChÆ°a cÃ³')}</dd>
+          <dt>Khách hàng</dt>
+          <dd>${escapeHTML(order.customerName || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
           <dt>Email</dt>
-          <dd>${escapeHTML(order.customerEmail || 'ChÆ°a cÃ³')}</dd>
+          <dd>${escapeHTML(order.customerEmail || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Sá»‘ Ä‘iá»‡n thoáº¡i</dt>
-          <dd>${escapeHTML(order.customerPhone || 'ChÆ°a cÃ³')}</dd>
+          <dt>Số điện thoại</dt>
+          <dd>${escapeHTML(order.customerPhone || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Tráº¡ng thÃ¡i thanh toÃ¡n</dt>
+          <dt>Trạng thái thanh toán</dt>
           <dd>${escapeHTML(resolvePaymentStatusLabel(order.paymentStatus))}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Tá»•ng tiá»n</dt>
+          <dt>Tổng tiền</dt>
           <dd>${escapeHTML(formatPrice(order.totalAmount || 0))}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Sá»‘ lÆ°á»£ng sÃ¡ch</dt>
+          <dt>Số lượng sách</dt>
           <dd>${escapeHTML(String(Number(order.itemCount || 0)))}</dd>
         </div>
       </dl>
@@ -178,14 +178,14 @@ const buildOrderCardMarkup = function (order) {
       <form class="admin-status-form" data-admin-order-form data-order-id="${escapeHTML(orderId)}">
         <div class="admin-status-form__grid">
           <label class="form-field">
-            <span class="label-text">Tráº¡ng thÃ¡i Ä‘Æ¡n hÃ ng</span>
+            <span class="label-text">Trạng thái đơn hàng</span>
             <select name="status" ${isPending ? 'disabled' : ''}>
               ${buildOptionsMarkup(ORDER_STATUS_OPTIONS, order.status)}
             </select>
           </label>
 
           <label class="form-field">
-            <span class="label-text">Tráº¡ng thÃ¡i thanh toÃ¡n</span>
+            <span class="label-text">Trạng thái thanh toán</span>
             <select name="paymentStatus" ${isPending ? 'disabled' : ''}>
               ${buildOptionsMarkup(PAYMENT_STATUS_OPTIONS, order.paymentStatus)}
             </select>
@@ -194,7 +194,7 @@ const buildOrderCardMarkup = function (order) {
 
         ${buildFeedbackMarkup(feedback)}
         <button class="btn btn-primary" type="submit" data-save-button ${isPending ? 'disabled' : ''}>
-          ${isPending ? 'Äang lÆ°u...' : 'LÆ°u thay Ä‘á»•i'}
+          ${isPending ? 'Đang lưu...' : 'Lưu thay đổi'}
         </button>
       </form>
     </article>
@@ -210,44 +210,44 @@ const render = function () {
 
   if (!isApiProviderMode()) {
     container.innerHTML = buildStateMarkup(
-      'Admin UI chá»‰ há»— trá»£ khi cháº¡y backend',
-      'Trang nÃ y cáº§n API mode Ä‘á»ƒ táº£i vÃ  cáº­p nháº­t dá»¯ liá»‡u quáº£n trá»‹.',
-      '<a href="./index.html" class="btn btn-secondary">Quay vá» trang chá»§</a>'
+      'Admin UI chỉ hỗ trợ khi chạy backend',
+      'Trang này cần API mode để tải và cập nhật dữ liệu quản trị.',
+      '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
     return;
   }
 
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
-      'Äang táº£i danh sÃ¡ch Ä‘Æ¡n hÃ ng',
-      'ChÃºng mÃ¬nh Ä‘ang Ä‘á»“ng bá»™ dá»¯ liá»‡u Ä‘Æ¡n hÃ ng má»›i nháº¥t tá»« backend.'
+      'Đang tải danh sách đơn hàng',
+      'Chúng mình đang đồng bộ dữ liệu đơn hàng mới nhất từ backend.'
     );
     return;
   }
 
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
-      'Báº¡n cáº§n Ä‘Äƒng nháº­p',
-      'Vui lÃ²ng Ä‘Äƒng nháº­p báº±ng tÃ i khoáº£n staff/admin Ä‘á»ƒ truy cáº­p khu vá»±c quáº£n trá»‹ Ä‘Æ¡n hÃ ng.',
-      '<a href="./login.html" class="btn btn-primary">ÄÄƒng nháº­p</a>'
+      'Bạn cần đăng nhập',
+      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị đơn hàng.',
+      '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     return;
   }
 
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
-      'Báº¡n khÃ´ng cÃ³ quyá»n truy cáº­p',
-      'TÃ i khoáº£n hiá»‡n táº¡i khÃ´ng thuá»™c nhÃ³m staff/admin nÃªn khÃ´ng thá»ƒ dÃ¹ng trang quáº£n trá»‹ nÃ y.',
-      '<a href="./profile.html" class="btn btn-secondary">Vá» há»“ sÆ¡</a>'
+      'Bạn không có quyền truy cập',
+      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
+      '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     return;
   }
 
   if (state.status === 'error') {
     container.innerHTML = buildStateMarkup(
-      'KhÃ´ng thá»ƒ táº£i Ä‘Æ¡n hÃ ng',
-      'Backend chÆ°a pháº£n há»“i á»•n Ä‘á»‹nh lÃºc nÃ y. Vui lÃ²ng thá»­ táº£i láº¡i trang hoáº·c quay láº¡i sau.',
-      '<a href="./admin-orders.html" class="btn btn-primary">Thá»­ táº£i láº¡i</a>'
+      'Không thể tải đơn hàng',
+      'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
+      '<a href="./admin-orders.html" class="btn btn-primary">Thử tải lại</a>'
     );
     return;
   }
@@ -256,18 +256,18 @@ const render = function () {
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
-      'ChÆ°a cÃ³ Ä‘Æ¡n hÃ ng phÃ¹ há»£p',
+      'Chưa có đơn hàng phù hợp',
       state.filter
-        ? 'KhÃ´ng cÃ³ Ä‘Æ¡n hÃ ng nÃ o khá»›p vá»›i bá»™ lá»c tráº¡ng thÃ¡i hiá»‡n táº¡i.'
-        : 'Danh sÃ¡ch Ä‘Æ¡n hÃ ng hiá»‡n Ä‘ang trá»‘ng.'
+        ? 'Không có đơn hàng nào khớp với bộ lọc trạng thái hiện tại.'
+        : 'Danh sách đơn hàng hiện đang trống.'
     );
     return;
   }
 
   if (!visibleItems.length) {
     container.innerHTML = buildStateMarkup(
-      'KhÃ´ng cÃ³ káº¿t quáº£ phÃ¹ há»£p',
-      'KhÃ´ng tÃ¬m tháº¥y Ä‘Æ¡n hÃ ng nÃ o khá»›p vá»›i tá»« khÃ³a tÃ¬m kiáº¿m hiá»‡n táº¡i.'
+      'Không có kết quả phù hợp',
+      'Không tìm thấy đơn hàng nào khớp với từ khóa tìm kiếm hiện tại.'
     );
     return;
   }
@@ -430,7 +430,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [orderId]: {
             type: 'success',
-            message: 'ÄÃ£ cáº­p nháº­t tráº¡ng thÃ¡i Ä‘Æ¡n hÃ ng.'
+            message: 'Đã cập nhật trạng thái đơn hàng.'
           }
         }
       };
@@ -447,7 +447,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [orderId]: {
             type: 'error',
-            message: error?.payload?.message || error?.message || 'KhÃ´ng thá»ƒ lÆ°u thay Ä‘á»•i lÃºc nÃ y.'
+            message: error?.payload?.message || error?.message || 'Không thể lưu thay đổi lúc này.'
           }
         }
       };

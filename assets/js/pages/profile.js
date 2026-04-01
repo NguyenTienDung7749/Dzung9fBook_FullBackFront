@@ -2,6 +2,7 @@ import { qs } from '../core/dom.js';
 import { escapeHTML, formatPrice } from '../core/utils.js';
 import { isApiProviderMode } from '../config/runtime.js';
 import { buildBooksUrl } from '../data/catalog.js';
+import { getAdminMe } from '../services/admin.js';
 import { getOrders } from '../services/orders.js';
 import { updateProfile } from '../services/auth.js';
 import { getSessionSnapshot, subscribeSessionStore } from '../state/session-store.js';
@@ -10,13 +11,20 @@ import { attachFieldClearHandlers, clearFormState, isValidPhone, setFieldError, 
 let categoriesCache = [];
 let stopProfileSubscription = null;
 let latestProfileKey = '';
+let latestAdminProfileKey = '';
 let ordersRequestSequence = 0;
+let adminAccessRequestSequence = 0;
 let profileActionsBound = false;
 let ordersState = {
   status: 'idle',
   profileKey: '',
   items: [],
   error: null
+};
+let adminAccessState = {
+  status: 'idle',
+  profileKey: '',
+  user: null
 };
 let profileEditorState = {
   isEditing: false,
@@ -29,10 +37,10 @@ let profileEditorState = {
 };
 
 const ORDER_STATUS_LABELS = {
-  PENDING_CONFIRMATION: 'Chá» xÃ¡c nháº­n',
-  CONFIRMED: 'ÄÃ£ xÃ¡c nháº­n',
-  CANCELLED: 'ÄÃ£ há»§y',
-  COMPLETED: 'HoÃ n táº¥t'
+  PENDING_CONFIRMATION: 'Chờ xác nhận',
+  CONFIRMED: 'Đã xác nhận',
+  CANCELLED: 'Đã hủy',
+  COMPLETED: 'Hoàn tất'
 };
 
 const getContainer = function () {
@@ -43,7 +51,7 @@ const formatOrderDate = function (value) {
   const parsedDate = new Date(value);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return 'KhÃ´ng rÃµ thá»i gian';
+    return 'Không rõ thời gian';
   }
 
   return new Intl.DateTimeFormat('vi-VN', {
@@ -54,7 +62,7 @@ const formatOrderDate = function (value) {
 
 const resolveOrderStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Äang xá»­ lÃ½';
+  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
 };
 
 const buildOrderDetailUrl = function (orderId) {
@@ -84,6 +92,14 @@ const resetOrdersState = function () {
   };
 };
 
+const resetAdminAccessState = function () {
+  adminAccessState = {
+    status: 'idle',
+    profileKey: '',
+    user: null
+  };
+};
+
 const resetProfileEditorState = function (user = null) {
   profileEditorState = {
     isEditing: false,
@@ -108,11 +124,11 @@ const buildProfileFeedbackMarkup = function () {
 const renderAnonymousState = function (container) {
   container.innerHTML = `
     <div class="empty-state empty-state--profile">
-      <h2>Báº¡n chÆ°a Ä‘Äƒng nháº­p</h2>
-      <p>ÄÄƒng nháº­p Ä‘á»ƒ lÆ°u thÃ´ng tin liÃªn há»‡, theo dÃµi giá» sÃ¡ch vÃ  mua sáº¯m thuáº­n tiá»‡n hÆ¡n trong láº§n ghÃ© tiáº¿p theo.</p>
+      <h2>Bạn chưa đăng nhập</h2>
+      <p>Đăng nhập để lưu thông tin liên hệ, theo dõi giỏ sách và mua sắm thuận tiện hơn trong lần ghé tiếp theo.</p>
       <div class="empty-state__actions">
-        <a href="./login.html" class="btn btn-primary">ÄÄƒng nháº­p</a>
-        <a href="./register.html" class="btn btn-secondary">Táº¡o tÃ i khoáº£n</a>
+        <a href="./login.html" class="btn btn-primary">Đăng nhập</a>
+        <a href="./register.html" class="btn btn-secondary">Tạo tài khoản</a>
       </div>
     </div>
   `;
@@ -125,13 +141,13 @@ const buildProfileEditFormMarkup = function () {
   return `
     <form class="profile-edit-form" data-profile-edit-form novalidate>
       <label class="form-field">
-        <span class="label-text">Há» vÃ  tÃªn</span>
-        <input type="text" name="name" value="${nameValue}" placeholder="Nguyá»…n VÄƒn A" ${profileEditorState.pending ? 'disabled' : ''} autocomplete="name">
+        <span class="label-text">Họ và tên</span>
+        <input type="text" name="name" value="${nameValue}" placeholder="Nguyễn Văn A" ${profileEditorState.pending ? 'disabled' : ''} autocomplete="name">
         <span class="field-error" id="profile-name-error" data-error-for="name"></span>
       </label>
 
       <label class="form-field">
-        <span class="label-text">Sá»‘ Ä‘iá»‡n thoáº¡i</span>
+        <span class="label-text">Số điện thoại</span>
         <input type="tel" name="phone" value="${phoneValue}" placeholder="0983 376 932" ${profileEditorState.pending ? 'disabled' : ''} autocomplete="tel" inputmode="tel">
         <span class="field-error" id="profile-phone-error" data-error-for="phone"></span>
       </label>
@@ -140,10 +156,10 @@ const buildProfileEditFormMarkup = function () {
 
       <div class="profile-edit-form__actions">
         <button type="submit" class="btn btn-primary" data-profile-save-button ${profileEditorState.pending ? 'disabled' : ''}>
-          ${profileEditorState.pending ? 'Äang lÆ°u...' : 'LÆ°u thay Ä‘á»•i'}
+          ${profileEditorState.pending ? 'Đang lưu...' : 'Lưu thay đổi'}
         </button>
         <button type="button" class="btn btn-secondary" data-profile-cancel-button ${profileEditorState.pending ? 'disabled' : ''}>
-          Há»§y
+          Hủy
         </button>
       </div>
     </form>
@@ -156,7 +172,7 @@ const buildProfileCardMarkup = function (currentUser) {
     : `
       <dl class="profile-card__details">
         <div>
-          <dt>Há» vÃ  tÃªn</dt>
+          <dt>Họ và tên</dt>
           <dd>${escapeHTML(currentUser.name)}</dd>
         </div>
         <div>
@@ -164,8 +180,8 @@ const buildProfileCardMarkup = function (currentUser) {
           <dd>${escapeHTML(currentUser.email)}</dd>
         </div>
         <div>
-          <dt>Sá»‘ Ä‘iá»‡n thoáº¡i</dt>
-          <dd>${escapeHTML(currentUser.phone || 'ChÆ°a cáº­p nháº­t')}</dd>
+          <dt>Số điện thoại</dt>
+          <dd>${escapeHTML(currentUser.phone || 'Chưa cập nhật')}</dd>
         </div>
       </dl>
     `;
@@ -173,23 +189,43 @@ const buildProfileCardMarkup = function (currentUser) {
     ? ''
     : `
       <div class="profile-card__actions">
-        <button type="button" class="btn btn-primary" data-profile-edit-button>Chá»‰nh sá»­a thÃ´ng tin</button>
-        <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-secondary">Tiáº¿p tá»¥c chá»n sÃ¡ch</a>
-        <button type="button" class="btn btn-secondary" data-logout-button>ÄÄƒng xuáº¥t</button>
+        <button type="button" class="btn btn-primary" data-profile-edit-button>Chỉnh sửa thông tin</button>
+        <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-secondary">Tiếp tục chọn sách</a>
+        <button type="button" class="btn btn-secondary" data-logout-button>Đăng xuất</button>
       </div>
     `;
 
   return `
     <article class="profile-card">
       <div class="profile-card__header">
-        <p class="profile-card__eyebrow">TÃ i khoáº£n Dzung9fBook</p>
+        <p class="profile-card__eyebrow">Tài khoản Dzung9fBook</p>
         <h2 class="profile-card__title">${escapeHTML(currentUser.name)}</h2>
-        <p class="profile-card__text">ThÃ´ng tin nÃ y Ä‘Æ°á»£c dÃ¹ng Ä‘á»ƒ cÃ¡ nhÃ¢n hÃ³a tráº£i nghiá»‡m mua sÃ¡ch, Ä‘iá»n sáºµn checkout vÃ  giá»¯ liÃªn láº¡c khi báº¡n cáº§n há»— trá»£.</p>
+        <p class="profile-card__text">Thông tin này được dùng để cá nhân hóa trải nghiệm mua sách, điền sẵn checkout và giữ liên lạc khi bạn cần hỗ trợ.</p>
       </div>
 
       ${buildProfileFeedbackMarkup()}
       ${detailsMarkup}
       ${actionsMarkup}
+    </article>
+  `;
+};
+
+const buildAdminAccessCardMarkup = function () {
+  if (adminAccessState.status !== 'ready' || !adminAccessState.user) {
+    return '';
+  }
+
+  return `
+    <article class="profile-card">
+      <div class="profile-card__header">
+        <p class="profile-card__eyebrow">Khu quản trị</p>
+        <h2 class="profile-card__title">Lối vào dành cho staff/admin</h2>
+        <p class="profile-card__text">Tài khoản hiện tại có thể mở nhanh khu quản trị để xử lý đơn hàng, tồn kho sách và các tin nhắn liên hệ.</p>
+      </div>
+
+      <div class="profile-card__actions">
+        <a href="./admin.html" class="btn btn-primary">Vào khu quản trị</a>
+      </div>
     </article>
   `;
 };
@@ -203,9 +239,9 @@ const buildOrderHistoryMarkup = function () {
     return `
       <article class="profile-card">
         <div class="profile-card__header">
-          <p class="profile-card__eyebrow">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</p>
-          <h2 class="profile-card__title">ÄÆ¡n hÃ ng gáº§n Ä‘Ã¢y</h2>
-          <p class="profile-card__text">ChÃºng mÃ¬nh Ä‘ang Ä‘á»“ng bá»™ danh sÃ¡ch Ä‘Æ¡n hÃ ng má»›i nháº¥t cho tÃ i khoáº£n cá»§a báº¡n.</p>
+          <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
+          <h2 class="profile-card__title">Đơn hàng gần đây</h2>
+          <p class="profile-card__text">Chúng mình đang đồng bộ danh sách đơn hàng mới nhất cho tài khoản của bạn.</p>
         </div>
       </article>
     `;
@@ -215,9 +251,9 @@ const buildOrderHistoryMarkup = function () {
     return `
       <article class="profile-card">
         <div class="profile-card__header">
-          <p class="profile-card__eyebrow">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</p>
-          <h2 class="profile-card__title">ÄÆ¡n hÃ ng gáº§n Ä‘Ã¢y</h2>
-          <p class="profile-card__text">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng hiá»‡n chá»‰ há»— trá»£ khi trang Ä‘ang káº¿t ná»‘i vá»›i backend/API mode.</p>
+          <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
+          <h2 class="profile-card__title">Đơn hàng gần đây</h2>
+          <p class="profile-card__text">Lịch sử đơn hàng hiện chỉ hỗ trợ khi trang đang kết nối với backend/API mode.</p>
         </div>
       </article>
     `;
@@ -227,9 +263,9 @@ const buildOrderHistoryMarkup = function () {
     return `
       <article class="profile-card">
         <div class="profile-card__header">
-          <p class="profile-card__eyebrow">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</p>
-          <h2 class="profile-card__title">ÄÆ¡n hÃ ng gáº§n Ä‘Ã¢y</h2>
-          <p class="profile-card__text">Táº¡m thá»i chÆ°a thá»ƒ táº£i lá»‹ch sá»­ Ä‘Æ¡n hÃ ng. Vui lÃ²ng táº£i láº¡i trang hoáº·c thá»­ láº¡i sau Ã­t phÃºt.</p>
+          <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
+          <h2 class="profile-card__title">Đơn hàng gần đây</h2>
+          <p class="profile-card__text">Tạm thời chưa thể tải lịch sử đơn hàng. Vui lòng tải lại trang hoặc thử lại sau ít phút.</p>
         </div>
       </article>
     `;
@@ -239,13 +275,13 @@ const buildOrderHistoryMarkup = function () {
     return `
       <article class="profile-card">
         <div class="profile-card__header">
-          <p class="profile-card__eyebrow">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</p>
-          <h2 class="profile-card__title">ÄÆ¡n hÃ ng gáº§n Ä‘Ã¢y</h2>
-          <p class="profile-card__text">Báº¡n chÆ°a cÃ³ Ä‘Æ¡n hÃ ng nÃ o. Khi Ä‘áº·t hÃ ng COD thÃ nh cÃ´ng, danh sÃ¡ch sáº½ hiá»‡n á»Ÿ Ä‘Ã¢y.</p>
+          <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
+          <h2 class="profile-card__title">Đơn hàng gần đây</h2>
+          <p class="profile-card__text">Bạn chưa có đơn hàng nào. Khi đặt hàng COD thành công, danh sách sẽ hiện ở đây.</p>
         </div>
 
         <div class="profile-card__actions">
-          <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-secondary">KhÃ¡m phÃ¡ danh má»¥c sÃ¡ch</a>
+          <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-secondary">Khám phá danh mục sách</a>
         </div>
       </article>
     `;
@@ -255,12 +291,12 @@ const buildOrderHistoryMarkup = function () {
     return `
       <div class="profile-item">
         <strong>${escapeHTML(order.orderNumber || 'Don hang')}</strong>
-        <p class="profile-card__text">NgÃ y táº¡o: ${escapeHTML(formatOrderDate(order.createdAt))}</p>
-        <p class="profile-card__text">Tráº¡ng thÃ¡i: ${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
-        <p class="profile-card__text">Sá»‘ lÆ°á»£ng sÃ¡ch: ${escapeHTML(String(Number(order.itemCount || 0)))}</p>
-        <p class="profile-card__text">Tá»•ng táº¡m tÃ­nh: ${escapeHTML(formatPrice(order.totalAmount || 0))}</p>
+        <p class="profile-card__text">Ngày tạo: ${escapeHTML(formatOrderDate(order.createdAt))}</p>
+        <p class="profile-card__text">Trạng thái: ${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
+        <p class="profile-card__text">Số lượng sách: ${escapeHTML(String(Number(order.itemCount || 0)))}</p>
+        <p class="profile-card__text">Tổng tạm tính: ${escapeHTML(formatPrice(order.totalAmount || 0))}</p>
         <div class="profile-item__actions">
-          <a href="${buildOrderDetailUrl(order.id)}" class="btn btn-secondary">Xem chi tiáº¿t</a>
+          <a href="${buildOrderDetailUrl(order.id)}" class="btn btn-secondary">Xem chi tiết</a>
         </div>
       </div>
     `;
@@ -269,9 +305,9 @@ const buildOrderHistoryMarkup = function () {
   return `
     <article class="profile-card">
       <div class="profile-card__header">
-        <p class="profile-card__eyebrow">Lá»‹ch sá»­ Ä‘Æ¡n hÃ ng</p>
-        <h2 class="profile-card__title">ÄÆ¡n hÃ ng gáº§n Ä‘Ã¢y</h2>
-        <p class="profile-card__text">Danh sÃ¡ch Ä‘Æ°á»£c sáº¯p xáº¿p theo thá»© tá»± má»›i nháº¥t trÆ°á»›c Ä‘á»ƒ báº¡n dá»… theo dÃµi vÃ  má»Ÿ láº¡i chi tiáº¿t khi cáº§n.</p>
+        <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
+        <h2 class="profile-card__title">Đơn hàng gần đây</h2>
+        <p class="profile-card__text">Danh sách được sắp xếp theo thứ tự mới nhất trước để bạn dễ theo dõi và mở lại chi tiết khi cần.</p>
       </div>
 
       <div class="profile-grid">
@@ -312,8 +348,8 @@ export const renderProfilePage = function () {
   if (session.authStatus === 'loading' && !currentUser) {
     container.innerHTML = `
       <div class="empty-state empty-state--profile">
-        <h2>Äang táº£i tÃ i khoáº£n</h2>
-        <p>ChÃºng mÃ¬nh Ä‘ang kiá»ƒm tra phiÃªn Ä‘Äƒng nháº­p hiá»‡n táº¡i Ä‘á»ƒ hiá»ƒn thá»‹ Ä‘Ãºng thÃ´ng tin cá»§a báº¡n.</p>
+        <h2>Đang tải tài khoản</h2>
+        <p>Chúng mình đang kiểm tra phiên đăng nhập hiện tại để hiển thị đúng thông tin của bạn.</p>
       </div>
     `;
     return;
@@ -327,6 +363,7 @@ export const renderProfilePage = function () {
   container.innerHTML = `
     <div class="profile-grid">
       ${buildProfileCardMarkup(currentUser)}
+      ${buildAdminAccessCardMarkup()}
       ${buildOrderHistoryMarkup()}
     </div>
   `;
@@ -379,6 +416,57 @@ const loadOrdersForCurrentUser = async function (profileKey) {
   renderProfilePage();
 };
 
+const loadAdminAccessForCurrentUser = async function (profileKey) {
+  const requestId = adminAccessRequestSequence + 1;
+  adminAccessRequestSequence = requestId;
+  adminAccessState = {
+    status: isApiProviderMode() ? 'loading' : 'unsupported',
+    profileKey,
+    user: null
+  };
+  renderProfilePage();
+
+  if (!isApiProviderMode()) {
+    return;
+  }
+
+  try {
+    const adminUser = await getAdminMe();
+
+    if (requestId !== adminAccessRequestSequence) {
+      return;
+    }
+
+    adminAccessState = {
+      status: 'ready',
+      profileKey,
+      user: adminUser || null
+    };
+  } catch (error) {
+    if (requestId !== adminAccessRequestSequence) {
+      return;
+    }
+
+    adminAccessState = {
+      status: error?.status === 401
+        ? 'unauthorized'
+        : error?.status === 403
+          ? 'forbidden'
+          : error?.code === 'ADMIN_UNSUPPORTED' || error?.status === 501
+            ? 'unsupported'
+            : 'error',
+      profileKey,
+      user: null
+    };
+
+    if (error?.status !== 401 && error?.status !== 403 && error?.status !== 501 && error?.code !== 'ADMIN_UNSUPPORTED') {
+      console.error(error);
+    }
+  }
+
+  renderProfilePage();
+};
+
 const syncProfileOrders = function () {
   const session = getSessionSnapshot();
   const currentUser = session.currentUser;
@@ -406,6 +494,34 @@ const syncProfileOrders = function () {
 
   latestProfileKey = profileKey;
   void loadOrdersForCurrentUser(profileKey);
+};
+
+const syncProfileAdminAccess = function () {
+  const session = getSessionSnapshot();
+  const currentUser = session.currentUser;
+
+  if (!currentUser) {
+    latestAdminProfileKey = '';
+    adminAccessRequestSequence += 1;
+    resetAdminAccessState();
+    renderProfilePage();
+    return;
+  }
+
+  const profileKey = buildProfileKey(currentUser);
+
+  if (!profileKey) {
+    renderProfilePage();
+    return;
+  }
+
+  if (profileKey === latestAdminProfileKey && adminAccessState.profileKey === profileKey && adminAccessState.status !== 'idle') {
+    renderProfilePage();
+    return;
+  }
+
+  latestAdminProfileKey = profileKey;
+  void loadAdminAccessForCurrentUser(profileKey);
 };
 
 const bindProfileActions = function () {
@@ -487,17 +603,17 @@ const bindProfileActions = function () {
     let isValid = true;
 
     if (!name) {
-      setFieldError(form, 'name', 'Vui lÃ²ng nháº­p há» vÃ  tÃªn.');
+      setFieldError(form, 'name', 'Vui lòng nhập họ và tên.');
       isValid = false;
     }
 
     if (phone && !isValidPhone(phone)) {
-      setFieldError(form, 'phone', 'Sá»‘ Ä‘iá»‡n thoáº¡i cáº§n cÃ³ tá»« 9 Ä‘áº¿n 11 chá»¯ sá»‘ há»£p lá»‡.');
+      setFieldError(form, 'phone', 'Số điện thoại cần có từ 9 đến 11 chữ số hợp lệ.');
       isValid = false;
     }
 
     if (!isValid) {
-      showFormMessage(form, 'error', 'Vui lÃ²ng kiá»ƒm tra láº¡i thÃ´ng tin cá»§a báº¡n.');
+      showFormMessage(form, 'error', 'Vui lòng kiểm tra lại thông tin của bạn.');
       return;
     }
 
@@ -521,7 +637,7 @@ const bindProfileActions = function () {
         pending: false,
         feedback: {
           type: 'success',
-          message: 'ThÃ´ng tin liÃªn há»‡ cá»§a báº¡n Ä‘Ã£ Ä‘Æ°á»£c cáº­p nháº­t.'
+          message: 'Thông tin liên hệ của bạn đã được cập nhật.'
         },
         draft: buildProfileDraft(payload?.user || getSessionSnapshot().currentUser)
       };
@@ -537,17 +653,17 @@ const bindProfileActions = function () {
 
       if (nextForm) {
         if (error?.payload?.code === 'AUTH_INVALID_PAYLOAD' && !name) {
-          setFieldError(nextForm, 'name', 'Vui lÃ²ng nháº­p há» vÃ  tÃªn.');
+          setFieldError(nextForm, 'name', 'Vui lòng nhập họ và tên.');
         }
 
         if (error?.payload?.code === 'AUTH_INVALID_PAYLOAD' && phone && !isValidPhone(phone)) {
-          setFieldError(nextForm, 'phone', 'Sá»‘ Ä‘iá»‡n thoáº¡i cáº§n cÃ³ tá»« 9 Ä‘áº¿n 11 chá»¯ sá»‘ há»£p lá»‡.');
+          setFieldError(nextForm, 'phone', 'Số điện thoại cần có từ 9 đến 11 chữ số hợp lệ.');
         }
 
         showFormMessage(
           nextForm,
           'error',
-          error?.payload?.message || error?.message || 'KhÃ´ng thá»ƒ cáº­p nháº­t thÃ´ng tin lÃºc nÃ y. Vui lÃ²ng thá»­ láº¡i sau.'
+          error?.payload?.message || error?.message || 'Không thể cập nhật thông tin lúc này. Vui lòng thử lại sau.'
         );
       }
 
@@ -567,5 +683,6 @@ export const initProfilePage = function (categories) {
 
   stopProfileSubscription = subscribeSessionStore(function () {
     syncProfileOrders();
+    syncProfileAdminAccess();
   });
 };

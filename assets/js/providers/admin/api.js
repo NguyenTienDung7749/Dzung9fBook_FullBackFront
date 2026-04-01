@@ -15,6 +15,10 @@ const buildFilteredPath = function (basePath, status) {
 };
 
 export const apiAdminProvider = {
+  async getMe() {
+    return getJson('/admin/me');
+  },
+
   async getBooks() {
     return extractItems(await getJson('/admin/books'));
   },

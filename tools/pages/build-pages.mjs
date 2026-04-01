@@ -95,9 +95,18 @@ const pageConfigs = [
     extraHead: ''
   },
   {
+    output: 'admin.html',
+    source: 'admin.html',
+    title: 'Dzung9fBook | Khu quản trị',
+    description: 'Điểm vào quản trị tối thiểu để staff/admin mở nhanh các khu vực đơn hàng, tồn kho và tin nhắn liên hệ của Dzung9fBook.',
+    canonicalPath: './admin.html',
+    bodyAttributes: 'data-page="admin-home"',
+    extraHead: ''
+  },
+  {
     output: 'admin-orders.html',
     source: 'admin-orders.html',
-    title: 'Dzung9fBook | Admin Orders',
+    title: 'Dzung9fBook | Quản lý đơn hàng',
     description: 'Khu vực quản trị tối thiểu để staff/admin theo dõi và cập nhật trạng thái đơn hàng của Dzung9fBook.',
     canonicalPath: './admin-orders.html',
     bodyAttributes: 'data-page="admin-orders"',
@@ -106,8 +115,8 @@ const pageConfigs = [
   {
     output: 'admin-books.html',
     source: 'admin-books.html',
-    title: 'Dzung9fBook | Admin Inventory',
-    description: 'Khu vuc quan tri toi thieu de staff/admin cap nhat sold out, so luong ton kho va backorder cho cac tua sach cua Dzung9fBook.',
+    title: 'Dzung9fBook | Quản lý tồn kho',
+    description: 'Khu vực quản trị tối thiểu để staff/admin cập nhật sold-out và trạng thái tồn kho cho các tựa sách của Dzung9fBook.',
     canonicalPath: './admin-books.html',
     bodyAttributes: 'data-page="admin-books"',
     extraHead: ''
@@ -115,7 +124,7 @@ const pageConfigs = [
   {
     output: 'admin-messages.html',
     source: 'admin-messages.html',
-    title: 'Dzung9fBook | Admin Messages',
+    title: 'Dzung9fBook | Quản lý liên hệ',
     description: 'Khu vực quản trị tối thiểu để staff/admin theo dõi và cập nhật các tin nhắn liên hệ của Dzung9fBook.',
     canonicalPath: './admin-messages.html',
     bodyAttributes: 'data-page="admin-messages"',

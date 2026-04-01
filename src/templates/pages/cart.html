@@ -2,22 +2,35 @@
   <section class="section">
     <div class="container cart-layout">
       <div class="cart-panel">
-        <div class="section-heading section-heading--compact">
-          <div>
+        <div class="section-heading section-heading--compact cart-panel__intro">
+          <div class="cart-panel__intro-copy">
             <p class="section-label">Chi tiết lựa chọn</p>
             <h1 class="section-title">Những cuốn sách bạn đang cân nhắc</h1>
+            <p class="section-text">Rà lại nhanh số lượng, giá tạm tính và thông tin giao nhận trước khi tạo đơn COD.</p>
+          </div>
+
+          <div class="cart-panel__stat" aria-label="Tổng số đầu sách trong giỏ">
+            <span class="cart-panel__stat-label">Đầu sách</span>
+            <strong class="cart-panel__stat-value" data-cart-item-count>0</strong>
           </div>
         </div>
         <div data-cart-items></div>
       </div>
 
       <aside class="cart-summary">
-        <p class="section-label">Tổng kết</p>
-        <h2 class="section-title">Tạm tính</h2>
-        <div class="summary-line">
-          <span>Tổng thanh toán</span>
-          <strong data-cart-total>0 đ</strong>
+        <div class="cart-summary__header">
+          <p class="section-label">Tổng kết</p>
+          <h2 class="section-title">Tạm tính</h2>
+          <p class="summary-note">Hoàn tất nhanh phần giao nhận để gửi đơn hàng COD theo thông tin tài khoản hiện tại của bạn.</p>
         </div>
+
+        <div class="cart-summary__totals">
+          <div class="summary-line">
+            <span>Tổng thanh toán</span>
+            <strong data-cart-total>0 đ</strong>
+          </div>
+        </div>
+
         <div data-checkout-panel></div>
       </aside>
     </div>

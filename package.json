@@ -11,6 +11,8 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "db:import:catalog": "node tools/db/import-catalog.mjs",
+    "db:backfill:inventory": "node tools/db/backfill-simple-inventory.mjs",
+    "db:backfill:inventory:apply": "node tools/db/backfill-simple-inventory.mjs --apply",
     "db:import:users": "node tools/db/import-users.mjs",
     "db:studio": "prisma studio",
     "dev:server": "node --env-file=.env --watch server/src/app.js",

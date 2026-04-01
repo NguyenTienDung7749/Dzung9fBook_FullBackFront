@@ -8,7 +8,8 @@ import {
   getCategorySummaryLabel
 } from '../data/catalog.js';
 import { getCatalogIndex, listBooks } from '../services/catalog.js';
-import { buildBookCard, buildBooksSummary, initCategoryAccordions, initCategoryBrowsers, renderBooksCategoryNav } from '../ui/catalog-ui.js';
+import { buildBookCard } from '../ui/book-cards.js';
+import { buildBooksSummary, initCategoryAccordions, initCategoryBrowsers, renderBooksCategoryNav } from '../ui/catalog-ui.js';
 import { renderMobileCategoryNavs, syncSearchInputs } from '../ui/shell.js';
 
 const renderCatalogState = function (container, title, description, actionsMarkup = '') {

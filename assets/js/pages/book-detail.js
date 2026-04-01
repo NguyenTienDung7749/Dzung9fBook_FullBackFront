@@ -18,7 +18,7 @@ import {
   getRelatedBooks
 } from '../data/catalog.js';
 import { getCatalogIndex, resolveBookFromSearch } from '../services/catalog.js';
-import { renderRelatedBooksSection } from '../ui/catalog-ui.js';
+import { renderRelatedBooksSection } from '../ui/book-cards.js';
 
 let activeBookGallery = null;
 let bookGalleryDocumentEventsBound = false;
@@ -266,6 +266,14 @@ export const initBookDetailPage = async function (categories) {
     book.year || ''
   ].filter(Boolean);
   const actionDisabledAttributes = book.isSoldOut ? 'disabled aria-disabled="true"' : '';
+  const soldOutNoticeMarkup = book.isSoldOut
+    ? `
+      <div class="book-detail-card__stock-notice" role="status" aria-live="polite">
+        <strong>Het hang</strong>
+        <span>Tua sach nay dang o trang thai het hang. Ban van co the xem thong tin, nhung moi hanh dong mua se bi khoa va backend checkout van chan nhu binh thuong.</span>
+      </div>
+    `
+    : '';
   const authorName = getBookDisplayAuthor(book);
   const authorMarkup = authorName ? `<p class="book-detail-card__author">Tác giả: ${escapeHTML(authorName)}</p>` : '';
 
@@ -343,6 +351,7 @@ export const initBookDetailPage = async function (categories) {
             ${hasDiscount ? `<p class="book-detail-card__compare-price">${formatPrice(book.compareAtPrice)}</p>` : ''}
           </div>
           <p class="book-detail-card__price-note">${escapeHTML(purchaseDescription)}</p>
+          ${soldOutNoticeMarkup}
 
           <div class="book-detail-card__actions">
             <button class="btn btn-primary" type="button" data-add-to-cart data-book-id="${book.id}" data-book-handle="${escapeHTML(book.handle)}" ${actionDisabledAttributes}>

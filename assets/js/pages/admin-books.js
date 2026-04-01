@@ -3,6 +3,8 @@ import { escapeHTML, formatPrice } from '../core/utils.js';
 import { isApiProviderMode } from '../config/runtime.js';
 import { getAdminBooks, updateAdminBookInventory } from '../services/admin.js';
 
+const FILTER_VALUES = new Set(['in-stock', 'sold-out']);
+
 let state = {
   status: 'idle',
   filter: '',
@@ -33,7 +35,7 @@ const formatDateTime = function (value) {
   const parsedDate = new Date(value);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return 'Khong ro thoi gian';
+    return 'Không rõ thời gian';
   }
 
   return new Intl.DateTimeFormat('vi-VN', {
@@ -66,10 +68,7 @@ const buildFeedbackMarkup = function (feedback) {
 
 const buildDraftFromBook = function (book) {
   return {
-    isSoldOut: Boolean(book?.isSoldOut),
-    trackInventory: Boolean(book?.trackInventory),
-    stockQuantityInput: Number.isInteger(book?.stockQuantity) ? String(book.stockQuantity) : '',
-    allowBackorder: Boolean(book?.allowBackorder)
+    isSoldOut: Boolean(book?.isSoldOut)
   };
 };
 
@@ -78,46 +77,10 @@ const getDraftForBook = function (book) {
   return state.draftById[key] || buildDraftFromBook(book);
 };
 
-const resolveInventoryLabel = function (draft) {
-  if (draft.isSoldOut) {
-    return 'Sold out';
-  }
-
-  if (!draft.trackInventory) {
-    return 'Khong theo doi ton kho';
-  }
-
-  if (draft.allowBackorder) {
-    return 'Theo doi ton kho / cho phep backorder';
-  }
-
-  const quantity = Number.parseInt(String(draft.stockQuantityInput || '').trim(), 10);
-
-  if (!Number.isInteger(quantity) || quantity <= 0) {
-    return 'Theo doi ton kho / dang het hang';
-  }
-
-  return `Theo doi ton kho / con ${quantity} cuon`;
-};
-
-const matchesInventoryFilter = function (draft) {
-  if (!state.filter) {
-    return true;
-  }
-
-  if (state.filter === 'tracked') {
-    return draft.trackInventory;
-  }
-
-  if (state.filter === 'sold-out') {
-    return draft.isSoldOut;
-  }
-
-  if (state.filter === 'backorder') {
-    return draft.trackInventory && draft.allowBackorder;
-  }
-
-  return true;
+const buildInventorySummary = function (draft) {
+  return draft.isSoldOut
+    ? 'Hết hàng / tồn kho 0 / track inventory bật'
+    : 'Còn hàng / tồn kho 500 / track inventory bật';
 };
 
 const getVisibleItems = function () {
@@ -126,7 +89,11 @@ const getVisibleItems = function () {
   return (Array.isArray(state.items) ? state.items : []).filter(function (book) {
     const draft = getDraftForBook(book);
 
-    if (!matchesInventoryFilter(draft)) {
+    if (state.filter === 'sold-out' && !draft.isSoldOut) {
+      return false;
+    }
+
+    if (state.filter === 'in-stock' && draft.isSoldOut) {
       return false;
     }
 
@@ -150,121 +117,71 @@ const getVisibleItems = function () {
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
-    ? `Dang hien thi ${visibleCount} / ${totalCount} tua sach phu hop voi bo loc hien tai.`
-    : `Dang hien thi ${visibleCount} tua sach de staff/admin cap nhat ton kho.`;
+    ? `Đang hiển thị ${visibleCount} / ${totalCount} tựa sách phù hợp với bộ lọc hiện tại.`
+    : `Đang hiển thị ${visibleCount} tựa sách với simple inventory 500/0.`;
 
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
 
 const buildBookCardMarkup = function (book) {
   const bookId = String(book?.id || '').trim();
+  const draft = getDraftForBook(book);
   const isPending = state.pendingBookId === bookId;
   const feedback = state.feedbackById[bookId] || null;
-  const draft = getDraftForBook(book);
 
   return `
     <article class="profile-card admin-card">
       <div class="profile-card__header">
-        <p class="profile-card__eyebrow">${escapeHTML(resolveInventoryLabel(draft))}</p>
-        <h2 class="profile-card__title">${escapeHTML(book.title || 'Tua sach')}</h2>
-        <p class="profile-card__text">Handle: ${escapeHTML(book.handle || 'N/A')}</p>
+        <p class="profile-card__eyebrow">${escapeHTML(draft.isSoldOut ? 'Hết hàng' : 'Còn hàng')}</p>
+        <h2 class="profile-card__title">${escapeHTML(book.title || 'Tựa sách')}</h2>
+        <p class="profile-card__text">${escapeHTML(buildInventorySummary(draft))}</p>
       </div>
 
       <dl class="admin-meta">
         <div class="admin-meta__item">
-          <dt>Tac gia</dt>
-          <dd>${escapeHTML(book.author || 'Dang cap nhat')}</dd>
+          <dt>Tác giả</dt>
+          <dd>${escapeHTML(book.author || 'Đang cập nhật')}</dd>
+        </div>
+        <div class="admin-meta__item">
+          <dt>Handle</dt>
+          <dd>${escapeHTML(book.handle || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
           <dt>SKU</dt>
-          <dd>${escapeHTML(book.sku || 'Chua co')}</dd>
+          <dd>${escapeHTML(book.sku || 'Chưa có')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Gia ban</dt>
+          <dt>Giá bán</dt>
           <dd>${escapeHTML(formatPrice(book.price || 0))}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Danh muc</dt>
-          <dd>${escapeHTML([book.categoryLabel, book.subcategoryLabel].filter(Boolean).join(' / ') || 'Chua gan')}</dd>
+          <dt>Danh mục</dt>
+          <dd>${escapeHTML([book.categoryLabel, book.subcategoryLabel].filter(Boolean).join(' / ') || 'Chưa gán')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>ID sach</dt>
-          <dd>${escapeHTML(bookId || 'N/A')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Cap nhat cuoi</dt>
+          <dt>Cập nhật</dt>
           <dd>${escapeHTML(formatDateTime(book.updatedAt))}</dd>
         </div>
       </dl>
 
       <form class="admin-status-form" data-admin-book-form data-book-id="${escapeHTML(bookId)}">
-        <div class="admin-status-form__grid admin-status-form__grid--inventory">
-          <label class="form-field">
-            <span class="label-text">So luong ton kho</span>
-            <input
-              type="number"
-              name="stockQuantity"
-              min="0"
-              step="1"
-              inputmode="numeric"
-              value="${escapeHTML(draft.stockQuantityInput)}"
-              ${isPending ? 'disabled' : ''}
-            >
-            <span class="admin-field-hint">Bat track inventory neu muon checkout bi chan theo so luong con lai.</span>
+        <div class="admin-checklist">
+          <label class="admin-check">
+            <input type="checkbox" name="isSoldOut" ${draft.isSoldOut ? 'checked' : ''} ${isPending ? 'disabled' : ''}>
+            <span>Đánh dấu hết hàng</span>
           </label>
-
-          <div class="admin-checklist">
-            <label class="admin-check">
-              <input type="checkbox" name="trackInventory" ${draft.trackInventory ? 'checked' : ''} ${isPending ? 'disabled' : ''}>
-              <span>Theo doi ton kho</span>
-            </label>
-
-            <label class="admin-check">
-              <input type="checkbox" name="isSoldOut" ${draft.isSoldOut ? 'checked' : ''} ${isPending ? 'disabled' : ''}>
-              <span>Danh dau sold out</span>
-            </label>
-
-            <label class="admin-check">
-              <input type="checkbox" name="allowBackorder" ${draft.allowBackorder ? 'checked' : ''} ${isPending ? 'disabled' : ''}>
-              <span>Cho phep backorder</span>
-            </label>
-          </div>
+          <p class="admin-simple-rule">
+            Rule cố định: hết hàng = stock 0, còn hàng = stock 500, track inventory bật, backorder tắt.
+          </p>
         </div>
 
         ${buildFeedbackMarkup(feedback)}
         <button class="btn btn-primary" type="submit" data-save-button ${isPending ? 'disabled' : ''}>
-          ${isPending ? 'Dang luu...' : 'Luu ton kho'}
+          ${isPending ? 'Đang lưu...' : 'Lưu trạng thái'}
         </button>
       </form>
     </article>
   `;
-};
-
-const syncInventoryForm = function (form) {
-  if (!form) {
-    return;
-  }
-
-  const trackInventory = form.elements.trackInventory;
-  const isSoldOut = form.elements.isSoldOut;
-  const allowBackorder = form.elements.allowBackorder;
-  const stockQuantity = form.elements.stockQuantity;
-  const isPending = state.pendingBookId === String(form.dataset.bookId || '').trim();
-  const isTracked = Boolean(trackInventory?.checked);
-  const isMarkedSoldOut = Boolean(isSoldOut?.checked);
-
-  if (allowBackorder && (!isTracked || isMarkedSoldOut)) {
-    allowBackorder.checked = false;
-  }
-
-  if (stockQuantity) {
-    stockQuantity.disabled = isPending || !isTracked;
-    stockQuantity.required = isTracked;
-  }
-
-  if (allowBackorder) {
-    allowBackorder.disabled = isPending || !isTracked || isMarkedSoldOut;
-  }
 };
 
 const render = function () {
@@ -276,44 +193,44 @@ const render = function () {
 
   if (!isApiProviderMode()) {
     container.innerHTML = buildStateMarkup(
-      'Admin inventory chi ho tro khi chay backend',
-      'Trang nay can API mode de tai va cap nhat du lieu ton kho thuc te trong DB.',
-      '<a href="./index.html" class="btn btn-secondary">Quay ve trang chu</a>'
+      'Admin inventory chỉ hỗ trợ khi chạy backend',
+      'Trang này cần API mode để tải và cập nhật dữ liệu tồn kho thực tế trong DB.',
+      '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
     return;
   }
 
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
-      'Dang tai danh sach sach',
-      'Chung minh dang dong bo catalog tu backend de staff/admin cap nhat ton kho.'
+      'Đang tải danh sách sách',
+      'Chúng mình đang đồng bộ catalog từ backend để staff/admin cập nhật tồn kho.'
     );
     return;
   }
 
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
-      'Ban can dang nhap',
-      'Vui long dang nhap bang tai khoan staff/admin de truy cap khu vuc quan ly ton kho.',
-      '<a href="./login.html" class="btn btn-primary">Dang nhap</a>'
+      'Bạn cần đăng nhập',
+      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản lý tồn kho.',
+      '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     return;
   }
 
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
-      'Ban khong co quyen truy cap',
-      'Tai khoan hien tai khong thuoc nhom staff/admin nen khong the dung trang inventory nay.',
-      '<a href="./profile.html" class="btn btn-secondary">Ve ho so</a>'
+      'Bạn không có quyền truy cập',
+      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang inventory này.',
+      '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     return;
   }
 
   if (state.status === 'error') {
     container.innerHTML = buildStateMarkup(
-      'Khong the tai du lieu ton kho',
-      'Backend chua phan hoi on dinh luc nay. Vui long thu tai lai trang hoac quay lai sau.',
-      '<a href="./admin-books.html" class="btn btn-primary">Thu tai lai</a>'
+      'Không thể tải dữ liệu tồn kho',
+      'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
+      '<a href="./admin-books.html" class="btn btn-primary">Thử tải lại</a>'
     );
     return;
   }
@@ -322,16 +239,16 @@ const render = function () {
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
-      'Chua co tua sach nao trong DB',
-      'Danh sach sach hien dang trong, vi vay chua co du lieu ton kho de cap nhat.'
+      'Chưa có tựa sách nào trong DB',
+      'Danh sách sách hiện đang trống, vì vậy chưa có dữ liệu tồn kho để cập nhật.'
     );
     return;
   }
 
   if (!visibleItems.length) {
     container.innerHTML = buildStateMarkup(
-      'Khong co ket qua phu hop',
-      'Thu doi tu khoa tim kiem hoac bo loc inventory de xem nhieu tua sach hon.'
+      'Không có kết quả phù hợp',
+      'Thử đổi từ khóa tìm kiếm hoặc bộ lọc trạng thái để xem nhiều tựa sách hơn.'
     );
     return;
   }
@@ -342,10 +259,6 @@ const render = function () {
       ${visibleItems.map(buildBookCardMarkup).join('')}
     </div>
   `;
-
-  container.querySelectorAll('[data-admin-book-form]').forEach(function (form) {
-    syncInventoryForm(form);
-  });
 };
 
 const setPageStateFromError = function (error) {
@@ -446,41 +359,9 @@ const clearDraftForBook = function (bookId) {
   };
 };
 
-const captureDraftFromForm = function (form) {
+const buildInventoryPayload = function (form) {
   return {
-    isSoldOut: Boolean(form.elements.isSoldOut?.checked),
-    trackInventory: Boolean(form.elements.trackInventory?.checked),
-    stockQuantityInput: String(form.elements.stockQuantity?.value || '').trim(),
-    allowBackorder: Boolean(form.elements.allowBackorder?.checked)
-  };
-};
-
-const parseStockQuantityInput = function (value) {
-  const normalizedValue = String(value || '').trim();
-
-  if (!normalizedValue) {
-    return null;
-  }
-
-  if (!/^\d+$/.test(normalizedValue)) {
-    return Number.NaN;
-  }
-
-  return Number.parseInt(normalizedValue, 10);
-};
-
-const buildInventoryPayload = function (draft) {
-  const parsedStockQuantity = parseStockQuantityInput(draft.stockQuantityInput);
-
-  if (draft.trackInventory && (!Number.isInteger(parsedStockQuantity) || parsedStockQuantity < 0)) {
-    throw new Error('Can nhap so luong ton kho tu 0 tro len khi bat theo doi ton kho.');
-  }
-
-  return {
-    isSoldOut: Boolean(draft.isSoldOut),
-    trackInventory: Boolean(draft.trackInventory),
-    stockQuantity: draft.trackInventory ? parsedStockQuantity : null,
-    allowBackorder: Boolean(draft.allowBackorder)
+    isSoldOut: Boolean(form.elements.isSoldOut?.checked)
   };
 };
 
@@ -492,9 +373,11 @@ const bindFilter = function () {
   }
 
   filter.addEventListener('change', function () {
+    const nextFilter = String(filter.value || '').trim();
+
     state = {
       ...state,
-      filter: String(filter.value || '').trim()
+      filter: FILTER_VALUES.has(nextFilter) ? nextFilter : ''
     };
     render();
   });
@@ -531,19 +414,9 @@ const bindActions = function () {
     }
 
     const bookId = String(form.dataset.bookId || '').trim();
-    syncInventoryForm(form);
-    setDraftForBook(bookId, captureDraftFromForm(form));
-  });
-
-  container.addEventListener('input', function (event) {
-    const form = event.target.closest('[data-admin-book-form]');
-
-    if (!form) {
-      return;
-    }
-
-    const bookId = String(form.dataset.bookId || '').trim();
-    setDraftForBook(bookId, captureDraftFromForm(form));
+    setDraftForBook(bookId, {
+      isSoldOut: Boolean(form.elements.isSoldOut?.checked)
+    });
   });
 
   container.addEventListener('submit', function (event) {
@@ -561,28 +434,8 @@ const bindActions = function () {
       return;
     }
 
-    const draft = captureDraftFromForm(form);
-    let payload;
-
-    try {
-      payload = buildInventoryPayload(draft);
-    } catch (error) {
-      setDraftForBook(bookId, draft);
-      state = {
-        ...state,
-        feedbackById: {
-          ...state.feedbackById,
-          [bookId]: {
-            type: 'error',
-            message: error.message || 'Du lieu ton kho chua hop le.'
-          }
-        }
-      };
-      render();
-      return;
-    }
-
-    setDraftForBook(bookId, draft);
+    const payload = buildInventoryPayload(form);
+    setDraftForBook(bookId, payload);
     state = {
       ...state,
       pendingBookId: bookId,
@@ -603,7 +456,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [bookId]: {
             type: 'success',
-            message: 'Da cap nhat ton kho sach.'
+            message: 'Đã cập nhật trạng thái tồn kho.'
           }
         }
       };
@@ -620,7 +473,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [bookId]: {
             type: 'error',
-            message: error?.payload?.message || error?.message || 'Khong the luu ton kho luc nay.'
+            message: error?.payload?.message || error?.message || 'Không thể lưu trạng thái lúc này.'
           }
         }
       };

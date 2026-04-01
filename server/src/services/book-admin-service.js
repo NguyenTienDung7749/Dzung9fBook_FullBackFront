@@ -41,6 +41,15 @@ const isExplicitBoolean = function (value) {
   return typeof value === 'boolean';
 };
 
+const buildSimpleInventoryState = function (isSoldOut) {
+  return {
+    isSoldOut: Boolean(isSoldOut),
+    trackInventory: true,
+    stockQuantity: isSoldOut ? 0 : 500,
+    allowBackorder: false
+  };
+};
+
 const serializeAdminBook = function (book) {
   return {
     id: book.id,
@@ -61,39 +70,12 @@ const serializeAdminBook = function (book) {
 
 const validateAdminInventoryPayload = function (payload = {}) {
   const isSoldOut = payload.isSoldOut;
-  const trackInventory = payload.trackInventory;
-  const allowBackorder = payload.allowBackorder;
-  const rawStockQuantity = payload.stockQuantity;
 
-  if (!isExplicitBoolean(isSoldOut) || !isExplicitBoolean(trackInventory) || !isExplicitBoolean(allowBackorder)) {
+  if (!isExplicitBoolean(isSoldOut)) {
     throw createHttpError(400, 'ADMIN_BOOK_INVALID_PAYLOAD', 'Du lieu ton kho khong hop le.');
   }
 
-  if (
-    rawStockQuantity !== null
-    && rawStockQuantity !== undefined
-    && (!Number.isInteger(rawStockQuantity) || rawStockQuantity < 0)
-  ) {
-    throw createHttpError(400, 'ADMIN_BOOK_INVALID_PAYLOAD', 'So luong ton kho phai la so nguyen khong am.');
-  }
-
-  if (trackInventory && (!Number.isInteger(rawStockQuantity) || rawStockQuantity < 0)) {
-    throw createHttpError(400, 'ADMIN_BOOK_INVALID_PAYLOAD', 'Can cung cap so luong ton kho tu 0 tro len khi bat theo doi ton kho.');
-  }
-
-  const stockQuantity = trackInventory ? rawStockQuantity : null;
-  let normalizedAllowBackorder = trackInventory ? allowBackorder : false;
-
-  if (isSoldOut) {
-    normalizedAllowBackorder = false;
-  }
-
-  return {
-    isSoldOut,
-    trackInventory,
-    stockQuantity,
-    allowBackorder: normalizedAllowBackorder
-  };
+  return buildSimpleInventoryState(isSoldOut);
 };
 
 const listAdminBooks = async function () {
