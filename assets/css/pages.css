@@ -878,6 +878,37 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+.admin-status-form__grid--inventory {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.admin-field-hint {
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.admin-checklist {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--surface-soft);
+}
+
+.admin-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.admin-check input {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-top: 0.2rem;
+}
+
 .admin-message-body {
   padding: 1.6rem;
   border-radius: var(--radius-md);
@@ -917,5 +948,10 @@
 
   .admin-status-form__grid--stack {
     grid-template-columns: minmax(18rem, 24rem) minmax(0, 1fr);
+  }
+
+  .admin-status-form__grid--inventory {
+    grid-template-columns: minmax(18rem, 24rem) minmax(0, 1fr);
+    align-items: start;
   }
 }

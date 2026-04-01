@@ -21,3 +21,11 @@ export const getAdminMessages = function (status = '') {
 export const updateAdminMessageStatus = function (id, payload) {
   return getAdminProvider().updateMessageStatus(id, payload);
 };
+
+export const getAdminBooks = function () {
+  return getAdminProvider().getBooks();
+};
+
+export const updateAdminBookInventory = function (id, payload) {
+  return getAdminProvider().updateBookInventory(id, payload);
+};

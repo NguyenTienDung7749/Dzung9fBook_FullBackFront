@@ -14,6 +14,7 @@ import { initRegisterPage } from './pages/register.js';
 import { initContactPage } from './pages/contact.js';
 import { initProfilePage } from './pages/profile.js';
 import { initOrderDetailPage } from './pages/order-detail.js';
+import { initAdminBooksPage } from './pages/admin-books.js';
 import { initAdminOrdersPage } from './pages/admin-orders.js';
 import { initAdminMessagesPage } from './pages/admin-messages.js';
 
@@ -186,6 +187,10 @@ const initPage = async function (categories) {
 
   if (currentPage === 'admin-messages') {
     initAdminMessagesPage();
+  }
+
+  if (currentPage === 'admin-books') {
+    initAdminBooksPage();
   }
 };
 

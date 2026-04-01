@@ -165,9 +165,6 @@ export const importCatalog = async function (prisma) {
         sourceUrl: toOptionalString(book.sourceUrl),
         parentCategoryId,
         subcategoryId,
-        trackInventory: false,
-        stockQuantity: null,
-        allowBackorder: false,
         isActive: true
       },
       create: {

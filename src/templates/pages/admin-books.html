@@ -1,0 +1,45 @@
+<main>
+  <section class="section">
+    <div class="container admin-layout">
+      <div class="section-heading section-heading--compact">
+        <div>
+          <p class="section-label">Admin / Ton kho</p>
+          <h1 class="section-title">Quan ly ton kho sach</h1>
+          <p class="section-text">Cap nhat nhanh sold out, theo doi ton kho, so luong con lai va backorder ma khong can dashboard lon.</p>
+        </div>
+
+        <div class="empty-state__actions">
+          <a href="./admin-orders.html" class="btn btn-secondary">Don hang</a>
+          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhan lien he</a>
+        </div>
+      </div>
+
+      <div class="form-card admin-toolbar">
+        <div>
+          <p class="profile-card__eyebrow">Bo loc</p>
+          <h2>Danh sach sach</h2>
+          <p>Tim nhanh theo ten, handle, SKU hoac loc nhe theo inventory state de staff/admin cap nhat ngay tren trang.</p>
+        </div>
+
+        <div class="admin-toolbar__controls">
+          <label class="form-field">
+            <span class="label-text">Tim nhanh sach</span>
+            <input type="search" placeholder="Ten sach, handle, SKU, tac gia..." data-admin-books-search inputmode="search" autocomplete="off">
+          </label>
+
+          <label class="form-field">
+            <span class="label-text">Loc inventory</span>
+            <select data-admin-books-filter>
+              <option value="">Tat ca sach</option>
+              <option value="tracked">Dang track inventory</option>
+              <option value="sold-out">Da danh dau sold out</option>
+              <option value="backorder">Cho phep backorder</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div data-admin-books-content></div>
+    </div>
+  </section>
+</main>

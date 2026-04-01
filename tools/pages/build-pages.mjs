@@ -104,6 +104,15 @@ const pageConfigs = [
     extraHead: ''
   },
   {
+    output: 'admin-books.html',
+    source: 'admin-books.html',
+    title: 'Dzung9fBook | Admin Inventory',
+    description: 'Khu vuc quan tri toi thieu de staff/admin cap nhat sold out, so luong ton kho va backorder cho cac tua sach cua Dzung9fBook.',
+    canonicalPath: './admin-books.html',
+    bodyAttributes: 'data-page="admin-books"',
+    extraHead: ''
+  },
+  {
     output: 'admin-messages.html',
     source: 'admin-messages.html',
     title: 'Dzung9fBook | Admin Messages',

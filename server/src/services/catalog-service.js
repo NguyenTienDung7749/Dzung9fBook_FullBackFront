@@ -1,12 +1,22 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const { PrismaClient } = require('@prisma/client');
 const { createHttpError } = require('../middleware/http-error');
 
+const prisma = new PrismaClient();
 const PUBLIC_CATALOG_ROOT = path.resolve(process.cwd(), 'public', 'assets', 'data', 'catalog');
 const FALLBACK_CATALOG_ROOT = path.resolve(process.cwd(), 'assets', 'data', 'catalog');
 const BOOKS_PER_PAGE = 12;
 const MAX_LIMIT = 5000;
 const SORT_OPTIONS = new Set(['featured', 'title-asc', 'title-desc', 'price-asc', 'price-desc']);
+const INVENTORY_SELECT = {
+  id: true,
+  handle: true,
+  isSoldOut: true,
+  trackInventory: true,
+  stockQuantity: true,
+  allowBackorder: true
+};
 
 let catalogRootPromise;
 let categoriesPromise;
@@ -21,6 +31,21 @@ const normalizeText = function (value) {
     .toLowerCase()
     .replace(/\s+/g, ' ')
     .trim();
+};
+
+const normalizeBookId = function (value) {
+  const parsedValue = Number(value);
+  return Number.isInteger(parsedValue) && parsedValue > 0 ? parsedValue : null;
+};
+
+const normalizeAvailableQuantity = function (value) {
+  const parsedValue = Number(value);
+
+  if (!Number.isInteger(parsedValue) || parsedValue < 0) {
+    return null;
+  }
+
+  return parsedValue;
 };
 
 const pathExists = async function (targetPath) {
@@ -128,6 +153,77 @@ const filterBooks = function (books, state) {
   });
 };
 
+const computeEffectiveSoldOut = function (book) {
+  const availableQuantity = normalizeAvailableQuantity(book?.stockQuantity);
+
+  if (Boolean(book?.isSoldOut)) {
+    return true;
+  }
+
+  if (Boolean(book?.trackInventory) && !Boolean(book?.allowBackorder)) {
+    return availableQuantity === null || availableQuantity <= 0;
+  }
+
+  return false;
+};
+
+const applyInventoryOverlay = function (book, inventory = null) {
+  const mergedBook = inventory
+    ? {
+      ...book,
+      isSoldOut: Boolean(inventory.isSoldOut),
+      trackInventory: Boolean(inventory.trackInventory),
+      stockQuantity: normalizeAvailableQuantity(inventory.stockQuantity),
+      allowBackorder: Boolean(inventory.allowBackorder)
+    }
+    : {
+      ...book,
+      isSoldOut: Boolean(book?.isSoldOut),
+      trackInventory: Boolean(book?.trackInventory),
+      stockQuantity: normalizeAvailableQuantity(book?.stockQuantity),
+      allowBackorder: Boolean(book?.allowBackorder)
+    };
+
+  mergedBook.isSoldOut = computeEffectiveSoldOut(mergedBook);
+  return mergedBook;
+};
+
+const getInventoryMapByBookIds = async function (books) {
+  const bookIds = [...new Set((Array.isArray(books) ? books : [])
+    .map((book) => normalizeBookId(book?.id))
+    .filter(Boolean))];
+
+  if (!bookIds.length) {
+    return new Map();
+  }
+
+  const inventoryRows = await prisma.book.findMany({
+    where: {
+      id: {
+        in: bookIds
+      }
+    },
+    select: INVENTORY_SELECT
+  });
+
+  return new Map(inventoryRows.map((item) => [item.id, item]));
+};
+
+const getInventoryByHandle = async function (handle) {
+  const normalizedHandle = String(handle || '').trim();
+
+  if (!normalizedHandle) {
+    return null;
+  }
+
+  return prisma.book.findUnique({
+    where: {
+      handle: normalizedHandle
+    },
+    select: INVENTORY_SELECT
+  });
+};
+
 const getCategories = async function () {
   if (!categoriesPromise) {
     categoriesPromise = readCatalogJson('categories.json');
@@ -136,12 +232,22 @@ const getCategories = async function () {
   return categoriesPromise;
 };
 
-const getCatalogIndex = async function () {
+const getCatalogIndexRaw = async function () {
   if (!catalogIndexPromise) {
     catalogIndexPromise = readCatalogJson('catalog-index.json');
   }
 
   return catalogIndexPromise;
+};
+
+const getCatalogIndex = async function () {
+  const catalogIndex = await getCatalogIndexRaw();
+  const books = Array.isArray(catalogIndex) ? catalogIndex : [];
+  const inventoryMap = await getInventoryMapByBookIds(books);
+
+  return books.map((book) => {
+    return applyInventoryOverlay(book, inventoryMap.get(normalizeBookId(book?.id)) || null);
+  });
 };
 
 const getCatalogLookup = async function () {
@@ -152,7 +258,7 @@ const getCatalogLookup = async function () {
   return lookupPromise;
 };
 
-const getBookByHandle = async function (handle) {
+const getBookDetailRaw = async function (handle) {
   const normalizedHandle = String(handle || '').trim();
 
   if (!normalizedHandle) {
@@ -172,6 +278,17 @@ const getBookByHandle = async function (handle) {
   return bookDetailPromiseCache.get(normalizedHandle);
 };
 
+const getBookByHandle = async function (handle) {
+  const book = await getBookDetailRaw(handle);
+
+  if (!book) {
+    return null;
+  }
+
+  const inventory = await getInventoryByHandle(book.handle);
+  return applyInventoryOverlay(book, inventory);
+};
+
 const resolveLegacyBookId = async function (id) {
   const lookup = await getCatalogLookup();
   const match = (Array.isArray(lookup) ? lookup : []).find((item) => Number(item?.id) === Number(id));
@@ -179,8 +296,7 @@ const resolveLegacyBookId = async function (id) {
 };
 
 const listBooks = async function (filters = {}) {
-  const catalogIndex = await getCatalogIndex();
-  const books = Array.isArray(catalogIndex) ? catalogIndex : [];
+  const books = await getCatalogIndex();
   const state = buildListState(filters);
   const filteredBooks = filterBooks(books, state);
   const sortedBooks = sortBooks(filteredBooks, state.sort);

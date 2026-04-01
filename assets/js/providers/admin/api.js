@@ -15,6 +15,16 @@ const buildFilteredPath = function (basePath, status) {
 };
 
 export const apiAdminProvider = {
+  async getBooks() {
+    return extractItems(await getJson('/admin/books'));
+  },
+
+  async updateBookInventory(id, payload) {
+    const normalizedId = encodeURIComponent(String(id || '').trim());
+    const response = await patchJson(`/admin/books/${normalizedId}/inventory`, payload);
+    return response?.book || null;
+  },
+
   async getOrders(status = '') {
     return extractItems(await getJson(buildFilteredPath('/admin/orders', status)));
   },
