@@ -4,34 +4,35 @@ import { isApiProviderMode } from '../config/runtime.js';
 import { getAdminOrders, updateAdminOrderStatus } from '../services/admin.js';
 
 const ORDER_STATUS_LABELS = {
-  PENDING_CONFIRMATION: 'Chờ xác nhận',
-  CONFIRMED: 'Đã xác nhận',
-  CANCELLED: 'Đã hủy',
-  COMPLETED: 'Hoàn tất'
+  PENDING_CONFIRMATION: 'Chá» xÃ¡c nháº­n',
+  CONFIRMED: 'ÄÃ£ xÃ¡c nháº­n',
+  CANCELLED: 'ÄÃ£ há»§y',
+  COMPLETED: 'HoÃ n táº¥t'
 };
 
 const PAYMENT_STATUS_LABELS = {
-  UNPAID: 'Chưa thanh toán',
-  PAID: 'Đã thanh toán',
-  VOID: 'Vô hiệu'
+  UNPAID: 'ChÆ°a thanh toÃ¡n',
+  PAID: 'ÄÃ£ thanh toÃ¡n',
+  VOID: 'VÃ´ hiá»‡u'
 };
 
 const ORDER_STATUS_OPTIONS = [
-  ['PENDING_CONFIRMATION', 'Chờ xác nhận'],
-  ['CONFIRMED', 'Đã xác nhận'],
-  ['CANCELLED', 'Đã hủy'],
-  ['COMPLETED', 'Hoàn tất']
+  ['PENDING_CONFIRMATION', 'Chá» xÃ¡c nháº­n'],
+  ['CONFIRMED', 'ÄÃ£ xÃ¡c nháº­n'],
+  ['CANCELLED', 'ÄÃ£ há»§y'],
+  ['COMPLETED', 'HoÃ n táº¥t']
 ];
 
 const PAYMENT_STATUS_OPTIONS = [
-  ['UNPAID', 'Chưa thanh toán'],
-  ['PAID', 'Đã thanh toán'],
-  ['VOID', 'Vô hiệu']
+  ['UNPAID', 'ChÆ°a thanh toÃ¡n'],
+  ['PAID', 'ÄÃ£ thanh toÃ¡n'],
+  ['VOID', 'VÃ´ hiá»‡u']
 ];
 
 let state = {
   status: 'idle',
   filter: '',
+  searchTerm: '',
   items: [],
   pendingOrderId: '',
   feedbackById: {}
@@ -45,11 +46,19 @@ const getFilter = function () {
   return qs('[data-admin-orders-filter]');
 };
 
+const getSearchInput = function () {
+  return qs('[data-admin-orders-search]');
+};
+
+const normalizeSearchText = function (value) {
+  return String(value || '').trim().toLowerCase();
+};
+
 const formatDateTime = function (value) {
   const parsedDate = new Date(value);
 
   if (Number.isNaN(parsedDate.getTime())) {
-    return 'Không rõ thời gian';
+    return 'KhÃ´ng rÃµ thá»i gian';
   }
 
   return new Intl.DateTimeFormat('vi-VN', {
@@ -60,12 +69,12 @@ const formatDateTime = function (value) {
 
 const resolveOrderStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
+  return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Äang xá»­ lÃ½';
 };
 
 const resolvePaymentStatusLabel = function (status) {
   const normalizedStatus = String(status || '').trim().toUpperCase();
-  return PAYMENT_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Không rõ';
+  return PAYMENT_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'KhÃ´ng rÃµ';
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -98,6 +107,34 @@ const buildOptionsMarkup = function (options, currentValue) {
   }).join('');
 };
 
+const getVisibleItems = function () {
+  const searchTerm = normalizeSearchText(state.searchTerm);
+
+  if (!searchTerm) {
+    return Array.isArray(state.items) ? state.items : [];
+  }
+
+  return (Array.isArray(state.items) ? state.items : []).filter(function (order) {
+    return [
+      order.orderNumber,
+      order.customerName,
+      order.customerEmail,
+      order.customerPhone
+    ].some(function (value) {
+      return normalizeSearchText(value).includes(searchTerm);
+    });
+  });
+};
+
+const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
+  const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
+  const summaryText = isFiltered
+    ? `Äang hiá»ƒn thá»‹ ${visibleCount} / ${totalCount} Ä‘Æ¡n hÃ ng phÃ¹ há»£p vá»›i bá»™ lá»c hiá»‡n táº¡i.`
+    : `Äang hiá»ƒn thá»‹ ${visibleCount} Ä‘Æ¡n hÃ ng má»›i nháº¥t.`;
+
+  return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
+};
+
 const buildOrderCardMarkup = function (order) {
   const orderId = String(order?.id || '').trim();
   const isPending = state.pendingOrderId === orderId;
@@ -107,33 +144,33 @@ const buildOrderCardMarkup = function (order) {
     <article class="profile-card admin-card">
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
-        <h2 class="profile-card__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
-        <p class="profile-card__text">Tạo lúc ${escapeHTML(formatDateTime(order.createdAt))}</p>
+        <h2 class="profile-card__title">${escapeHTML(order.orderNumber || 'ÄÆ¡n hÃ ng')}</h2>
+        <p class="profile-card__text">Táº¡o lÃºc ${escapeHTML(formatDateTime(order.createdAt))}</p>
       </div>
 
       <dl class="admin-meta">
         <div class="admin-meta__item">
-          <dt>Khách hàng</dt>
-          <dd>${escapeHTML(order.customerName || 'Chưa có')}</dd>
+          <dt>KhÃ¡ch hÃ ng</dt>
+          <dd>${escapeHTML(order.customerName || 'ChÆ°a cÃ³')}</dd>
         </div>
         <div class="admin-meta__item">
           <dt>Email</dt>
-          <dd>${escapeHTML(order.customerEmail || 'Chưa có')}</dd>
+          <dd>${escapeHTML(order.customerEmail || 'ChÆ°a cÃ³')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Số điện thoại</dt>
-          <dd>${escapeHTML(order.customerPhone || 'Chưa có')}</dd>
+          <dt>Sá»‘ Ä‘iá»‡n thoáº¡i</dt>
+          <dd>${escapeHTML(order.customerPhone || 'ChÆ°a cÃ³')}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Trạng thái thanh toán</dt>
+          <dt>Tráº¡ng thÃ¡i thanh toÃ¡n</dt>
           <dd>${escapeHTML(resolvePaymentStatusLabel(order.paymentStatus))}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Tổng tiền</dt>
+          <dt>Tá»•ng tiá»n</dt>
           <dd>${escapeHTML(formatPrice(order.totalAmount || 0))}</dd>
         </div>
         <div class="admin-meta__item">
-          <dt>Số lượng sách</dt>
+          <dt>Sá»‘ lÆ°á»£ng sÃ¡ch</dt>
           <dd>${escapeHTML(String(Number(order.itemCount || 0)))}</dd>
         </div>
       </dl>
@@ -141,14 +178,14 @@ const buildOrderCardMarkup = function (order) {
       <form class="admin-status-form" data-admin-order-form data-order-id="${escapeHTML(orderId)}">
         <div class="admin-status-form__grid">
           <label class="form-field">
-            <span class="label-text">Trạng thái đơn hàng</span>
+            <span class="label-text">Tráº¡ng thÃ¡i Ä‘Æ¡n hÃ ng</span>
             <select name="status" ${isPending ? 'disabled' : ''}>
               ${buildOptionsMarkup(ORDER_STATUS_OPTIONS, order.status)}
             </select>
           </label>
 
           <label class="form-field">
-            <span class="label-text">Trạng thái thanh toán</span>
+            <span class="label-text">Tráº¡ng thÃ¡i thanh toÃ¡n</span>
             <select name="paymentStatus" ${isPending ? 'disabled' : ''}>
               ${buildOptionsMarkup(PAYMENT_STATUS_OPTIONS, order.paymentStatus)}
             </select>
@@ -157,7 +194,7 @@ const buildOrderCardMarkup = function (order) {
 
         ${buildFeedbackMarkup(feedback)}
         <button class="btn btn-primary" type="submit" data-save-button ${isPending ? 'disabled' : ''}>
-          ${isPending ? 'Đang lưu...' : 'Lưu'}
+          ${isPending ? 'Äang lÆ°u...' : 'LÆ°u thay Ä‘á»•i'}
         </button>
       </form>
     </article>
@@ -173,61 +210,72 @@ const render = function () {
 
   if (!isApiProviderMode()) {
     container.innerHTML = buildStateMarkup(
-      'Admin UI chỉ hỗ trợ khi chạy backend',
-      'Trang này cần API mode để tải và cập nhật dữ liệu quản trị.',
-      '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
+      'Admin UI chá»‰ há»— trá»£ khi cháº¡y backend',
+      'Trang nÃ y cáº§n API mode Ä‘á»ƒ táº£i vÃ  cáº­p nháº­t dá»¯ liá»‡u quáº£n trá»‹.',
+      '<a href="./index.html" class="btn btn-secondary">Quay vá» trang chá»§</a>'
     );
     return;
   }
 
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
-      'Đang tải danh sách đơn hàng',
-      'Chúng mình đang đồng bộ dữ liệu đơn hàng mới nhất từ backend.'
+      'Äang táº£i danh sÃ¡ch Ä‘Æ¡n hÃ ng',
+      'ChÃºng mÃ¬nh Ä‘ang Ä‘á»“ng bá»™ dá»¯ liá»‡u Ä‘Æ¡n hÃ ng má»›i nháº¥t tá»« backend.'
     );
     return;
   }
 
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
-      'Bạn cần đăng nhập',
-      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị đơn hàng.',
-      '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
+      'Báº¡n cáº§n Ä‘Äƒng nháº­p',
+      'Vui lÃ²ng Ä‘Äƒng nháº­p báº±ng tÃ i khoáº£n staff/admin Ä‘á»ƒ truy cáº­p khu vá»±c quáº£n trá»‹ Ä‘Æ¡n hÃ ng.',
+      '<a href="./login.html" class="btn btn-primary">ÄÄƒng nháº­p</a>'
     );
     return;
   }
 
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
-      'Bạn không có quyền truy cập',
-      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
-      '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
+      'Báº¡n khÃ´ng cÃ³ quyá»n truy cáº­p',
+      'TÃ i khoáº£n hiá»‡n táº¡i khÃ´ng thuá»™c nhÃ³m staff/admin nÃªn khÃ´ng thá»ƒ dÃ¹ng trang quáº£n trá»‹ nÃ y.',
+      '<a href="./profile.html" class="btn btn-secondary">Vá» há»“ sÆ¡</a>'
     );
     return;
   }
 
   if (state.status === 'error') {
     container.innerHTML = buildStateMarkup(
-      'Không thể tải đơn hàng',
-      'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
-      '<a href="./admin-orders.html" class="btn btn-primary">Thử tải lại</a>'
+      'KhÃ´ng thá»ƒ táº£i Ä‘Æ¡n hÃ ng',
+      'Backend chÆ°a pháº£n há»“i á»•n Ä‘á»‹nh lÃºc nÃ y. Vui lÃ²ng thá»­ táº£i láº¡i trang hoáº·c quay láº¡i sau.',
+      '<a href="./admin-orders.html" class="btn btn-primary">Thá»­ táº£i láº¡i</a>'
     );
     return;
   }
 
+  const visibleItems = getVisibleItems();
+
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
-      'Chưa có đơn hàng phù hợp',
+      'ChÆ°a cÃ³ Ä‘Æ¡n hÃ ng phÃ¹ há»£p',
       state.filter
-        ? 'Không có đơn hàng nào khớp với bộ lọc trạng thái hiện tại.'
-        : 'Danh sách đơn hàng hiện đang trống.'
+        ? 'KhÃ´ng cÃ³ Ä‘Æ¡n hÃ ng nÃ o khá»›p vá»›i bá»™ lá»c tráº¡ng thÃ¡i hiá»‡n táº¡i.'
+        : 'Danh sÃ¡ch Ä‘Æ¡n hÃ ng hiá»‡n Ä‘ang trá»‘ng.'
+    );
+    return;
+  }
+
+  if (!visibleItems.length) {
+    container.innerHTML = buildStateMarkup(
+      'KhÃ´ng cÃ³ káº¿t quáº£ phÃ¹ há»£p',
+      'KhÃ´ng tÃ¬m tháº¥y Ä‘Æ¡n hÃ ng nÃ o khá»›p vá»›i tá»« khÃ³a tÃ¬m kiáº¿m hiá»‡n táº¡i.'
     );
     return;
   }
 
   container.innerHTML = `
+    ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
     <div class="admin-list">
-      ${state.items.map(buildOrderCardMarkup).join('')}
+      ${visibleItems.map(buildOrderCardMarkup).join('')}
     </div>
   `;
 };
@@ -322,6 +370,22 @@ const bindFilter = function () {
   });
 };
 
+const bindSearch = function () {
+  const searchInput = getSearchInput();
+
+  if (!searchInput) {
+    return;
+  }
+
+  searchInput.addEventListener('input', function () {
+    state = {
+      ...state,
+      searchTerm: String(searchInput.value || '').trim()
+    };
+    render();
+  });
+};
+
 const bindActions = function () {
   const container = getContent();
 
@@ -366,7 +430,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [orderId]: {
             type: 'success',
-            message: 'Đã cập nhật trạng thái đơn hàng.'
+            message: 'ÄÃ£ cáº­p nháº­t tráº¡ng thÃ¡i Ä‘Æ¡n hÃ ng.'
           }
         }
       };
@@ -383,7 +447,7 @@ const bindActions = function () {
           ...state.feedbackById,
           [orderId]: {
             type: 'error',
-            message: error?.payload?.message || error?.message || 'Không thể lưu thay đổi lúc này.'
+            message: error?.payload?.message || error?.message || 'KhÃ´ng thá»ƒ lÆ°u thay Ä‘á»•i lÃºc nÃ y.'
           }
         }
       };
@@ -399,6 +463,7 @@ export const initAdminOrdersPage = function () {
   }
 
   bindFilter();
+  bindSearch();
   bindActions();
   render();
   void loadOrders();

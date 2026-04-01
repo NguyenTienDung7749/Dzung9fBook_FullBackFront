@@ -1,4 +1,5 @@
 import { qs, qsa } from './core/dom.js';
+import { escapeHTML } from './core/utils.js';
 import { getCategories } from './services/catalog.js';
 import { bootstrapSession, logout } from './services/auth.js';
 import { addItem, removeItem, syncCartSummary, updateItemQuantity } from './services/cart.js';
@@ -27,7 +28,7 @@ const showSiteNotice = function (type, message) {
   notice.className = `site-notice is-${type}`;
   notice.innerHTML = `
     <div class="container site-notice__inner">
-      <p class="site-notice__text">${message}</p>
+      <p class="site-notice__text">${escapeHTML(message)}</p>
     </div>
   `;
 };

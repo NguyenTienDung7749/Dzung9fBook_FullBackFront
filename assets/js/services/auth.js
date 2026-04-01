@@ -42,3 +42,7 @@ export const register = async function (payload) {
 export const logout = async function () {
   return applySessionState(await getAuthProvider().logout());
 };
+
+export const updateProfile = async function (payload) {
+  return applySessionState(await getAuthProvider().updateProfile(payload));
+};

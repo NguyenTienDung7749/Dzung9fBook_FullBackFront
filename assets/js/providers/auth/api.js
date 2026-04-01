@@ -1,4 +1,4 @@
-import { getJson, postJson } from '../../api/client.js';
+import { getJson, patchJson, postJson } from '../../api/client.js';
 
 export const apiAuthProvider = {
   async getSession() {
@@ -15,5 +15,9 @@ export const apiAuthProvider = {
 
   async logout() {
     return postJson('/auth/logout', {});
+  },
+
+  async updateProfile(payload) {
+    return patchJson('/auth/profile', payload);
   }
 };

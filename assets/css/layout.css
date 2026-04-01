@@ -17,6 +17,7 @@
 .site-notice {
   border-bottom: 1px solid rgba(190, 83, 59, 0.18);
   background: linear-gradient(180deg, rgba(255, 244, 240, 0.98), rgba(255, 250, 247, 0.98));
+  box-shadow: 0 10px 24px rgba(34, 24, 20, 0.06);
 }
 
 .site-notice.is-error {
@@ -31,6 +32,7 @@
   margin: 0;
   font-size: 1.45rem;
   font-weight: 500;
+  line-height: 1.6;
 }
 
 .header-top {

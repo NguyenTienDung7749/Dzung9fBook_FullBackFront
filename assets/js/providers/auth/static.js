@@ -15,6 +15,11 @@ const buildSessionPayload = function (user) {
   };
 };
 
+const isValidPhone = function (value) {
+  const digits = String(value || '').replace(/\D/g, '');
+  return digits.length >= 9 && digits.length <= 11;
+};
+
 export const staticAuthProvider = {
   async getSession() {
     return buildSessionPayload(getCurrentUser());
@@ -57,5 +62,41 @@ export const staticAuthProvider = {
   async logout() {
     clearCurrentUser();
     return buildSessionPayload(null);
+  },
+
+  async updateProfile(payload) {
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
+      throw createAuthError('AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.', 401);
+    }
+
+    const name = String(payload?.name || '').trim();
+    const phone = String(payload?.phone || '').trim();
+
+    if (!name) {
+      throw createAuthError('AUTH_INVALID_PAYLOAD', 'Thong tin ho so chua hop le.', 400);
+    }
+
+    if (phone && !isValidPhone(phone)) {
+      throw createAuthError('AUTH_INVALID_PAYLOAD', 'So dien thoai can co tu 9 den 11 chu so hop le.', 400);
+    }
+
+    const users = getUsers();
+    const normalizedCurrentEmail = normalizeText(currentUser.email);
+    const nextUsers = users.map(function (item) {
+      return normalizeText(item.email) === normalizedCurrentEmail
+        ? { ...item, name, phone }
+        : item;
+    });
+    const nextSessionUser = {
+      ...currentUser,
+      name,
+      phone
+    };
+
+    saveUsers(nextUsers);
+    setCurrentUser(nextSessionUser);
+    return buildSessionPayload(nextSessionUser);
   }
 };

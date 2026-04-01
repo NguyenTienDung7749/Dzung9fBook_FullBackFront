@@ -1,5 +1,5 @@
 const { createHttpError } = require('../middleware/http-error');
-const { authenticateUser, registerUser } = require('../services/user-service');
+const { authenticateUser, registerUser, updateUserProfile } = require('../services/user-service');
 
 const buildSessionPayload = function (user) {
   return {
@@ -49,9 +49,26 @@ const logout = async function (req, res, next) {
   }
 };
 
+const updateProfile = async function (req, res, next) {
+  try {
+    const currentUserId = req.session?.user?.id;
+
+    if (!currentUserId) {
+      throw createHttpError(401, 'AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.');
+    }
+
+    const user = await updateUserProfile(currentUserId, req.body);
+    req.session.user = user;
+    res.json(buildSessionPayload(user));
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getSession,
   login,
   logout,
-  register
+  register,
+  updateProfile
 };

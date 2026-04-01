@@ -24,6 +24,7 @@ export const initRegisterPage = function () {
     const phone = form.phone.value.trim();
     const password = form.password.value.trim();
     const confirmPassword = form.confirmPassword.value.trim();
+    const submitButton = qs('button[type="submit"]', form);
     let isValid = true;
 
     if (!name) {
@@ -65,6 +66,12 @@ export const initRegisterPage = function () {
       return;
     }
 
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.dataset.originalLabel = submitButton.textContent;
+      submitButton.textContent = 'Đang tạo tài khoản...';
+    }
+
     void register({ name, email, phone, password }).then(function () {
       showFormMessage(form, 'success', 'Tài khoản đã được tạo. Đang đưa bạn đến trang tài khoản...');
       form.reset();
@@ -81,6 +88,11 @@ export const initRegisterPage = function () {
 
       showFormMessage(form, 'error', 'Không thể tạo tài khoản lúc này. Vui lòng thử lại sau.');
       console.error(error);
+    }).finally(function () {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalLabel || 'Tạo tài khoản';
+      }
     });
   });
 };

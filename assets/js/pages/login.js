@@ -21,6 +21,7 @@ export const initLoginPage = function () {
 
     const email = form.email.value.trim();
     const password = form.password.value.trim();
+    const submitButton = qs('button[type="submit"]', form);
     let isValid = true;
 
     if (!email) {
@@ -44,6 +45,12 @@ export const initLoginPage = function () {
       return;
     }
 
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.dataset.originalLabel = submitButton.textContent;
+      submitButton.textContent = 'Đang đăng nhập...';
+    }
+
     void login({ email, password }).then(function () {
       showFormMessage(form, 'success', 'Đăng nhập thành công. Đang đưa bạn đến trang tài khoản...');
 
@@ -58,6 +65,11 @@ export const initLoginPage = function () {
 
       showFormMessage(form, 'error', 'Không thể đăng nhập lúc này. Vui lòng thử lại sau.');
       console.error(error);
+    }).finally(function () {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalLabel || 'Đăng nhập';
+      }
     });
   });
 };

@@ -95,6 +95,14 @@ select {
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: rgba(237, 229, 220, 0.8);
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
 textarea {
   resize: vertical;
   min-height: 14rem;
@@ -227,6 +235,13 @@ ion-icon {
 .btn:hover,
 .btn:focus-visible {
   transform: translateY(-2px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-primary {

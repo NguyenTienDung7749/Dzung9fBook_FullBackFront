@@ -9,6 +9,11 @@ const normalizeEmail = function (value) {
   return String(value || '').trim().toLowerCase();
 };
 
+const isValidPhone = function (value) {
+  const digits = String(value || '').replace(/\D/g, '');
+  return digits.length >= 9 && digits.length <= 11;
+};
+
 const sanitizeUser = function (user) {
   if (!user) {
     return null;
@@ -109,6 +114,24 @@ const getCustomerRoleId = async function () {
   return role.id;
 };
 
+const validateProfilePayload = function (payload = {}) {
+  const name = String(payload.name || '').trim();
+  const phone = String(payload.phone || '').trim();
+
+  if (!name) {
+    throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Thong tin ho so chua hop le.');
+  }
+
+  if (phone && !isValidPhone(phone)) {
+    throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'So dien thoai can co tu 9 den 11 chu so hop le.');
+  }
+
+  return {
+    name,
+    phone: phone || null
+  };
+};
+
 const registerUser = async function (payload = {}) {
   const name = String(payload.name || '').trim();
   const email = String(payload.email || '').trim();
@@ -141,6 +164,33 @@ const registerUser = async function (payload = {}) {
   return sanitizeUser(nextUser);
 };
 
+const updateUserProfile = async function (userId, payload = {}) {
+  const normalizedUserId = String(userId || '').trim();
+
+  if (!normalizedUserId) {
+    throw createHttpError(401, 'AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.');
+  }
+
+  const validatedPayload = validateProfilePayload(payload);
+
+  try {
+    const user = await prisma.user.update({
+      where: {
+        id: normalizedUserId
+      },
+      data: validatedPayload
+    });
+
+    return sanitizeUser(user);
+  } catch (error) {
+    if (error?.code === 'P2025') {
+      throw createHttpError(404, 'AUTH_USER_NOT_FOUND', 'Khong tim thay tai khoan.');
+    }
+
+    throw error;
+  }
+};
+
 const authenticateUser = async function (payload = {}) {
   const email = String(payload.email || '').trim();
   const password = String(payload.password || '').trim();
@@ -168,5 +218,6 @@ module.exports = {
   authenticateUser,
   findUserById,
   findUserRoleContextById,
-  registerUser
+  registerUser,
+  updateUserProfile
 };
