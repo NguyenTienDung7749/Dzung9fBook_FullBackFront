@@ -1,187 +1,146 @@
 # Dzung9fBook
 
-Frontend nha sach da trang bang HTML, CSS va JavaScript thuan, da duoc refactor de san sang noi backend Node/Express theo kien truc same-repo.
+Dzung9fBook la mot website ban sach full-stack theo mo hinh same-repo. Frontend la multi-page app bang HTML/CSS/JavaScript thuan, backend la Node/Express, du lieu runtime dung PostgreSQL + Prisma.
 
-## Cau truc hien tai
+## Stack
 
-- `public/`: runtime output duoc server JS serve truc tiep
-- `public/assets/`: CSS, JS module, image, va catalog JSON runtime
-- `src/templates/`: partial va page template de build 11 public routes
-- `assets/js/`: source frontend theo layer `config`, `api`, `providers`, `services`, `state`, `pages`, `ui`
-- `tools/catalog/`: pipeline build va QA catalog
-- `tools/pages/`: build HTML vao `public/`
-- `tools/db/`: Phase A1 Prisma seed/import scripts
-- `server/src/`: backend Express cho `catalog`, `auth`, `cart`, `checkout`, `orders`, `contact`, va admin/support APIs
-- `prisma/`: PostgreSQL schema va migration cho Phase A1
+- Frontend: HTML templates + vanilla JavaScript modules + CSS
+- Backend: Node.js + Express
+- Database: PostgreSQL
+- ORM: Prisma
+- Session: express-session + connect-pg-simple
 
-## Kien truc frontend
+## Tinh nang chinh
 
-- Public URL duoc giu nguyen: `index`, `books`, `book-detail`, `cart`, `login`, `register`, `profile`, `contact`
-- Frontend dung mo hinh `dual provider`:
-  - `static`: doc catalog JSON va local storage, dung de phat trien frontend/doc lap
-  - `api`: goi `/api/*` qua Express + cookie session
-- Page layer khong goi `fetch` catalog truc tiep va khong dung `localStorage` truc tiep cho auth/cart
-- `contact.html` da co backend submission trong `api` mode va van co fallback an toan trong `static` mode
+- Duyet danh muc sach, tim kiem va xem chi tiet sach
+- Dang ky, dang nhap, dang xuat, xem session hien tai
+- Gio hang DB-backed cho guest va user dang nhap
+- Checkout COD, lich su don hang, chi tiet don hang
+- Contact form luu that vao backend
+- Admin/support UI toi thieu cho orders va contact messages
 
-## Backend v1 scope
+## Cau truc repo quan trong
 
-- Da co:
-  - `GET /api/catalog/categories`
-  - `GET /api/catalog/books`
-  - `GET /api/catalog/books/:handle`
-  - `GET /api/catalog/books/resolve?id=...`
-  - `GET /api/auth/me`
-  - `POST /api/auth/login`
-  - `POST /api/auth/register`
-  - `POST /api/auth/logout`
-  - `GET /api/cart`
-  - `POST /api/cart/items`
-  - `PATCH /api/cart/items/:bookId`
-  - `DELETE /api/cart/items/:bookId`
-- Da co them:
-  - `PATCH /api/auth/profile`
-  - `POST /api/contact`
-  - `POST /api/checkout`
-  - `GET /api/orders`
-  - `GET /api/orders/:orderId`
-  - `GET /api/admin/orders`
-  - `PATCH /api/admin/orders/:id/status`
-  - `GET /api/admin/messages`
-  - `PATCH /api/admin/messages/:id/status`
-  - public pages `order-detail`, `admin-orders`, `admin-messages`
+- `src/templates/` + `assets/`: source of truth cho frontend
+- `public/`: build output/runtime target, khong phai noi sua tay
+- `server/src/`: backend Express
+- `prisma/`: schema va migrations
+- `server/data/users.json`: du lieu seed/import an toan cho local/dev
 
-## Phase A1 database baseline
+Luu y:
 
-Phase A1 da them PostgreSQL + Prisma schema, migration, va import scripts.
-Phase A2.1 da chuyen runtime auth/user persistence sang Prisma/PostgreSQL.
-Phase A2.2 da chuyen `express-session` storage backend sang PostgreSQL-backed session store.
+- Cac file HTML o repo root nhu `index.html`, `books.html`, `profile.html`... duoc giu lai de tham chieu/legacy. Khi chinh frontend, hay sua trong `src/templates/` + `assets/`.
 
-Quan trong:
+## Bien moi truong
 
-- App hien tai van doc catalog tu `assets/data/catalog`
-- App hien tai khong con dung `server/data/users.json` lam runtime source of truth cho auth
-- App hien tai van dung `express-session`, nhung session duoc luu trong PostgreSQL qua `connect-pg-simple`
-- Cart hien tai da dung DB-backed `Cart` / `CartItem`, nhung van reuse session/cookie hien co de nhan dien user hoac guest cart
-- Customer-facing behavior, API shape, va public routes van giu nguyen
+Copy `.env.example` thanh `.env` va cap nhat neu can:
 
-## Session va runtime env
+```bash
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/dzung9fbook?schema=public"
+SESSION_SECRET="replace-with-a-long-random-secret"
+SESSION_COOKIE_SECURE="false"
+TRUST_PROXY="false"
+```
 
-- `SESSION_SECRET`:
-  - local dev co the de trong de dung fallback dev secret
-  - production bat buoc phai set ro
-- `SESSION_COOKIE_SECURE`:
-  - `false` cho local HTTP
-  - `true` khi deploy HTTPS/proxy
-- `TRUST_PROXY`:
-  - bat khi app chay sau reverse proxy va can secure cookie hoat dong dung
+Ghi chu:
 
-## Local setup
+- `DATABASE_URL`: bat buoc
+- `SESSION_SECRET`: nen set ro rang; production bat buoc phai co
+- `SESSION_COOKIE_SECURE=false`: dung cho local HTTP
+- `SESSION_COOKIE_SECURE=true` va `TRUST_PROXY=true`: dung khi deploy sau HTTPS/reverse proxy
 
-1. Cai PostgreSQL local hoac dung mot PostgreSQL instance san co.
-2. Tao database ten `dzung9fbook`.
-3. Copy `.env.example` thanh `.env`.
-4. Chinh `DATABASE_URL` neu can.
-5. Cai dependency:
+## Cai dat va chay local
+
+1. Cai PostgreSQL va tao database `dzung9fbook`
+2. Copy `.env.example` thanh `.env`
+3. Cai dependency:
 
 ```bash
 npm install
 ```
 
-## Database commands
-
-Generate Prisma Client:
+4. Generate Prisma client:
 
 ```bash
 npm run db:generate
 ```
 
-Tao/ap dung migration trong local dev:
+5. Chay migration local:
 
 ```bash
 npm run db:migrate -- --name phase_a1_init
 ```
 
-Ap dung migration trong moi truong deploy:
-
-```bash
-npm run db:migrate:deploy
-```
-
-Seed role + import catalog + import user:
+6. Seed database:
 
 ```bash
 npm run db:seed
 ```
 
-Chi import catalog:
-
-```bash
-npm run db:import:catalog
-```
-
-Chi import user:
-
-```bash
-npm run db:import:users
-```
-
-Mo Prisma Studio:
-
-```bash
-npm run db:studio
-```
-
-## Runtime build va run
-
-```bash
-npm run build:catalog
-```
-
-Build catalog runtime JSON cho frontend/backend.
-
-```bash
-npm run qa:catalog
-```
-
-Kiem tra detail file, lookup, image, duplicate id/handle, va category mapping.
-
-```bash
-npm run build:pages
-```
-
-Build 11 HTML page vao `public/`, dong thoi copy runtime asset va tao `public/runtime-config.js`.
-
-```bash
-npm run dev:server
-```
-
-Chay rieng Express server o che do watch.
-
-```bash
-npm run dev
-```
-
-Build runtime roi chay Express server o che do watch.
+7. Build va chay app:
 
 ```bash
 npm run serve
 ```
 
-Lenh `serve` se:
+App mac dinh chay tai:
 
-1. Build catalog runtime vao `public/assets/data/catalog`
-2. Build 11 HTML page vao `public/`
-3. Chay Express server va tu dong bat frontend sang `api provider`
-4. Tu dong nap bien moi truong tu `.env` de runtime session store co the ket noi PostgreSQL
+- `http://127.0.0.1:4173/index.html`
 
-## Ghi chu
+## Lenh hay dung
 
-- Backend v1 hien tai doc catalog tu JSON build output, chua bat buoc database.
-- Runtime auth hien tai doc user tu PostgreSQL qua Prisma.
-- Session auth/cart hien tai van dung `express-session`, nhung store da duoc chuyen sang PostgreSQL-backed session store.
-- Session table duoc `connect-pg-simple` tao tu dong trong database runtime neu chua ton tai, nen A2.2 khong can Prisma schema change hay migration moi.
-- Guest cart van duoc giu qua session store, nhung source of truth cua cart da la PostgreSQL.
-- Checkout COD, order history, order detail, contact backend, va admin orders/messages UI da co san trong `api` mode.
-- `public/runtime-config.js` mac dinh la `static`; khi chay qua Express, route `/runtime-config.js` se override sang `api`.
-- `public/` la runtime target chinh va la thu muc Express se serve khi review/chay local.
-- Cac file HTML o repo root duoc giu lai nhu ban sao tham chieu/legacy; khong nen dung chung de deploy thay cho `public/`.
+```bash
+npm run build:catalog
+npm run build:pages
+npm run serve
+npm run dev
+npm run db:studio
+```
+
+## URL chinh
+
+- Home: `/index.html`
+- Profile: `/profile.html`
+- Admin orders: `/admin-orders.html`
+- Admin messages: `/admin-messages.html`
+
+## Static mode va API mode
+
+- `npm run serve` chay Express server va override `/runtime-config.js` sang `api` mode
+- `npm run build:pages` sinh `public/runtime-config.js` o `static` mode
+- Cac flow nhu auth, cart, checkout, orders, contact backend, admin UI can chay qua backend/API mode de hoat dong day du
+
+## Tai khoan va role demo
+
+- Repo nay khong public default login credentials
+- `server/data/users.json` chi la du lieu seed/import an toan de giu flow local/dev day du
+- De test customer flow, hay tao tai khoan moi qua `/register.html`
+- De test admin flow, promote mot user thanh `staff` hoac `admin` bang Prisma Studio hoac truy van DB
+
+## GitHub / repo notes
+
+- Khong commit `.env`
+- Khong commit `public/`
+- Khong commit log, pid, cache, temp artifacts
+- Neu can rebuild frontend/runtime output, hay dung:
+
+```bash
+npm run build:catalog
+npm run build:pages
+```
+
+## Hien trang san pham
+
+Project hien da co:
+
+- customer storefront hoan chinh o muc demo tot
+- checkout COD + order history + order detail
+- contact backend that
+- admin/support UI toi thieu cho orders va messages
+
+Project chua bao gom:
+
+- payment gateway that
+- inventory reservation/decrement day du
+- admin dashboard lon
+- role management UI
