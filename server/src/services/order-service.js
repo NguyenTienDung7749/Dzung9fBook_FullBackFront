@@ -23,6 +23,16 @@ const ORDER_DETAIL_INCLUDE = {
     }
   }
 };
+const CHECKOUT_BOOK_SELECT = {
+  title: true,
+  handle: true,
+  price: true,
+  isActive: true,
+  isSoldOut: true,
+  trackInventory: true,
+  stockQuantity: true,
+  allowBackorder: true
+};
 
 const normalizeUserId = function (userId) {
   return String(userId || '').trim();
@@ -38,6 +48,26 @@ const normalizeText = function (value) {
 
 const normalizeEnumValue = function (value) {
   return String(value || '').trim().toUpperCase();
+};
+
+const normalizeQuantity = function (value) {
+  const parsedValue = Number(value);
+
+  if (!Number.isFinite(parsedValue)) {
+    return null;
+  }
+
+  return Math.trunc(parsedValue);
+};
+
+const normalizeAvailableQuantity = function (value) {
+  const parsedValue = normalizeQuantity(value);
+
+  if (!Number.isFinite(parsedValue) || parsedValue < 0) {
+    return null;
+  }
+
+  return parsedValue;
 };
 
 const serializeTimestamp = function (value) {
@@ -192,6 +222,21 @@ const validateCheckoutPayload = function (payload = {}) {
   };
 };
 
+const buildCheckoutIssue = function (item, reason, availableQuantity = null) {
+  const book = item?.book || null;
+
+  return {
+    bookId: Number(item?.bookId || 0),
+    bookHandle: String(book?.handle || '').trim() || null,
+    bookTitle: String(book?.title || '').trim() || 'Tựa sách không còn khả dụng',
+    requestedQuantity: Math.max(0, Number(item?.quantity || 0)),
+    availableQuantity: Number.isFinite(Number(availableQuantity))
+      ? Number(availableQuantity)
+      : null,
+    reason
+  };
+};
+
 const buildOrderItemSnapshots = function (cart) {
   const cartItems = Array.isArray(cart?.items) ? cart.items : [];
 
@@ -199,24 +244,67 @@ const buildOrderItemSnapshots = function (cart) {
     throw createHttpError(400, 'CHECKOUT_CART_EMPTY', 'Gio hang dang trong.');
   }
 
-  return cartItems.map(function (item) {
+  const issues = [];
+  const orderItems = [];
+
+  cartItems.forEach(function (item) {
     const book = item?.book;
     const unitPrice = Number(book?.price);
-    const quantity = Number(item?.quantity);
+    const quantity = normalizeQuantity(item?.quantity);
+    const availableQuantity = normalizeAvailableQuantity(book?.stockQuantity);
 
-    if (!book || !book.title || !book.handle || !Number.isFinite(unitPrice) || !Number.isFinite(quantity) || quantity <= 0) {
-      throw createHttpError(500, 'CHECKOUT_BOOK_UNAVAILABLE', 'Khong the tao don hang tu gio hang hien tai.');
+    if (
+      !book
+      || !book.title
+      || !book.handle
+      || book.isActive === false
+      || !Number.isFinite(unitPrice)
+      || !Number.isFinite(quantity)
+      || quantity <= 0
+    ) {
+      issues.push(buildCheckoutIssue(item, 'UNAVAILABLE'));
+      return;
     }
 
-    return {
+    if (book.isSoldOut) {
+      issues.push(buildCheckoutIssue(item, 'SOLD_OUT', 0));
+      return;
+    }
+
+    if (book.trackInventory && !book.allowBackorder) {
+      if (availableQuantity === null) {
+        issues.push(buildCheckoutIssue(item, 'UNAVAILABLE'));
+        return;
+      }
+
+      if (quantity > availableQuantity) {
+        issues.push(buildCheckoutIssue(item, 'INSUFFICIENT_STOCK', availableQuantity));
+        return;
+      }
+    }
+
+    orderItems.push({
       bookId: item.bookId,
       bookTitle: book.title,
       bookHandle: book.handle,
       unitPrice,
       quantity,
       lineTotal: unitPrice * quantity
-    };
+    });
   });
+
+  if (issues.length > 0) {
+    throw createHttpError(
+      409,
+      'CHECKOUT_INVENTORY_CONFLICT',
+      'Một vài sách trong giỏ đã thay đổi tình trạng tồn kho. Vui lòng kiểm tra và cập nhật lại giỏ hàng.',
+      {
+        issues
+      }
+    );
+  }
+
+  return orderItems;
 };
 
 const createCheckoutOrder = async function (req, payload = {}) {
@@ -249,11 +337,7 @@ const createCheckoutOrder = async function (req, payload = {}) {
               },
               include: {
                 book: {
-                  select: {
-                    title: true,
-                    handle: true,
-                    price: true
-                  }
+                  select: CHECKOUT_BOOK_SELECT
                 }
               }
             }

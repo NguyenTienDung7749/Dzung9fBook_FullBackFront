@@ -225,6 +225,13 @@
   font-family: var(--ff-heading);
 }
 
+.profile-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
 .cart-summary {
   height: fit-content;
 }
@@ -343,6 +350,46 @@
   border: none;
   color: var(--danger);
   font-weight: 600;
+}
+
+.cart-item__issue {
+  margin: 0.6rem 0 0;
+  color: var(--danger);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.order-detail-layout,
+.order-detail-items {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.order-detail-item {
+  gap: 1rem;
+}
+
+.order-detail-item__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.order-detail-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.6rem;
+  color: var(--ink-soft);
+}
+
+.order-detail-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.order-detail-summary {
+  padding-top: 0.4rem;
 }
 
 .site-footer {
@@ -509,6 +556,11 @@
 
   .books-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-detail-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
   }
 }
 

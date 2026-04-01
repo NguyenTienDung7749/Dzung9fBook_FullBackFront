@@ -13,3 +13,7 @@ export const checkout = async function (payload) {
 export const getOrders = async function () {
   return getOrdersProvider().getOrders();
 };
+
+export const getOrderById = async function (orderId) {
+  return getOrdersProvider().getOrderById(orderId);
+};

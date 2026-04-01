@@ -86,6 +86,15 @@ const pageConfigs = [
     extraHead: ''
   },
   {
+    output: 'order-detail.html',
+    source: 'order-detail.html',
+    title: 'Dzung9fBook | Chi tiết đơn hàng',
+    description: 'Theo dõi chi tiết đơn hàng của bạn tại Dzung9fBook với trạng thái xử lý, thông tin giao nhận và các tựa sách đã đặt.',
+    canonicalPath: './order-detail.html',
+    bodyAttributes: 'data-page="order-detail"',
+    extraHead: ''
+  },
+  {
     output: 'admin-orders.html',
     source: 'admin-orders.html',
     title: 'Dzung9fBook | Admin Orders',

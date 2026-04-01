@@ -11,5 +11,11 @@ export const apiOrdersProvider = {
 
   async getOrders() {
     return extractItems(await getJson('/orders'));
+  },
+
+  async getOrderById(orderId) {
+    const normalizedOrderId = encodeURIComponent(String(orderId || '').trim());
+    const payload = await getJson(`/orders/${normalizedOrderId}`);
+    return payload?.order || null;
   }
 };

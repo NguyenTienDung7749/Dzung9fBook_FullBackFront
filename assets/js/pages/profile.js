@@ -41,6 +41,13 @@ const resolveOrderStatusLabel = function (status) {
   return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
 };
 
+const buildOrderDetailUrl = function (orderId) {
+  const normalizedOrderId = String(orderId || '').trim();
+  return normalizedOrderId
+    ? `./order-detail.html?id=${encodeURIComponent(normalizedOrderId)}`
+    : './profile.html';
+};
+
 const buildProfileKey = function (user) {
   return String(user?.id || user?.email || user?.name || '').trim();
 };
@@ -124,6 +131,9 @@ const buildOrderHistoryMarkup = function () {
         <p class="profile-card__text">Trạng thái: ${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
         <p class="profile-card__text">Số lượng sách: ${escapeHTML(String(Number(order.itemCount || 0)))}</p>
         <p class="profile-card__text">Tổng tạm tính: ${escapeHTML(formatPrice(order.totalAmount || 0))}</p>
+        <div class="profile-item__actions">
+          <a href="${buildOrderDetailUrl(order.id)}" class="btn btn-secondary">Xem chi tiết</a>
+        </div>
       </div>
     `;
   }).join('');

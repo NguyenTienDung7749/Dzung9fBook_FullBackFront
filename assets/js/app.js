@@ -12,6 +12,7 @@ import { initLoginPage } from './pages/login.js';
 import { initRegisterPage } from './pages/register.js';
 import { initContactPage } from './pages/contact.js';
 import { initProfilePage } from './pages/profile.js';
+import { initOrderDetailPage } from './pages/order-detail.js';
 import { initAdminOrdersPage } from './pages/admin-orders.js';
 import { initAdminMessagesPage } from './pages/admin-messages.js';
 
@@ -172,6 +173,10 @@ const initPage = async function (categories) {
 
   if (currentPage === 'profile') {
     initProfilePage(categories);
+  }
+
+  if (currentPage === 'order-detail') {
+    initOrderDetailPage();
   }
 
   if (currentPage === 'admin-orders') {

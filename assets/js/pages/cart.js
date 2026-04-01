@@ -1,4 +1,4 @@
-import { qs } from '../core/dom.js';
+import { qs, qsa } from '../core/dom.js';
 import { formatPrice, escapeHTML } from '../core/utils.js';
 import { isApiProviderMode } from '../config/runtime.js';
 import {
@@ -17,6 +17,11 @@ let categoriesCache = [];
 let renderSequence = 0;
 let latestCartItems = [];
 let unsubscribeCartSession = null;
+const CHECKOUT_ISSUE_MESSAGES = {
+  SOLD_OUT: 'Tựa sách này hiện đã hết hàng. Vui lòng xóa khỏi giỏ để tiếp tục checkout.',
+  INSUFFICIENT_STOCK: 'Số lượng trong giỏ đang vượt quá tồn kho hiện có.',
+  UNAVAILABLE: 'Tựa sách này không còn hợp lệ để đặt hàng. Vui lòng xóa khỏi giỏ hoặc chọn tựa khác.'
+};
 
 const renderCartState = function (container, title, description, actionsMarkup = '') {
   container.innerHTML = `
@@ -38,6 +43,50 @@ const clearCheckoutPanel = function () {
   if (panel) {
     panel.innerHTML = '';
   }
+};
+
+const clearCheckoutIssueHints = function () {
+  qsa('.cart-item__issue').forEach(function (issue) {
+    issue.remove();
+  });
+};
+
+const resolveCheckoutIssueMessage = function (issue) {
+  if (issue?.reason === 'INSUFFICIENT_STOCK' && Number.isFinite(Number(issue?.availableQuantity))) {
+    return `Tựa sách này chỉ còn ${Number(issue.availableQuantity)} bản khả dụng. Vui lòng giảm số lượng hoặc xóa khỏi giỏ.`;
+  }
+
+  return CHECKOUT_ISSUE_MESSAGES[String(issue?.reason || '').trim().toUpperCase()]
+    || 'Tựa sách này đang gặp vấn đề tồn kho. Vui lòng kiểm tra lại giỏ hàng.';
+};
+
+const renderCheckoutIssueHints = function (issues = []) {
+  clearCheckoutIssueHints();
+
+  (Array.isArray(issues) ? issues : []).forEach(function (issue) {
+    const normalizedBookId = String(issue?.bookId || '').trim();
+
+    if (!normalizedBookId) {
+      return;
+    }
+
+    const itemElement = qs(`[data-cart-item][data-book-id="${normalizedBookId}"]`);
+
+    if (!itemElement) {
+      return;
+    }
+
+    const detailsElement = qs('.cart-item__details', itemElement);
+
+    if (!detailsElement) {
+      return;
+    }
+
+    const issueElement = document.createElement('p');
+    issueElement.className = 'cart-item__issue';
+    issueElement.textContent = resolveCheckoutIssueMessage(issue);
+    detailsElement.append(issueElement);
+  });
 };
 
 const renderEmptyCart = function (container, totalElement) {
@@ -126,6 +175,7 @@ const bindCheckoutForm = function (form) {
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
     clearFormState(form);
+    clearCheckoutIssueHints();
 
     const submitButton = qs('[data-checkout-submit]', form);
     const customerPhone = String(form.elements.customerPhone?.value || '').trim();
@@ -155,14 +205,25 @@ const bindCheckoutForm = function (form) {
     }
 
     try {
-      await checkout({
+      const checkoutResult = await checkout({
         customerPhone,
         shippingAddress,
         ...(note ? { note } : {})
       });
       await syncCartSummary();
-      window.location.href = './profile.html';
+      const orderId = String(checkoutResult?.order?.id || '').trim();
+      window.location.href = orderId
+        ? `./order-detail.html?id=${encodeURIComponent(orderId)}&created=1`
+        : './profile.html';
     } catch (error) {
+      const checkoutIssues = Array.isArray(error?.payload?.details?.issues)
+        ? error.payload.details.issues
+        : [];
+
+      if (error?.payload?.code === 'CHECKOUT_INVENTORY_CONFLICT' && checkoutIssues.length > 0) {
+        renderCheckoutIssueHints(checkoutIssues);
+      }
+
       showFormMessage(
         form,
         'error',
@@ -219,7 +280,7 @@ const renderCheckoutPanel = function (cartWithBooks = latestCartItems, snapshot 
 
 const buildMissingItemMarkup = function (item) {
   return `
-    <article class="cart-item cart-item--missing">
+    <article class="cart-item cart-item--missing" data-cart-item data-book-id="${escapeHTML(String(item.bookId))}">
       <div class="cart-item__details">
         <h2 class="cart-item__title">Tựa sách không còn trong danh mục</h2>
         <p class="cart-item__meta">Mã sách #${escapeHTML(String(item.bookId))}</p>
@@ -253,6 +314,7 @@ export const renderCartPage = async function () {
   renderSequence = renderId;
   latestCartItems = [];
   clearCheckoutPanel();
+  clearCheckoutIssueHints();
 
   if (totalElement) {
     totalElement.textContent = formatPrice(0);
@@ -316,7 +378,7 @@ export const renderCartPage = async function () {
     grandTotal += lineTotal;
 
     return `
-      <article class="cart-item">
+      <article class="cart-item" data-cart-item data-book-id="${escapeHTML(String(book.id))}">
         <div class="cart-item__media">
           <img src="${escapeHTML(getBookPrimaryImage(book))}" alt="${escapeHTML(book.title)}" class="cart-item__image" loading="lazy" decoding="async">
         </div>
