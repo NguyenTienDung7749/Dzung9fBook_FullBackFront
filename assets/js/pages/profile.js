@@ -260,7 +260,7 @@ const buildOrderHistoryMarkup = function () {
         <div class="profile-card__header">
           <p class="profile-card__eyebrow">Lịch sử đơn hàng</p>
           <h2 class="profile-card__title">Đơn hàng gần đây</h2>
-          <p class="profile-card__text">Bạn chưa có đơn hàng nào. Khi đặt hàng COD thành công, danh sách sẽ hiện ở đây.</p>
+          <p class="profile-card__text">Bạn chưa có đơn hàng nào. Khi hoàn tất đặt hàng, danh sách sẽ hiện ở đây.</p>
         </div>
 
         <div class="profile-card__actions">

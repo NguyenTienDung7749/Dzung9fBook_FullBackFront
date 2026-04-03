@@ -124,7 +124,7 @@ const buildReadyMarkup = function () {
   if (!items.length) {
     return buildStateMarkup(
       'Bạn chưa có đơn hàng nào',
-      'Khi bạn hoàn tất đặt hàng COD, danh sách đơn sẽ xuất hiện tại đây để bạn theo dõi trạng thái xử lý.',
+      'Khi bạn hoàn tất đặt hàng, danh sách đơn sẽ xuất hiện tại đây để bạn theo dõi trạng thái xử lý.',
       `
         <a href="${buildBooksUrl(categoriesCache)}" class="btn btn-primary">Khám phá sách</a>
         <a href="./profile.html" class="btn btn-secondary">Quay về hồ sơ</a>

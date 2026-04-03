@@ -5,21 +5,21 @@
         <div>
           <p class="section-label">Admin / Đơn hàng</p>
           <h1 class="section-title">Quản lý đơn hàng</h1>
-          <p class="section-text">Theo dõi nhanh các đơn COD mới tạo và cập nhật trạng thái xử lý ngay trên trang.</p>
+          <p class="section-text">Quét nhanh đơn mới và cập nhật trạng thái xử lý trong một màn hình gọn, dễ theo dõi hơn.</p>
         </div>
 
-        <div class="empty-state__actions">
-          <a href="./admin.html" class="btn btn-secondary">Hub quản trị</a>
-          <a href="./admin-books.html" class="btn btn-secondary">Tồn kho sách</a>
-          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhắn liên hệ</a>
-        </div>
+        <nav class="admin-subnav" aria-label="Điều hướng quản trị">
+          <a href="./admin.html" class="admin-subnav__link">Hub</a>
+          <a href="./admin-orders.html" class="admin-subnav__link is-active" aria-current="page">Đơn hàng</a>
+          <a href="./admin-books.html" class="admin-subnav__link">Tồn kho</a>
+          <a href="./admin-messages.html" class="admin-subnav__link">Tin nhắn</a>
+        </nav>
       </div>
 
       <div class="form-card admin-toolbar">
-        <div>
+        <div class="admin-toolbar__intro">
           <p class="profile-card__eyebrow">Bộ lọc</p>
-          <h2>Danh sách đơn hàng</h2>
-          <p>Lọc theo trạng thái đơn để staff/admin xử lý nhanh hơn trong lúc demo và vận hành thử.</p>
+          <h2>Lọc và tìm đơn hàng</h2>
         </div>
 
         <div class="admin-toolbar__controls">

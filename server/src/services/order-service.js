@@ -6,6 +6,7 @@ const cartService = require('./cart-service');
 const prisma = new PrismaClient();
 const ORDER_STATUS_VALUES = new Set(['PENDING_CONFIRMATION', 'CONFIRMED', 'CANCELLED', 'COMPLETED']);
 const PAYMENT_STATUS_VALUES = new Set(['UNPAID', 'PAID', 'VOID']);
+const CHECKOUT_PAYMENT_MODE_VALUES = new Set(['COD', 'ONLINE_DEMO']);
 const ORDER_SELECT = {
   id: true,
   orderNumber: true,
@@ -217,15 +218,21 @@ const validateCheckoutPayload = function (payload = {}) {
   const customerPhone = normalizeText(payload.customerPhone);
   const shippingAddress = normalizeText(payload.shippingAddress);
   const note = normalizeText(payload.note);
+  const paymentMode = normalizeEnumValue(payload.paymentMode || 'COD');
 
   if (!customerPhone || !shippingAddress) {
     throw createHttpError(400, 'CHECKOUT_INVALID_PAYLOAD', 'Thong tin giao hang chua day du.');
   }
 
+  if (!paymentMode || !CHECKOUT_PAYMENT_MODE_VALUES.has(paymentMode)) {
+    throw createHttpError(400, 'CHECKOUT_INVALID_PAYLOAD', 'Phuong thuc thanh toan khong hop le.');
+  }
+
   return {
     customerPhone,
     shippingAddress,
-    note: note || null
+    note: note || null,
+    paymentMode
   };
 };
 
@@ -369,6 +376,8 @@ const createCheckoutOrder = async function (req, payload = {}) {
             customerPhone: checkoutPayload.customerPhone,
             shippingAddress: checkoutPayload.shippingAddress,
             note: checkoutPayload.note,
+            paymentMethod: 'COD',
+            paymentStatus: checkoutPayload.paymentMode === 'ONLINE_DEMO' ? 'PAID' : 'UNPAID',
             subtotalAmount,
             totalAmount
           },

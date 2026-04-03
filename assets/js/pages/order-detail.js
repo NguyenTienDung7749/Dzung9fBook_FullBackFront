@@ -95,16 +95,20 @@ const buildSuccessBannerMarkup = function (order) {
   }
 
   const orderNumber = String(order?.orderNumber || '').trim();
+  const isPaidOrder = String(order?.paymentStatus || '').trim().toUpperCase() === 'PAID';
   const successTitle = orderNumber
     ? `Đơn ${orderNumber} đã được ghi nhận`
     : 'Đơn hàng của bạn đã được ghi nhận';
+  const successText = isPaidOrder
+    ? 'Trạng thái thanh toán hiện tại là Đã thanh toán. Bạn có thể xem lại toàn bộ thông tin đơn hàng ngay bên dưới.'
+    : 'Dzung9fBook sẽ xác nhận đơn hàng của bạn trong bước xử lý tiếp theo. Bạn có thể xem lại toàn bộ thông tin đơn hàng ngay bên dưới.';
 
   return `
     <article class="profile-card order-detail-success">
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">Đặt hàng thành công</p>
         <h2 class="profile-card__title">${escapeHTML(successTitle)}</h2>
-        <p class="profile-card__text">Dzung9fBook sẽ xác nhận đơn COD của bạn trong bước xử lý tiếp theo. Bạn có thể xem lại toàn bộ thông tin đơn hàng ngay bên dưới.</p>
+        <p class="profile-card__text">${escapeHTML(successText)}</p>
       </div>
 
       <div class="profile-card__actions">

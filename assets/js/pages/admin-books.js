@@ -12,7 +12,8 @@ let state = {
   items: [],
   pendingBookId: '',
   feedbackById: {},
-  draftById: {}
+  draftById: {},
+  selectedBookId: ''
 };
 
 const getContent = function () {
@@ -27,8 +28,12 @@ const getSearchInput = function () {
   return qs('[data-admin-books-search]');
 };
 
+const normalizeText = function (value) {
+  return String(value || '').trim();
+};
+
 const normalizeSearchText = function (value) {
-  return String(value || '').trim().toLowerCase();
+  return normalizeText(value).toLowerCase();
 };
 
 const formatDateTime = function (value) {
@@ -60,8 +65,34 @@ const buildFeedbackMarkup = function (feedback) {
   }
 
   return `
-    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}">
+    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}" role="${feedback.type === 'success' ? 'status' : 'alert'}">
       ${escapeHTML(feedback.message)}
+    </div>
+  `;
+};
+
+const buildStatusBadgeMarkup = function (label, tone) {
+  return `
+    <span class="admin-status-badge admin-status-badge--${escapeHTML(tone || 'neutral')}">
+      ${escapeHTML(label)}
+    </span>
+  `;
+};
+
+const buildListStatMarkup = function (label, value) {
+  return `
+    <div class="admin-list-stat">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
+    </div>
+  `;
+};
+
+const buildMetaItemMarkup = function (label, value) {
+  return `
+    <div class="admin-meta__item">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
     </div>
   `;
 };
@@ -73,27 +104,72 @@ const buildDraftFromBook = function (book) {
 };
 
 const getDraftForBook = function (book) {
-  const key = String(book?.id || '').trim();
-  return state.draftById[key] || buildDraftFromBook(book);
+  const bookId = normalizeText(book?.id);
+  return state.draftById[bookId] || buildDraftFromBook(book);
+};
+
+const setDraftForBook = function (bookId, draft) {
+  state = {
+    ...state,
+    draftById: {
+      ...state.draftById,
+      [bookId]: draft
+    },
+    feedbackById: {
+      ...state.feedbackById,
+      [bookId]: null
+    }
+  };
+};
+
+const clearDraftForBook = function (bookId) {
+  const nextDraftById = { ...state.draftById };
+  delete nextDraftById[bookId];
+
+  state = {
+    ...state,
+    draftById: nextDraftById
+  };
+};
+
+const buildInventoryStatusLabel = function (isSoldOut) {
+  return isSoldOut ? 'Hết hàng' : 'Còn hàng';
 };
 
 const buildInventorySummary = function (draft) {
   return draft.isSoldOut
-    ? 'Hết hàng / tồn kho 0 / track inventory bật'
-    : 'Còn hàng / tồn kho 500 / track inventory bật';
+    ? 'Hết hàng = stock 0, track inventory bật, backorder tắt.'
+    : 'Còn hàng = stock 500, track inventory bật, backorder tắt.';
+};
+
+const buildCategoryLine = function (book) {
+  return [book?.categoryLabel, book?.subcategoryLabel].filter(Boolean).join(' / ') || 'Chưa gán danh mục';
+};
+
+const buildSkuHandleLine = function (book) {
+  const parts = [];
+
+  if (normalizeText(book?.sku)) {
+    parts.push(`SKU ${normalizeText(book.sku)}`);
+  }
+
+  if (normalizeText(book?.handle)) {
+    parts.push(`Handle ${normalizeText(book.handle)}`);
+  }
+
+  return parts.join(' • ') || 'Chưa có SKU hoặc handle';
 };
 
 const getVisibleItems = function () {
   const searchTerm = normalizeSearchText(state.searchTerm);
+  const items = Array.isArray(state.items) ? state.items : [];
 
-  return (Array.isArray(state.items) ? state.items : []).filter(function (book) {
-    const draft = getDraftForBook(book);
-
-    if (state.filter === 'sold-out' && !draft.isSoldOut) {
+  return items.filter(function (book) {
+    if (state.filter === 'sold-out' && !book.isSoldOut) {
       return false;
     }
 
-    if (state.filter === 'in-stock' && draft.isSoldOut) {
+    if (state.filter === 'in-stock' && book.isSoldOut) {
       return false;
     }
 
@@ -114,8 +190,26 @@ const getVisibleItems = function () {
   });
 };
 
+const syncSelectedBook = function (visibleItems) {
+  const items = Array.isArray(visibleItems) ? visibleItems : [];
+  const currentSelection = items.find(function (book) {
+    return normalizeText(book.id) === normalizeText(state.selectedBookId);
+  }) || null;
+  const nextSelection = currentSelection || items[0] || null;
+  const nextSelectedBookId = normalizeText(nextSelection?.id);
+
+  if (nextSelectedBookId !== normalizeText(state.selectedBookId)) {
+    state = {
+      ...state,
+      selectedBookId: nextSelectedBookId
+    };
+  }
+
+  return nextSelection;
+};
+
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
-  const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
+  const isFiltered = Boolean(normalizeText(state.filter)) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
     ? `Đang hiển thị ${visibleCount} / ${totalCount} tựa sách phù hợp với bộ lọc hiện tại.`
     : `Đang hiển thị ${visibleCount} tựa sách với simple inventory 500/0.`;
@@ -123,45 +217,33 @@ const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
 
-const buildBookCardMarkup = function (book) {
-  const bookId = String(book?.id || '').trim();
+const buildBookDetailMarkup = function (book) {
+  const bookId = normalizeText(book?.id);
   const draft = getDraftForBook(book);
-  const isPending = state.pendingBookId === bookId;
+  const isPending = normalizeText(state.pendingBookId) === bookId;
   const feedback = state.feedbackById[bookId] || null;
 
   return `
-    <article class="profile-card admin-card">
-      <div class="profile-card__header">
-        <p class="profile-card__eyebrow">${escapeHTML(draft.isSoldOut ? 'Hết hàng' : 'Còn hàng')}</p>
-        <h2 class="profile-card__title">${escapeHTML(book.title || 'Tựa sách')}</h2>
-        <p class="profile-card__text">${escapeHTML(buildInventorySummary(draft))}</p>
+    <div class="admin-detail">
+      <div class="admin-detail__header">
+        <div class="admin-detail__title-block">
+          <p class="profile-card__eyebrow">Chi tiết tồn kho</p>
+          <h2 class="admin-detail__title">${escapeHTML(book.title || 'Tựa sách')}</h2>
+          <p class="admin-detail__text">${escapeHTML(normalizeText(book.author) || 'Đang cập nhật tác giả')}</p>
+        </div>
+
+        <div class="admin-badge-row">
+          ${buildStatusBadgeMarkup(buildInventoryStatusLabel(book.isSoldOut), book.isSoldOut ? 'danger' : 'success')}
+        </div>
       </div>
 
-      <dl class="admin-meta">
-        <div class="admin-meta__item">
-          <dt>Tác giả</dt>
-          <dd>${escapeHTML(book.author || 'Đang cập nhật')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Handle</dt>
-          <dd>${escapeHTML(book.handle || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>SKU</dt>
-          <dd>${escapeHTML(book.sku || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Giá bán</dt>
-          <dd>${escapeHTML(formatPrice(book.price || 0))}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Danh mục</dt>
-          <dd>${escapeHTML([book.categoryLabel, book.subcategoryLabel].filter(Boolean).join(' / ') || 'Chưa gán')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Cập nhật</dt>
-          <dd>${escapeHTML(formatDateTime(book.updatedAt))}</dd>
-        </div>
+      <dl class="admin-meta admin-meta--detail">
+        ${buildMetaItemMarkup('Danh mục', buildCategoryLine(book))}
+        ${buildMetaItemMarkup('SKU / Handle', buildSkuHandleLine(book))}
+        ${buildMetaItemMarkup('Giá bán', formatPrice(book.price || 0))}
+        ${buildMetaItemMarkup('Tồn kho hiệu lực', String(Number(book.stockQuantity || 0)))}
+        ${buildMetaItemMarkup('Track inventory', book.trackInventory ? 'Bật' : 'Tắt')}
+        ${buildMetaItemMarkup('Cập nhật', formatDateTime(book.updatedAt))}
       </dl>
 
       <form class="admin-status-form" data-admin-book-form data-book-id="${escapeHTML(bookId)}">
@@ -170,9 +252,7 @@ const buildBookCardMarkup = function (book) {
             <input type="checkbox" name="isSoldOut" ${draft.isSoldOut ? 'checked' : ''} ${isPending ? 'disabled' : ''}>
             <span>Đánh dấu hết hàng</span>
           </label>
-          <p class="admin-simple-rule">
-            Rule cố định: hết hàng = stock 0, còn hàng = stock 500, track inventory bật, backorder tắt.
-          </p>
+          <p class="admin-simple-rule">${escapeHTML(buildInventorySummary(draft))}</p>
         </div>
 
         ${buildFeedbackMarkup(feedback)}
@@ -180,7 +260,88 @@ const buildBookCardMarkup = function (book) {
           ${isPending ? 'Đang lưu...' : 'Lưu trạng thái'}
         </button>
       </form>
+    </div>
+  `;
+};
+
+const buildBookListItemMarkup = function (book, selectedBookId) {
+  const bookId = normalizeText(book?.id);
+  const isSelected = bookId === selectedBookId;
+  const isInteractionLocked = Boolean(normalizeText(state.pendingBookId));
+
+  return `
+    <article class="admin-list-item${isSelected ? ' is-selected' : ''}">
+      <button
+        class="admin-list-item__button"
+        type="button"
+        data-admin-book-select
+        data-book-id="${escapeHTML(bookId)}"
+        aria-pressed="${isSelected ? 'true' : 'false'}"
+        ${isInteractionLocked ? 'disabled' : ''}
+      >
+        <div class="admin-list-item__main">
+          <div class="admin-list-item__title-block">
+            <p class="admin-list-item__eyebrow">${escapeHTML(buildCategoryLine(book))}</p>
+            <h3 class="admin-list-item__title">${escapeHTML(book.title || 'Tựa sách')}</h3>
+            <p class="admin-list-item__text">${escapeHTML(normalizeText(book.author) || 'Đang cập nhật tác giả')}</p>
+            <p class="admin-list-item__subtext">${escapeHTML(buildSkuHandleLine(book))}</p>
+          </div>
+
+          <div class="admin-badge-row">
+            ${buildStatusBadgeMarkup(buildInventoryStatusLabel(book.isSoldOut), book.isSoldOut ? 'danger' : 'success')}
+          </div>
+        </div>
+
+        <dl class="admin-list-stats">
+          ${buildListStatMarkup('Giá bán', formatPrice(book.price || 0))}
+          ${buildListStatMarkup('Cập nhật', formatDateTime(book.updatedAt))}
+        </dl>
+      </button>
+
+      ${isSelected ? `
+        <div class="admin-inline-detail">
+          ${buildBookDetailMarkup(book)}
+        </div>
+      ` : ''}
     </article>
+  `;
+};
+
+const buildEmptyDetailMarkup = function (title, description) {
+  return `
+    <div class="admin-detail-empty">
+      <p class="profile-card__eyebrow">Chi tiết</p>
+      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
+      <p class="admin-detail__text">${escapeHTML(description)}</p>
+    </div>
+  `;
+};
+
+const buildWorkspaceMarkup = function (visibleItems, selectedBook) {
+  return `
+    <div class="admin-workspace">
+      <section class="profile-card admin-panel admin-workspace__list">
+        <div class="admin-panel__header">
+          <p class="profile-card__eyebrow">Danh sách</p>
+          <h2 class="admin-panel__title">Tựa sách phù hợp</h2>
+        </div>
+
+        <div class="admin-list">
+          ${visibleItems.map(function (book) {
+            return buildBookListItemMarkup(book, normalizeText(selectedBook?.id));
+          }).join('')}
+        </div>
+      </section>
+
+      <aside class="profile-card admin-panel admin-workspace__detail">
+        ${selectedBook
+          ? buildBookDetailMarkup(selectedBook)
+          : buildEmptyDetailMarkup(
+            'Chưa chọn tựa sách',
+            'Chọn một tựa sách từ danh sách bên trái để xem rule tồn kho và cập nhật trạng thái.'
+          )}
+      </aside>
+    </div>
   `;
 };
 
@@ -253,11 +414,11 @@ const render = function () {
     return;
   }
 
+  const selectedBook = syncSelectedBook(visibleItems);
+
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    <div class="admin-list">
-      ${visibleItems.map(buildBookCardMarkup).join('')}
-    </div>
+    ${buildWorkspaceMarkup(visibleItems, selectedBook)}
   `;
 };
 
@@ -269,7 +430,8 @@ const setPageStateFromError = function (error) {
       items: [],
       pendingBookId: '',
       feedbackById: {},
-      draftById: {}
+      draftById: {},
+      selectedBookId: ''
     };
     render();
     return true;
@@ -282,7 +444,8 @@ const setPageStateFromError = function (error) {
       items: [],
       pendingBookId: '',
       feedbackById: {},
-      draftById: {}
+      draftById: {},
+      selectedBookId: ''
     };
     render();
     return true;
@@ -331,40 +494,6 @@ const loadBooks = async function () {
   render();
 };
 
-const updateBookInState = function (bookId, updatedBook) {
-  state = {
-    ...state,
-    items: state.items.map(function (item) {
-      return String(item.id) === String(bookId) ? { ...item, ...(updatedBook || {}) } : item;
-    })
-  };
-};
-
-const setDraftForBook = function (bookId, draft) {
-  state = {
-    ...state,
-    draftById: {
-      ...state.draftById,
-      [bookId]: draft
-    }
-  };
-};
-
-const clearDraftForBook = function (bookId) {
-  const nextDraftById = { ...state.draftById };
-  delete nextDraftById[bookId];
-  state = {
-    ...state,
-    draftById: nextDraftById
-  };
-};
-
-const buildInventoryPayload = function (form) {
-  return {
-    isSoldOut: Boolean(form.elements.isSoldOut?.checked)
-  };
-};
-
 const bindFilter = function () {
   const filter = getFilter();
 
@@ -373,7 +502,7 @@ const bindFilter = function () {
   }
 
   filter.addEventListener('change', function () {
-    const nextFilter = String(filter.value || '').trim();
+    const nextFilter = normalizeText(filter.value);
 
     state = {
       ...state,
@@ -393,7 +522,7 @@ const bindSearch = function () {
   searchInput.addEventListener('input', function () {
     state = {
       ...state,
-      searchTerm: String(searchInput.value || '').trim()
+      searchTerm: normalizeText(searchInput.value)
     };
     render();
   });
@@ -406,6 +535,26 @@ const bindActions = function () {
     return;
   }
 
+  container.addEventListener('click', function (event) {
+    const selectButton = event.target.closest('[data-admin-book-select]');
+
+    if (!selectButton || state.pendingBookId) {
+      return;
+    }
+
+    const bookId = normalizeText(selectButton.dataset.bookId);
+
+    if (!bookId || bookId === normalizeText(state.selectedBookId)) {
+      return;
+    }
+
+    state = {
+      ...state,
+      selectedBookId: bookId
+    };
+    render();
+  });
+
   container.addEventListener('change', function (event) {
     const form = event.target.closest('[data-admin-book-form]');
 
@@ -413,10 +562,16 @@ const bindActions = function () {
       return;
     }
 
-    const bookId = String(form.dataset.bookId || '').trim();
+    const bookId = normalizeText(form.dataset.bookId);
+
+    if (!bookId) {
+      return;
+    }
+
     setDraftForBook(bookId, {
       isSoldOut: Boolean(form.elements.isSoldOut?.checked)
     });
+    render();
   });
 
   container.addEventListener('submit', function (event) {
@@ -428,37 +583,56 @@ const bindActions = function () {
 
     event.preventDefault();
 
-    const bookId = String(form.dataset.bookId || '').trim();
+    const bookId = normalizeText(form.dataset.bookId);
 
     if (!bookId || state.pendingBookId) {
       return;
     }
 
-    const payload = buildInventoryPayload(form);
+    const payload = {
+      isSoldOut: Boolean(form.elements.isSoldOut?.checked)
+    };
+
     setDraftForBook(bookId, payload);
     state = {
       ...state,
-      pendingBookId: bookId,
-      feedbackById: {
-        ...state.feedbackById,
-        [bookId]: null
-      }
+      pendingBookId: bookId
     };
     render();
 
     void updateAdminBookInventory(bookId, payload).then(function (updatedBook) {
-      updateBookInState(bookId, updatedBook || {});
-      clearDraftForBook(bookId);
+      const normalizedFilter = normalizeText(state.filter);
+      const shouldKeepItem = normalizedFilter === 'sold-out'
+        ? Boolean(updatedBook?.isSoldOut)
+        : normalizedFilter === 'in-stock'
+          ? !Boolean(updatedBook?.isSoldOut)
+          : true;
+      const nextDraftById = { ...state.draftById };
+      const nextFeedbackById = { ...state.feedbackById };
+
+      delete nextDraftById[bookId];
+
+      if (!shouldKeepItem) {
+        delete nextFeedbackById[bookId];
+      } else {
+        nextFeedbackById[bookId] = {
+          type: 'success',
+          message: 'Đã cập nhật trạng thái tồn kho.'
+        };
+      }
+
       state = {
         ...state,
         pendingBookId: '',
-        feedbackById: {
-          ...state.feedbackById,
-          [bookId]: {
-            type: 'success',
-            message: 'Đã cập nhật trạng thái tồn kho.'
-          }
-        }
+        items: shouldKeepItem
+          ? state.items.map(function (item) {
+            return normalizeText(item.id) === bookId ? { ...item, ...(updatedBook || {}) } : item;
+          })
+          : state.items.filter(function (item) {
+            return normalizeText(item.id) !== bookId;
+          }),
+        draftById: nextDraftById,
+        feedbackById: nextFeedbackById
       };
       render();
     }).catch(function (error) {
@@ -466,6 +640,7 @@ const bindActions = function () {
         return;
       }
 
+      clearDraftForBook(bookId);
       state = {
         ...state,
         pendingBookId: '',

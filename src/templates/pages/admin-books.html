@@ -5,21 +5,21 @@
         <div>
           <p class="section-label">Admin / Tồn kho</p>
           <h1 class="section-title">Quản lý tồn kho sách</h1>
-          <p class="section-text">Khóa inventory về 2 trạng thái thực dụng: còn hàng mặc định 500 hoặc hết hàng = 0.</p>
+          <p class="section-text">Theo dõi nhanh trạng thái còn hàng và cập nhật từng tựa sách trong một bố cục gọn hơn.</p>
         </div>
 
-        <div class="empty-state__actions">
-          <a href="./admin.html" class="btn btn-secondary">Hub quản trị</a>
-          <a href="./admin-orders.html" class="btn btn-secondary">Đơn hàng</a>
-          <a href="./admin-messages.html" class="btn btn-secondary">Tin nhắn liên hệ</a>
-        </div>
+        <nav class="admin-subnav" aria-label="Điều hướng quản trị">
+          <a href="./admin.html" class="admin-subnav__link">Hub</a>
+          <a href="./admin-orders.html" class="admin-subnav__link">Đơn hàng</a>
+          <a href="./admin-books.html" class="admin-subnav__link is-active" aria-current="page">Tồn kho</a>
+          <a href="./admin-messages.html" class="admin-subnav__link">Tin nhắn</a>
+        </nav>
       </div>
 
       <div class="form-card admin-toolbar">
-        <div>
+        <div class="admin-toolbar__intro">
           <p class="profile-card__eyebrow">Bộ lọc</p>
-          <h2>Danh sách sách</h2>
-          <p>Tìm nhanh theo tên, handle, SKU và đổi trạng thái sold-out ngay trên trang mà không mở rộng thành dashboard lớn.</p>
+          <h2>Lọc và tìm sách</h2>
         </div>
 
         <div class="admin-toolbar__controls">

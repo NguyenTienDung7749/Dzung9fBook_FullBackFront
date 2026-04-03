@@ -5,21 +5,21 @@
         <div>
           <p class="section-label">Admin / Liên hệ</p>
           <h1 class="section-title">Xử lý tin nhắn hỗ trợ</h1>
-          <p class="section-text">Xem nhanh các yêu cầu liên hệ mới và cập nhật trạng thái xử lý mà không cần dashboard phức tạp.</p>
+          <p class="section-text">Xem nhanh yêu cầu mới, đọc nội dung đầy đủ và cập nhật xử lý trong một giao diện thân thiện hơn.</p>
         </div>
 
-        <div class="empty-state__actions">
-          <a href="./admin.html" class="btn btn-secondary">Hub quản trị</a>
-          <a href="./admin-books.html" class="btn btn-secondary">Tồn kho sách</a>
-          <a href="./admin-orders.html" class="btn btn-secondary">Đơn hàng</a>
-        </div>
+        <nav class="admin-subnav" aria-label="Điều hướng quản trị">
+          <a href="./admin.html" class="admin-subnav__link">Hub</a>
+          <a href="./admin-orders.html" class="admin-subnav__link">Đơn hàng</a>
+          <a href="./admin-books.html" class="admin-subnav__link">Tồn kho</a>
+          <a href="./admin-messages.html" class="admin-subnav__link is-active" aria-current="page">Tin nhắn</a>
+        </nav>
       </div>
 
       <div class="form-card admin-toolbar">
-        <div>
+        <div class="admin-toolbar__intro">
           <p class="profile-card__eyebrow">Bộ lọc</p>
-          <h2>Danh sách liên hệ</h2>
-          <p>Lọc theo trạng thái để staff/admin nắm nhanh yêu cầu mới, đang xử lý hoặc đã chốt.</p>
+          <h2>Lọc và tìm liên hệ</h2>
         </div>
 
         <div class="admin-toolbar__controls">

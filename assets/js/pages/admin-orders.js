@@ -29,13 +29,28 @@ const PAYMENT_STATUS_OPTIONS = [
   ['VOID', 'Vô hiệu']
 ];
 
+const ORDER_STATUS_TONES = {
+  PENDING_CONFIRMATION: 'warning',
+  CONFIRMED: 'info',
+  CANCELLED: 'danger',
+  COMPLETED: 'success'
+};
+
+const PAYMENT_STATUS_TONES = {
+  UNPAID: 'warning',
+  PAID: 'success',
+  VOID: 'danger'
+};
+
 let state = {
   status: 'idle',
   filter: '',
   searchTerm: '',
   items: [],
   pendingOrderId: '',
-  feedbackById: {}
+  feedbackById: {},
+  selectedOrderId: '',
+  draftById: {}
 };
 
 const getContent = function () {
@@ -50,8 +65,16 @@ const getSearchInput = function () {
   return qs('[data-admin-orders-search]');
 };
 
+const normalizeText = function (value) {
+  return String(value || '').trim();
+};
+
 const normalizeSearchText = function (value) {
-  return String(value || '').trim().toLowerCase();
+  return normalizeText(value).toLowerCase();
+};
+
+const normalizeEnumValue = function (value) {
+  return normalizeText(value).toUpperCase();
 };
 
 const formatDateTime = function (value) {
@@ -68,13 +91,23 @@ const formatDateTime = function (value) {
 };
 
 const resolveOrderStatusLabel = function (status) {
-  const normalizedStatus = String(status || '').trim().toUpperCase();
+  const normalizedStatus = normalizeEnumValue(status);
   return ORDER_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
 };
 
 const resolvePaymentStatusLabel = function (status) {
-  const normalizedStatus = String(status || '').trim().toUpperCase();
+  const normalizedStatus = normalizeEnumValue(status);
   return PAYMENT_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Không rõ';
+};
+
+const resolveOrderStatusTone = function (status) {
+  const normalizedStatus = normalizeEnumValue(status);
+  return ORDER_STATUS_TONES[normalizedStatus] || 'neutral';
+};
+
+const resolvePaymentStatusTone = function (status) {
+  const normalizedStatus = normalizeEnumValue(status);
+  return PAYMENT_STATUS_TONES[normalizedStatus] || 'neutral';
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -93,7 +126,7 @@ const buildFeedbackMarkup = function (feedback) {
   }
 
   return `
-    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}">
+    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}" role="${feedback.type === 'success' ? 'status' : 'alert'}">
       ${escapeHTML(feedback.message)}
     </div>
   `;
@@ -101,20 +134,83 @@ const buildFeedbackMarkup = function (feedback) {
 
 const buildOptionsMarkup = function (options, currentValue) {
   return options.map(function ([value, label]) {
-    const normalizedValue = String(value || '').trim().toUpperCase();
-    const isSelected = normalizedValue === String(currentValue || '').trim().toUpperCase();
+    const normalizedValue = normalizeEnumValue(value);
+    const isSelected = normalizedValue === normalizeEnumValue(currentValue);
     return `<option value="${normalizedValue}" ${isSelected ? 'selected' : ''}>${escapeHTML(label)}</option>`;
   }).join('');
 };
 
+const buildStatusBadgeMarkup = function (label, tone) {
+  return `
+    <span class="admin-status-badge admin-status-badge--${escapeHTML(tone || 'neutral')}">
+      ${escapeHTML(label)}
+    </span>
+  `;
+};
+
+const buildListStatMarkup = function (label, value) {
+  return `
+    <div class="admin-list-stat">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
+    </div>
+  `;
+};
+
+const buildMetaItemMarkup = function (label, value) {
+  return `
+    <div class="admin-meta__item">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
+    </div>
+  `;
+};
+
+const buildDraftFromOrder = function (order) {
+  return {
+    status: normalizeEnumValue(order?.status),
+    paymentStatus: normalizeEnumValue(order?.paymentStatus)
+  };
+};
+
+const getDraftForOrder = function (order) {
+  const orderId = normalizeText(order?.id);
+  return state.draftById[orderId] || buildDraftFromOrder(order);
+};
+
+const setDraftForOrder = function (orderId, draft) {
+  state = {
+    ...state,
+    draftById: {
+      ...state.draftById,
+      [orderId]: draft
+    },
+    feedbackById: {
+      ...state.feedbackById,
+      [orderId]: null
+    }
+  };
+};
+
+const clearDraftForOrder = function (orderId) {
+  const nextDraftById = { ...state.draftById };
+  delete nextDraftById[orderId];
+
+  state = {
+    ...state,
+    draftById: nextDraftById
+  };
+};
+
 const getVisibleItems = function () {
   const searchTerm = normalizeSearchText(state.searchTerm);
+  const items = Array.isArray(state.items) ? state.items : [];
 
   if (!searchTerm) {
-    return Array.isArray(state.items) ? state.items : [];
+    return items;
   }
 
-  return (Array.isArray(state.items) ? state.items : []).filter(function (order) {
+  return items.filter(function (order) {
     return [
       order.orderNumber,
       order.customerName,
@@ -126,8 +222,26 @@ const getVisibleItems = function () {
   });
 };
 
+const syncSelectedOrder = function (visibleItems) {
+  const items = Array.isArray(visibleItems) ? visibleItems : [];
+  const currentSelection = items.find(function (order) {
+    return normalizeText(order.id) === normalizeText(state.selectedOrderId);
+  }) || null;
+  const nextSelection = currentSelection || items[0] || null;
+  const nextSelectedOrderId = normalizeText(nextSelection?.id);
+
+  if (nextSelectedOrderId !== normalizeText(state.selectedOrderId)) {
+    state = {
+      ...state,
+      selectedOrderId: nextSelectedOrderId
+    };
+  }
+
+  return nextSelection;
+};
+
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
-  const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
+  const isFiltered = Boolean(normalizeText(state.filter)) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
     ? `Đang hiển thị ${visibleCount} / ${totalCount} đơn hàng phù hợp với bộ lọc hiện tại.`
     : `Đang hiển thị ${visibleCount} đơn hàng mới nhất.`;
@@ -135,44 +249,43 @@ const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
 
-const buildOrderCardMarkup = function (order) {
-  const orderId = String(order?.id || '').trim();
-  const isPending = state.pendingOrderId === orderId;
+const buildOrderContactLine = function (order) {
+  const parts = [
+    normalizeText(order?.customerName) || 'Khách hàng chưa cập nhật',
+    normalizeText(order?.customerPhone) || normalizeText(order?.customerEmail) || 'Chưa có thông tin liên hệ'
+  ].filter(Boolean);
+
+  return parts.join(' • ');
+};
+
+const buildOrderDetailMarkup = function (order) {
+  const orderId = normalizeText(order?.id);
+  const draft = getDraftForOrder(order);
+  const isPending = normalizeText(state.pendingOrderId) === orderId;
   const feedback = state.feedbackById[orderId] || null;
 
   return `
-    <article class="profile-card admin-card">
-      <div class="profile-card__header">
-        <p class="profile-card__eyebrow">${escapeHTML(resolveOrderStatusLabel(order.status))}</p>
-        <h2 class="profile-card__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
-        <p class="profile-card__text">Tạo lúc ${escapeHTML(formatDateTime(order.createdAt))}</p>
+    <div class="admin-detail">
+      <div class="admin-detail__header">
+        <div class="admin-detail__title-block">
+          <p class="profile-card__eyebrow">Chi tiết đơn hàng</p>
+          <h2 class="admin-detail__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
+          <p class="admin-detail__text">Tạo lúc ${escapeHTML(formatDateTime(order.createdAt))}</p>
+        </div>
+
+        <div class="admin-badge-row">
+          ${buildStatusBadgeMarkup(resolveOrderStatusLabel(order.status), resolveOrderStatusTone(order.status))}
+          ${buildStatusBadgeMarkup(resolvePaymentStatusLabel(order.paymentStatus), resolvePaymentStatusTone(order.paymentStatus))}
+        </div>
       </div>
 
-      <dl class="admin-meta">
-        <div class="admin-meta__item">
-          <dt>Khách hàng</dt>
-          <dd>${escapeHTML(order.customerName || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Email</dt>
-          <dd>${escapeHTML(order.customerEmail || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Số điện thoại</dt>
-          <dd>${escapeHTML(order.customerPhone || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Trạng thái thanh toán</dt>
-          <dd>${escapeHTML(resolvePaymentStatusLabel(order.paymentStatus))}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Tổng tiền</dt>
-          <dd>${escapeHTML(formatPrice(order.totalAmount || 0))}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Số lượng sách</dt>
-          <dd>${escapeHTML(String(Number(order.itemCount || 0)))}</dd>
-        </div>
+      <dl class="admin-meta admin-meta--detail">
+        ${buildMetaItemMarkup('Khách hàng', normalizeText(order.customerName) || 'Chưa có')}
+        ${buildMetaItemMarkup('Email', normalizeText(order.customerEmail) || 'Chưa có')}
+        ${buildMetaItemMarkup('Số điện thoại', normalizeText(order.customerPhone) || 'Chưa có')}
+        ${buildMetaItemMarkup('Tổng tiền', formatPrice(order.totalAmount || 0))}
+        ${buildMetaItemMarkup('Số lượng sách', String(Number(order.itemCount || 0)))}
+        ${buildMetaItemMarkup('Mã đơn', normalizeText(order.orderNumber) || 'Chưa có')}
       </dl>
 
       <form class="admin-status-form" data-admin-order-form data-order-id="${escapeHTML(orderId)}">
@@ -180,14 +293,14 @@ const buildOrderCardMarkup = function (order) {
           <label class="form-field">
             <span class="label-text">Trạng thái đơn hàng</span>
             <select name="status" ${isPending ? 'disabled' : ''}>
-              ${buildOptionsMarkup(ORDER_STATUS_OPTIONS, order.status)}
+              ${buildOptionsMarkup(ORDER_STATUS_OPTIONS, draft.status)}
             </select>
           </label>
 
           <label class="form-field">
             <span class="label-text">Trạng thái thanh toán</span>
             <select name="paymentStatus" ${isPending ? 'disabled' : ''}>
-              ${buildOptionsMarkup(PAYMENT_STATUS_OPTIONS, order.paymentStatus)}
+              ${buildOptionsMarkup(PAYMENT_STATUS_OPTIONS, draft.paymentStatus)}
             </select>
           </label>
         </div>
@@ -197,7 +310,88 @@ const buildOrderCardMarkup = function (order) {
           ${isPending ? 'Đang lưu...' : 'Lưu thay đổi'}
         </button>
       </form>
+    </div>
+  `;
+};
+
+const buildOrderListItemMarkup = function (order, selectedOrderId) {
+  const orderId = normalizeText(order?.id);
+  const isSelected = orderId === selectedOrderId;
+  const isInteractionLocked = Boolean(normalizeText(state.pendingOrderId));
+
+  return `
+    <article class="admin-list-item${isSelected ? ' is-selected' : ''}">
+      <button
+        class="admin-list-item__button"
+        type="button"
+        data-admin-order-select
+        data-order-id="${escapeHTML(orderId)}"
+        aria-pressed="${isSelected ? 'true' : 'false'}"
+        ${isInteractionLocked ? 'disabled' : ''}
+      >
+        <div class="admin-list-item__main">
+          <div class="admin-list-item__title-block">
+            <p class="admin-list-item__eyebrow">${escapeHTML(formatDateTime(order.createdAt))}</p>
+            <h3 class="admin-list-item__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h3>
+            <p class="admin-list-item__text">${escapeHTML(buildOrderContactLine(order))}</p>
+          </div>
+
+          <div class="admin-badge-row">
+            ${buildStatusBadgeMarkup(resolveOrderStatusLabel(order.status), resolveOrderStatusTone(order.status))}
+            ${buildStatusBadgeMarkup(resolvePaymentStatusLabel(order.paymentStatus), resolvePaymentStatusTone(order.paymentStatus))}
+          </div>
+        </div>
+
+        <dl class="admin-list-stats">
+          ${buildListStatMarkup('Tổng tiền', formatPrice(order.totalAmount || 0))}
+          ${buildListStatMarkup('Số lượng', String(Number(order.itemCount || 0)))}
+        </dl>
+      </button>
+
+      ${isSelected ? `
+        <div class="admin-inline-detail">
+          ${buildOrderDetailMarkup(order)}
+        </div>
+      ` : ''}
     </article>
+  `;
+};
+
+const buildEmptyDetailMarkup = function (title, description) {
+  return `
+    <div class="admin-detail-empty">
+      <p class="profile-card__eyebrow">Chi tiết</p>
+      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
+      <p class="admin-detail__text">${escapeHTML(description)}</p>
+    </div>
+  `;
+};
+
+const buildWorkspaceMarkup = function (visibleItems, selectedOrder) {
+  return `
+    <div class="admin-workspace">
+      <section class="profile-card admin-panel admin-workspace__list">
+        <div class="admin-panel__header">
+          <p class="profile-card__eyebrow">Danh sách</p>
+          <h2 class="admin-panel__title">Đơn hàng phù hợp</h2>
+        </div>
+
+        <div class="admin-list">
+          ${visibleItems.map(function (order) {
+            return buildOrderListItemMarkup(order, normalizeText(selectedOrder?.id));
+          }).join('')}
+        </div>
+      </section>
+
+      <aside class="profile-card admin-panel admin-workspace__detail">
+        ${selectedOrder
+          ? buildOrderDetailMarkup(selectedOrder)
+          : buildEmptyDetailMarkup(
+            'Chưa chọn đơn hàng',
+            'Chọn một đơn từ danh sách bên trái để xem thông tin và cập nhật trạng thái.'
+          )}
+      </aside>
+    </div>
   `;
 };
 
@@ -272,11 +466,11 @@ const render = function () {
     return;
   }
 
+  const selectedOrder = syncSelectedOrder(visibleItems);
+
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    <div class="admin-list">
-      ${visibleItems.map(buildOrderCardMarkup).join('')}
-    </div>
+    ${buildWorkspaceMarkup(visibleItems, selectedOrder)}
   `;
 };
 
@@ -287,7 +481,9 @@ const setPageStateFromError = function (error) {
       status: 'unauthorized',
       items: [],
       pendingOrderId: '',
-      feedbackById: {}
+      feedbackById: {},
+      selectedOrderId: '',
+      draftById: {}
     };
     render();
     return true;
@@ -299,7 +495,9 @@ const setPageStateFromError = function (error) {
       status: 'forbidden',
       items: [],
       pendingOrderId: '',
-      feedbackById: {}
+      feedbackById: {},
+      selectedOrderId: '',
+      draftById: {}
     };
     render();
     return true;
@@ -314,7 +512,8 @@ const loadOrders = async function () {
     status: 'loading',
     items: [],
     pendingOrderId: '',
-    feedbackById: {}
+    feedbackById: {},
+    draftById: {}
   };
   render();
 
@@ -325,7 +524,8 @@ const loadOrders = async function () {
       status: 'ready',
       items: Array.isArray(items) ? items : [],
       pendingOrderId: '',
-      feedbackById: {}
+      feedbackById: {},
+      draftById: {}
     };
   } catch (error) {
     if (setPageStateFromError(error)) {
@@ -337,21 +537,13 @@ const loadOrders = async function () {
       status: 'error',
       items: [],
       pendingOrderId: '',
-      feedbackById: {}
+      feedbackById: {},
+      draftById: {}
     };
     console.error(error);
   }
 
   render();
-};
-
-const updateOrderInState = function (orderId, patch) {
-  state = {
-    ...state,
-    items: state.items.map(function (item) {
-      return item.id === orderId ? { ...item, ...patch } : item;
-    })
-  };
 };
 
 const bindFilter = function () {
@@ -364,7 +556,8 @@ const bindFilter = function () {
   filter.addEventListener('change', function () {
     state = {
       ...state,
-      filter: String(filter.value || '').trim()
+      filter: normalizeText(filter.value),
+      feedbackById: {}
     };
     void loadOrders();
   });
@@ -380,7 +573,7 @@ const bindSearch = function () {
   searchInput.addEventListener('input', function () {
     state = {
       ...state,
-      searchTerm: String(searchInput.value || '').trim()
+      searchTerm: normalizeText(searchInput.value)
     };
     render();
   });
@@ -393,6 +586,46 @@ const bindActions = function () {
     return;
   }
 
+  container.addEventListener('click', function (event) {
+    const selectButton = event.target.closest('[data-admin-order-select]');
+
+    if (!selectButton || state.pendingOrderId) {
+      return;
+    }
+
+    const orderId = normalizeText(selectButton.dataset.orderId);
+
+    if (!orderId || orderId === normalizeText(state.selectedOrderId)) {
+      return;
+    }
+
+    state = {
+      ...state,
+      selectedOrderId: orderId
+    };
+    render();
+  });
+
+  container.addEventListener('change', function (event) {
+    const form = event.target.closest('[data-admin-order-form]');
+
+    if (!form) {
+      return;
+    }
+
+    const orderId = normalizeText(form.dataset.orderId);
+
+    if (!orderId) {
+      return;
+    }
+
+    setDraftForOrder(orderId, {
+      status: normalizeEnumValue(form.elements.status?.value),
+      paymentStatus: normalizeEnumValue(form.elements.paymentStatus?.value)
+    });
+    render();
+  });
+
   container.addEventListener('submit', function (event) {
     const form = event.target.closest('[data-admin-order-form]');
 
@@ -402,37 +635,54 @@ const bindActions = function () {
 
     event.preventDefault();
 
-    const orderId = String(form.dataset.orderId || '').trim();
+    const orderId = normalizeText(form.dataset.orderId);
 
     if (!orderId || state.pendingOrderId) {
       return;
     }
 
+    const payload = {
+      status: normalizeEnumValue(form.elements.status?.value),
+      paymentStatus: normalizeEnumValue(form.elements.paymentStatus?.value)
+    };
+
+    setDraftForOrder(orderId, payload);
     state = {
       ...state,
-      pendingOrderId: orderId,
-      feedbackById: {
-        ...state.feedbackById,
-        [orderId]: null
-      }
+      pendingOrderId: orderId
     };
     render();
 
-    void updateAdminOrderStatus(orderId, {
-      status: String(form.elements.status?.value || '').trim(),
-      paymentStatus: String(form.elements.paymentStatus?.value || '').trim()
-    }).then(function (updatedOrder) {
-      updateOrderInState(orderId, updatedOrder || {});
+    void updateAdminOrderStatus(orderId, payload).then(function (updatedOrder) {
+      const normalizedFilter = normalizeEnumValue(state.filter);
+      const updatedStatus = normalizeEnumValue(updatedOrder?.status);
+      const shouldKeepItem = !normalizedFilter || normalizedFilter === updatedStatus;
+      const nextDraftById = { ...state.draftById };
+      const nextFeedbackById = { ...state.feedbackById };
+
+      delete nextDraftById[orderId];
+
+      if (!shouldKeepItem) {
+        delete nextFeedbackById[orderId];
+      } else {
+        nextFeedbackById[orderId] = {
+          type: 'success',
+          message: 'Đã cập nhật trạng thái đơn hàng.'
+        };
+      }
+
       state = {
         ...state,
         pendingOrderId: '',
-        feedbackById: {
-          ...state.feedbackById,
-          [orderId]: {
-            type: 'success',
-            message: 'Đã cập nhật trạng thái đơn hàng.'
-          }
-        }
+        items: shouldKeepItem
+          ? state.items.map(function (item) {
+            return normalizeText(item.id) === orderId ? { ...item, ...(updatedOrder || {}) } : item;
+          })
+          : state.items.filter(function (item) {
+            return normalizeText(item.id) !== orderId;
+          }),
+        draftById: nextDraftById,
+        feedbackById: nextFeedbackById
       };
       render();
     }).catch(function (error) {
@@ -440,6 +690,7 @@ const bindActions = function () {
         return;
       }
 
+      clearDraftForOrder(orderId);
       state = {
         ...state,
         pendingOrderId: '',

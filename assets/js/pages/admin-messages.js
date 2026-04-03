@@ -17,13 +17,22 @@ const MESSAGE_STATUS_OPTIONS = [
   ['CLOSED', 'Đã đóng']
 ];
 
+const MESSAGE_STATUS_TONES = {
+  RECEIVED: 'warning',
+  IN_PROGRESS: 'info',
+  RESOLVED: 'success',
+  CLOSED: 'neutral'
+};
+
 let state = {
   status: 'idle',
   filter: '',
   searchTerm: '',
   items: [],
   pendingMessageId: '',
-  feedbackById: {}
+  feedbackById: {},
+  selectedMessageId: '',
+  draftById: {}
 };
 
 const getContent = function () {
@@ -38,8 +47,16 @@ const getSearchInput = function () {
   return qs('[data-admin-messages-search]');
 };
 
+const normalizeText = function (value) {
+  return String(value || '').trim();
+};
+
 const normalizeSearchText = function (value) {
-  return String(value || '').trim().toLowerCase();
+  return normalizeText(value).toLowerCase();
+};
+
+const normalizeEnumValue = function (value) {
+  return normalizeText(value).toUpperCase();
 };
 
 const formatDateTime = function (value) {
@@ -56,8 +73,13 @@ const formatDateTime = function (value) {
 };
 
 const resolveMessageStatusLabel = function (status) {
-  const normalizedStatus = String(status || '').trim().toUpperCase();
+  const normalizedStatus = normalizeEnumValue(status);
   return MESSAGE_STATUS_LABELS[normalizedStatus] || normalizedStatus || 'Đang xử lý';
+};
+
+const resolveMessageStatusTone = function (status) {
+  const normalizedStatus = normalizeEnumValue(status);
+  return MESSAGE_STATUS_TONES[normalizedStatus] || 'neutral';
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -76,28 +98,91 @@ const buildFeedbackMarkup = function (feedback) {
   }
 
   return `
-    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}">
+    <div class="form-message is-visible ${feedback.type === 'success' ? 'is-success' : 'is-error'}" role="${feedback.type === 'success' ? 'status' : 'alert'}">
       ${escapeHTML(feedback.message)}
+    </div>
+  `;
+};
+
+const buildStatusBadgeMarkup = function (label, tone) {
+  return `
+    <span class="admin-status-badge admin-status-badge--${escapeHTML(tone || 'neutral')}">
+      ${escapeHTML(label)}
+    </span>
+  `;
+};
+
+const buildListStatMarkup = function (label, value) {
+  return `
+    <div class="admin-list-stat">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
+    </div>
+  `;
+};
+
+const buildMetaItemMarkup = function (label, value) {
+  return `
+    <div class="admin-meta__item">
+      <dt>${escapeHTML(label)}</dt>
+      <dd>${escapeHTML(value)}</dd>
     </div>
   `;
 };
 
 const buildMessageOptionsMarkup = function (currentValue) {
   return MESSAGE_STATUS_OPTIONS.map(function ([value, label]) {
-    const normalizedValue = String(value || '').trim().toUpperCase();
-    const isSelected = normalizedValue === String(currentValue || '').trim().toUpperCase();
+    const normalizedValue = normalizeEnumValue(value);
+    const isSelected = normalizedValue === normalizeEnumValue(currentValue);
     return `<option value="${normalizedValue}" ${isSelected ? 'selected' : ''}>${escapeHTML(label)}</option>`;
   }).join('');
 };
 
+const buildDraftFromMessage = function (message) {
+  return {
+    status: normalizeEnumValue(message?.status),
+    adminNote: normalizeText(message?.adminNote)
+  };
+};
+
+const getDraftForMessage = function (message) {
+  const messageId = normalizeText(message?.id);
+  return state.draftById[messageId] || buildDraftFromMessage(message);
+};
+
+const setDraftForMessage = function (messageId, draft) {
+  state = {
+    ...state,
+    draftById: {
+      ...state.draftById,
+      [messageId]: draft
+    },
+    feedbackById: {
+      ...state.feedbackById,
+      [messageId]: null
+    }
+  };
+};
+
+const clearDraftForMessage = function (messageId) {
+  const nextDraftById = { ...state.draftById };
+  delete nextDraftById[messageId];
+
+  state = {
+    ...state,
+    draftById: nextDraftById
+  };
+};
+
 const getVisibleItems = function () {
   const searchTerm = normalizeSearchText(state.searchTerm);
+  const items = Array.isArray(state.items) ? state.items : [];
 
   if (!searchTerm) {
-    return Array.isArray(state.items) ? state.items : [];
+    return items;
   }
 
-  return (Array.isArray(state.items) ? state.items : []).filter(function (message) {
+  return items.filter(function (message) {
     return [
       message.name,
       message.email,
@@ -110,8 +195,26 @@ const getVisibleItems = function () {
   });
 };
 
+const syncSelectedMessage = function (visibleItems) {
+  const items = Array.isArray(visibleItems) ? visibleItems : [];
+  const currentSelection = items.find(function (message) {
+    return normalizeText(message.id) === normalizeText(state.selectedMessageId);
+  }) || null;
+  const nextSelection = currentSelection || items[0] || null;
+  const nextSelectedMessageId = normalizeText(nextSelection?.id);
+
+  if (nextSelectedMessageId !== normalizeText(state.selectedMessageId)) {
+    state = {
+      ...state,
+      selectedMessageId: nextSelectedMessageId
+    };
+  }
+
+  return nextSelection;
+};
+
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
-  const isFiltered = Boolean(String(state.filter || '').trim()) || Boolean(normalizeSearchText(state.searchTerm));
+  const isFiltered = Boolean(normalizeText(state.filter)) || Boolean(normalizeSearchText(state.searchTerm));
   const summaryText = isFiltered
     ? `Đang hiển thị ${visibleCount} / ${totalCount} liên hệ phù hợp với bộ lọc hiện tại.`
     : `Đang hiển thị ${visibleCount} liên hệ mới nhất.`;
@@ -119,37 +222,50 @@ const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
   return `<p class="admin-results-summary">${escapeHTML(summaryText)}</p>`;
 };
 
-const buildMessageCardMarkup = function (message) {
-  const messageId = String(message?.id || '').trim();
-  const isPending = state.pendingMessageId === messageId;
+const buildMessageContactLine = function (message) {
+  const parts = [
+    normalizeText(message?.email) || 'Chưa có email',
+    normalizeText(message?.phone) || 'Chưa có số điện thoại'
+  ].filter(Boolean);
+
+  return parts.join(' • ');
+};
+
+const buildAssignmentLabel = function (message) {
+  return normalizeText(message?.handledById) ? 'Đã gán xử lý' : 'Chưa gán xử lý';
+};
+
+const buildMessageDetailMarkup = function (message) {
+  const messageId = normalizeText(message?.id);
+  const draft = getDraftForMessage(message);
+  const isPending = normalizeText(state.pendingMessageId) === messageId;
   const feedback = state.feedbackById[messageId] || null;
 
   return `
-    <article class="profile-card admin-card">
-      <div class="profile-card__header">
-        <p class="profile-card__eyebrow">${escapeHTML(resolveMessageStatusLabel(message.status))}</p>
-        <h2 class="profile-card__title">${escapeHTML(message.name || 'Liên hệ')}</h2>
-        <p class="profile-card__text">Gửi lúc ${escapeHTML(formatDateTime(message.createdAt))}</p>
+    <div class="admin-detail">
+      <div class="admin-detail__header">
+        <div class="admin-detail__title-block">
+          <p class="profile-card__eyebrow">Chi tiết liên hệ</p>
+          <h2 class="admin-detail__title">${escapeHTML(message.name || 'Liên hệ')}</h2>
+          <p class="admin-detail__text">Gửi lúc ${escapeHTML(formatDateTime(message.createdAt))}</p>
+        </div>
+
+        <div class="admin-badge-row">
+          ${buildStatusBadgeMarkup(resolveMessageStatusLabel(message.status), resolveMessageStatusTone(message.status))}
+          ${buildStatusBadgeMarkup(buildAssignmentLabel(message), normalizeText(message.handledById) ? 'info' : 'neutral')}
+        </div>
       </div>
 
-      <dl class="admin-meta">
-        <div class="admin-meta__item">
-          <dt>Email</dt>
-          <dd>${escapeHTML(message.email || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Số điện thoại</dt>
-          <dd>${escapeHTML(message.phone || 'Chưa có')}</dd>
-        </div>
-        <div class="admin-meta__item">
-          <dt>Người xử lý</dt>
-          <dd>${escapeHTML(message.handledById || 'Chưa gán')}</dd>
-        </div>
+      <dl class="admin-meta admin-meta--detail">
+        ${buildMetaItemMarkup('Email', normalizeText(message.email) || 'Chưa có')}
+        ${buildMetaItemMarkup('Số điện thoại', normalizeText(message.phone) || 'Chưa có')}
+        ${buildMetaItemMarkup('Người xử lý', normalizeText(message.handledById) || 'Chưa gán')}
+        ${buildMetaItemMarkup('Người dùng liên kết', normalizeText(message.userId) || 'Khách vãng lai')}
       </dl>
 
       <div class="admin-message-body">
         <strong>Nội dung liên hệ</strong>
-        <p>${escapeHTML(message.message || 'Chưa có nội dung')}</p>
+        <p>${escapeHTML(normalizeText(message.message) || 'Chưa có nội dung')}</p>
       </div>
 
       <form class="admin-status-form" data-admin-message-form data-message-id="${escapeHTML(messageId)}">
@@ -157,13 +273,13 @@ const buildMessageCardMarkup = function (message) {
           <label class="form-field">
             <span class="label-text">Trạng thái liên hệ</span>
             <select name="status" ${isPending ? 'disabled' : ''}>
-              ${buildMessageOptionsMarkup(message.status)}
+              ${buildMessageOptionsMarkup(draft.status)}
             </select>
           </label>
 
           <label class="form-field">
             <span class="label-text">Ghi chú nội bộ</span>
-            <textarea name="adminNote" rows="4" placeholder="Ghi chú ngắn cho staff/admin khác..." ${isPending ? 'disabled' : ''}>${escapeHTML(message.adminNote || '')}</textarea>
+            <textarea name="adminNote" rows="4" placeholder="Ghi chú ngắn cho staff/admin khác..." ${isPending ? 'disabled' : ''}>${escapeHTML(draft.adminNote || '')}</textarea>
           </label>
         </div>
 
@@ -172,7 +288,89 @@ const buildMessageCardMarkup = function (message) {
           ${isPending ? 'Đang lưu...' : 'Lưu thay đổi'}
         </button>
       </form>
+    </div>
+  `;
+};
+
+const buildMessageListItemMarkup = function (message, selectedMessageId) {
+  const messageId = normalizeText(message?.id);
+  const isSelected = messageId === selectedMessageId;
+  const isInteractionLocked = Boolean(normalizeText(state.pendingMessageId));
+
+  return `
+    <article class="admin-list-item${isSelected ? ' is-selected' : ''}">
+      <button
+        class="admin-list-item__button"
+        type="button"
+        data-admin-message-select
+        data-message-id="${escapeHTML(messageId)}"
+        aria-pressed="${isSelected ? 'true' : 'false'}"
+        ${isInteractionLocked ? 'disabled' : ''}
+      >
+        <div class="admin-list-item__main">
+          <div class="admin-list-item__title-block">
+            <p class="admin-list-item__eyebrow">${escapeHTML(formatDateTime(message.createdAt))}</p>
+            <h3 class="admin-list-item__title">${escapeHTML(message.name || 'Liên hệ')}</h3>
+            <p class="admin-list-item__text">${escapeHTML(buildMessageContactLine(message))}</p>
+            <p class="admin-list-item__preview">${escapeHTML(normalizeText(message.message) || 'Chưa có nội dung')}</p>
+          </div>
+
+          <div class="admin-badge-row">
+            ${buildStatusBadgeMarkup(resolveMessageStatusLabel(message.status), resolveMessageStatusTone(message.status))}
+            ${buildStatusBadgeMarkup(buildAssignmentLabel(message), normalizeText(message.handledById) ? 'info' : 'neutral')}
+          </div>
+        </div>
+
+        <dl class="admin-list-stats">
+          ${buildListStatMarkup('Người xử lý', normalizeText(message.handledById) || 'Chưa gán')}
+          ${buildListStatMarkup('Tài khoản', normalizeText(message.userId) || 'Khách vãng lai')}
+        </dl>
+      </button>
+
+      ${isSelected ? `
+        <div class="admin-inline-detail">
+          ${buildMessageDetailMarkup(message)}
+        </div>
+      ` : ''}
     </article>
+  `;
+};
+
+const buildEmptyDetailMarkup = function (title, description) {
+  return `
+    <div class="admin-detail-empty">
+      <p class="profile-card__eyebrow">Chi tiết</p>
+      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
+      <p class="admin-detail__text">${escapeHTML(description)}</p>
+    </div>
+  `;
+};
+
+const buildWorkspaceMarkup = function (visibleItems, selectedMessage) {
+  return `
+    <div class="admin-workspace">
+      <section class="profile-card admin-panel admin-workspace__list">
+        <div class="admin-panel__header">
+          <p class="profile-card__eyebrow">Danh sách</p>
+          <h2 class="admin-panel__title">Liên hệ phù hợp</h2>
+        </div>
+
+        <div class="admin-list">
+          ${visibleItems.map(function (message) {
+            return buildMessageListItemMarkup(message, normalizeText(selectedMessage?.id));
+          }).join('')}
+        </div>
+      </section>
+
+      <aside class="profile-card admin-panel admin-workspace__detail">
+        ${selectedMessage
+          ? buildMessageDetailMarkup(selectedMessage)
+          : buildEmptyDetailMarkup(
+            'Chưa chọn liên hệ',
+            'Chọn một liên hệ từ danh sách bên trái để đọc nội dung đầy đủ và cập nhật ghi chú nội bộ.'
+          )}
+      </aside>
+    </div>
   `;
 };
 
@@ -247,11 +445,11 @@ const render = function () {
     return;
   }
 
+  const selectedMessage = syncSelectedMessage(visibleItems);
+
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    <div class="admin-list">
-      ${visibleItems.map(buildMessageCardMarkup).join('')}
-    </div>
+    ${buildWorkspaceMarkup(visibleItems, selectedMessage)}
   `;
 };
 
@@ -262,7 +460,9 @@ const setPageStateFromError = function (error) {
       status: 'unauthorized',
       items: [],
       pendingMessageId: '',
-      feedbackById: {}
+      feedbackById: {},
+      selectedMessageId: '',
+      draftById: {}
     };
     render();
     return true;
@@ -274,7 +474,9 @@ const setPageStateFromError = function (error) {
       status: 'forbidden',
       items: [],
       pendingMessageId: '',
-      feedbackById: {}
+      feedbackById: {},
+      selectedMessageId: '',
+      draftById: {}
     };
     render();
     return true;
@@ -289,7 +491,8 @@ const loadMessages = async function () {
     status: 'loading',
     items: [],
     pendingMessageId: '',
-    feedbackById: {}
+    feedbackById: {},
+    draftById: {}
   };
   render();
 
@@ -300,7 +503,8 @@ const loadMessages = async function () {
       status: 'ready',
       items: Array.isArray(items) ? items : [],
       pendingMessageId: '',
-      feedbackById: {}
+      feedbackById: {},
+      draftById: {}
     };
   } catch (error) {
     if (setPageStateFromError(error)) {
@@ -312,21 +516,13 @@ const loadMessages = async function () {
       status: 'error',
       items: [],
       pendingMessageId: '',
-      feedbackById: {}
+      feedbackById: {},
+      draftById: {}
     };
     console.error(error);
   }
 
   render();
-};
-
-const updateMessageInState = function (messageId, patch) {
-  state = {
-    ...state,
-    items: state.items.map(function (item) {
-      return item.id === messageId ? { ...item, ...patch } : item;
-    })
-  };
 };
 
 const bindFilter = function () {
@@ -339,7 +535,8 @@ const bindFilter = function () {
   filter.addEventListener('change', function () {
     state = {
       ...state,
-      filter: String(filter.value || '').trim()
+      filter: normalizeText(filter.value),
+      feedbackById: {}
     };
     void loadMessages();
   });
@@ -355,7 +552,7 @@ const bindSearch = function () {
   searchInput.addEventListener('input', function () {
     state = {
       ...state,
-      searchTerm: String(searchInput.value || '').trim()
+      searchTerm: normalizeText(searchInput.value)
     };
     render();
   });
@@ -368,6 +565,60 @@ const bindActions = function () {
     return;
   }
 
+  container.addEventListener('click', function (event) {
+    const selectButton = event.target.closest('[data-admin-message-select]');
+
+    if (!selectButton || state.pendingMessageId) {
+      return;
+    }
+
+    const messageId = normalizeText(selectButton.dataset.messageId);
+
+    if (!messageId || messageId === normalizeText(state.selectedMessageId)) {
+      return;
+    }
+
+    state = {
+      ...state,
+      selectedMessageId: messageId
+    };
+    render();
+  });
+
+  const syncDraftFromForm = function (form) {
+    const messageId = normalizeText(form.dataset.messageId);
+
+    if (!messageId) {
+      return;
+    }
+
+    setDraftForMessage(messageId, {
+      status: normalizeEnumValue(form.elements.status?.value),
+      adminNote: normalizeText(form.elements.adminNote?.value)
+    });
+  };
+
+  container.addEventListener('input', function (event) {
+    const form = event.target.closest('[data-admin-message-form]');
+
+    if (!form) {
+      return;
+    }
+
+    syncDraftFromForm(form);
+  });
+
+  container.addEventListener('change', function (event) {
+    const form = event.target.closest('[data-admin-message-form]');
+
+    if (!form) {
+      return;
+    }
+
+    syncDraftFromForm(form);
+    render();
+  });
+
   container.addEventListener('submit', function (event) {
     const form = event.target.closest('[data-admin-message-form]');
 
@@ -377,37 +628,54 @@ const bindActions = function () {
 
     event.preventDefault();
 
-    const messageId = String(form.dataset.messageId || '').trim();
+    const messageId = normalizeText(form.dataset.messageId);
 
     if (!messageId || state.pendingMessageId) {
       return;
     }
 
+    const payload = {
+      status: normalizeEnumValue(form.elements.status?.value),
+      adminNote: normalizeText(form.elements.adminNote?.value)
+    };
+
+    setDraftForMessage(messageId, payload);
     state = {
       ...state,
-      pendingMessageId: messageId,
-      feedbackById: {
-        ...state.feedbackById,
-        [messageId]: null
-      }
+      pendingMessageId: messageId
     };
     render();
 
-    void updateAdminMessageStatus(messageId, {
-      status: String(form.elements.status?.value || '').trim(),
-      adminNote: String(form.elements.adminNote?.value || '').trim()
-    }).then(function (updatedMessage) {
-      updateMessageInState(messageId, updatedMessage || {});
+    void updateAdminMessageStatus(messageId, payload).then(function (updatedMessage) {
+      const normalizedFilter = normalizeEnumValue(state.filter);
+      const updatedStatus = normalizeEnumValue(updatedMessage?.status);
+      const shouldKeepItem = !normalizedFilter || normalizedFilter === updatedStatus;
+      const nextDraftById = { ...state.draftById };
+      const nextFeedbackById = { ...state.feedbackById };
+
+      delete nextDraftById[messageId];
+
+      if (!shouldKeepItem) {
+        delete nextFeedbackById[messageId];
+      } else {
+        nextFeedbackById[messageId] = {
+          type: 'success',
+          message: 'Đã cập nhật trạng thái liên hệ.'
+        };
+      }
+
       state = {
         ...state,
         pendingMessageId: '',
-        feedbackById: {
-          ...state.feedbackById,
-          [messageId]: {
-            type: 'success',
-            message: 'Đã cập nhật trạng thái liên hệ.'
-          }
-        }
+        items: shouldKeepItem
+          ? state.items.map(function (item) {
+            return normalizeText(item.id) === messageId ? { ...item, ...(updatedMessage || {}) } : item;
+          })
+          : state.items.filter(function (item) {
+            return normalizeText(item.id) !== messageId;
+          }),
+        draftById: nextDraftById,
+        feedbackById: nextFeedbackById
       };
       render();
     }).catch(function (error) {
@@ -415,6 +683,7 @@ const bindActions = function () {
         return;
       }
 
+      clearDraftForMessage(messageId);
       state = {
         ...state,
         pendingMessageId: '',

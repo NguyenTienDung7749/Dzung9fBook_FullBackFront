@@ -96,31 +96,41 @@
 
   <main>
   <section class="section">
-    <div class="container cart-layout">
-      <div class="cart-panel">
-        <div class="section-heading section-heading--compact">
-          <div>
-            <p class="section-label">Chi tiết lựa chọn</p>
-            <h2 class="section-title">Những cuốn sách bạn đang cân nhắc</h2>
+    <div class="container">
+      <div class="cart-shell">
+        <div class="cart-header">
+          <div class="cart-header__copy">
+            <p class="section-label">Checkout</p>
+            <h1 class="cart-header__title">Giỏ hàng của bạn</h1>
           </div>
         </div>
-        <div data-cart-items></div>
-      </div>
 
-      <aside class="cart-summary">
-        <p class="section-label">Tổng kết</p>
-        <h2 class="section-title">Tạm tính</h2>
-        <div class="summary-line">
-          <span>Tổng thanh toán</span>
-          <strong data-cart-total>0 đ</strong>
+        <div class="cart-layout">
+          <div class="cart-panel">
+            <div data-cart-items></div>
+          </div>
+
+          <aside class="cart-summary" aria-label="Tóm tắt đơn hàng">
+            <div class="cart-summary__header">
+              <p class="cart-summary__eyebrow">Tóm tắt thanh toán</p>
+              <h2 class="cart-summary__title">Chọn cách hoàn tất đơn hàng</h2>
+            </div>
+
+            <div class="cart-summary__totals">
+              <div class="summary-line">
+                <span>Tổng thanh toán</span>
+                <strong data-cart-total>0 đ</strong>
+              </div>
+            </div>
+
+            <div data-checkout-panel></div>
+          </aside>
         </div>
-        <p class="summary-note">
-          Dzung9fBook sẽ xác nhận lại tình trạng sách và phương thức nhận hàng khi bạn để lại thông tin liên hệ.
-        </p>
-        <a href="./contact.html" class="btn btn-primary btn-block">Liên hệ đặt hàng</a>
-      </aside>
+      </div>
     </div>
   </section>
+
+  <div data-checkout-modal-root></div>
 </main>
 
   <footer class="site-footer has-bg-image" style="background-image: url('./assets/images/section-bg.jpg')">

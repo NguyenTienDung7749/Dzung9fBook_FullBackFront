@@ -54,7 +54,7 @@ const buildReadyMarkup = function () {
       ${buildHubCardMarkup(
         'Đơn hàng',
         'Quản lý đơn hàng',
-        'Theo dõi các đơn COD mới tạo và cập nhật trạng thái xử lý ngay trên trang.',
+        'Theo dõi các đơn mới tạo và cập nhật trạng thái xử lý ngay trên trang.',
         './admin-orders.html',
         'Mở đơn hàng'
       )}
