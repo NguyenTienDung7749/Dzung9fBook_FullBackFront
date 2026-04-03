@@ -1,0 +1,115 @@
+<svg width="520" height="700" viewBox="0 0 520 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardBg" x1="40" y1="24" x2="460" y2="676" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E7B54"/>
+      <stop offset="1" stop-color="#0A5A40"/>
+    </linearGradient>
+    <linearGradient id="cardGlow" x1="76" y1="76" x2="418" y2="638" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="panelBg" x1="260" y1="176" x2="260" y2="632" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F1F7F3"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="520" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0352941 0 0 0 0 0.168627 0 0 0 0 0.121569 0 0 0 0.24 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="28" y="24" width="464" height="640" rx="38" fill="url(#cardBg)"/>
+    <rect x="28.75" y="24.75" width="462.5" height="638.5" rx="37.25" stroke="#0A6D4B" stroke-opacity="0.42" stroke-width="1.5"/>
+    <path d="M120 24H432C465.137 24 492 50.8629 492 84V182C402.95 136.577 321.895 113.866 248.836 113.866C179.375 113.866 136.43 129.244 120 160V24Z" fill="url(#cardGlow)"/>
+    <circle cx="438" cy="112" r="92" fill="#42B883" fill-opacity="0.12"/>
+    <circle cx="94" cy="608" r="120" fill="#42B883" fill-opacity="0.1"/>
+
+    <g>
+      <rect x="64" y="64" width="392" height="88" rx="26" fill="#FFFFFF" fill-opacity="0.12"/>
+      <rect x="86" y="88" width="42" height="42" rx="12" fill="#E7FFF3"/>
+      <path d="M96 97L106.2 116L116.1 97H126L111.1 123H100.8L86 97H96Z" fill="#0A5A40"/>
+      <path d="M116.8 97H127L137.2 116L147.3 97H157.2L142.3 123H132L116.8 97Z" fill="#18A268"/>
+      <text x="176" y="104" fill="#EAFBF4" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.4">VIETCOMBANK</text>
+      <text x="176" y="128" fill="#D9F7E8" font-family="Arial, sans-serif" font-size="28" font-weight="700">QR PAY DEMO</text>
+      <rect x="356" y="90" width="78" height="30" rx="15" fill="#E7FFF3"/>
+      <text x="395" y="110" text-anchor="middle" fill="#0A5A40" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">MOCKUP</text>
+    </g>
+
+    <g>
+      <rect x="64" y="176" width="392" height="432" rx="30" fill="url(#panelBg)"/>
+      <rect x="64.75" y="176.75" width="390.5" height="430.5" rx="29.25" stroke="#D7E5DD" stroke-width="1.5"/>
+
+      <text x="92" y="220" fill="#6C8077" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.6">TRANSFER TO</text>
+      <text x="92" y="256" fill="#12372A" font-family="Arial, sans-serif" font-size="34" font-weight="700">DZUNG9FBOOK DEMO</text>
+      <text x="92" y="286" fill="#567267" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1.2">1020 8899 0000</text>
+      <text x="92" y="320" fill="#0A5A40" font-family="Arial, sans-serif" font-size="16" font-weight="700">Amount follows current order</text>
+      <text x="92" y="344" fill="#7D8D85" font-family="Arial, sans-serif" font-size="14" font-weight="700">NON SCANNABLE UI SAMPLE</text>
+
+      <rect x="110" y="370" width="300" height="300" rx="30" fill="#FFFFFF"/>
+      <rect x="110.75" y="370.75" width="298.5" height="298.5" rx="29.25" stroke="#D9E7E0" stroke-width="1.5"/>
+
+      <rect x="132" y="392" width="76" height="76" rx="14" fill="#0A5A40"/>
+      <rect x="146" y="406" width="48" height="48" rx="8" fill="#FFFFFF"/>
+      <rect x="160" y="420" width="20" height="20" rx="4" fill="#0A5A40"/>
+
+      <rect x="312" y="392" width="76" height="76" rx="14" fill="#0A5A40"/>
+      <rect x="326" y="406" width="48" height="48" rx="8" fill="#FFFFFF"/>
+      <rect x="340" y="420" width="20" height="20" rx="4" fill="#0A5A40"/>
+
+      <rect x="132" y="572" width="76" height="76" rx="14" fill="#0A5A40"/>
+      <rect x="146" y="586" width="48" height="48" rx="8" fill="#FFFFFF"/>
+      <rect x="160" y="600" width="20" height="20" rx="4" fill="#0A5A40"/>
+
+      <g fill="#0A5A40">
+        <rect x="234" y="392" width="18" height="18" rx="3"/>
+        <rect x="256" y="392" width="18" height="40" rx="3"/>
+        <rect x="278" y="392" width="18" height="18" rx="3"/>
+        <rect x="234" y="436" width="18" height="18" rx="3"/>
+        <rect x="278" y="436" width="18" height="18" rx="3"/>
+        <rect x="226" y="474" width="26" height="18" rx="3"/>
+        <rect x="264" y="474" width="18" height="18" rx="3"/>
+        <rect x="286" y="474" width="30" height="18" rx="3"/>
+        <rect x="330" y="480" width="18" height="18" rx="3"/>
+        <rect x="352" y="480" width="18" height="40" rx="3"/>
+        <rect x="374" y="480" width="18" height="18" rx="3"/>
+        <rect x="330" y="524" width="18" height="18" rx="3"/>
+        <rect x="374" y="524" width="18" height="18" rx="3"/>
+        <rect x="330" y="548" width="40" height="18" rx="3"/>
+        <rect x="286" y="548" width="18" height="40" rx="3"/>
+        <rect x="256" y="548" width="18" height="18" rx="3"/>
+        <rect x="234" y="548" width="18" height="40" rx="3"/>
+        <rect x="226" y="596" width="18" height="18" rx="3"/>
+        <rect x="248" y="596" width="48" height="18" rx="3"/>
+        <rect x="304" y="596" width="18" height="40" rx="3"/>
+        <rect x="330" y="596" width="18" height="18" rx="3"/>
+        <rect x="352" y="620" width="18" height="18" rx="3"/>
+        <rect x="374" y="596" width="18" height="42" rx="3"/>
+        <rect x="220" y="516" width="18" height="18" rx="3"/>
+        <rect x="132" y="486" width="18" height="40" rx="3"/>
+        <rect x="154" y="486" width="40" height="18" rx="3"/>
+        <rect x="176" y="516" width="18" height="18" rx="3"/>
+        <rect x="154" y="540" width="40" height="18" rx="3"/>
+        <rect x="132" y="548" width="18" height="18" rx="3"/>
+        <rect x="132" y="456" width="40" height="18" rx="3"/>
+        <rect x="180" y="456" width="18" height="18" rx="3"/>
+        <rect x="330" y="436" width="40" height="18" rx="3"/>
+        <rect x="374" y="392" width="18" height="18" rx="3"/>
+      </g>
+
+      <rect x="212" y="472" width="96" height="96" rx="18" fill="#EEF8F2" stroke="#0A5A40" stroke-width="4" stroke-dasharray="10 8"/>
+      <text x="260" y="512" text-anchor="middle" fill="#0A5A40" font-family="Arial, sans-serif" font-size="28" font-weight="700">QR</text>
+      <text x="260" y="544" text-anchor="middle" fill="#0A5A40" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="1.6">DEMO</text>
+      <text x="260" y="576" text-anchor="middle" fill="#7E8F86" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">DO NOT SCAN</text>
+
+      <rect x="92" y="626" width="336" height="1.5" fill="#D9E7E0"/>
+      <text x="92" y="652" fill="#6C8077" font-family="Arial, sans-serif" font-size="14" font-weight="700">Demo only. Do not transfer real money.</text>
+    </g>
+  </g>
+</svg>

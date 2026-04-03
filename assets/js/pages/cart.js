@@ -459,17 +459,19 @@ const buildModalSummaryCardMarkup = function () {
 
 const buildDemoQrMarkup = function () {
   return `
-    <div class="checkout-demo-qr" aria-hidden="true">
-      <div class="checkout-demo-qr__finder checkout-demo-qr__finder--top-left"></div>
-      <div class="checkout-demo-qr__finder checkout-demo-qr__finder--top-right"></div>
-      <div class="checkout-demo-qr__finder checkout-demo-qr__finder--bottom-left"></div>
-      <div class="checkout-demo-qr__noise checkout-demo-qr__noise--one"></div>
-      <div class="checkout-demo-qr__noise checkout-demo-qr__noise--two"></div>
-      <div class="checkout-demo-qr__noise checkout-demo-qr__noise--three"></div>
-      <div class="checkout-demo-qr__noise checkout-demo-qr__noise--four"></div>
-      <div class="checkout-demo-qr__noise checkout-demo-qr__noise--five"></div>
-      <span class="checkout-demo-qr__label">QR DEMO</span>
-    </div>
+    <figure class="checkout-demo-qr" aria-hidden="true">
+      <img
+        src="./assets/images/payment-demo-vietcombank.svg"
+        alt=""
+        class="checkout-demo-qr__image"
+        loading="eager"
+        decoding="async"
+      >
+      <figcaption class="checkout-demo-qr__caption">
+        <strong>Vietcombank QR demo</strong>
+        <span>Mockup only, not scannable</span>
+      </figcaption>
+    </figure>
   `;
 };
 
