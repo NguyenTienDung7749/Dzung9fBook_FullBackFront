@@ -1,5 +1,6 @@
 const path = require('node:path');
 const express = require('express');
+const { normalizeBooleanEnv } = require('./lib/normalize');
 const sessionMiddleware = require('./config/session');
 const apiRoutes = require('./routes');
 const notFoundMiddleware = require('./middleware/not-found');
@@ -8,9 +9,6 @@ const errorHandler = require('./middleware/error-handler');
 const app = express();
 const publicRoot = path.resolve(process.cwd(), 'public');
 const port = Number(process.env.PORT || 4173);
-const normalizeBooleanEnv = function (value) {
-  return ['1', 'true', 'yes', 'on'].includes(String(value || '').trim().toLowerCase());
-};
 const shouldTrustProxy = function () {
   if (process.env.TRUST_PROXY !== undefined) {
     return normalizeBooleanEnv(process.env.TRUST_PROXY);

@@ -1,12 +1,29 @@
-const crypto = require('node:crypto');
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../lib/prisma');
 const { createHttpError } = require('../middleware/http-error');
+const { normalizeText } = require('../lib/normalize');
 const cartService = require('./cart-service');
+const {
+  buildOrderNumber,
+  canCancelCustomerOrder,
+  normalizeAvailableQuantity,
+  normalizeOrderId,
+  normalizeQuantity,
+  normalizeUserId
+} = require('./order/order-support');
+const {
+  buildCheckoutIssue,
+  validateAdminOrderStatusPayload,
+  validateCheckoutPayload,
+  validateOrderStatusFilter
+} = require('./order/order-validation');
+const {
+  serializeAdminOrderListItem,
+  serializeAdminOrderStatusUpdate,
+  serializeCheckoutOrder,
+  serializeOrderDetail,
+  serializeOrderListItem
+} = require('./order/order-serializers');
 
-const prisma = new PrismaClient();
-const ORDER_STATUS_VALUES = new Set(['PENDING_CONFIRMATION', 'CONFIRMED', 'CANCELLED', 'COMPLETED']);
-const PAYMENT_STATUS_VALUES = new Set(['UNPAID', 'PAID', 'VOID']);
-const CHECKOUT_PAYMENT_MODE_VALUES = new Set(['COD', 'ONLINE_DEMO']);
 const ORDER_SELECT = {
   id: true,
   orderNumber: true,
@@ -33,222 +50,6 @@ const CHECKOUT_BOOK_SELECT = {
   trackInventory: true,
   stockQuantity: true,
   allowBackorder: true
-};
-
-const normalizeUserId = function (userId) {
-  return String(userId || '').trim();
-};
-
-const normalizeOrderId = function (orderId) {
-  return String(orderId || '').trim();
-};
-
-const normalizeText = function (value) {
-  return String(value || '').trim();
-};
-
-const normalizeEnumValue = function (value) {
-  return String(value || '').trim().toUpperCase();
-};
-
-const canCancelCustomerOrder = function (order) {
-  return normalizeEnumValue(order?.status) === 'PENDING_CONFIRMATION';
-};
-
-const normalizeQuantity = function (value) {
-  const parsedValue = Number(value);
-
-  if (!Number.isFinite(parsedValue)) {
-    return null;
-  }
-
-  return Math.trunc(parsedValue);
-};
-
-const normalizeAvailableQuantity = function (value) {
-  const parsedValue = normalizeQuantity(value);
-
-  if (!Number.isFinite(parsedValue) || parsedValue < 0) {
-    return null;
-  }
-
-  return parsedValue;
-};
-
-const serializeTimestamp = function (value) {
-  return value instanceof Date
-    ? value.toISOString()
-    : String(value || '');
-};
-
-const serializeCheckoutOrder = function (order) {
-  return {
-    id: order.id,
-    orderNumber: order.orderNumber,
-    status: order.status,
-    paymentMethod: order.paymentMethod,
-    paymentStatus: order.paymentStatus,
-    subtotalAmount: Number(order.subtotalAmount || 0),
-    totalAmount: Number(order.totalAmount || 0),
-    createdAt: serializeTimestamp(order.createdAt)
-  };
-};
-
-const serializeOrderListItem = function (order) {
-  const itemCount = (Array.isArray(order.items) ? order.items : []).reduce(function (sum, item) {
-    return sum + Number(item?.quantity || 0);
-  }, 0);
-
-  return {
-    id: order.id,
-    orderNumber: order.orderNumber,
-    status: order.status,
-    paymentStatus: order.paymentStatus,
-    totalAmount: Number(order.totalAmount || 0),
-    createdAt: serializeTimestamp(order.createdAt),
-    itemCount,
-    canCancel: canCancelCustomerOrder(order)
-  };
-};
-
-const serializeOrderDetail = function (order) {
-  return {
-    id: order.id,
-    orderNumber: order.orderNumber,
-    status: order.status,
-    paymentMethod: order.paymentMethod,
-    paymentStatus: order.paymentStatus,
-    subtotalAmount: Number(order.subtotalAmount || 0),
-    totalAmount: Number(order.totalAmount || 0),
-    createdAt: serializeTimestamp(order.createdAt),
-    customerName: order.customerName,
-    customerEmail: order.customerEmail,
-    customerPhone: order.customerPhone,
-    shippingAddress: order.shippingAddress,
-    note: order.note || null,
-    canCancel: canCancelCustomerOrder(order),
-    items: (Array.isArray(order.items) ? order.items : []).map(function (item) {
-      return {
-        bookId: item.bookId,
-        bookTitle: item.bookTitle,
-        bookHandle: item.bookHandle,
-        unitPrice: Number(item.unitPrice || 0),
-        quantity: Number(item.quantity || 0),
-        lineTotal: Number(item.lineTotal || 0)
-      };
-    })
-  };
-};
-
-const serializeAdminOrderListItem = function (order) {
-  const itemCount = (Array.isArray(order.items) ? order.items : []).reduce(function (sum, item) {
-    return sum + Number(item?.quantity || 0);
-  }, 0);
-
-  return {
-    id: order.id,
-    orderNumber: order.orderNumber,
-    status: order.status,
-    paymentStatus: order.paymentStatus,
-    totalAmount: Number(order.totalAmount || 0),
-    createdAt: serializeTimestamp(order.createdAt),
-    customerName: order.customerName,
-    customerEmail: order.customerEmail,
-    customerPhone: order.customerPhone,
-    itemCount
-  };
-};
-
-const serializeAdminOrderStatusUpdate = function (order) {
-  return {
-    id: order.id,
-    orderNumber: order.orderNumber,
-    status: order.status,
-    paymentStatus: order.paymentStatus,
-    updatedAt: serializeTimestamp(order.updatedAt)
-  };
-};
-
-const buildOrderNumber = function (now = new Date()) {
-  const dateStamp = now.toISOString().slice(0, 10).replace(/-/g, '');
-  const suffix = (typeof crypto.randomUUID === 'function'
-    ? crypto.randomUUID()
-    : `${Date.now()}-${Math.random()}`)
-    .replace(/-/g, '')
-    .slice(0, 8)
-    .toUpperCase();
-
-  return `DZB-${dateStamp}-${suffix}`;
-};
-
-const validateOrderStatusFilter = function (value) {
-  const normalizedStatus = normalizeEnumValue(value);
-
-  if (!normalizedStatus) {
-    return null;
-  }
-
-  if (!ORDER_STATUS_VALUES.has(normalizedStatus)) {
-    throw createHttpError(400, 'ADMIN_ORDER_INVALID_FILTER', 'Bo loc trang thai don hang khong hop le.');
-  }
-
-  return normalizedStatus;
-};
-
-const validateAdminOrderStatusPayload = function (payload = {}) {
-  const status = normalizeEnumValue(payload.status);
-  const paymentStatusProvided = payload.paymentStatus !== undefined;
-  const paymentStatus = normalizeEnumValue(payload.paymentStatus);
-
-  if (!status || !ORDER_STATUS_VALUES.has(status)) {
-    throw createHttpError(400, 'ADMIN_ORDER_INVALID_PAYLOAD', 'Trang thai don hang khong hop le.');
-  }
-
-  if (paymentStatusProvided && (!paymentStatus || !PAYMENT_STATUS_VALUES.has(paymentStatus))) {
-    throw createHttpError(400, 'ADMIN_ORDER_INVALID_PAYLOAD', 'Trang thai thanh toan khong hop le.');
-  }
-
-  return {
-    status,
-    ...(paymentStatusProvided ? { paymentStatus } : {})
-  };
-};
-
-const validateCheckoutPayload = function (payload = {}) {
-  const customerPhone = normalizeText(payload.customerPhone);
-  const shippingAddress = normalizeText(payload.shippingAddress);
-  const note = normalizeText(payload.note);
-  const paymentMode = normalizeEnumValue(payload.paymentMode || 'COD');
-
-  if (!customerPhone || !shippingAddress) {
-    throw createHttpError(400, 'CHECKOUT_INVALID_PAYLOAD', 'Thong tin giao hang chua day du.');
-  }
-
-  if (!paymentMode || !CHECKOUT_PAYMENT_MODE_VALUES.has(paymentMode)) {
-    throw createHttpError(400, 'CHECKOUT_INVALID_PAYLOAD', 'Phuong thuc thanh toan khong hop le.');
-  }
-
-  return {
-    customerPhone,
-    shippingAddress,
-    note: note || null,
-    paymentMode
-  };
-};
-
-const buildCheckoutIssue = function (item, reason, availableQuantity = null) {
-  const book = item?.book || null;
-
-  return {
-    bookId: Number(item?.bookId || 0),
-    bookHandle: String(book?.handle || '').trim() || null,
-    bookTitle: String(book?.title || '').trim() || 'Tựa sách không còn khả dụng',
-    requestedQuantity: Math.max(0, Number(item?.quantity || 0)),
-    availableQuantity: Number.isFinite(Number(availableQuantity))
-      ? Number(availableQuantity)
-      : null,
-    reason
-  };
 };
 
 const buildOrderItemSnapshots = function (cart) {
@@ -322,7 +123,7 @@ const buildOrderItemSnapshots = function (cart) {
 };
 
 const createCheckoutOrder = async function (req, payload = {}) {
-  const currentUser = req.session?.user || null;
+  const currentUser = req.currentUser || null;
   const currentUserId = normalizeUserId(currentUser?.id);
 
   if (!currentUserId) {

@@ -1,33 +1,13 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../lib/prisma');
+const {
+  normalizeEnumValue,
+  normalizeOptionalText,
+  normalizeText,
+  serializeTimestamp
+} = require('../lib/normalize');
+const { isValidEmail, isValidPhone } = require('../lib/validation');
 const { createHttpError } = require('../middleware/http-error');
-
-const prisma = new PrismaClient();
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CONTACT_STATUS_VALUES = new Set(['RECEIVED', 'IN_PROGRESS', 'RESOLVED', 'CLOSED']);
-
-const normalizeText = function (value) {
-  return String(value || '').trim();
-};
-
-const normalizeOptionalText = function (value) {
-  const normalized = normalizeText(value);
-  return normalized || null;
-};
-
-const normalizeEnumValue = function (value) {
-  return String(value || '').trim().toUpperCase();
-};
-
-const isValidPhone = function (value) {
-  const digits = String(value || '').replace(/\D/g, '');
-  return digits.length >= 9 && digits.length <= 11;
-};
-
-const serializeTimestamp = function (value) {
-  return value instanceof Date
-    ? value.toISOString()
-    : String(value || '');
-};
 
 const validateContactPayload = function (payload = {}) {
   const name = normalizeText(payload.name);
@@ -39,7 +19,7 @@ const validateContactPayload = function (payload = {}) {
     throw createHttpError(400, 'CONTACT_INVALID_PAYLOAD', 'Vui long nhap ho ten de tiep tuc.');
   }
 
-  if (!email || !emailRegex.test(email)) {
+  if (!email || !isValidEmail(email)) {
     throw createHttpError(400, 'CONTACT_INVALID_PAYLOAD', 'Email lien he chua hop le.');
   }
 

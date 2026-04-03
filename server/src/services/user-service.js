@@ -1,20 +1,10 @@
 const crypto = require('node:crypto');
 const bcrypt = require('bcryptjs');
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../lib/prisma');
+const { normalizeText, serializeTimestamp } = require('../lib/normalize');
+const { isValidEmail, isValidPhone, normalizeEmail } = require('../lib/validation');
 const { createHttpError } = require('../middleware/http-error');
-
-const prisma = new PrismaClient();
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PASSWORD_MIN_LENGTH = 6;
-
-const normalizeEmail = function (value) {
-  return String(value || '').trim().toLowerCase();
-};
-
-const isValidPhone = function (value) {
-  const digits = String(value || '').replace(/\D/g, '');
-  return digits.length >= 9 && digits.length <= 11;
-};
 
 const createInactiveAccountError = function () {
   return createHttpError(401, 'AUTH_ACCOUNT_INACTIVE', 'Tai khoan hien khong con hoat dong.');
@@ -30,9 +20,7 @@ const sanitizeUser = function (user) {
     name: user.name,
     email: user.email,
     phone: user.phone || '',
-    createdAt: user.createdAt instanceof Date
-      ? user.createdAt.toISOString()
-      : String(user.createdAt || '')
+    createdAt: serializeTimestamp(user.createdAt)
   };
 };
 
@@ -121,8 +109,8 @@ const getCustomerRoleId = async function () {
 };
 
 const validateProfilePayload = function (payload = {}) {
-  const name = String(payload.name || '').trim();
-  const phone = String(payload.phone || '').trim();
+  const name = normalizeText(payload.name);
+  const phone = normalizeText(payload.phone);
 
   if (!name) {
     throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Thong tin ho so chua hop le.');
@@ -139,16 +127,16 @@ const validateProfilePayload = function (payload = {}) {
 };
 
 const validateRegisterPayload = function (payload = {}) {
-  const name = String(payload.name || '').trim();
+  const name = normalizeText(payload.name);
   const email = normalizeEmail(payload.email);
-  const phone = String(payload.phone || '').trim();
-  const password = String(payload.password || '').trim();
+  const phone = normalizeText(payload.phone);
+  const password = normalizeText(payload.password);
 
   if (!name || !email || !password) {
     throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Thong tin dang ky chua day du.');
   }
 
-  if (!emailRegex.test(email)) {
+  if (!isValidEmail(email)) {
     throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Email chua dung dinh dang hop le.');
   }
 
@@ -221,8 +209,8 @@ const updateUserProfile = async function (userId, payload = {}) {
 };
 
 const authenticateUser = async function (payload = {}) {
-  const email = String(payload.email || '').trim();
-  const password = String(payload.password || '').trim();
+  const email = normalizeText(payload.email);
+  const password = normalizeText(payload.password);
 
   if (!email || !password) {
     throw createHttpError(400, 'AUTH_INVALID_PAYLOAD', 'Thong tin dang nhap chua day du.');

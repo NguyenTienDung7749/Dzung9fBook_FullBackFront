@@ -1,9 +1,7 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../lib/prisma');
 const { createHttpError } = require('../middleware/http-error');
-
-const prisma = new PrismaClient();
 const PUBLIC_CATALOG_ROOT = path.resolve(process.cwd(), 'public', 'assets', 'data', 'catalog');
 const FALLBACK_CATALOG_ROOT = path.resolve(process.cwd(), 'assets', 'data', 'catalog');
 const BOOKS_PER_PAGE = 12;

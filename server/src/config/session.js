@@ -1,14 +1,11 @@
 const session = require('express-session');
 const { Pool } = require('pg');
 const createPgSessionStore = require('connect-pg-simple');
+const { normalizeBooleanEnv } = require('../lib/normalize');
 
 const PgSessionStore = createPgSessionStore(session);
 const SESSION_COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 7;
 const DEV_SESSION_SECRET = 'dzung9fbook-dev-session-secret';
-
-const normalizeBooleanEnv = function (value) {
-  return ['1', 'true', 'yes', 'on'].includes(String(value || '').trim().toLowerCase());
-};
 
 const isProduction = function () {
   return String(process.env.NODE_ENV || '').trim().toLowerCase() === 'production';

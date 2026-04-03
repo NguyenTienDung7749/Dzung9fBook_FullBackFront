@@ -1,7 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../lib/prisma');
+const { serializeTimestamp } = require('../lib/normalize');
 const { createHttpError } = require('../middleware/http-error');
-
-const prisma = new PrismaClient();
 const ADMIN_BOOK_SELECT = {
   id: true,
   handle: true,
@@ -24,12 +23,6 @@ const ADMIN_BOOK_SELECT = {
       name: true
     }
   }
-};
-
-const serializeTimestamp = function (value) {
-  return value instanceof Date
-    ? value.toISOString()
-    : String(value || '');
 };
 
 const normalizeBookId = function (value) {

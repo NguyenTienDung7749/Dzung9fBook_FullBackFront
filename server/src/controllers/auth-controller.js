@@ -72,13 +72,7 @@ const logout = async function (req, res, next) {
 
 const updateProfile = async function (req, res, next) {
   try {
-    const currentUserId = req.session?.user?.id;
-
-    if (!currentUserId) {
-      throw createHttpError(401, 'AUTH_REQUIRED', 'Vui long dang nhap de tiep tuc.');
-    }
-
-    const user = await updateUserProfile(currentUserId, req.body);
+    const user = await updateUserProfile(req.currentUser.id, req.body);
     req.session.user = user;
     res.json(buildSessionPayload(user));
   } catch (error) {
