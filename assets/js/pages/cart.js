@@ -509,7 +509,7 @@ const buildCheckoutFormMarkup = function () {
           <h3>${isOnlineMode ? 'Hoàn tất thông tin giao nhận' : 'Xác nhận đơn COD'}</h3>
           <p>${isOnlineMode
             ? 'Thông tin dưới đây sẽ được gắn vào đơn hàng sau khi bước thanh toán demo đã hoàn tất.'
-            : 'Chỉ cần số điện thoại và địa chỉ giao hàng để staff xác nhận đơn trong bước tiếp theo.'}</p>
+            : 'Chỉ cần số điện thoại và địa chỉ giao hàng để admin xác nhận đơn trong bước tiếp theo.'}</p>
         </div>
 
         ${buildCheckoutInfoRowsMarkup()}

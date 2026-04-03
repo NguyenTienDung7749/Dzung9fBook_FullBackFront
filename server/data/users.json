@@ -1,18 +1,11 @@
 [
   {
-    "id": "11111111-1111-4111-8111-111111111111",
-    "name": "Seed Customer",
-    "email": "seed-customer@example.com",
-    "phone": "0900000001",
-    "passwordHash": "$2b$10$sSphfr8NK7QPOBMDi66P9.LGa8w2vTQueEMBP9NCZcxw4baBXXIk2",
-    "createdAt": "2026-03-01T09:00:00.000Z"
-  },
-  {
-    "id": "22222222-2222-4222-8222-222222222222",
-    "name": "Seed Reader",
-    "email": "seed-reader@example.com",
-    "phone": "0900000002",
-    "passwordHash": "$2b$10$69gyujgrgTpn5a//ih4hPOh6Dlg6hWsn4aUR5/AzRUCo6s2ybf27.",
-    "createdAt": "2026-03-02T09:00:00.000Z"
+    "id": "e3df32a9-647a-4cdc-9535-184aa2aac391",
+    "name": "Nguyễn Tiến Dũng",
+    "email": "toinangpham@gmail.com",
+    "phone": "",
+    "roleCode": "admin",
+    "passwordHash": "$2b$10$HgA8JPJk2XJdjUw9GmdfA.eEgbhT009OYSZE59ohEsxRHygR2HFO2",
+    "createdAt": "2026-04-03T00:00:00.000Z"
   }
 ]

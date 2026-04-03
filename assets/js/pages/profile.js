@@ -188,7 +188,7 @@ const buildAdminAccessCardMarkup = function () {
     <article class="profile-card">
       <div class="profile-card__header">
         <p class="profile-card__eyebrow">Khu quản trị</p>
-        <h2 class="profile-card__title">Lối vào dành cho staff/admin</h2>
+        <h2 class="profile-card__title">Lối vào dành cho admin</h2>
         <p class="profile-card__text">Tài khoản hiện tại có thể mở nhanh khu quản trị để xử lý đơn hàng, tồn kho sách và các tin nhắn liên hệ.</p>
       </div>
 

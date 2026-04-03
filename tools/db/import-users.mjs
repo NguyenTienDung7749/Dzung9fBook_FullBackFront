@@ -12,6 +12,8 @@ export const importUsers = async function (prisma) {
 
   for (const user of users) {
     const email = String(user.email || '').trim().toLowerCase();
+    const requestedRoleCode = String(user.roleCode || 'customer').trim().toLowerCase();
+    const resolvedRole = rolesByCode.get(requestedRoleCode) || customerRole;
 
     if (!email) {
       continue;
@@ -20,7 +22,7 @@ export const importUsers = async function (prisma) {
     await prisma.user.upsert({
       where: { email },
       update: {
-        roleId: customerRole.id,
+        roleId: resolvedRole.id,
         passwordHash: String(user.passwordHash || '').trim(),
         name: String(user.name || '').trim(),
         phone: toOptionalString(user.phone),
@@ -29,7 +31,7 @@ export const importUsers = async function (prisma) {
       },
       create: {
         id: String(user.id || '').trim(),
-        roleId: customerRole.id,
+        roleId: resolvedRole.id,
         email,
         passwordHash: String(user.passwordHash || '').trim(),
         name: String(user.name || '').trim(),

@@ -444,7 +444,7 @@ const render = function () {
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
       'Bạn cần đăng nhập',
-      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị đơn hàng.',
+      'Vui lòng đăng nhập bằng tài khoản admin để truy cập khu vực quản trị đơn hàng.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     syncBodyModalState(false);
@@ -454,7 +454,7 @@ const render = function () {
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
       'Bạn không có quyền truy cập',
-      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
+      'Tài khoản hiện tại không thuộc nhóm admin nên không thể dùng trang quản trị này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     syncBodyModalState(false);

@@ -283,7 +283,7 @@ const buildMessageDetailMarkup = function (message) {
 
           <label class="form-field">
             <span class="label-text">Ghi chú nội bộ</span>
-            <textarea name="adminNote" rows="4" placeholder="Ghi chú ngắn cho staff/admin khác..." ${isPending ? 'disabled' : ''}>${escapeHTML(draft.adminNote || '')}</textarea>
+            <textarea name="adminNote" rows="4" placeholder="Ghi chú ngắn cho admin khác..." ${isPending ? 'disabled' : ''}>${escapeHTML(draft.adminNote || '')}</textarea>
           </label>
         </div>
 
@@ -423,7 +423,7 @@ const render = function () {
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
       'Bạn cần đăng nhập',
-      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị liên hệ.',
+      'Vui lòng đăng nhập bằng tài khoản admin để truy cập khu vực quản trị liên hệ.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     syncBodyModalState(false);
@@ -433,7 +433,7 @@ const render = function () {
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
       'Bạn không có quyền truy cập',
-      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
+      'Tài khoản hiện tại không thuộc nhóm admin nên không thể dùng trang quản trị này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     syncBodyModalState(false);

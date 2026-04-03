@@ -10,7 +10,6 @@ export const USERS_FILE = path.join(ROOT_DIR, 'server', 'data', 'users.json');
 
 export const BASE_ROLES = [
   { code: 'customer', label: 'Customer' },
-  { code: 'staff', label: 'Staff' },
   { code: 'admin', label: 'Admin' }
 ];
 

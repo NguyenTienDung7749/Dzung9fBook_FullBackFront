@@ -39,7 +39,7 @@ const buildHubCardMarkup = function (eyebrow, title, description, href, actionLa
 };
 
 const buildReadyMarkup = function () {
-  const displayName = escapeHTML(String(state.currentUser?.name || 'Staff/Admin'));
+  const displayName = escapeHTML(String(state.currentUser?.name || 'Admin'));
 
   return `
     <article class="profile-card">
@@ -68,7 +68,7 @@ const buildReadyMarkup = function () {
       ${buildHubCardMarkup(
         'Liên hệ',
         'Xử lý tin nhắn hỗ trợ',
-        'Theo dõi các yêu cầu liên hệ mới và để lại ghi chú nội bộ cho staff/admin.',
+        'Theo dõi các yêu cầu liên hệ mới và để lại ghi chú nội bộ cho admin.',
         './admin-messages.html',
         'Mở tin nhắn'
       )}
@@ -86,7 +86,7 @@ const render = function () {
   if (!isApiProviderMode()) {
     container.innerHTML = buildStateMarkup(
       'Admin UI chỉ hỗ trợ khi chạy backend',
-      'Trang này cần API mode để kiểm tra quyền staff/admin và tải các lối vào khu quản trị.',
+      'Trang này cần API mode để kiểm tra quyền admin và tải các lối vào khu quản trị.',
       '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
     return;
@@ -95,7 +95,7 @@ const render = function () {
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
       'Đang kiểm tra quyền truy cập',
-      'Chúng mình đang xác nhận tài khoản hiện tại có thuộc nhóm staff/admin hay không.'
+      'Chúng mình đang xác nhận tài khoản hiện tại có thuộc nhóm admin hay không.'
     );
     return;
   }
@@ -103,7 +103,7 @@ const render = function () {
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
       'Bạn cần đăng nhập',
-      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu quản trị.',
+      'Vui lòng đăng nhập bằng tài khoản admin để truy cập khu quản trị.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     return;
@@ -112,7 +112,7 @@ const render = function () {
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
       'Bạn không có quyền truy cập',
-      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng khu quản trị.',
+      'Tài khoản hiện tại không thuộc nhóm admin nên không thể dùng khu quản trị.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     return;
@@ -121,7 +121,7 @@ const render = function () {
   if (state.status === 'unsupported') {
     container.innerHTML = buildStateMarkup(
       'Admin UI chỉ hỗ trợ khi chạy backend',
-      'Trang này cần API mode để kiểm tra quyền staff/admin và tải các lối vào khu quản trị.',
+      'Trang này cần API mode để kiểm tra quyền admin và tải các lối vào khu quản trị.',
       '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
     return;

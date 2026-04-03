@@ -385,7 +385,7 @@ const render = function () {
   if (state.status === 'loading' || state.status === 'idle') {
     container.innerHTML = buildStateMarkup(
       'Đang tải danh sách sách',
-      'Chúng mình đang đồng bộ catalog từ backend để staff/admin cập nhật tồn kho.'
+      'Chúng mình đang đồng bộ catalog từ backend để admin cập nhật tồn kho.'
     );
     syncBodyModalState(false);
     return;
@@ -394,7 +394,7 @@ const render = function () {
   if (state.status === 'unauthorized') {
     container.innerHTML = buildStateMarkup(
       'Bạn cần đăng nhập',
-      'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản lý tồn kho.',
+      'Vui lòng đăng nhập bằng tài khoản admin để truy cập khu vực quản lý tồn kho.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
     syncBodyModalState(false);
@@ -404,7 +404,7 @@ const render = function () {
   if (state.status === 'forbidden') {
     container.innerHTML = buildStateMarkup(
       'Bạn không có quyền truy cập',
-      'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang inventory này.',
+      'Tài khoản hiện tại không thuộc nhóm admin nên không thể dùng trang inventory này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
     syncBodyModalState(false);

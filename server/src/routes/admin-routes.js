@@ -7,7 +7,7 @@ const { requireRole } = require('../middleware/require-role');
 
 const router = express.Router();
 
-router.use(requireRole(['staff', 'admin']));
+router.use(requireRole(['admin']));
 
 router.get('/me', adminAuthController.getAdminMe);
 router.get('/books', adminBookController.listBooks);
