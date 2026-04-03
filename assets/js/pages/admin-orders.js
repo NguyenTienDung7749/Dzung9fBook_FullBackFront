@@ -53,6 +53,9 @@ let state = {
   draftById: {}
 };
 
+let lastOrderTrigger = null;
+let orderKeyboardBound = false;
+
 const getContent = function () {
   return qs('[data-admin-orders-content]');
 };
@@ -88,6 +91,10 @@ const formatDateTime = function (value) {
     dateStyle: 'medium',
     timeStyle: 'short'
   }).format(parsedDate);
+};
+
+const syncBodyModalState = function (isOpen) {
+  document.body.classList.toggle('admin-modal-open', Boolean(isOpen));
 };
 
 const resolveOrderStatusLabel = function (status) {
@@ -222,22 +229,19 @@ const getVisibleItems = function () {
   });
 };
 
-const syncSelectedOrder = function (visibleItems) {
-  const items = Array.isArray(visibleItems) ? visibleItems : [];
-  const currentSelection = items.find(function (order) {
+const getSelectedOrder = function (visibleItems) {
+  const selectedOrder = (Array.isArray(visibleItems) ? visibleItems : []).find(function (order) {
     return normalizeText(order.id) === normalizeText(state.selectedOrderId);
   }) || null;
-  const nextSelection = currentSelection || items[0] || null;
-  const nextSelectedOrderId = normalizeText(nextSelection?.id);
 
-  if (nextSelectedOrderId !== normalizeText(state.selectedOrderId)) {
+  if (!selectedOrder && state.selectedOrderId) {
     state = {
       ...state,
-      selectedOrderId: nextSelectedOrderId
+      selectedOrderId: ''
     };
   }
 
-  return nextSelection;
+  return selectedOrder;
 };
 
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
@@ -269,7 +273,7 @@ const buildOrderDetailMarkup = function (order) {
       <div class="admin-detail__header">
         <div class="admin-detail__title-block">
           <p class="profile-card__eyebrow">Chi tiết đơn hàng</p>
-          <h2 class="admin-detail__title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
+          <h2 class="admin-detail__title" id="admin-order-modal-title">${escapeHTML(order.orderNumber || 'Đơn hàng')}</h2>
           <p class="admin-detail__text">Tạo lúc ${escapeHTML(formatDateTime(order.createdAt))}</p>
         </div>
 
@@ -314,6 +318,45 @@ const buildOrderDetailMarkup = function (order) {
   `;
 };
 
+const buildOrderModalMarkup = function (order) {
+  const isPending = normalizeText(state.pendingOrderId) === normalizeText(order?.id);
+
+  return `
+    <div class="admin-modal" data-admin-order-modal>
+      <button
+        class="admin-modal__backdrop"
+        type="button"
+        data-admin-order-close
+        aria-label="Đóng popup chi tiết đơn hàng"
+        ${isPending ? 'disabled' : ''}
+      ></button>
+
+      <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-order-modal-title">
+        <div class="admin-modal__topbar">
+          <div class="admin-modal__heading">
+            <p class="profile-card__eyebrow">Quản lý đơn hàng</p>
+            <h2 class="admin-modal__title">Chi tiết đơn hàng</h2>
+          </div>
+
+          <button
+            class="admin-modal__close"
+            type="button"
+            data-admin-order-close
+            aria-label="Đóng popup chi tiết đơn hàng"
+            ${isPending ? 'disabled' : ''}
+          >
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <div class="admin-modal__content">
+          ${buildOrderDetailMarkup(order)}
+        </div>
+      </div>
+    </div>
+  `;
+};
+
 const buildOrderListItemMarkup = function (order, selectedOrderId) {
   const orderId = normalizeText(order?.id);
   const isSelected = orderId === selectedOrderId;
@@ -326,7 +369,8 @@ const buildOrderListItemMarkup = function (order, selectedOrderId) {
         type="button"
         data-admin-order-select
         data-order-id="${escapeHTML(orderId)}"
-        aria-pressed="${isSelected ? 'true' : 'false'}"
+        aria-haspopup="dialog"
+        aria-expanded="${isSelected ? 'true' : 'false'}"
         ${isInteractionLocked ? 'disabled' : ''}
       >
         <div class="admin-list-item__main">
@@ -342,56 +386,32 @@ const buildOrderListItemMarkup = function (order, selectedOrderId) {
           </div>
         </div>
 
-        <dl class="admin-list-stats">
-          ${buildListStatMarkup('Tổng tiền', formatPrice(order.totalAmount || 0))}
-          ${buildListStatMarkup('Số lượng', String(Number(order.itemCount || 0)))}
-        </dl>
-      </button>
-
-      ${isSelected ? `
-        <div class="admin-inline-detail">
-          ${buildOrderDetailMarkup(order)}
+        <div class="admin-list-item__footer">
+          <dl class="admin-list-stats">
+            ${buildListStatMarkup('Tổng tiền', formatPrice(order.totalAmount || 0))}
+            ${buildListStatMarkup('Số lượng', String(Number(order.itemCount || 0)))}
+          </dl>
+          <span class="admin-list-item__action">Xem chi tiết</span>
         </div>
-      ` : ''}
+      </button>
     </article>
   `;
 };
 
-const buildEmptyDetailMarkup = function (title, description) {
+const buildListPanelMarkup = function (visibleItems, selectedOrder) {
   return `
-    <div class="admin-detail-empty">
-      <p class="profile-card__eyebrow">Chi tiết</p>
-      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
-      <p class="admin-detail__text">${escapeHTML(description)}</p>
-    </div>
-  `;
-};
+    <section class="profile-card admin-panel">
+      <div class="admin-panel__header">
+        <p class="profile-card__eyebrow">Danh sách</p>
+        <h2 class="admin-panel__title">Đơn hàng phù hợp</h2>
+      </div>
 
-const buildWorkspaceMarkup = function (visibleItems, selectedOrder) {
-  return `
-    <div class="admin-workspace">
-      <section class="profile-card admin-panel admin-workspace__list">
-        <div class="admin-panel__header">
-          <p class="profile-card__eyebrow">Danh sách</p>
-          <h2 class="admin-panel__title">Đơn hàng phù hợp</h2>
-        </div>
-
-        <div class="admin-list">
-          ${visibleItems.map(function (order) {
-            return buildOrderListItemMarkup(order, normalizeText(selectedOrder?.id));
-          }).join('')}
-        </div>
-      </section>
-
-      <aside class="profile-card admin-panel admin-workspace__detail">
-        ${selectedOrder
-          ? buildOrderDetailMarkup(selectedOrder)
-          : buildEmptyDetailMarkup(
-            'Chưa chọn đơn hàng',
-            'Chọn một đơn từ danh sách bên trái để xem thông tin và cập nhật trạng thái.'
-          )}
-      </aside>
-    </div>
+      <div class="admin-list">
+        ${visibleItems.map(function (order) {
+          return buildOrderListItemMarkup(order, normalizeText(selectedOrder?.id));
+        }).join('')}
+      </div>
+    </section>
   `;
 };
 
@@ -408,6 +428,7 @@ const render = function () {
       'Trang này cần API mode để tải và cập nhật dữ liệu quản trị.',
       '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -416,6 +437,7 @@ const render = function () {
       'Đang tải danh sách đơn hàng',
       'Chúng mình đang đồng bộ dữ liệu đơn hàng mới nhất từ backend.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -425,6 +447,7 @@ const render = function () {
       'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị đơn hàng.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -434,6 +457,7 @@ const render = function () {
       'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -443,10 +467,12 @@ const render = function () {
       'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
       '<a href="./admin-orders.html" class="btn btn-primary">Thử tải lại</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
   const visibleItems = getVisibleItems();
+  const selectedOrder = getSelectedOrder(visibleItems);
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
@@ -455,6 +481,7 @@ const render = function () {
         ? 'Không có đơn hàng nào khớp với bộ lọc trạng thái hiện tại.'
         : 'Danh sách đơn hàng hiện đang trống.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -463,15 +490,16 @@ const render = function () {
       'Không có kết quả phù hợp',
       'Không tìm thấy đơn hàng nào khớp với từ khóa tìm kiếm hiện tại.'
     );
+    syncBodyModalState(false);
     return;
   }
 
-  const selectedOrder = syncSelectedOrder(visibleItems);
-
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    ${buildWorkspaceMarkup(visibleItems, selectedOrder)}
+    ${buildListPanelMarkup(visibleItems, selectedOrder)}
+    ${selectedOrder ? buildOrderModalMarkup(selectedOrder) : ''}
   `;
+  syncBodyModalState(Boolean(selectedOrder));
 };
 
 const setPageStateFromError = function (error) {
@@ -546,6 +574,38 @@ const loadOrders = async function () {
   render();
 };
 
+const closeOrderModal = function (restoreFocus = true) {
+  if (!state.selectedOrderId || state.pendingOrderId) {
+    return;
+  }
+
+  state = {
+    ...state,
+    selectedOrderId: ''
+  };
+  render();
+
+  if (restoreFocus && lastOrderTrigger && typeof lastOrderTrigger.focus === 'function') {
+    lastOrderTrigger.focus();
+  }
+};
+
+const bindKeyboard = function () {
+  if (orderKeyboardBound) {
+    return;
+  }
+
+  orderKeyboardBound = true;
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !state.selectedOrderId || state.pendingOrderId) {
+      return;
+    }
+
+    closeOrderModal();
+  });
+};
+
 const bindFilter = function () {
   const filter = getFilter();
 
@@ -587,6 +647,13 @@ const bindActions = function () {
   }
 
   container.addEventListener('click', function (event) {
+    const closeButton = event.target.closest('[data-admin-order-close]');
+
+    if (closeButton) {
+      closeOrderModal();
+      return;
+    }
+
     const selectButton = event.target.closest('[data-admin-order-select]');
 
     if (!selectButton || state.pendingOrderId) {
@@ -595,10 +662,11 @@ const bindActions = function () {
 
     const orderId = normalizeText(selectButton.dataset.orderId);
 
-    if (!orderId || orderId === normalizeText(state.selectedOrderId)) {
+    if (!orderId) {
       return;
     }
 
+    lastOrderTrigger = selectButton;
     state = {
       ...state,
       selectedOrderId: orderId
@@ -674,6 +742,7 @@ const bindActions = function () {
       state = {
         ...state,
         pendingOrderId: '',
+        selectedOrderId: shouldKeepItem ? orderId : '',
         items: shouldKeepItem
           ? state.items.map(function (item) {
             return normalizeText(item.id) === orderId ? { ...item, ...(updatedOrder || {}) } : item;
@@ -713,6 +782,7 @@ export const initAdminOrdersPage = function () {
     return;
   }
 
+  bindKeyboard();
   bindFilter();
   bindSearch();
   bindActions();

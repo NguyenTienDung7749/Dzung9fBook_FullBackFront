@@ -16,6 +16,9 @@ let state = {
   selectedBookId: ''
 };
 
+let lastBookTrigger = null;
+let bookKeyboardBound = false;
+
 const getContent = function () {
   return qs('[data-admin-books-content]');
 };
@@ -47,6 +50,10 @@ const formatDateTime = function (value) {
     dateStyle: 'medium',
     timeStyle: 'short'
   }).format(parsedDate);
+};
+
+const syncBodyModalState = function (isOpen) {
+  document.body.classList.toggle('admin-modal-open', Boolean(isOpen));
 };
 
 const buildStateMarkup = function (title, description, actionMarkup = '') {
@@ -190,22 +197,19 @@ const getVisibleItems = function () {
   });
 };
 
-const syncSelectedBook = function (visibleItems) {
-  const items = Array.isArray(visibleItems) ? visibleItems : [];
-  const currentSelection = items.find(function (book) {
+const getSelectedBook = function (visibleItems) {
+  const selectedBook = (Array.isArray(visibleItems) ? visibleItems : []).find(function (book) {
     return normalizeText(book.id) === normalizeText(state.selectedBookId);
   }) || null;
-  const nextSelection = currentSelection || items[0] || null;
-  const nextSelectedBookId = normalizeText(nextSelection?.id);
 
-  if (nextSelectedBookId !== normalizeText(state.selectedBookId)) {
+  if (!selectedBook && state.selectedBookId) {
     state = {
       ...state,
-      selectedBookId: nextSelectedBookId
+      selectedBookId: ''
     };
   }
 
-  return nextSelection;
+  return selectedBook;
 };
 
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
@@ -228,7 +232,7 @@ const buildBookDetailMarkup = function (book) {
       <div class="admin-detail__header">
         <div class="admin-detail__title-block">
           <p class="profile-card__eyebrow">Chi tiết tồn kho</p>
-          <h2 class="admin-detail__title">${escapeHTML(book.title || 'Tựa sách')}</h2>
+          <h2 class="admin-detail__title" id="admin-book-modal-title">${escapeHTML(book.title || 'Tựa sách')}</h2>
           <p class="admin-detail__text">${escapeHTML(normalizeText(book.author) || 'Đang cập nhật tác giả')}</p>
         </div>
 
@@ -264,6 +268,45 @@ const buildBookDetailMarkup = function (book) {
   `;
 };
 
+const buildBookModalMarkup = function (book) {
+  const isPending = normalizeText(state.pendingBookId) === normalizeText(book?.id);
+
+  return `
+    <div class="admin-modal" data-admin-book-modal>
+      <button
+        class="admin-modal__backdrop"
+        type="button"
+        data-admin-book-close
+        aria-label="Đóng popup chi tiết tồn kho"
+        ${isPending ? 'disabled' : ''}
+      ></button>
+
+      <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-book-modal-title">
+        <div class="admin-modal__topbar">
+          <div class="admin-modal__heading">
+            <p class="profile-card__eyebrow">Quản lý tồn kho</p>
+            <h2 class="admin-modal__title">Chi tiết tựa sách</h2>
+          </div>
+
+          <button
+            class="admin-modal__close"
+            type="button"
+            data-admin-book-close
+            aria-label="Đóng popup chi tiết tồn kho"
+            ${isPending ? 'disabled' : ''}
+          >
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <div class="admin-modal__content">
+          ${buildBookDetailMarkup(book)}
+        </div>
+      </div>
+    </div>
+  `;
+};
+
 const buildBookListItemMarkup = function (book, selectedBookId) {
   const bookId = normalizeText(book?.id);
   const isSelected = bookId === selectedBookId;
@@ -276,7 +319,8 @@ const buildBookListItemMarkup = function (book, selectedBookId) {
         type="button"
         data-admin-book-select
         data-book-id="${escapeHTML(bookId)}"
-        aria-pressed="${isSelected ? 'true' : 'false'}"
+        aria-haspopup="dialog"
+        aria-expanded="${isSelected ? 'true' : 'false'}"
         ${isInteractionLocked ? 'disabled' : ''}
       >
         <div class="admin-list-item__main">
@@ -292,56 +336,32 @@ const buildBookListItemMarkup = function (book, selectedBookId) {
           </div>
         </div>
 
-        <dl class="admin-list-stats">
-          ${buildListStatMarkup('Giá bán', formatPrice(book.price || 0))}
-          ${buildListStatMarkup('Cập nhật', formatDateTime(book.updatedAt))}
-        </dl>
-      </button>
-
-      ${isSelected ? `
-        <div class="admin-inline-detail">
-          ${buildBookDetailMarkup(book)}
+        <div class="admin-list-item__footer">
+          <dl class="admin-list-stats">
+            ${buildListStatMarkup('Giá bán', formatPrice(book.price || 0))}
+            ${buildListStatMarkup('Cập nhật', formatDateTime(book.updatedAt))}
+          </dl>
+          <span class="admin-list-item__action">Xem chi tiết</span>
         </div>
-      ` : ''}
+      </button>
     </article>
   `;
 };
 
-const buildEmptyDetailMarkup = function (title, description) {
+const buildListPanelMarkup = function (visibleItems, selectedBook) {
   return `
-    <div class="admin-detail-empty">
-      <p class="profile-card__eyebrow">Chi tiết</p>
-      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
-      <p class="admin-detail__text">${escapeHTML(description)}</p>
-    </div>
-  `;
-};
+    <section class="profile-card admin-panel">
+      <div class="admin-panel__header">
+        <p class="profile-card__eyebrow">Danh sách</p>
+        <h2 class="admin-panel__title">Tựa sách phù hợp</h2>
+      </div>
 
-const buildWorkspaceMarkup = function (visibleItems, selectedBook) {
-  return `
-    <div class="admin-workspace">
-      <section class="profile-card admin-panel admin-workspace__list">
-        <div class="admin-panel__header">
-          <p class="profile-card__eyebrow">Danh sách</p>
-          <h2 class="admin-panel__title">Tựa sách phù hợp</h2>
-        </div>
-
-        <div class="admin-list">
-          ${visibleItems.map(function (book) {
-            return buildBookListItemMarkup(book, normalizeText(selectedBook?.id));
-          }).join('')}
-        </div>
-      </section>
-
-      <aside class="profile-card admin-panel admin-workspace__detail">
-        ${selectedBook
-          ? buildBookDetailMarkup(selectedBook)
-          : buildEmptyDetailMarkup(
-            'Chưa chọn tựa sách',
-            'Chọn một tựa sách từ danh sách bên trái để xem rule tồn kho và cập nhật trạng thái.'
-          )}
-      </aside>
-    </div>
+      <div class="admin-list">
+        ${visibleItems.map(function (book) {
+          return buildBookListItemMarkup(book, normalizeText(selectedBook?.id));
+        }).join('')}
+      </div>
+    </section>
   `;
 };
 
@@ -358,6 +378,7 @@ const render = function () {
       'Trang này cần API mode để tải và cập nhật dữ liệu tồn kho thực tế trong DB.',
       '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -366,6 +387,7 @@ const render = function () {
       'Đang tải danh sách sách',
       'Chúng mình đang đồng bộ catalog từ backend để staff/admin cập nhật tồn kho.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -375,6 +397,7 @@ const render = function () {
       'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản lý tồn kho.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -384,6 +407,7 @@ const render = function () {
       'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang inventory này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -393,16 +417,19 @@ const render = function () {
       'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
       '<a href="./admin-books.html" class="btn btn-primary">Thử tải lại</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
   const visibleItems = getVisibleItems();
+  const selectedBook = getSelectedBook(visibleItems);
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
       'Chưa có tựa sách nào trong DB',
       'Danh sách sách hiện đang trống, vì vậy chưa có dữ liệu tồn kho để cập nhật.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -411,15 +438,16 @@ const render = function () {
       'Không có kết quả phù hợp',
       'Thử đổi từ khóa tìm kiếm hoặc bộ lọc trạng thái để xem nhiều tựa sách hơn.'
     );
+    syncBodyModalState(false);
     return;
   }
 
-  const selectedBook = syncSelectedBook(visibleItems);
-
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    ${buildWorkspaceMarkup(visibleItems, selectedBook)}
+    ${buildListPanelMarkup(visibleItems, selectedBook)}
+    ${selectedBook ? buildBookModalMarkup(selectedBook) : ''}
   `;
+  syncBodyModalState(Boolean(selectedBook));
 };
 
 const setPageStateFromError = function (error) {
@@ -494,6 +522,38 @@ const loadBooks = async function () {
   render();
 };
 
+const closeBookModal = function (restoreFocus = true) {
+  if (!state.selectedBookId || state.pendingBookId) {
+    return;
+  }
+
+  state = {
+    ...state,
+    selectedBookId: ''
+  };
+  render();
+
+  if (restoreFocus && lastBookTrigger && typeof lastBookTrigger.focus === 'function') {
+    lastBookTrigger.focus();
+  }
+};
+
+const bindKeyboard = function () {
+  if (bookKeyboardBound) {
+    return;
+  }
+
+  bookKeyboardBound = true;
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !state.selectedBookId || state.pendingBookId) {
+      return;
+    }
+
+    closeBookModal();
+  });
+};
+
 const bindFilter = function () {
   const filter = getFilter();
 
@@ -536,6 +596,13 @@ const bindActions = function () {
   }
 
   container.addEventListener('click', function (event) {
+    const closeButton = event.target.closest('[data-admin-book-close]');
+
+    if (closeButton) {
+      closeBookModal();
+      return;
+    }
+
     const selectButton = event.target.closest('[data-admin-book-select]');
 
     if (!selectButton || state.pendingBookId) {
@@ -544,10 +611,11 @@ const bindActions = function () {
 
     const bookId = normalizeText(selectButton.dataset.bookId);
 
-    if (!bookId || bookId === normalizeText(state.selectedBookId)) {
+    if (!bookId) {
       return;
     }
 
+    lastBookTrigger = selectButton;
     state = {
       ...state,
       selectedBookId: bookId
@@ -624,6 +692,7 @@ const bindActions = function () {
       state = {
         ...state,
         pendingBookId: '',
+        selectedBookId: shouldKeepItem ? bookId : '',
         items: shouldKeepItem
           ? state.items.map(function (item) {
             return normalizeText(item.id) === bookId ? { ...item, ...(updatedBook || {}) } : item;
@@ -663,6 +732,7 @@ export const initAdminBooksPage = function () {
     return;
   }
 
+  bindKeyboard();
   bindFilter();
   bindSearch();
   bindActions();

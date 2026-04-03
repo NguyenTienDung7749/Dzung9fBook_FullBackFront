@@ -35,6 +35,9 @@ let state = {
   draftById: {}
 };
 
+let lastMessageTrigger = null;
+let messageKeyboardBound = false;
+
 const getContent = function () {
   return qs('[data-admin-messages-content]');
 };
@@ -70,6 +73,10 @@ const formatDateTime = function (value) {
     dateStyle: 'medium',
     timeStyle: 'short'
   }).format(parsedDate);
+};
+
+const syncBodyModalState = function (isOpen) {
+  document.body.classList.toggle('admin-modal-open', Boolean(isOpen));
 };
 
 const resolveMessageStatusLabel = function (status) {
@@ -195,22 +202,19 @@ const getVisibleItems = function () {
   });
 };
 
-const syncSelectedMessage = function (visibleItems) {
-  const items = Array.isArray(visibleItems) ? visibleItems : [];
-  const currentSelection = items.find(function (message) {
+const getSelectedMessage = function (visibleItems) {
+  const selectedMessage = (Array.isArray(visibleItems) ? visibleItems : []).find(function (message) {
     return normalizeText(message.id) === normalizeText(state.selectedMessageId);
   }) || null;
-  const nextSelection = currentSelection || items[0] || null;
-  const nextSelectedMessageId = normalizeText(nextSelection?.id);
 
-  if (nextSelectedMessageId !== normalizeText(state.selectedMessageId)) {
+  if (!selectedMessage && state.selectedMessageId) {
     state = {
       ...state,
-      selectedMessageId: nextSelectedMessageId
+      selectedMessageId: ''
     };
   }
 
-  return nextSelection;
+  return selectedMessage;
 };
 
 const buildResultsSummaryMarkup = function (visibleCount, totalCount) {
@@ -246,7 +250,7 @@ const buildMessageDetailMarkup = function (message) {
       <div class="admin-detail__header">
         <div class="admin-detail__title-block">
           <p class="profile-card__eyebrow">Chi tiết liên hệ</p>
-          <h2 class="admin-detail__title">${escapeHTML(message.name || 'Liên hệ')}</h2>
+          <h2 class="admin-detail__title" id="admin-message-modal-title">${escapeHTML(message.name || 'Liên hệ')}</h2>
           <p class="admin-detail__text">Gửi lúc ${escapeHTML(formatDateTime(message.createdAt))}</p>
         </div>
 
@@ -292,6 +296,45 @@ const buildMessageDetailMarkup = function (message) {
   `;
 };
 
+const buildMessageModalMarkup = function (message) {
+  const isPending = normalizeText(state.pendingMessageId) === normalizeText(message?.id);
+
+  return `
+    <div class="admin-modal" data-admin-message-modal>
+      <button
+        class="admin-modal__backdrop"
+        type="button"
+        data-admin-message-close
+        aria-label="Đóng popup chi tiết liên hệ"
+        ${isPending ? 'disabled' : ''}
+      ></button>
+
+      <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-message-modal-title">
+        <div class="admin-modal__topbar">
+          <div class="admin-modal__heading">
+            <p class="profile-card__eyebrow">Xử lý tin nhắn hỗ trợ</p>
+            <h2 class="admin-modal__title">Chi tiết liên hệ</h2>
+          </div>
+
+          <button
+            class="admin-modal__close"
+            type="button"
+            data-admin-message-close
+            aria-label="Đóng popup chi tiết liên hệ"
+            ${isPending ? 'disabled' : ''}
+          >
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <div class="admin-modal__content">
+          ${buildMessageDetailMarkup(message)}
+        </div>
+      </div>
+    </div>
+  `;
+};
+
 const buildMessageListItemMarkup = function (message, selectedMessageId) {
   const messageId = normalizeText(message?.id);
   const isSelected = messageId === selectedMessageId;
@@ -304,7 +347,8 @@ const buildMessageListItemMarkup = function (message, selectedMessageId) {
         type="button"
         data-admin-message-select
         data-message-id="${escapeHTML(messageId)}"
-        aria-pressed="${isSelected ? 'true' : 'false'}"
+        aria-haspopup="dialog"
+        aria-expanded="${isSelected ? 'true' : 'false'}"
         ${isInteractionLocked ? 'disabled' : ''}
       >
         <div class="admin-list-item__main">
@@ -321,56 +365,32 @@ const buildMessageListItemMarkup = function (message, selectedMessageId) {
           </div>
         </div>
 
-        <dl class="admin-list-stats">
-          ${buildListStatMarkup('Người xử lý', normalizeText(message.handledById) || 'Chưa gán')}
-          ${buildListStatMarkup('Tài khoản', normalizeText(message.userId) || 'Khách vãng lai')}
-        </dl>
-      </button>
-
-      ${isSelected ? `
-        <div class="admin-inline-detail">
-          ${buildMessageDetailMarkup(message)}
+        <div class="admin-list-item__footer">
+          <dl class="admin-list-stats">
+            ${buildListStatMarkup('Người xử lý', normalizeText(message.handledById) || 'Chưa gán')}
+            ${buildListStatMarkup('Tài khoản', normalizeText(message.userId) || 'Khách vãng lai')}
+          </dl>
+          <span class="admin-list-item__action">Xem chi tiết</span>
         </div>
-      ` : ''}
+      </button>
     </article>
   `;
 };
 
-const buildEmptyDetailMarkup = function (title, description) {
+const buildListPanelMarkup = function (visibleItems, selectedMessage) {
   return `
-    <div class="admin-detail-empty">
-      <p class="profile-card__eyebrow">Chi tiết</p>
-      <h2 class="admin-detail__title">${escapeHTML(title)}</h2>
-      <p class="admin-detail__text">${escapeHTML(description)}</p>
-    </div>
-  `;
-};
+    <section class="profile-card admin-panel">
+      <div class="admin-panel__header">
+        <p class="profile-card__eyebrow">Danh sách</p>
+        <h2 class="admin-panel__title">Liên hệ phù hợp</h2>
+      </div>
 
-const buildWorkspaceMarkup = function (visibleItems, selectedMessage) {
-  return `
-    <div class="admin-workspace">
-      <section class="profile-card admin-panel admin-workspace__list">
-        <div class="admin-panel__header">
-          <p class="profile-card__eyebrow">Danh sách</p>
-          <h2 class="admin-panel__title">Liên hệ phù hợp</h2>
-        </div>
-
-        <div class="admin-list">
-          ${visibleItems.map(function (message) {
-            return buildMessageListItemMarkup(message, normalizeText(selectedMessage?.id));
-          }).join('')}
-        </div>
-      </section>
-
-      <aside class="profile-card admin-panel admin-workspace__detail">
-        ${selectedMessage
-          ? buildMessageDetailMarkup(selectedMessage)
-          : buildEmptyDetailMarkup(
-            'Chưa chọn liên hệ',
-            'Chọn một liên hệ từ danh sách bên trái để đọc nội dung đầy đủ và cập nhật ghi chú nội bộ.'
-          )}
-      </aside>
-    </div>
+      <div class="admin-list">
+        ${visibleItems.map(function (message) {
+          return buildMessageListItemMarkup(message, normalizeText(selectedMessage?.id));
+        }).join('')}
+      </div>
+    </section>
   `;
 };
 
@@ -387,6 +407,7 @@ const render = function () {
       'Trang này cần API mode để tải và cập nhật dữ liệu quản trị.',
       '<a href="./index.html" class="btn btn-secondary">Quay về trang chủ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -395,6 +416,7 @@ const render = function () {
       'Đang tải danh sách liên hệ',
       'Chúng mình đang đồng bộ các tin nhắn hỗ trợ mới nhất từ backend.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -404,6 +426,7 @@ const render = function () {
       'Vui lòng đăng nhập bằng tài khoản staff/admin để truy cập khu vực quản trị liên hệ.',
       '<a href="./login.html" class="btn btn-primary">Đăng nhập</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -413,6 +436,7 @@ const render = function () {
       'Tài khoản hiện tại không thuộc nhóm staff/admin nên không thể dùng trang quản trị này.',
       '<a href="./profile.html" class="btn btn-secondary">Về hồ sơ</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -422,10 +446,12 @@ const render = function () {
       'Backend chưa phản hồi ổn định lúc này. Vui lòng thử tải lại trang hoặc quay lại sau.',
       '<a href="./admin-messages.html" class="btn btn-primary">Thử tải lại</a>'
     );
+    syncBodyModalState(false);
     return;
   }
 
   const visibleItems = getVisibleItems();
+  const selectedMessage = getSelectedMessage(visibleItems);
 
   if (!state.items.length) {
     container.innerHTML = buildStateMarkup(
@@ -434,6 +460,7 @@ const render = function () {
         ? 'Không có tin nhắn nào khớp với bộ lọc trạng thái hiện tại.'
         : 'Danh sách liên hệ hiện đang trống.'
     );
+    syncBodyModalState(false);
     return;
   }
 
@@ -442,15 +469,16 @@ const render = function () {
       'Không có kết quả phù hợp',
       'Không tìm thấy tin nhắn nào khớp với từ khóa tìm kiếm hiện tại.'
     );
+    syncBodyModalState(false);
     return;
   }
 
-  const selectedMessage = syncSelectedMessage(visibleItems);
-
   container.innerHTML = `
     ${buildResultsSummaryMarkup(visibleItems.length, state.items.length)}
-    ${buildWorkspaceMarkup(visibleItems, selectedMessage)}
+    ${buildListPanelMarkup(visibleItems, selectedMessage)}
+    ${selectedMessage ? buildMessageModalMarkup(selectedMessage) : ''}
   `;
+  syncBodyModalState(Boolean(selectedMessage));
 };
 
 const setPageStateFromError = function (error) {
@@ -525,6 +553,38 @@ const loadMessages = async function () {
   render();
 };
 
+const closeMessageModal = function (restoreFocus = true) {
+  if (!state.selectedMessageId || state.pendingMessageId) {
+    return;
+  }
+
+  state = {
+    ...state,
+    selectedMessageId: ''
+  };
+  render();
+
+  if (restoreFocus && lastMessageTrigger && typeof lastMessageTrigger.focus === 'function') {
+    lastMessageTrigger.focus();
+  }
+};
+
+const bindKeyboard = function () {
+  if (messageKeyboardBound) {
+    return;
+  }
+
+  messageKeyboardBound = true;
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !state.selectedMessageId || state.pendingMessageId) {
+      return;
+    }
+
+    closeMessageModal();
+  });
+};
+
 const bindFilter = function () {
   const filter = getFilter();
 
@@ -565,26 +625,6 @@ const bindActions = function () {
     return;
   }
 
-  container.addEventListener('click', function (event) {
-    const selectButton = event.target.closest('[data-admin-message-select]');
-
-    if (!selectButton || state.pendingMessageId) {
-      return;
-    }
-
-    const messageId = normalizeText(selectButton.dataset.messageId);
-
-    if (!messageId || messageId === normalizeText(state.selectedMessageId)) {
-      return;
-    }
-
-    state = {
-      ...state,
-      selectedMessageId: messageId
-    };
-    render();
-  });
-
   const syncDraftFromForm = function (form) {
     const messageId = normalizeText(form.dataset.messageId);
 
@@ -597,6 +637,34 @@ const bindActions = function () {
       adminNote: normalizeText(form.elements.adminNote?.value)
     });
   };
+
+  container.addEventListener('click', function (event) {
+    const closeButton = event.target.closest('[data-admin-message-close]');
+
+    if (closeButton) {
+      closeMessageModal();
+      return;
+    }
+
+    const selectButton = event.target.closest('[data-admin-message-select]');
+
+    if (!selectButton || state.pendingMessageId) {
+      return;
+    }
+
+    const messageId = normalizeText(selectButton.dataset.messageId);
+
+    if (!messageId) {
+      return;
+    }
+
+    lastMessageTrigger = selectButton;
+    state = {
+      ...state,
+      selectedMessageId: messageId
+    };
+    render();
+  });
 
   container.addEventListener('input', function (event) {
     const form = event.target.closest('[data-admin-message-form]');
@@ -667,6 +735,7 @@ const bindActions = function () {
       state = {
         ...state,
         pendingMessageId: '',
+        selectedMessageId: shouldKeepItem ? messageId : '',
         items: shouldKeepItem
           ? state.items.map(function (item) {
             return normalizeText(item.id) === messageId ? { ...item, ...(updatedMessage || {}) } : item;
@@ -706,6 +775,7 @@ export const initAdminMessagesPage = function () {
     return;
   }
 
+  bindKeyboard();
   bindFilter();
   bindSearch();
   bindActions();
