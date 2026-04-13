@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { BLOG_REVIEW_PAGES } from './blog-review-data.mjs';
 
 const PUBLIC_ROOT = path.resolve('public');
 const STATIC_RUNTIME_CONFIG = `window.__DZUNG9FBOOK_RUNTIME__ = Object.freeze({
@@ -10,6 +11,15 @@ const STATIC_RUNTIME_CONFIG = `window.__DZUNG9FBOOK_RUNTIME__ = Object.freeze({
 
 const readTemplate = function (...segments) {
   return fs.readFile(path.resolve(...segments), 'utf8');
+};
+
+const escapeHtml = function (value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
 };
 
 const pageConfigs = [
@@ -30,6 +40,24 @@ const pageConfigs = [
     canonicalPath: './books.html',
     bodyAttributes: 'data-page="books"',
     extraHead: ''
+  },
+  {
+    output: 'blog.html',
+    source: 'blog.html',
+    title: 'Dzung9fBook | Blog Review Sách',
+    description: 'Blog Dzung9fBook là nơi cập nhật các bài review ngắn, ghi chú đọc nhanh và gợi ý đầu sách đang có mặt tại nhà sách.',
+    canonicalPath: './blog.html',
+    bodyAttributes: 'data-page="blog"',
+    extraHead: ''
+  },
+  {
+    output: 'about.html',
+    source: 'about.html',
+    title: 'Dzung9fBook | Giới thiệu',
+    description: 'Tìm hiểu về Dzung9fBook, định hướng phục vụ, phong cách chọn sách và những giá trị tạo nên một trải nghiệm mua sách trực tuyến gần gũi.',
+    canonicalPath: './about.html',
+    bodyAttributes: 'data-page="about"',
+    extraHead: '  <link rel="preload" as="image" href="./assets/images/hero-banner.png">'
   },
   {
     output: 'book-detail.html',
@@ -143,9 +171,9 @@ const pageConfigs = [
 
 const renderPage = function (layout, replacements) {
   return layout
-    .replaceAll('{{TITLE}}', replacements.title)
-    .replaceAll('{{DESCRIPTION}}', replacements.description)
-    .replaceAll('{{CANONICAL_PATH}}', replacements.canonicalPath)
+    .replaceAll('{{TITLE}}', escapeHtml(replacements.title))
+    .replaceAll('{{DESCRIPTION}}', escapeHtml(replacements.description))
+    .replaceAll('{{CANONICAL_PATH}}', escapeHtml(replacements.canonicalPath))
     .replace('{{EXTRA_HEAD}}', replacements.extraHead)
     .replace('{{BODY_ATTRIBUTES}}', replacements.bodyAttributes)
     .replace('{{HEADER}}', replacements.header)
@@ -163,6 +191,127 @@ const copyRuntimeDirectory = async function (sourceSegments, targetSegments) {
   await fs.cp(sourcePath, targetPath, { recursive: true, force: true });
 };
 
+const renderBlogReviewList = function (items) {
+  return `
+    <ul class="blog-review-list">
+      ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+    </ul>
+  `;
+};
+
+const renderBlogQuickFacts = function (items) {
+  return `
+    <ul class="blog-article__facts">
+      ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+    </ul>
+  `;
+};
+
+const renderBlogReviewMarkup = function (review) {
+  const sectionsMarkup = review.sections.map(function (section) {
+    return `
+      <section class="blog-review-block">
+        <h2>${escapeHtml(section.title)}</h2>
+        ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}
+      </section>
+    `;
+  }).join('');
+
+  return `
+<main>
+  <section class="section blog-article-page">
+    <div class="container">
+      <article class="blog-article">
+        <nav class="blog-article__breadcrumb" aria-label="Breadcrumb">
+          <a href="./index.html">Trang chủ</a>
+          <span aria-hidden="true">/</span>
+          <a href="./blog.html">Blog</a>
+          <span aria-hidden="true">/</span>
+          <span>${escapeHtml(review.title)}</span>
+        </nav>
+
+        <header class="blog-article__header">
+          <p class="page-label">Review sách</p>
+          <h1 class="page-title">${escapeHtml(review.title)}</h1>
+          <div class="blog-article__meta">
+            <span>Người viết: Dzung9fBook</span>
+            <span>${escapeHtml(review.dateLabel)}</span>
+            <span>${escapeHtml(review.readTime)}</span>
+          </div>
+          <p class="page-description">${escapeHtml(review.dek)}</p>
+        </header>
+
+        <figure class="blog-article__cover">
+          <img src="${escapeHtml(review.image)}" alt="${escapeHtml(review.imageAlt)}" loading="eager" decoding="async">
+        </figure>
+
+        <div class="blog-article__summary">
+          <p class="blog-article__lead">${escapeHtml(review.takeaway)}</p>
+          ${renderBlogQuickFacts(review.quickFacts)}
+        </div>
+
+        <div class="blog-article__content">
+          ${sectionsMarkup}
+
+          <section class="blog-article__block">
+            <h2>Điểm nổi bật</h2>
+            ${renderBlogReviewList(review.focusPoints)}
+          </section>
+
+          <section class="blog-article__block">
+            <h2>Phù hợp với ai?</h2>
+            ${renderBlogReviewList(review.readerNotes)}
+          </section>
+
+          <section class="blog-article__block">
+            <h2>Mở tiếp nếu thấy hợp gu</h2>
+            <p>
+              Nếu bài review này đúng với điều bạn đang tìm, bạn có thể mở thẳng trang sách để xem thêm hình ảnh, giá bán và thông tin chi tiết trước khi
+              đưa vào giỏ.
+            </p>
+          </section>
+        </div>
+
+        <div class="blog-article__actions">
+          <a href="./blog.html" class="btn btn-secondary">Quay lại Blog</a>
+          <a href="${escapeHtml(review.bookUrl)}" class="btn btn-primary">Xem sách này</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+`.trim();
+};
+
+const buildTemplatePages = async function (layout, sharedPartials) {
+  await Promise.all(pageConfigs.map(async function (config) {
+    const mainMarkup = await readTemplate('src', 'templates', 'pages', config.source);
+    const output = renderPage(layout, {
+      ...config,
+      ...sharedPartials,
+      main: mainMarkup
+    });
+
+    await fs.writeFile(path.resolve(PUBLIC_ROOT, config.output), output.trimEnd() + '\n', 'utf8');
+  }));
+};
+
+const buildBlogReviewPages = async function (layout, sharedPartials) {
+  await Promise.all(BLOG_REVIEW_PAGES.map(async function (review) {
+    const output = renderPage(layout, {
+      title: `Dzung9fBook | Review ${review.title}`,
+      description: review.description,
+      canonicalPath: `./${review.output}`,
+      bodyAttributes: `data-page="blog-detail" data-blog-slug="${escapeHtml(review.id)}" data-nav-page="blog"`,
+      extraHead: `  <link rel="preload" as="image" href="${escapeHtml(review.image)}">`,
+      ...sharedPartials,
+      main: renderBlogReviewMarkup(review)
+    });
+
+    await fs.writeFile(path.resolve(PUBLIC_ROOT, review.output), output.trimEnd() + '\n', 'utf8');
+  }));
+};
+
 const main = async function () {
   const [layout, header, footer, scripts] = await Promise.all([
     readTemplate('src', 'templates', 'layout.html'),
@@ -170,6 +319,8 @@ const main = async function () {
     readTemplate('src', 'templates', 'partials', 'footer.html'),
     readTemplate('src', 'templates', 'partials', 'scripts.html')
   ]);
+
+  const sharedPartials = { header, footer, scripts };
 
   await fs.mkdir(PUBLIC_ROOT, { recursive: true });
 
@@ -181,19 +332,12 @@ const main = async function () {
     fs.writeFile(path.resolve(PUBLIC_ROOT, 'runtime-config.js'), STATIC_RUNTIME_CONFIG, 'utf8')
   ]);
 
-  await Promise.all(pageConfigs.map(async function (config) {
-    const mainMarkup = await readTemplate('src', 'templates', 'pages', config.source);
-    const output = renderPage(layout, {
-      ...config,
-      header,
-      footer,
-      scripts,
-      main: mainMarkup
-    });
-    await fs.writeFile(path.resolve(PUBLIC_ROOT, config.output), output.trimEnd() + '\n', 'utf8');
-  }));
+  await Promise.all([
+    buildTemplatePages(layout, sharedPartials),
+    buildBlogReviewPages(layout, sharedPartials)
+  ]);
 
-  console.log(`Built ${pageConfigs.length} HTML pages.`);
+  console.log(`Built ${pageConfigs.length + BLOG_REVIEW_PAGES.length} HTML pages.`);
 };
 
 main().catch(function (error) {

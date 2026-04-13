@@ -26,7 +26,7 @@ export const syncSearchInputs = function (search = window.location.search) {
 };
 
 export const setActiveNav = function () {
-  const currentPage = document.body.dataset.page;
+  const currentPage = document.body.dataset.navPage || document.body.dataset.page;
 
   qsa('[data-nav-link], [data-auth-link]').forEach((link) => {
     if (link.dataset.pageTarget === currentPage) {

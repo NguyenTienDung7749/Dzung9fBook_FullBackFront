@@ -4,6 +4,7 @@ import { initAdminMessagesPage } from '../pages/admin-messages.js';
 import { initAdminOrdersPage } from '../pages/admin-orders.js';
 import { initBookDetailPage } from '../pages/book-detail.js';
 import { initBooksPage } from '../pages/books.js';
+import { initBlogPage } from '../pages/blog.js';
 import { initCartPage } from '../pages/cart.js';
 import { initContactPage } from '../pages/contact.js';
 import { initLoginPage } from '../pages/login.js';
@@ -26,6 +27,10 @@ export const initCurrentPage = async function (categories) {
 
   if (currentPage === 'cart') {
     await initCartPage(categories);
+  }
+
+  if (currentPage === 'blog') {
+    initBlogPage();
   }
 
   if (currentPage === 'login') {
